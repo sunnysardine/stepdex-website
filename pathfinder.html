@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEPDEX® Pathfinder | Your AI Career Coach</title>
+  <meta name="description" content="STEPDEX® Pathfinder is your 24/7 AI career coach — structured by the S.T.E.P. framework to give you clarity, direction, and confident next steps." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stepdex.my/pathfinder" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stepdex.my/pathfinder" />
+  <meta property="og:title" content="STEPDEX® Pathfinder — Your AI Career Coach" />
+  <meta property="og:description" content="24/7 AI career coaching guided by the proven S.T.E.P. framework. Built for managers, team leads, and high-potential professionals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --parchment:      #F6F0E3;
+      --parchment-deep: #EDE3CB;
+      --ink:            #1A1410;
+      --ink-muted:      #6A5A42;
+      --gold-warm:      #B07820;
+      --gold-pure:      #C8901A;
+      --gold-whisper:   #D4A84B;
+      --strategy:       #B03050;
+      --technical:      #C8701A;
+      --empower:        #228880;
+      --people:         #6848A0;
+      --cosmic-void:    #080612;
+      --cosmic-nebula:  #1C1248;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito Sans',sans-serif; background:var(--parchment-deep); color:var(--ink); overflow-x:hidden; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    .reg { font-size:.52em; vertical-align:super; line-height:0; font-weight:inherit; letter-spacing:0; }
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .breathe { animation:breathe 3.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; } }
+    .topo { background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); }
+    .eyebrow { font-size:9px; font-weight:700; letter-spacing:.45em; text-transform:uppercase; color:var(--gold-warm); }
+    .four-ribbon { height:2.5px; background:linear-gradient(to right,var(--strategy) 0% 25%,var(--technical) 25% 50%,var(--empower) 50% 75%,var(--people) 75% 100%); border-radius:2px; }
+
+    /* ─── NAV ─── */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; background:rgba(8,6,18,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(200,144,26,.1); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; }
+    .nav-wordmark { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--parchment); letter-spacing:.04em; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+    .nav-links a { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(246,240,227,.82); transition:color .2s; }
+    .nav-links a:hover { color:var(--parchment); }
+    .nav-links a.active { color:var(--gold-whisper); }
+    .nav-lang-divider { width:1px; height:16px; background:rgba(246,240,227,.15); }
+    .nav-lang { font-family:'Noto Serif TC',serif !important; font-size:13px !important; letter-spacing:.04em !important; text-transform:none !important; color:rgba(246,240,227,.62) !important; }
+    .nav-lang:hover { color:var(--gold-whisper) !important; }
+    .nav-cta { padding:9px 22px; border:1px solid rgba(200,144,26,.4); border-radius:30px; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-whisper); transition:all .2s; }
+    .nav-cta:hover { background:rgba(200,144,26,.12); border-color:var(--gold-warm); color:var(--parchment); }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:var(--parchment); border-radius:2px; }
+
+    /* ─── HERO ─── */
+    .hero { position:relative; background:var(--parchment); padding:160px 40px 90px; overflow:hidden; }
+    .hero-wash-tr { position:absolute; top:-60px; right:-60px; width:420px; height:420px; background:radial-gradient(ellipse at 70% 30%,rgba(104,72,160,.14) 0%,transparent 68%); pointer-events:none; }
+    .hero-wash-bl { position:absolute; bottom:-60px; left:-60px; width:340px; height:340px; background:radial-gradient(ellipse at 30% 70%,rgba(34,136,128,.1) 0%,transparent 68%); pointer-events:none; }
+    .hero-ghost { position:absolute; top:20px; right:-10px; font-family:'Noto Serif TC',serif; font-size:260px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+    .hero-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 380px; gap:80px; align-items:center; }
+    .hero-eyebrow { display:block; margin-bottom:18px; animation:fadeUp .7s ease both; }
+    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,56px); font-weight:700; font-style:italic; color:var(--ink); line-height:1.1; margin-bottom:8px; animation:fadeUp .8s .1s ease both; }
+    .hero-ribbon { width:180px; margin-bottom:22px; animation:fadeUp .8s .2s ease both; }
+    .hero-body { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,1.8vw,19px); font-style:italic; color:var(--ink-muted); line-height:1.75; max-width:520px; animation:fadeUp .8s .25s ease both; margin-bottom:36px; }
+    .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp .8s .35s ease both; }
+    .btn-primary { padding:14px 30px; background:var(--people); color:white; border-radius:30px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; box-shadow:0 4px 16px rgba(104,72,160,.3); }
+    .btn-primary:hover { background:#4E3088; transform:translateY(-2px); box-shadow:0 8px 24px rgba(104,72,160,.4); }
+    .btn-ghost { padding:14px 30px; border:1.5px solid rgba(26,20,16,.22); color:var(--ink-muted); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; transition:all .25s; }
+    .btn-ghost:hover { border-color:var(--ink); color:var(--ink); transform:translateY(-1px); }
+
+    /* Hero card */
+    .hero-card { background:white; border-radius:20px; padding:36px 30px; box-shadow:0 4px 24px rgba(26,20,16,.1); border:1px solid rgba(104,72,160,.15); position:relative; overflow:hidden; animation:fadeUp .9s .2s ease both; }
+    .hero-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); }
+    .hero-card-label { font-size:8px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--people); margin-bottom:20px; }
+    .hero-card-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--ink); margin-bottom:6px; }
+    .hero-card-sub { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--ink-muted); margin-bottom:20px; line-height:1.55; }
+    .hero-card-steps { display:flex; flex-direction:column; gap:12px; margin-bottom:24px; }
+    .hero-card-step { display:flex; align-items:flex-start; gap:12px; }
+    .step-num { width:24px; height:24px; border-radius:50%; background:var(--people); color:white; font-size:10px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .step-text { font-size:13px; color:var(--ink-muted); line-height:1.5; padding-top:4px; }
+    .step-text strong { color:var(--ink); }
+    .hero-card-cta { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:var(--people); color:white; border-radius:30px; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; box-shadow:0 4px 12px rgba(104,72,160,.25); }
+    .hero-card-cta:hover { background:#4E3088; transform:translateY(-1px); }
+    .hero-card-note { font-size:10px; color:var(--ink-muted); margin-top:10px; opacity:.7; text-align:center; }
+
+    /* ─── FEATURES ─── */
+    .section-features { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-features::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .features-wash { position:absolute; top:-60px; right:-60px; width:400px; height:400px; background:radial-gradient(ellipse at 75% 25%,rgba(104,72,160,.1) 0%,transparent 68%); pointer-events:none; }
+    .features-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .features-header { text-align:center; margin-bottom:60px; }
+    .features-header .eyebrow { display:block; margin-bottom:14px; }
+    .features-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--ink); margin-bottom:12px; }
+    .features-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; max-width:540px; margin:0 auto; }
+    .features-ribbon { width:160px; margin:18px auto 0; }
+
+    .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .feat-card { background:white; border-radius:16px; padding:32px 26px; box-shadow:0 2px 14px rgba(26,20,16,.07); border-top:3px solid transparent; transition:transform .2s, box-shadow .2s; }
+    .feat-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px rgba(26,20,16,.12); }
+    .feat-card.s { border-top-color:var(--strategy); }
+    .feat-card.t { border-top-color:var(--technical); }
+    .feat-card.e { border-top-color:var(--empower); }
+    .feat-card.p { border-top-color:var(--people); }
+    .feat-card.g { border-top-color:var(--gold-warm); }
+    .feat-card.i { border-top-color:var(--ink-muted); }
+    .feat-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:18px; }
+    .feat-card.s .feat-icon { background:rgba(176,48,80,.1); }
+    .feat-card.t .feat-icon { background:rgba(200,112,26,.1); }
+    .feat-card.e .feat-icon { background:rgba(34,136,128,.1); }
+    .feat-card.p .feat-icon { background:rgba(104,72,160,.1); }
+    .feat-card.g .feat-icon { background:rgba(176,120,32,.1); }
+    .feat-card.i .feat-icon { background:rgba(26,20,16,.06); }
+    .feat-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.2; }
+    .feat-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.65; }
+
+    /* ─── FRAMEWORK ─── */
+    .section-framework { background:var(--cosmic-void); position:relative; overflow:hidden; padding:100px 40px; }
+    .framework-glow-s { position:absolute; top:-80px; left:-80px; width:400px; height:400px; background:radial-gradient(ellipse,rgba(176,48,80,.18) 0%,transparent 65%); pointer-events:none; }
+    .framework-glow-p { position:absolute; bottom:-80px; right:-80px; width:400px; height:400px; background:radial-gradient(ellipse,rgba(104,72,160,.18) 0%,transparent 65%); pointer-events:none; }
+    .framework-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .framework-header { text-align:center; margin-bottom:60px; }
+    .framework-header .eyebrow { color:var(--gold-whisper); display:block; margin-bottom:14px; }
+    .framework-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--parchment); margin-bottom:12px; }
+    .framework-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(246,240,227,.65); line-height:1.7; max-width:540px; margin:0 auto; }
+    .framework-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .dim-card { background:rgba(246,240,227,.04); border:1px solid rgba(246,240,227,.08); border-radius:16px; padding:32px 24px; text-align:center; transition:transform .2s, background .2s; }
+    .dim-card:hover { transform:translateY(-4px); background:rgba(246,240,227,.07); }
+    .dim-dot { width:48px; height:48px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:20px; font-weight:900; color:white; }
+    .dim-card.s .dim-dot { background:var(--strategy); }
+    .dim-card.t .dim-dot { background:var(--technical); }
+    .dim-card.e .dim-dot { background:var(--empower); }
+    .dim-card.p .dim-dot { background:var(--people); }
+    .dim-label { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; margin-bottom:8px; }
+    .dim-card.s .dim-label { color:rgba(176,48,80,.9); }
+    .dim-card.t .dim-label { color:rgba(200,112,26,.9); }
+    .dim-card.e .dim-label { color:rgba(34,136,128,.9); }
+    .dim-card.p .dim-label { color:rgba(104,72,160,.9); }
+    .dim-desc { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:rgba(246,240,227,.55); line-height:1.6; }
+
+    /* ─── AUDIENCE ─── */
+    .section-audience { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-audience::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .audience-wash { position:absolute; bottom:-60px; left:-60px; width:360px; height:360px; background:radial-gradient(ellipse at 30% 70%,rgba(34,136,128,.1) 0%,transparent 65%); pointer-events:none; }
+    .audience-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .audience-left {}
+    .audience-left .eyebrow { display:block; margin-bottom:14px; }
+    .audience-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--ink); line-height:1.15; margin-bottom:12px; }
+    .audience-ribbon { width:160px; margin-bottom:24px; }
+    .audience-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.75; margin-bottom:32px; }
+    .audience-list { display:flex; flex-direction:column; gap:14px; }
+    .audience-item { display:flex; align-items:center; gap:14px; }
+    .audience-chip { display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:rgba(104,72,160,.08); border:1px solid rgba(104,72,160,.18); border-radius:30px; font-size:12px; font-weight:700; color:var(--people); }
+    .audience-chip .chip-dot { width:6px; height:6px; border-radius:50%; background:var(--people); }
+    .audience-right {}
+    .how-steps { display:flex; flex-direction:column; gap:0; }
+    .how-step { display:flex; gap:24px; padding-bottom:32px; position:relative; }
+    .how-step:last-child { padding-bottom:0; }
+    .how-step:not(:last-child)::after { content:''; position:absolute; left:19px; top:40px; bottom:0; width:2px; background:linear-gradient(to bottom,rgba(104,72,160,.3),transparent); }
+    .how-num { width:40px; height:40px; border-radius:50%; background:var(--people); color:white; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .how-content {}
+    .how-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px; }
+    .how-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.6; }
+
+    /* ─── TESTIMONIALS ─── */
+    .section-testimonials { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-testimonials::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .test-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .test-header { text-align:center; margin-bottom:52px; }
+    .test-header .eyebrow { display:block; margin-bottom:14px; }
+    .test-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,38px); font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .test-card { background:white; border-radius:16px; padding:32px 28px; box-shadow:0 2px 12px rgba(26,20,16,.07); border:1px solid rgba(26,20,16,.06); transition:transform .2s; }
+    .test-card:hover { transform:translateY(-3px); }
+    .test-quote { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:var(--ink-muted); line-height:1.75; margin-bottom:22px; flex:1; }
+    .test-quote::before { content:'"'; font-family:'Playfair Display',serif; font-size:36px; font-weight:900; line-height:0; vertical-align:-14px; margin-right:4px; color:var(--people); opacity:.4; }
+    .test-author { font-size:12px; font-weight:700; color:var(--ink); }
+    .test-role { font-size:11px; color:var(--ink-muted); margin-top:2px; }
+    .test-dim { display:inline-block; margin-top:10px; padding:3px 10px; border-radius:20px; font-size:8px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:rgba(104,72,160,.1); color:var(--people); }
+
+    /* ─── FAQ ─── */
+    .section-faq { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-faq::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .faq-inner { position:relative; z-index:2; max-width:800px; margin:0 auto; }
+    .faq-header { text-align:center; margin-bottom:52px; }
+    .faq-header .eyebrow { display:block; margin-bottom:14px; }
+    .faq-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,38px); font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .faq-list { display:flex; flex-direction:column; gap:2px; }
+    .faq-item { background:white; border-radius:12px; overflow:hidden; box-shadow:0 1px 8px rgba(26,20,16,.06); }
+    .faq-q { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; cursor:pointer; gap:16px; }
+    .faq-q-text { font-size:14px; font-weight:700; color:var(--ink); line-height:1.4; }
+    .faq-chevron { font-size:16px; color:var(--people); flex-shrink:0; transition:transform .2s; }
+    .faq-item.open .faq-chevron { transform:rotate(180deg); }
+    .faq-a { display:none; padding:0 24px 20px; font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--ink-muted); line-height:1.7; }
+    .faq-item.open .faq-a { display:block; }
+
+    /* ─── CTA STRIP ─── */
+    .section-cta { background:linear-gradient(135deg,var(--cosmic-void),var(--cosmic-nebula)); position:relative; overflow:hidden; padding:90px 40px; text-align:center; }
+    .cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:500px; height:300px; background:radial-gradient(ellipse,rgba(104,72,160,.3) 0%,transparent 65%); pointer-events:none; }
+    .cta-inner { position:relative; z-index:2; max-width:680px; margin:0 auto; }
+    .cta-inner .eyebrow { color:var(--gold-whisper); display:block; margin-bottom:18px; }
+    .cta-title { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,48px); font-weight:700; font-style:italic; color:var(--parchment); margin-bottom:14px; line-height:1.15; }
+    .cta-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(246,240,227,.68); line-height:1.7; margin-bottom:36px; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn-cta-primary { padding:15px 32px; background:var(--people); color:white; border-radius:30px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; box-shadow:0 4px 16px rgba(104,72,160,.4); }
+    .btn-cta-primary:hover { background:#4E3088; transform:translateY(-2px); }
+    .btn-cta-ghost { padding:15px 32px; border:1.5px solid rgba(246,240,227,.3); color:rgba(246,240,227,.82); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; transition:all .25s; }
+    .btn-cta-ghost:hover { border-color:var(--parchment); color:var(--parchment); transform:translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    .footer { background:#060410; border-top:1px solid rgba(200,144,26,.1); padding:60px 40px 36px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px; padding-bottom:50px; border-bottom:1px solid rgba(246,240,227,.1); }
+    .footer-brand-name { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--parchment); margin-bottom:4px; }
+    .footer-brand-tc { font-family:'Noto Serif TC',serif; font-size:12px; color:rgba(246,240,227,.58); margin-bottom:16px; letter-spacing:.08em; }
+    .footer-brand-desc { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:rgba(246,240,227,.68); line-height:1.7; margin-bottom:20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .footer-social-btn { width:32px; height:32px; border-radius:50%; border:1px solid rgba(246,240,227,.22); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:rgba(246,240,227,.65); transition:all .2s; }
+    .footer-social-btn:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+    .footer-col-title { font-size:9px; font-weight:700; letter-spacing:.4em; text-transform:uppercase; color:var(--gold-whisper); opacity:.85; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { font-size:13px; color:rgba(246,240,227,.68); transition:color .2s; }
+    .footer-links a:hover { color:var(--parchment); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-legal { font-size:11px; color:rgba(246,240,227,.48); line-height:1.6; }
+    .footer-ribbon-sm { width:120px; opacity:.5; }
+    .footer-legal-links { display:flex; gap:20px; }
+    .footer-legal-links a { font-size:11px; color:rgba(246,240,227,.48); transition:color .2s; }
+    .footer-legal-links a:hover { color:rgba(246,240,227,.82); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:960px) {
+      .nav-links,.nav-cta { display:none; }
+      .nav-hamburger { display:flex; }
+      .hero-inner { grid-template-columns:1fr; gap:48px; }
+      .hero-card { max-width:460px; }
+      .features-grid { grid-template-columns:1fr 1fr; }
+      .framework-grid { grid-template-columns:1fr 1fr; }
+      .audience-inner { grid-template-columns:1fr; gap:48px; }
+      .test-grid { grid-template-columns:1fr 1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:600px) {
+      .nav { padding:0 20px; }
+      .hero,.section-features,.section-framework,.section-audience,.section-testimonials,.section-faq,.section-cta { padding-left:20px; padding-right:20px; }
+      .features-grid,.test-grid { grid-template-columns:1fr; }
+      .framework-grid { grid-template-columns:1fr 1fr; }
+      .footer { padding:50px 20px 28px; }
+      .footer-top { grid-template-columns:1fr; gap:32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy logo" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:12px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder" class="active">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Contact Us</a>
+    <div class="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero topo">
+    <div class="hero-wash-tr breathe"></div>
+    <div class="hero-wash-bl breathe" style="animation-delay:.9s"></div>
+    <div class="hero-ghost" aria-hidden="true">引</div>
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow hero-eyebrow">STEPDEX® Pathfinder · AI Career Coach</span>
+        <h1 class="hero-title">Your <span style="color:var(--people)">smartest career companion</span> — available 24/7.</h1>
+        <div class="four-ribbon hero-ribbon"></div>
+        <p class="hero-body">Structured by the proven S.T.E.P. framework, Pathfinder gives you the clarity, direction, and confident next steps you've been searching for — without waiting for the next coaching session.</p>
+        <div class="hero-ctas">
+          <a href="https://chat.openai.com/g/g-pathfinder-stepdex" target="_blank" rel="noopener" class="btn-primary">Try Pathfinder AI →</a>
+          <a href="#webinar" class="btn-ghost">Join Free Webinar</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="hero-card-label">How Pathfinder Works</p>
+        <h3 class="hero-card-title">Three Steps to Clarity</h3>
+        <p class="hero-card-sub">A structured conversation that moves you from confusion to confident action.</p>
+        <div class="hero-card-steps">
+          <div class="hero-card-step">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Clarify your present</strong> — Gain perspective on your current role, challenges, and blind spots.</div>
+          </div>
+          <div class="hero-card-step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Check in with structure</strong> — Explore your strengths and gaps across all four S.T.E.P. dimensions.</div>
+          </div>
+          <div class="hero-card-step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Act with clarity</strong> — Receive personalised, actionable suggestions you can apply this week.</div>
+          </div>
+        </div>
+        <a href="https://chat.openai.com/g/g-pathfinder-stepdex" target="_blank" rel="noopener" class="hero-card-cta">Start Now — It's Free →</a>
+        <p class="hero-card-note">No login required · No data stored · Always confidential</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── FEATURES ─── -->
+  <section class="section-features">
+    <div class="features-wash breathe"></div>
+    <div class="features-inner">
+      <div class="features-header">
+        <span class="eyebrow">What Sets Pathfinder Apart</span>
+        <h2 class="features-title">Purpose-built for career growth.<br>Not a general chatbot.</h2>
+        <p class="features-sub">ChatGPT answers questions. Pathfinder guides your development — with structure, focus, and the S.T.E.P. framework at its core.</p>
+        <div class="four-ribbon features-ribbon"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card s">
+          <div class="feat-icon">🎯</div>
+          <h3 class="feat-title">S.T.E.P.-Structured Coaching</h3>
+          <p class="feat-body">Every conversation is anchored to the four development dimensions — Strategy, Technical, Empower, People — so you always know where you stand and what to develop next.</p>
+        </div>
+        <div class="feat-card e">
+          <div class="feat-icon">🔒</div>
+          <h3 class="feat-title">Fully Confidential</h3>
+          <p class="feat-body">No personal data is stored or tracked. No login required. Your inputs are session-based and ephemeral — what you share stays between you and the AI.</p>
+        </div>
+        <div class="feat-card p">
+          <div class="feat-icon">⚡</div>
+          <h3 class="feat-title">Available 24/7</h3>
+          <p class="feat-body">Career questions don't respect office hours. Get structured guidance at midnight before a difficult conversation, or on a Sunday morning planning your next quarter.</p>
+        </div>
+        <div class="feat-card t">
+          <div class="feat-icon">📋</div>
+          <h3 class="feat-title">Personalised IDPs</h3>
+          <p class="feat-body">Map your Individual Development Plan against the STEPDEX® competency framework. See exactly which of the 20 competencies to prioritise and how to build them.</p>
+        </div>
+        <div class="feat-card g">
+          <div class="feat-icon">🌏</div>
+          <h3 class="feat-title">Built for Malaysian SMEs</h3>
+          <p class="feat-body">Rooted in the book <em>STEP Up Your Performance</em> by Sunny Law and Dr. Henry Yeoh — drawn from 10+ years of real SME leadership development in Malaysia.</p>
+        </div>
+        <div class="feat-card i">
+          <div class="feat-icon">🤝</div>
+          <h3 class="feat-title">Complements Human Coaching</h3>
+          <p class="feat-body">Pathfinder is your between-sessions companion — not a replacement for real coaching. Use it to prepare, reflect, and take action between your coaching or training engagements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FRAMEWORK ─── -->
+  <section class="section-framework">
+    <div class="framework-glow-s breathe"></div>
+    <div class="framework-glow-p breathe" style="animation-delay:1.2s"></div>
+    <div class="framework-inner">
+      <div class="framework-header">
+        <span class="eyebrow">The S.T.E.P. Framework</span>
+        <h2 class="framework-title">Four dimensions. One complete leader.</h2>
+        <p class="framework-sub">Pathfinder coaches you across all four dimensions of the STEPDEX® Development Matrix — so no blind spot goes unaddressed.</p>
+      </div>
+      <div class="framework-grid">
+        <div class="dim-card s">
+          <div class="dim-dot">S</div>
+          <p class="dim-label">Strategy</p>
+          <p class="dim-desc">Big-picture vision, long-term planning, and navigating complexity with confidence.</p>
+        </div>
+        <div class="dim-card t">
+          <div class="dim-dot">T</div>
+          <p class="dim-label">Technical</p>
+          <p class="dim-desc">Domain expertise, business functions, and the tools that drive daily performance.</p>
+        </div>
+        <div class="dim-card e">
+          <div class="dim-dot">E</div>
+          <p class="dim-label">Empower</p>
+          <p class="dim-desc">Self-awareness, resilience, and the authentic leadership that inspires others.</p>
+        </div>
+        <div class="dim-card p">
+          <div class="dim-dot">P</div>
+          <p class="dim-label">People</p>
+          <p class="dim-desc">Communication, trust-building, and the ability to lead through relationships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHO IT'S FOR + HOW TO START ─── -->
+  <section class="section-audience" id="webinar">
+    <div class="audience-wash breathe"></div>
+    <div class="audience-inner">
+      <div class="audience-left">
+        <span class="eyebrow">Who Is Pathfinder For?</span>
+        <h2 class="audience-title">If you lead people, Pathfinder<br>was built for you.</h2>
+        <div class="four-ribbon audience-ribbon"></div>
+        <p class="audience-body">Whether you're a first-time manager finding your footing or a senior leader preparing for the next level, Pathfinder meets you exactly where you are.</p>
+        <div class="audience-list">
+          <div class="audience-item"><span class="audience-chip"><span class="chip-dot"></span>First-time managers</span></div>
+          <div class="audience-item"><span class="audience-chip"><span class="chip-dot"></span>Team leads & department heads</span></div>
+          <div class="audience-item"><span class="audience-chip"><span class="chip-dot"></span>Mid-career professionals feeling stagnant</span></div>
+          <div class="audience-item"><span class="audience-chip"><span class="chip-dot"></span>HR professionals & L&D coaches</span></div>
+          <div class="audience-item"><span class="audience-chip"><span class="chip-dot"></span>High-potential employees (HiPOs)</span></div>
+          <div class="audience-item"><span class="audience-chip"><span class="chip-dot"></span>Professionals preparing for promotion</span></div>
+        </div>
+      </div>
+      <div class="audience-right">
+        <span class="eyebrow" style="display:block;margin-bottom:24px;">How to Get Started</span>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-num">1</div>
+            <div class="how-content">
+              <p class="how-title">Join the Free Career Clarity Webinar</p>
+              <p class="how-body">A 1-hour live Zoom session held bi-weekly. Limited spots. Walk away with a clear picture of your current leadership stage and your biggest development gap.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">2</div>
+            <div class="how-content">
+              <p class="how-title">Receive Exclusive Pathfinder Access</p>
+              <p class="how-body">Post-webinar, receive direct access to the STEPDEX® Pathfinder GPT — pre-configured with the full S.T.E.P. framework and your leadership context.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-num">3</div>
+            <div class="how-content">
+              <p class="how-title">Build Your Personalised Growth Roadmap</p>
+              <p class="how-body">Use Pathfinder to map your IDP, identify your next move, and get coached through real challenges — on your own schedule.</p>
+            </div>
+          </div>
+        </div>
+        <a href="/contact" class="btn-primary" style="display:inline-flex;margin-top:32px;align-items:center;gap:8px;">Reserve My Webinar Seat →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="section-testimonials">
+    <div class="test-inner">
+      <div class="test-header">
+        <span class="eyebrow">Trusted by Managers</span>
+        <h2 class="test-title">Real growth from real conversations.</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card">
+          <p class="test-quote">Pathfinder helped me map my IDP against the STEPDEX® framework in a way I never could on my own. I could finally see which dimension was holding me back.</p>
+          <p class="test-author">David</p>
+          <p class="test-role">IT Manager, Kuala Lumpur</p>
+          <span class="test-dim">Technical Dimension</span>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">I went from a marketing executive to a team lead without any formal leadership training. Pathfinder gave me the role clarity I desperately needed in those first three months.</p>
+          <p class="test-author">Jason C.</p>
+          <p class="test-role">Marketing Team Lead</p>
+          <span class="test-dim">Empower Dimension</span>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">I use it to prepare development conversations with my 40+ team leads. It's like having a coaching consultant available every time I need a second opinion.</p>
+          <p class="test-author">Kelly T.</p>
+          <p class="test-role">HR Manager, Manufacturing</p>
+          <span class="test-dim">People Dimension</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="section-faq">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="faq-title">Everything you need to know.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">Why use Pathfinder instead of just ChatGPT?</span>
+            <span class="faq-chevron">▾</span>
+          </div>
+          <p class="faq-a">ChatGPT is a general-purpose tool. Pathfinder is purpose-built for career and leadership development — it's pre-configured with the STEPDEX® S.T.E.P. framework, focuses on professional growth, and asks structured questions to surface your real development gaps rather than giving generic advice.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">Is my personal data safe with STEPDEX® Pathfinder?</span>
+            <span class="faq-chevron">▾</span>
+          </div>
+          <p class="faq-a">Yes. Pathfinder does not store, track, or share any personal data. No login is required. All inputs are session-based — once you close the chat, nothing is retained. It's designed to be a judgment-free, completely confidential space.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">Is Pathfinder free to use?</span>
+            <span class="faq-chevron">▾</span>
+          </div>
+          <p class="faq-a">Access to the Pathfinder GPT is provided through our free bi-weekly Career Clarity Webinar. Register for the webinar to receive your access link — no payment required.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">Does Pathfinder replace human coaching?</span>
+            <span class="faq-chevron">▾</span>
+          </div>
+          <p class="faq-a">No — and it's not designed to. Pathfinder is your between-sessions companion: ideal for reflection, preparation, and taking action in the moments when a human coach isn't available. For deeper transformation, our certified coaches and structured programmes are still the gold standard.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">What language does Pathfinder support?</span>
+            <span class="faq-chevron">▾</span>
+          </div>
+          <p class="faq-a">Pathfinder works in English and Mandarin Chinese. Simply begin your conversation in your preferred language and it will respond accordingly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="section-cta">
+    <div class="cta-glow breathe"></div>
+    <div class="cta-inner">
+      <span class="eyebrow">Your Next STEP Starts Here</span>
+      <h2 class="cta-title">Clarity is one conversation away.</h2>
+      <p class="cta-body">Join the free webinar to get structured Pathfinder access, or reach out to speak with a STEPDEX® coach directly.</p>
+      <div class="cta-btns">
+        <a href="/contact" class="btn-cta-primary">Reserve Webinar Seat →</a>
+        <a href="https://chat.openai.com/g/g-pathfinder-stepdex" target="_blank" rel="noopener" class="btn-cta-ghost">Try Pathfinder Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">STEPDEX<span class="reg">®</span> Academy</p>
+          <p class="footer-brand-tc">思德教育學院</p>
+          <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+          <p class="footer-brand-desc">Empowering SME leaders through the STEP framework — Strategy, Technical, Empower, People. Powered by HPI Synergy PLT.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/stepdex" class="footer-social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/stepdex" class="footer-social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/stepdex.my" class="footer-social-btn" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD" class="footer-social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Programmes</p>
+          <ul class="footer-links">
+            <li><a href="/stepfcm-en">STEP First Class Manager</a></li>
+            <li><a href="/programs">SME HR Programme</a></li>
+            <li><a href="/programs">LEAP of Faith</a></li>
+            <li><a href="/programs">Leading with Empathy</a></li>
+            <li><a href="/gps">GPS Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Academy</p>
+          <ul class="footer-links">
+            <li><a href="/about">About STEPDEX<span class="reg">®</span></a></li>
+            <li><a href="/hpi">About HPI</a></li>
+            <li><a href="/experts">Our Experts</a></li>
+            <li><a href="/pathfinder">Pathfinder</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Free Tools</p>
+          <ul class="footer-links">
+            <li><a href="/sme-ogrowth.html">SME Diagnosis</a></li>
+            <li><a href="/mgr-assessment.html">Manager Assessment</a></li>
+            <li><a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD">WhatsApp Community</a></li>
+          </ul>
+          <p class="footer-col-title" style="margin-top:28px">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@stepdex.my">hello@stepdex.my</a></li>
+            <li><a href="https://maps.app.goo.gl/wfVDE5pEEfXniBjL7" target="_blank" rel="noopener">Menara Keck Seng, KL</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+        <div class="four-ribbon footer-ribbon-sm"></div>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-hamburger').addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      const cta = document.querySelector('.nav-cta');
+      const open = links.style.display === 'flex';
+      links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);';
+      if (cta) cta.style.display = open ? '' : 'none';
+    });
+  </script>
+</body>
+</html>

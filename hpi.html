@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About HPI | HPI Group of Companies | STEPDEX® Academy</title>
+  <meta name="description" content="STEPDEX® Academy is powered by HPI Synergy PLT, part of the HPI Group of Companies. Learn about our parent organisation, our founder Sunny Law, and the three HPI entities." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stepdex.my/hpi" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stepdex.my/hpi" />
+  <meta property="og:title" content="About HPI — The Organisation Behind STEPDEX® Academy" />
+  <meta property="og:description" content="Where Strategy Meets Heart. HPI Group powers STEPDEX® Academy, HPI Synergy, and HPI Partners — Malaysia's SME leadership and HR development ecosystem." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --parchment:      #F6F0E3;
+      --parchment-deep: #EDE3CB;
+      --ink:            #1A1410;
+      --ink-muted:      #6A5A42;
+      --gold-warm:      #B07820;
+      --gold-pure:      #C8901A;
+      --gold-whisper:   #D4A84B;
+      --strategy:       #B03050;
+      --technical:      #C8701A;
+      --empower:        #228880;
+      --people:         #6848A0;
+      --cosmic-void:    #080612;
+      --cosmic-nebula:  #1C1248;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito Sans',sans-serif; background:var(--parchment-deep); color:var(--ink); overflow-x:hidden; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    .reg { font-size:.52em; vertical-align:super; line-height:0; font-weight:inherit; letter-spacing:0; }
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .breathe { animation:breathe 3.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; } }
+    .topo { background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); }
+    .eyebrow { font-size:9px; font-weight:700; letter-spacing:.45em; text-transform:uppercase; color:var(--gold-warm); }
+    .four-ribbon { height:2.5px; background:linear-gradient(to right,var(--strategy) 0% 25%,var(--technical) 25% 50%,var(--empower) 50% 75%,var(--people) 75% 100%); border-radius:2px; }
+
+    /* ─── NAV ─── */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; background:rgba(8,6,18,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(200,144,26,.1); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; }
+    .nav-wordmark { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--parchment); letter-spacing:.04em; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+    .nav-links a { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(246,240,227,.82); transition:color .2s; }
+    .nav-links a:hover { color:var(--parchment); }
+    .nav-links a.active { color:var(--gold-whisper); }
+    .nav-lang-divider { width:1px; height:16px; background:rgba(246,240,227,.15); }
+    .nav-lang { font-family:'Noto Serif TC',serif !important; font-size:13px !important; letter-spacing:.04em !important; text-transform:none !important; color:rgba(246,240,227,.62) !important; }
+    .nav-lang:hover { color:var(--gold-whisper) !important; }
+    .nav-cta { padding:9px 22px; border:1px solid rgba(200,144,26,.4); border-radius:30px; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-whisper); transition:all .2s; }
+    .nav-cta:hover { background:rgba(200,144,26,.12); border-color:var(--gold-warm); color:var(--parchment); }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:var(--parchment); border-radius:2px; }
+
+    /* ─── HERO ─── */
+    .hero { position:relative; background:var(--parchment); padding:160px 40px 90px; overflow:hidden; }
+    .hero-wash-tr { position:absolute; top:-60px; right:-60px; width:400px; height:400px; background:radial-gradient(ellipse at 70% 30%,rgba(176,120,32,.14) 0%,transparent 68%); pointer-events:none; }
+    .hero-wash-bl { position:absolute; bottom:-60px; left:-60px; width:340px; height:340px; background:radial-gradient(ellipse at 30% 70%,rgba(176,48,80,.1) 0%,transparent 68%); pointer-events:none; }
+    .hero-ghost { position:absolute; top:20px; right:-10px; font-family:'Noto Serif TC',serif; font-size:260px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+    .hero-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .hero-eyebrow { display:block; margin-bottom:18px; animation:fadeUp .7s ease both; }
+    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,58px); font-weight:700; font-style:italic; color:var(--ink); line-height:1.1; margin-bottom:12px; animation:fadeUp .8s .1s ease both; max-width:720px; }
+    .hero-tagline { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,2vw,22px); color:var(--gold-warm); font-style:italic; margin-bottom:20px; animation:fadeUp .8s .15s ease both; }
+    .hero-ribbon { width:180px; margin-bottom:22px; animation:fadeUp .8s .2s ease both; }
+    .hero-body { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,1.8vw,19px); font-style:italic; color:var(--ink-muted); line-height:1.75; max-width:640px; animation:fadeUp .8s .25s ease both; }
+
+    /* ─── ENTITIES ─── */
+    .section-entities { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-entities::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .entities-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .entities-header { text-align:center; margin-bottom:60px; }
+    .entities-header .eyebrow { display:block; margin-bottom:14px; }
+    .entities-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--ink); margin-bottom:12px; }
+    .entities-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; max-width:560px; margin:0 auto; }
+    .entities-ribbon { width:160px; margin:18px auto 0; }
+    .entities-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .entity-card { background:white; border-radius:18px; padding:36px 30px; box-shadow:0 2px 14px rgba(26,20,16,.08); border-top:4px solid transparent; transition:transform .2s, box-shadow .2s; }
+    .entity-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(26,20,16,.12); }
+    .entity-card.sol { border-top-color:var(--strategy); }
+    .entity-card.syn { border-top-color:var(--empower); }
+    .entity-card.par { border-top-color:var(--technical); }
+    .entity-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:20px; }
+    .entity-card.sol .entity-icon { background:rgba(176,48,80,.1); }
+    .entity-card.syn .entity-icon { background:rgba(34,136,128,.1); }
+    .entity-card.par .entity-icon { background:rgba(200,112,26,.1); }
+    .entity-tag { font-size:8px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:6px; display:block; }
+    .entity-card.sol .entity-tag { color:var(--strategy); }
+    .entity-card.syn .entity-tag { color:var(--empower); }
+    .entity-card.par .entity-tag { color:var(--technical); }
+    .entity-name { font-family:'Playfair Display',serif; font-size:21px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.2; }
+    .entity-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.65; margin-bottom:20px; }
+    .entity-services { display:flex; flex-direction:column; gap:8px; }
+    .entity-service { display:flex; align-items:center; gap:10px; font-size:12px; color:var(--ink-muted); }
+    .entity-service-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+    .entity-card.sol .entity-service-dot { background:var(--strategy); }
+    .entity-card.syn .entity-service-dot { background:var(--empower); }
+    .entity-card.par .entity-service-dot { background:var(--technical); }
+
+    /* ─── FOUNDER ─── */
+    .section-founder { background:var(--cosmic-void); position:relative; overflow:hidden; padding:100px 40px; }
+    .founder-glow { position:absolute; top:-80px; right:-80px; width:500px; height:500px; background:radial-gradient(ellipse,rgba(176,120,32,.15) 0%,transparent 65%); pointer-events:none; }
+    .founder-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 460px; gap:80px; align-items:center; }
+    .founder-left .eyebrow { color:var(--gold-whisper); display:block; margin-bottom:14px; }
+    .founder-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--parchment); line-height:1.15; margin-bottom:14px; }
+    .founder-ribbon { width:160px; margin-bottom:24px; }
+    .founder-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(246,240,227,.72); line-height:1.75; margin-bottom:28px; }
+    .founder-body-2 { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:rgba(246,240,227,.6); line-height:1.75; }
+    .founder-card { background:rgba(246,240,227,.05); border:1px solid rgba(246,240,227,.1); border-radius:20px; padding:40px 36px; }
+    .founder-card::before { content:''; display:block; height:3px; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); border-radius:2px; margin-bottom:28px; }
+    .founder-name { font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--parchment); margin-bottom:4px; }
+    .founder-role { font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--gold-whisper); margin-bottom:24px; }
+    .founder-creds { display:flex; flex-direction:column; gap:12px; }
+    .founder-cred { display:flex; align-items:flex-start; gap:12px; }
+    .founder-cred-dot { width:6px; height:6px; border-radius:50%; background:var(--gold-whisper); flex-shrink:0; margin-top:6px; }
+    .founder-cred-text { font-size:13px; color:rgba(246,240,227,.68); line-height:1.5; }
+    .founder-award { display:inline-flex; align-items:center; gap:8px; margin-top:20px; padding:10px 18px; border-radius:10px; background:rgba(176,120,32,.15); border:1px solid rgba(176,120,32,.25); font-size:12px; font-weight:700; color:var(--gold-whisper); }
+
+    /* ─── VALUES ─── */
+    .section-values { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-values::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .values-wash { position:absolute; bottom:-60px; left:-60px; width:360px; height:360px; background:radial-gradient(ellipse at 30% 70%,rgba(34,136,128,.1) 0%,transparent 65%); pointer-events:none; }
+    .values-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .values-header { text-align:center; margin-bottom:60px; }
+    .values-header .eyebrow { display:block; margin-bottom:14px; }
+    .values-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--ink); margin-bottom:12px; }
+    .values-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; max-width:540px; margin:0 auto; }
+    .values-ribbon { width:160px; margin:18px auto 0; }
+    .values-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .value-card { background:white; border-radius:16px; padding:32px 24px; box-shadow:0 2px 14px rgba(26,20,16,.07); text-align:center; transition:transform .2s; border-top:3px solid transparent; }
+    .value-card:hover { transform:translateY(-4px); }
+    .value-card.v1 { border-top-color:var(--strategy); }
+    .value-card.v2 { border-top-color:var(--empower); }
+    .value-card.v3 { border-top-color:var(--technical); }
+    .value-card.v4 { border-top-color:var(--people); }
+    .value-char { font-family:'Noto Serif TC',serif; font-size:42px; font-weight:900; line-height:1; margin-bottom:10px; }
+    .value-card.v1 .value-char { color:var(--strategy); }
+    .value-card.v2 .value-char { color:var(--empower); }
+    .value-card.v3 .value-char { color:var(--technical); }
+    .value-card.v4 .value-char { color:var(--people); }
+    .value-label { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--ink); margin-bottom:6px; }
+    .value-sub { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:12px; }
+    .value-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.6; }
+
+    /* ─── RECOGNITION ─── */
+    .section-recognition { background:var(--parchment-deep); position:relative; overflow:hidden; padding:90px 40px; }
+    .section-recognition::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .recognition-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .recognition-header { text-align:center; margin-bottom:52px; }
+    .recognition-header .eyebrow { display:block; margin-bottom:14px; }
+    .recognition-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,38px); font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .recognition-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .rec-card { background:white; border-radius:16px; padding:30px 26px; box-shadow:0 2px 12px rgba(26,20,16,.07); display:flex; align-items:flex-start; gap:16px; transition:transform .2s; }
+    .rec-card:hover { transform:translateY(-3px); }
+    .rec-icon { font-size:28px; flex-shrink:0; }
+    .rec-text-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--ink); margin-bottom:6px; }
+    .rec-text-body { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--ink-muted); line-height:1.6; }
+
+    /* ─── CTA ─── */
+    .section-cta { background:var(--parchment); position:relative; overflow:hidden; padding:90px 40px; text-align:center; }
+    .section-cta::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .cta-wash { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:500px; height:300px; background:radial-gradient(ellipse,rgba(176,120,32,.1) 0%,transparent 65%); pointer-events:none; }
+    .cta-inner { position:relative; z-index:2; max-width:680px; margin:0 auto; }
+    .cta-inner .eyebrow { display:block; margin-bottom:18px; }
+    .cta-title { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,48px); font-weight:700; font-style:italic; color:var(--ink); margin-bottom:14px; line-height:1.15; }
+    .cta-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; margin-bottom:36px; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { padding:14px 30px; background:var(--strategy); color:white; border-radius:30px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; box-shadow:0 4px 16px rgba(176,48,80,.3); }
+    .btn-primary:hover { background:#8A1828; transform:translateY(-2px); }
+    .btn-ghost { padding:14px 30px; border:1.5px solid rgba(26,20,16,.22); color:var(--ink-muted); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; transition:all .25s; }
+    .btn-ghost:hover { border-color:var(--ink); color:var(--ink); transform:translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    .footer { background:#060410; border-top:1px solid rgba(200,144,26,.1); padding:60px 40px 36px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px; padding-bottom:50px; border-bottom:1px solid rgba(246,240,227,.1); }
+    .footer-brand-name { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--parchment); margin-bottom:4px; }
+    .footer-brand-tc { font-family:'Noto Serif TC',serif; font-size:12px; color:rgba(246,240,227,.58); margin-bottom:16px; letter-spacing:.08em; }
+    .footer-brand-desc { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:rgba(246,240,227,.68); line-height:1.7; margin-bottom:20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .footer-social-btn { width:32px; height:32px; border-radius:50%; border:1px solid rgba(246,240,227,.22); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:rgba(246,240,227,.65); transition:all .2s; }
+    .footer-social-btn:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+    .footer-col-title { font-size:9px; font-weight:700; letter-spacing:.4em; text-transform:uppercase; color:var(--gold-whisper); opacity:.85; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { font-size:13px; color:rgba(246,240,227,.68); transition:color .2s; }
+    .footer-links a:hover { color:var(--parchment); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-legal { font-size:11px; color:rgba(246,240,227,.48); line-height:1.6; }
+    .footer-ribbon-sm { width:120px; opacity:.5; }
+    .footer-legal-links { display:flex; gap:20px; }
+    .footer-legal-links a { font-size:11px; color:rgba(246,240,227,.48); transition:color .2s; }
+    .footer-legal-links a:hover { color:rgba(246,240,227,.82); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:960px) {
+      .nav-links,.nav-cta { display:none; }
+      .nav-hamburger { display:flex; }
+      .entities-grid { grid-template-columns:1fr; }
+      .founder-inner { grid-template-columns:1fr; gap:48px; }
+      .values-grid { grid-template-columns:1fr 1fr; }
+      .recognition-grid { grid-template-columns:1fr 1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:600px) {
+      .nav { padding:0 20px; }
+      .hero,.section-entities,.section-founder,.section-values,.section-recognition,.section-cta { padding-left:20px; padding-right:20px; }
+      .values-grid { grid-template-columns:1fr 1fr; }
+      .recognition-grid { grid-template-columns:1fr; }
+      .footer { padding:50px 20px 28px; }
+      .footer-top { grid-template-columns:1fr; gap:32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy logo" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:12px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Contact Us</a>
+    <div class="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero topo">
+    <div class="hero-wash-tr breathe"></div>
+    <div class="hero-wash-bl breathe" style="animation-delay:.9s"></div>
+    <div class="hero-ghost" aria-hidden="true">人</div>
+    <div class="hero-inner">
+      <span class="eyebrow hero-eyebrow">About HPI · The Organisation Behind STEPDEX®</span>
+      <h1 class="hero-title">Where <span style="color:var(--gold-warm)">Strategy</span> Meets Heart.</h1>
+      <p class="hero-tagline">Human Performance Improvement · Kuala Lumpur, Malaysia</p>
+      <div class="four-ribbon hero-ribbon"></div>
+      <p class="hero-body">HPI Group is the parent organisation behind STEPDEX® Academy — a Malaysian-born ecosystem dedicated to helping SMEs thrive by aligning people, purpose, and performance through human-centred leadership and organisational development.</p>
+    </div>
+  </header>
+
+  <!-- ─── THREE ENTITIES ─── -->
+  <section class="section-entities">
+    <div class="entities-inner">
+      <div class="entities-header">
+        <span class="eyebrow">The HPI Group of Companies</span>
+        <h2 class="entities-title">Three entities. One mission.</h2>
+        <p class="entities-sub">Each HPI entity serves a distinct need in the SME leadership and HR landscape — working together as an integrated ecosystem.</p>
+        <div class="four-ribbon entities-ribbon"></div>
+      </div>
+      <div class="entities-grid">
+        <div class="entity-card sol">
+          <div class="entity-icon">🏛️</div>
+          <span class="entity-tag">Framework & Methodology</span>
+          <h3 class="entity-name">HPI Solution</h3>
+          <p class="entity-body">The intellectual home of the STEPDEX® framework. Houses the proprietary methodologies, competency models, and development tools that power all HPI Group programmes.</p>
+          <div class="entity-services">
+            <div class="entity-service"><div class="entity-service-dot"></div>STEPDEX® Development Matrix</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>Competency framework design</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>Leadership assessment tools</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>Research & methodology development</div>
+          </div>
+        </div>
+        <div class="entity-card syn">
+          <div class="entity-icon">🎓</div>
+          <span class="entity-tag">Training & Academy</span>
+          <h3 class="entity-name">HPI Synergy PLT</h3>
+          <p class="entity-body">The training and consultancy arm — home of STEPDEX® Academy. Delivers all public and in-house leadership programmes, workshops, and coaching engagements across Malaysia.</p>
+          <div class="entity-services">
+            <div class="entity-service"><div class="entity-service-dot"></div>STEPDEX® Academy programmes</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>STEP First Class Manager (FCM)</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>GPS Series & GPS workshops</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>Executive coaching & consulting</div>
+          </div>
+        </div>
+        <div class="entity-card par">
+          <div class="entity-icon">⚙️</div>
+          <span class="entity-tag">HR Outsourcing</span>
+          <h3 class="entity-name">HPI Partners PLT</h3>
+          <p class="entity-body">The operational HR arm — providing end-to-end HR outsourcing services for Malaysian SMEs who need professional HR infrastructure without the overhead of a full in-house team.</p>
+          <div class="entity-services">
+            <div class="entity-service"><div class="entity-service-dot"></div>Payroll management</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>Recruitment & talent sourcing</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>HR compliance & advisory</div>
+            <div class="entity-service"><div class="entity-service-dot"></div>HR systems implementation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOUNDER ─── -->
+  <section class="section-founder">
+    <div class="founder-glow breathe"></div>
+    <div class="founder-inner">
+      <div class="founder-left">
+        <span class="eyebrow">Our Founder</span>
+        <h2 class="founder-title">The person who built it — and still runs it.</h2>
+        <div class="four-ribbon founder-ribbon"></div>
+        <p class="founder-body">Sunny Law (Law Jiun Yuan) founded HPI Group with one conviction: that Malaysian SMEs deserve the same quality of leadership development that large corporations take for granted — delivered in a way that fits their culture, pace, and budget.</p>
+        <p class="founder-body-2">With 15+ years in HR strategy, leadership development, and adult learning, Sunny built the STEPDEX® framework from the ground up — drawing on industrial and organisational psychology, real SME experience, and a belief that great organisations are built one leader at a time. He co-authored <em>STEP Up Your Performance</em> with Dr. Henry Yeoh, presenting the work at the 44th ARTDO International Conference in Penang.</p>
+      </div>
+      <div>
+        <div class="founder-card">
+          <p class="founder-name">Sunny Law</p>
+          <p class="founder-role">Founder, HPI Group · Inventor of the STEPDEX® Development Matrix</p>
+          <div class="founder-creds">
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">Master's in Industrial & Organisational Psychology</p>
+            </div>
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">Certified Training Professional (CTP) — ARTDO & ITD World</p>
+            </div>
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">HRDCorp Accredited Trainer</p>
+            </div>
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">Member, Asian Regional Training & Development Organisation (ARTDO)</p>
+            </div>
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">Member, International Society for Performance Improvement (ISPI)</p>
+            </div>
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">Co-author, <em>STEP Up Your Performance</em> (with Dr. Henry Yeoh)</p>
+            </div>
+            <div class="founder-cred">
+              <div class="founder-cred-dot"></div>
+              <p class="founder-cred-text">Presented at 44th ARTDO International Conference, Penang (2023)</p>
+            </div>
+          </div>
+          <div class="founder-award">🏆 2024 Top Most HR Leaders Asia Award</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CORE VALUES ─── -->
+  <section class="section-values">
+    <div class="values-wash breathe"></div>
+    <div class="values-inner">
+      <div class="values-header">
+        <span class="eyebrow">Our Philosophy</span>
+        <h2 class="values-title">Four pillars. One enduring purpose.</h2>
+        <p class="values-sub">Everything HPI does is guided by four foundational values — anchors that shape how we teach, how we coach, and how we lead.</p>
+        <div class="four-ribbon values-ribbon"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card v1">
+          <div class="value-char">真</div>
+          <p class="value-label">Truth</p>
+          <p class="value-sub">Integrity in all things</p>
+          <p class="value-body">Acting with honesty and authenticity — in our learning, our leadership, and our relationships with every client and learner.</p>
+        </div>
+        <div class="value-card v2">
+          <div class="value-char">善</div>
+          <p class="value-label">Goodness</p>
+          <p class="value-sub">Leading with compassion</p>
+          <p class="value-body">Helping others thrive — not just succeed. We build leaders who care about the people they lead, not just the results they produce.</p>
+        </div>
+        <div class="value-card v3">
+          <div class="value-char">美</div>
+          <p class="value-label">Beauty</p>
+          <p class="value-sub">Excellence in craft</p>
+          <p class="value-body">Creating workplaces that are not just productive, but truly excellent — where harmony, creativity, and human potential flourish together.</p>
+        </div>
+        <div class="value-card v4">
+          <div class="value-char">聖</div>
+          <p class="value-label">Holiness</p>
+          <p class="value-sub">Purpose beyond profit</p>
+          <p class="value-body">Striving for a higher purpose — building organisations and leaders who contribute meaningfully to their communities and society at large.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RECOGNITION ─── -->
+  <section class="section-recognition">
+    <div class="recognition-inner">
+      <div class="recognition-header">
+        <span class="eyebrow">Recognition & Credentials</span>
+        <h2 class="recognition-title">A Malaysian-born framework,<br>globally recognised.</h2>
+      </div>
+      <div class="recognition-grid">
+        <div class="rec-card">
+          <div class="rec-icon">🏆</div>
+          <div>
+            <p class="rec-text-title">2024 Top Most HR Leaders Asia Award</p>
+            <p class="rec-text-body">Founder Sunny Law recognised among Asia's most influential HR leaders for impact in SME leadership development.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">🎓</div>
+          <div>
+            <p class="rec-text-title">USM Graduate School Accreditation</p>
+            <p class="rec-text-body">STEP First Class Manager is accredited by Universiti Sains Malaysia's Graduate School of Business — a mark of academic rigour.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">🌏</div>
+          <div>
+            <p class="rec-text-title">44th ARTDO International Conference</p>
+            <p class="rec-text-body">The STEPDEX® framework was presented at the Asian Regional Training & Development Organisation's flagship conference in Penang (2023).</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">✅</div>
+          <div>
+            <p class="rec-text-title">HRDCorp Accredited Provider</p>
+            <p class="rec-text-body">All GPS Series modules and key programmes are eligible for HRDCorp SBL-Khas funding — making quality training accessible to Malaysian employers.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">📖</div>
+          <div>
+            <p class="rec-text-title">STEP Up Your Performance</p>
+            <p class="rec-text-body">Co-authored by Sunny Law and Dr. Henry Yeoh — the book that introduced the STEPDEX® Development Matrix to Malaysian SME leaders.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-icon">🤝</div>
+          <div>
+            <p class="rec-text-title">ARTDO & ISPI Membership</p>
+            <p class="rec-text-body">HPI is an active member of both the Asian Regional Training & Development Organisation and the International Society for Performance Improvement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="section-cta">
+    <div class="cta-wash breathe"></div>
+    <div class="cta-inner">
+      <span class="eyebrow">Work With HPI</span>
+      <h2 class="cta-title">Ready to build something meaningful?</h2>
+      <p class="cta-body">Whether you're looking for leadership training, HR outsourcing, or a strategic partnership, the HPI Group is here to help your organisation grow — with heart.</p>
+      <div class="cta-btns">
+        <a href="/contact" class="btn-primary">Get In Touch →</a>
+        <a href="/about" class="btn-ghost">About STEPDEX®</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">STEPDEX<span class="reg">®</span> Academy</p>
+          <p class="footer-brand-tc">思德教育學院</p>
+          <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+          <p class="footer-brand-desc">Empowering SME leaders through the STEP framework — Strategy, Technical, Empower, People. Powered by HPI Synergy PLT.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/stepdex" class="footer-social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/stepdex" class="footer-social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/stepdex.my" class="footer-social-btn" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD" class="footer-social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Programmes</p>
+          <ul class="footer-links">
+            <li><a href="/stepfcm-en">STEP First Class Manager</a></li>
+            <li><a href="/programs">SME HR Programme</a></li>
+            <li><a href="/programs">LEAP of Faith</a></li>
+            <li><a href="/programs">Leading with Empathy</a></li>
+            <li><a href="/gps">GPS Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Academy</p>
+          <ul class="footer-links">
+            <li><a href="/about">About STEPDEX<span class="reg">®</span></a></li>
+            <li><a href="/hpi">About HPI</a></li>
+            <li><a href="/experts">Our Experts</a></li>
+            <li><a href="/pathfinder">Pathfinder</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Free Tools</p>
+          <ul class="footer-links">
+            <li><a href="/sme-ogrowth.html">SME Diagnosis</a></li>
+            <li><a href="/mgr-assessment.html">Manager Assessment</a></li>
+            <li><a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD">WhatsApp Community</a></li>
+          </ul>
+          <p class="footer-col-title" style="margin-top:28px">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@stepdex.my">hello@stepdex.my</a></li>
+            <li><a href="https://maps.app.goo.gl/wfVDE5pEEfXniBjL7" target="_blank" rel="noopener">Menara Keck Seng, KL</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+        <div class="four-ribbon footer-ribbon-sm"></div>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-hamburger').addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      const open = links.style.display === 'flex';
+      links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);';
+    });
+  </script>
+</body>
+</html>

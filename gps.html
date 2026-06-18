@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS Series | Goal & Performance Strategy | STEPDEX® Academy</title>
+  <meta name="description" content="The GPS Series is STEPDEX® Academy's structured goal-setting and performance strategy suite. Four HRDCorp-claimable modules to turn goals into sustainable growth." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stepdex.my/gps" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stepdex.my/gps" />
+  <meta property="og:title" content="GPS Series — Goal & Performance Strategy | STEPDEX® Academy" />
+  <meta property="og:description" content="Four HRDCorp-claimable modules. From SWOT and SMARTEST goals to KPI cascading and disciplined execution." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --parchment:      #F6F0E3;
+      --parchment-deep: #EDE3CB;
+      --ink:            #1A1410;
+      --ink-muted:      #6A5A42;
+      --gold-warm:      #B07820;
+      --gold-pure:      #C8901A;
+      --gold-whisper:   #D4A84B;
+      --strategy:       #B03050;
+      --technical:      #C8701A;
+      --empower:        #228880;
+      --people:         #6848A0;
+      --cosmic-void:    #080612;
+      --cosmic-nebula:  #1C1248;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito Sans',sans-serif; background:var(--parchment-deep); color:var(--ink); overflow-x:hidden; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    .reg { font-size:.52em; vertical-align:super; line-height:0; font-weight:inherit; letter-spacing:0; }
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .breathe { animation:breathe 3.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; } }
+    .topo { background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); }
+    .eyebrow { font-size:9px; font-weight:700; letter-spacing:.45em; text-transform:uppercase; color:var(--gold-warm); }
+    .four-ribbon { height:2.5px; background:linear-gradient(to right,var(--strategy) 0% 25%,var(--technical) 25% 50%,var(--empower) 50% 75%,var(--people) 75% 100%); border-radius:2px; }
+
+    /* ─── NAV ─── */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; background:rgba(8,6,18,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(200,144,26,.1); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; }
+    .nav-wordmark { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--parchment); letter-spacing:.04em; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+    .nav-links a { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(246,240,227,.82); transition:color .2s; }
+    .nav-links a:hover { color:var(--parchment); }
+    .nav-links a.active { color:var(--gold-whisper); }
+    .nav-lang-divider { width:1px; height:16px; background:rgba(246,240,227,.15); }
+    .nav-lang { font-family:'Noto Serif TC',serif !important; font-size:13px !important; letter-spacing:.04em !important; text-transform:none !important; color:rgba(246,240,227,.62) !important; }
+    .nav-lang:hover { color:var(--gold-whisper) !important; }
+    .nav-cta { padding:9px 22px; border:1px solid rgba(200,144,26,.4); border-radius:30px; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-whisper); transition:all .2s; }
+    .nav-cta:hover { background:rgba(200,144,26,.12); border-color:var(--gold-warm); color:var(--parchment); }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:var(--parchment); border-radius:2px; }
+
+    /* ─── HERO ─── */
+    .hero { position:relative; background:var(--parchment); padding:160px 40px 90px; overflow:hidden; }
+    .hero-wash-tr { position:absolute; top:-60px; right:-60px; width:400px; height:400px; background:radial-gradient(ellipse at 70% 30%,rgba(34,136,128,.12) 0%,transparent 68%); pointer-events:none; }
+    .hero-wash-bl { position:absolute; bottom:-60px; left:-60px; width:340px; height:340px; background:radial-gradient(ellipse at 30% 70%,rgba(200,112,26,.1) 0%,transparent 68%); pointer-events:none; }
+    .hero-ghost { position:absolute; top:20px; right:-10px; font-family:'Noto Serif TC',serif; font-size:260px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+    .hero-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .hero-eyebrow { display:block; margin-bottom:18px; animation:fadeUp .7s ease both; }
+    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,58px); font-weight:700; font-style:italic; color:var(--ink); line-height:1.1; margin-bottom:8px; animation:fadeUp .8s .1s ease both; max-width:720px; }
+    .hero-ribbon { width:180px; margin-bottom:22px; animation:fadeUp .8s .2s ease both; }
+    .hero-body { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,1.8vw,19px); font-style:italic; color:var(--ink-muted); line-height:1.75; max-width:620px; animation:fadeUp .8s .25s ease both; margin-bottom:36px; }
+    .hero-badges { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; animation:fadeUp .8s .3s ease both; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:20px; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .hero-badge.hrd { background:rgba(34,136,128,.1); color:var(--empower); border:1px solid rgba(34,136,128,.2); }
+    .hero-badge.flex { background:rgba(200,112,26,.1); color:var(--technical); border:1px solid rgba(200,112,26,.2); }
+    .hero-badge.scale { background:rgba(176,48,80,.1); color:var(--strategy); border:1px solid rgba(176,48,80,.2); }
+    .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp .8s .35s ease both; }
+    .btn-primary { padding:14px 30px; background:var(--empower); color:white; border-radius:30px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; box-shadow:0 4px 16px rgba(34,136,128,.3); }
+    .btn-primary:hover { background:#186860; transform:translateY(-2px); box-shadow:0 8px 24px rgba(34,136,128,.4); }
+    .btn-ghost { padding:14px 30px; border:1.5px solid rgba(26,20,16,.22); color:var(--ink-muted); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; transition:all .25s; }
+    .btn-ghost:hover { border-color:var(--ink); color:var(--ink); transform:translateY(-1px); }
+
+    /* ─── PROBLEM ─── */
+    .section-problem { background:var(--parchment-deep); position:relative; overflow:hidden; padding:90px 40px; }
+    .section-problem::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .problem-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .problem-left .eyebrow { display:block; margin-bottom:14px; }
+    .problem-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3vw,38px); font-weight:700; color:var(--ink); line-height:1.2; margin-bottom:14px; }
+    .problem-ribbon { width:160px; margin-bottom:24px; }
+    .problem-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.75; }
+    .pain-list { display:flex; flex-direction:column; gap:14px; }
+    .pain-item { background:white; border-radius:12px; padding:18px 20px; display:flex; align-items:flex-start; gap:14px; box-shadow:0 2px 8px rgba(26,20,16,.06); border-left:3px solid var(--strategy); }
+    .pain-icon { font-size:18px; flex-shrink:0; margin-top:2px; }
+    .pain-text { font-size:14px; color:var(--ink-muted); line-height:1.55; }
+    .pain-text strong { color:var(--ink); }
+
+    /* ─── MODULES ─── */
+    .section-modules { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-modules::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .modules-wash { position:absolute; top:-60px; right:-60px; width:380px; height:380px; background:radial-gradient(ellipse at 75% 25%,rgba(34,136,128,.1) 0%,transparent 65%); pointer-events:none; }
+    .modules-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .modules-header { text-align:center; margin-bottom:60px; }
+    .modules-header .eyebrow { display:block; margin-bottom:14px; }
+    .modules-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--ink); margin-bottom:12px; }
+    .modules-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; max-width:580px; margin:0 auto; }
+    .modules-ribbon { width:160px; margin:18px auto 0; }
+
+    .modules-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .module-card { background:white; border-radius:18px; padding:36px 32px; box-shadow:0 2px 14px rgba(26,20,16,.07); border-top:4px solid transparent; transition:transform .2s, box-shadow .2s; position:relative; overflow:hidden; }
+    .module-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(26,20,16,.12); }
+    .module-card.c1 { border-top-color:var(--strategy); }
+    .module-card.c2 { border-top-color:var(--technical); }
+    .module-card.c3 { border-top-color:var(--empower); }
+    .module-card.c4 { border-top-color:var(--people); }
+    .module-num { position:absolute; top:28px; right:28px; font-family:'Playfair Display',serif; font-size:52px; font-weight:900; line-height:1; opacity:.06; color:var(--ink); }
+    .module-tag { font-size:8px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; margin-bottom:8px; display:block; }
+    .module-card.c1 .module-tag { color:var(--strategy); }
+    .module-card.c2 .module-tag { color:var(--technical); }
+    .module-card.c3 .module-tag { color:var(--empower); }
+    .module-card.c4 .module-tag { color:var(--people); }
+    .module-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:6px; line-height:1.2; }
+    .module-subtitle { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); margin-bottom:20px; }
+    .module-duration { display:inline-flex; align-items:center; gap:7px; padding:6px 14px; border-radius:20px; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px; }
+    .module-card.c1 .module-duration { background:rgba(176,48,80,.1); color:var(--strategy); }
+    .module-card.c2 .module-duration { background:rgba(200,112,26,.1); color:var(--technical); }
+    .module-card.c3 .module-duration { background:rgba(34,136,128,.1); color:var(--empower); }
+    .module-card.c4 .module-duration { background:rgba(104,72,160,.1); color:var(--people); }
+    .module-points { display:flex; flex-direction:column; gap:10px; }
+    .module-point { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--ink-muted); line-height:1.5; }
+    .module-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:6px; }
+    .module-card.c1 .module-dot { background:var(--strategy); }
+    .module-card.c2 .module-dot { background:var(--technical); }
+    .module-card.c3 .module-dot { background:var(--empower); }
+    .module-card.c4 .module-dot { background:var(--people); }
+    .module-rec { display:inline-flex; align-items:center; gap:6px; margin-top:20px; padding:8px 16px; border-radius:20px; background:rgba(34,136,128,.08); border:1px solid rgba(34,136,128,.15); font-size:10px; font-weight:700; color:var(--empower); letter-spacing:.06em; }
+
+    /* ─── PRICING ─── */
+    .section-pricing { background:var(--cosmic-void); position:relative; overflow:hidden; padding:100px 40px; }
+    .pricing-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:400px; background:radial-gradient(ellipse,rgba(34,136,128,.2) 0%,transparent 65%); pointer-events:none; }
+    .pricing-inner { position:relative; z-index:2; max-width:900px; margin:0 auto; text-align:center; }
+    .pricing-inner .eyebrow { color:var(--gold-whisper); display:block; margin-bottom:18px; }
+    .pricing-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--parchment); margin-bottom:14px; }
+    .pricing-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(246,240,227,.65); line-height:1.7; max-width:520px; margin:0 auto 52px; }
+    .pricing-card { background:rgba(246,240,227,.05); border:1px solid rgba(246,240,227,.1); border-radius:20px; padding:48px 40px; position:relative; overflow:hidden; }
+    .pricing-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); }
+    .pricing-amount { font-family:'Playfair Display',serif; font-size:52px; font-weight:900; color:var(--parchment); margin-bottom:4px; }
+    .pricing-per { font-size:14px; color:rgba(246,240,227,.55); margin-bottom:24px; }
+    .pricing-features { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:36px; text-align:left; }
+    .pricing-feat { display:flex; align-items:flex-start; gap:10px; }
+    .pricing-feat-dot { width:6px; height:6px; border-radius:50%; background:var(--gold-whisper); flex-shrink:0; margin-top:7px; }
+    .pricing-feat-text { font-size:13px; color:rgba(246,240,227,.72); line-height:1.5; }
+    .pricing-feat-text strong { color:var(--parchment); }
+    .pricing-note { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:rgba(246,240,227,.45); line-height:1.65; margin-bottom:32px; }
+    .btn-pricing { display:inline-flex; align-items:center; gap:8px; padding:15px 36px; background:var(--empower); color:white; border-radius:30px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; transition:all .25s; box-shadow:0 4px 18px rgba(34,136,128,.35); }
+    .btn-pricing:hover { background:#186860; transform:translateY(-2px); box-shadow:0 8px 28px rgba(34,136,128,.5); }
+
+    /* ─── WHY GPS ─── */
+    .section-why { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-why::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .why-wash { position:absolute; bottom:-60px; right:-60px; width:360px; height:360px; background:radial-gradient(ellipse at 75% 75%,rgba(176,48,80,.08) 0%,transparent 65%); pointer-events:none; }
+    .why-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .why-header { text-align:center; margin-bottom:56px; }
+    .why-header .eyebrow { display:block; margin-bottom:14px; }
+    .why-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,40px); font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .why-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); max-width:520px; margin:0 auto; line-height:1.7; }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .why-card { background:white; border-radius:16px; padding:32px 26px; box-shadow:0 2px 14px rgba(26,20,16,.07); text-align:center; transition:transform .2s; }
+    .why-card:hover { transform:translateY(-4px); }
+    .why-icon { font-size:32px; margin-bottom:16px; }
+    .why-card-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .why-card-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.65; }
+
+    /* ─── CTA ─── */
+    .section-cta { background:var(--parchment); position:relative; overflow:hidden; padding:90px 40px; text-align:center; }
+    .section-cta::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .cta-wash { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:500px; height:300px; background:radial-gradient(ellipse,rgba(34,136,128,.1) 0%,transparent 65%); pointer-events:none; }
+    .cta-inner { position:relative; z-index:2; max-width:680px; margin:0 auto; }
+    .cta-inner .eyebrow { display:block; margin-bottom:18px; }
+    .cta-title { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,48px); font-weight:700; font-style:italic; color:var(--ink); margin-bottom:14px; line-height:1.15; }
+    .cta-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; margin-bottom:36px; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+    /* ─── FOOTER ─── */
+    .footer { background:#060410; border-top:1px solid rgba(200,144,26,.1); padding:60px 40px 36px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px; padding-bottom:50px; border-bottom:1px solid rgba(246,240,227,.1); }
+    .footer-brand-name { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--parchment); margin-bottom:4px; }
+    .footer-brand-tc { font-family:'Noto Serif TC',serif; font-size:12px; color:rgba(246,240,227,.58); margin-bottom:16px; letter-spacing:.08em; }
+    .footer-brand-desc { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:rgba(246,240,227,.68); line-height:1.7; margin-bottom:20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .footer-social-btn { width:32px; height:32px; border-radius:50%; border:1px solid rgba(246,240,227,.22); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:rgba(246,240,227,.65); transition:all .2s; }
+    .footer-social-btn:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+    .footer-col-title { font-size:9px; font-weight:700; letter-spacing:.4em; text-transform:uppercase; color:var(--gold-whisper); opacity:.85; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { font-size:13px; color:rgba(246,240,227,.68); transition:color .2s; }
+    .footer-links a:hover { color:var(--parchment); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-legal { font-size:11px; color:rgba(246,240,227,.48); line-height:1.6; }
+    .footer-ribbon-sm { width:120px; opacity:.5; }
+    .footer-legal-links { display:flex; gap:20px; }
+    .footer-legal-links a { font-size:11px; color:rgba(246,240,227,.48); transition:color .2s; }
+    .footer-legal-links a:hover { color:rgba(246,240,227,.82); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:960px) {
+      .nav-links,.nav-cta { display:none; }
+      .nav-hamburger { display:flex; }
+      .problem-inner { grid-template-columns:1fr; gap:48px; }
+      .modules-grid { grid-template-columns:1fr; }
+      .pricing-features { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr 1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:600px) {
+      .nav { padding:0 20px; }
+      .hero,.section-problem,.section-modules,.section-pricing,.section-why,.section-cta { padding-left:20px; padding-right:20px; }
+      .why-grid { grid-template-columns:1fr; }
+      .footer { padding:50px 20px 28px; }
+      .footer-top { grid-template-columns:1fr; gap:32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy logo" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:12px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs" class="active">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Contact Us</a>
+    <div class="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero topo">
+    <div class="hero-wash-tr breathe"></div>
+    <div class="hero-wash-bl breathe" style="animation-delay:.9s"></div>
+    <div class="hero-ghost" aria-hidden="true">標</div>
+    <div class="hero-inner">
+      <span class="eyebrow hero-eyebrow">GPS Series · Goal & Performance Strategy</span>
+      <h1 class="hero-title">Turning Goals into Growth,<br><span style="color:var(--empower)">One Strategy at a Time.</span></h1>
+      <div class="four-ribbon hero-ribbon"></div>
+      <p class="hero-body">STEPDEX® Academy's signature training suite designed to guide organisations toward clarity, alignment, and disciplined execution — from goal-setting to strategic cascading to quarterly accountability.</p>
+      <div class="hero-badges">
+        <span class="hero-badge hrd">✓ HRDCorp SBL-Khas Claimable</span>
+        <span class="hero-badge flex">4 Standalone Modules</span>
+        <span class="hero-badge scale">RM 10,500 / Day</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="/contact" class="btn-primary">Enquire About GPS →</a>
+        <a href="#modules" class="btn-ghost">View Modules</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── PROBLEM ─── -->
+  <section class="section-problem">
+    <div class="problem-inner">
+      <div class="problem-left">
+        <span class="eyebrow">The Challenge We Solve</span>
+        <h2 class="problem-title">Most organisations set goals.<br>Few achieve them consistently.</h2>
+        <div class="four-ribbon problem-ribbon"></div>
+        <p class="problem-body">The gap between setting a goal and reaching it is rarely about ambition. It's about structure, alignment, and disciplined execution — and most teams have none of the three working together.</p>
+      </div>
+      <div>
+        <div class="pain-list">
+          <div class="pain-item">
+            <div class="pain-icon">⚠️</div>
+            <p class="pain-text"><strong>Inconsistent execution</strong> — Teams work hard but pull in different directions, with no shared system for tracking progress.</p>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">⚠️</div>
+            <p class="pain-text"><strong>Misaligned KPIs</strong> — Departmental targets exist in isolation, disconnected from the organisation's strategic priorities.</p>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">⚠️</div>
+            <p class="pain-text"><strong>Reactive reviews</strong> — Performance conversations happen only when things go wrong, not as a proactive accountability rhythm.</p>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">⚠️</div>
+            <p class="pain-text"><strong>Vague goals</strong> — Targets are set without the rigour to make them actionable, measurable, or time-bound in a meaningful way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MODULES ─── -->
+  <section class="section-modules" id="modules">
+    <div class="modules-wash breathe"></div>
+    <div class="modules-inner">
+      <div class="modules-header">
+        <span class="eyebrow">The Four Modules</span>
+        <h2 class="modules-title">A complete system — or start with one.</h2>
+        <p class="modules-sub">Each module is standalone and HRDCorp-claimable. The strongest ROI comes from combining GPS Transformation with GPS Execution.</p>
+        <div class="four-ribbon modules-ribbon"></div>
+      </div>
+      <div class="modules-grid">
+        <div class="module-card c1">
+          <div class="module-num">01</div>
+          <span class="module-tag">Module 1 · Foundation</span>
+          <h3 class="module-title">GPS Core</h3>
+          <p class="module-subtitle">Strategic clarity through SWOT and SMARTEST goals</p>
+          <div class="module-duration">⏱ 1 Day</div>
+          <div class="module-points">
+            <div class="module-point"><div class="module-dot"></div>Conduct a structured SWOT analysis aligned to organisational context</div>
+            <div class="module-point"><div class="module-dot"></div>Set SMARTEST goals: Specific, Measurable, Achievable, Relevant, Time-bound, Exciting, Stretching, Tracked</div>
+            <div class="module-point"><div class="module-dot"></div>Build a personal and team goal framework ready for immediate application</div>
+          </div>
+        </div>
+        <div class="module-card c2">
+          <div class="module-num">02</div>
+          <span class="module-tag">Module 2 · Alignment</span>
+          <h3 class="module-title">GPS Alignment</h3>
+          <p class="module-subtitle">Connecting corporate priorities with departmental KPIs</p>
+          <div class="module-duration">⏱ 1.5 Days</div>
+          <div class="module-points">
+            <div class="module-point"><div class="module-dot"></div>Map departmental objectives to corporate strategic priorities</div>
+            <div class="module-point"><div class="module-dot"></div>Design KPI frameworks that ensure every team contributes to the same north star</div>
+            <div class="module-point"><div class="module-dot"></div>Identify and resolve goal conflicts across departments before they escalate</div>
+          </div>
+        </div>
+        <div class="module-card c3">
+          <div class="module-num">03</div>
+          <span class="module-tag">Module 3 · Transformation ⭐ Recommended</span>
+          <h3 class="module-title">GPS Transformation</h3>
+          <p class="module-subtitle">KPI cascading and cross-functional accountability</p>
+          <div class="module-duration">⏱ 2 Days</div>
+          <div class="module-points">
+            <div class="module-point"><div class="module-dot"></div>Cascade KPIs from leadership through every management layer</div>
+            <div class="module-point"><div class="module-dot"></div>Build cross-functional accountability structures that survive leadership changes</div>
+            <div class="module-point"><div class="module-dot"></div>Create a performance culture where ownership is clear at every level</div>
+          </div>
+          <div class="module-rec">★ Best ROI when paired with GPS Execution</div>
+        </div>
+        <div class="module-card c4">
+          <div class="module-num">04</div>
+          <span class="module-tag">Module 4 · Execution ⭐ Recommended</span>
+          <h3 class="module-title">GPS Execution</h3>
+          <p class="module-subtitle">Disciplined execution, feedback tools, and quarterly reviews</p>
+          <div class="module-duration">⏱ 1 Day</div>
+          <div class="module-points">
+            <div class="module-point"><div class="module-dot"></div>Build a disciplined execution rhythm with weekly check-ins and structured reviews</div>
+            <div class="module-point"><div class="module-dot"></div>Implement practical feedback tools that drive performance in real time</div>
+            <div class="module-point"><div class="module-dot"></div>Design a quarterly review cycle that celebrates wins and addresses gaps proactively</div>
+          </div>
+          <div class="module-rec">★ Best ROI when paired with GPS Transformation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ─── -->
+  <section class="section-pricing">
+    <div class="pricing-glow breathe"></div>
+    <div class="pricing-inner">
+      <span class="eyebrow">Investment & Funding</span>
+      <h2 class="pricing-title">Clear pricing. Fully claimable.</h2>
+      <p class="pricing-sub">The GPS Series is designed to be accessible for Malaysian SMEs — every module is eligible for HRDCorp SBL-Khas funding.</p>
+      <div class="pricing-card">
+        <p class="pricing-amount">RM 10,500</p>
+        <p class="pricing-per">per training day · all modules</p>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="pricing-feat-dot"></div><p class="pricing-feat-text"><strong>HRDCorp SBL-Khas</strong> — fully claimable for registered employers</p></div>
+          <div class="pricing-feat"><div class="pricing-feat-dot"></div><p class="pricing-feat-text"><strong>Standalone modules</strong> — start with any one, scale at your pace</p></div>
+          <div class="pricing-feat"><div class="pricing-feat-dot"></div><p class="pricing-feat-text"><strong>Tailored delivery</strong> — content adapted to your industry and context</p></div>
+          <div class="pricing-feat"><div class="pricing-feat-dot"></div><p class="pricing-feat-text"><strong>In-house or open cohort</strong> — flexible delivery format</p></div>
+          <div class="pricing-feat"><div class="pricing-feat-dot"></div><p class="pricing-feat-text"><strong>Practical tools included</strong> — templates, frameworks, and worksheets</p></div>
+          <div class="pricing-feat"><div class="pricing-feat-dot"></div><p class="pricing-feat-text"><strong>Certificate of completion</strong> — issued to all participants</p></div>
+        </div>
+        <p class="pricing-note">Pricing is per training day. Multi-module packages available at a discounted rate. Contact us for a custom proposal tailored to your team size and objectives.</p>
+        <a href="/contact" class="btn-pricing">Request a Custom Proposal →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY GPS ─── -->
+  <section class="section-why">
+    <div class="why-wash breathe"></div>
+    <div class="why-inner">
+      <div class="why-header">
+        <span class="eyebrow">Why GPS Works</span>
+        <h2 class="why-title">Structure that scales with your organisation.</h2>
+        <p class="why-sub">The GPS Series is designed for real Malaysian SMEs — practical, adaptable, and built to produce results from day one.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <h3 class="why-card-title">Start Small, Scale Fast</h3>
+          <p class="why-card-body">Begin with any single module and expand the system as your organisation's readiness grows. No big-bang implementation required.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔗</div>
+          <h3 class="why-card-title">Designed to Connect</h3>
+          <p class="why-card-body">Each module builds on the last. Used together, they create an end-to-end performance management system that runs itself.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏆</div>
+          <h3 class="why-card-title">HRDCorp Claimable</h3>
+          <p class="why-card-body">Every GPS module qualifies for HRDCorp SBL-Khas funding — making world-class performance strategy accessible to any registered Malaysian employer.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🛠️</div>
+          <h3 class="why-card-title">Tools You'll Actually Use</h3>
+          <p class="why-card-body">Every session delivers practical templates, frameworks, and worksheets your team can apply the following Monday — not just in the classroom.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📊</div>
+          <h3 class="why-card-title">Measurable Impact</h3>
+          <p class="why-card-body">Participants leave with a working KPI framework and a 90-day execution plan. Progress is trackable from day one.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3 class="why-card-title">Tailored to Your Context</h3>
+          <p class="why-card-body">Content and case studies are adapted to your industry, company size, and specific challenges — not a generic off-the-shelf programme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="section-cta">
+    <div class="cta-wash breathe"></div>
+    <div class="cta-inner">
+      <span class="eyebrow">Ready to Build Your Performance System?</span>
+      <h2 class="cta-title">Let's design the right GPS journey for your team.</h2>
+      <p class="cta-body">Whether you need one module or the full series, we'll help you build a goal and performance system that actually sticks.</p>
+      <div class="cta-btns">
+        <a href="/contact" class="btn-primary">Request a Custom Proposal →</a>
+        <a href="/programs" class="btn-ghost">See All Programmes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">STEPDEX<span class="reg">®</span> Academy</p>
+          <p class="footer-brand-tc">思德教育學院</p>
+          <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+          <p class="footer-brand-desc">Empowering SME leaders through the STEP framework — Strategy, Technical, Empower, People. Powered by HPI Synergy PLT.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/stepdex" class="footer-social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/stepdex" class="footer-social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/stepdex.my" class="footer-social-btn" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD" class="footer-social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Programmes</p>
+          <ul class="footer-links">
+            <li><a href="/stepfcm-en">STEP First Class Manager</a></li>
+            <li><a href="/programs">SME HR Programme</a></li>
+            <li><a href="/programs">LEAP of Faith</a></li>
+            <li><a href="/programs">Leading with Empathy</a></li>
+            <li><a href="/gps">GPS Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Academy</p>
+          <ul class="footer-links">
+            <li><a href="/about">About STEPDEX<span class="reg">®</span></a></li>
+            <li><a href="/hpi">About HPI</a></li>
+            <li><a href="/experts">Our Experts</a></li>
+            <li><a href="/pathfinder">Pathfinder</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Free Tools</p>
+          <ul class="footer-links">
+            <li><a href="/sme-ogrowth.html">SME Diagnosis</a></li>
+            <li><a href="/mgr-assessment.html">Manager Assessment</a></li>
+            <li><a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD">WhatsApp Community</a></li>
+          </ul>
+          <p class="footer-col-title" style="margin-top:28px">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@stepdex.my">hello@stepdex.my</a></li>
+            <li><a href="https://maps.app.goo.gl/wfVDE5pEEfXniBjL7" target="_blank" rel="noopener">Menara Keck Seng, KL</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+        <div class="four-ribbon footer-ribbon-sm"></div>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-hamburger').addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      const open = links.style.display === 'flex';
+      links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);';
+    });
+  </script>
+</body>
+</html>

@@ -10,6 +10,9 @@
     { "source": "/mgr-assessment", "destination": "/mgr-assessment.html" },
     { "source": "/sme-ogrowth", "destination": "/sme-ogrowth.html" },
     { "source": "/mgr", "destination": "/mgr-assessment.html" },
-    { "source": "/sme", "destination": "/sme-ogrowth.html" }
+    { "source": "/sme", "destination": "/sme-ogrowth.html" },
+    { "source": "/pathfinder", "destination": "/pathfinder.html" },
+    { "source": "/gps", "destination": "/gps.html" },
+    { "source": "/hpi", "destination": "/hpi.html" }
   ]
 }
