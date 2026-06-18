@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SME HR Programme | STEPDEX® Academy</title>
+  <meta name="description" content="Practical HR strategies for SME owners and managers who handle people without an HR department. 8-week online cohort. Register now — cohort is open." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stepdex.my/sme-hr" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.stepdex.my/sme-hr" />
+  <meta property="og:title"       content="SME HR Programme | STEPDEX® Academy" />
+  <meta property="og:description" content="8 weeks of practical HR for SME owners who can't afford to get people management wrong. Low-barrier entry. Cohort now open." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --parchment:      #F6F0E3;
+      --parchment-deep: #EDE3CB;
+      --ink:            #1A1410;
+      --ink-muted:      #6A5A42;
+      --gold-warm:      #B07820;
+      --gold-pure:      #C8901A;
+      --gold-whisper:   #D4A84B;
+      --strategy:       #B03050;
+      --technical:      #C8701A;
+      --empower:        #228880;
+      --people:         #6848A0;
+      --cosmic-void:    #080612;
+      --cosmic-nebula:  #1C1248;
+      --page-bg:        #0C0906;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--parchment); color: var(--ink); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .reg { font-size:.52em; vertical-align:super; line-height:0; font-weight:inherit; letter-spacing:0; }
+
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes pulse   { 0%,100%{box-shadow:0 0 0 0 rgba(176,48,80,.4)} 50%{box-shadow:0 0 0 8px rgba(176,48,80,0)} }
+    .breathe { animation: breathe 3.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; } }
+
+    .topo { background-image: repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); }
+
+    .eyebrow { font-size:9px; font-weight:700; letter-spacing:.45em; text-transform:uppercase; color:var(--gold-warm); }
+    .four-ribbon { height:2.5px; background:linear-gradient(to right,var(--strategy) 0% 25%,var(--technical) 25% 50%,var(--empower) 50% 75%,var(--people) 75% 100%); border-radius:2px; }
+
+    /* ─── NAV ─── */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; background:rgba(8,6,18,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(200,144,26,.1); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; }
+    .nav-wordmark { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--parchment); letter-spacing:.04em; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+    .nav-links a { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(246,240,227,.82); transition:color .2s; }
+    .nav-links a:hover { color:var(--parchment); }
+    .nav-links a.active { color:var(--gold-whisper); }
+    .nav-lang-divider { width:1px; height:16px; background:rgba(246,240,227,.15); }
+    .nav-lang { font-family:'Noto Serif TC',serif !important; font-size:13px !important; letter-spacing:.04em !important; text-transform:none !important; color:rgba(246,240,227,.62) !important; transition:color .2s; }
+    .nav-lang:hover { color:var(--gold-whisper) !important; }
+    .nav-cta { padding:9px 22px; border:1px solid rgba(200,144,26,.4); border-radius:30px; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-whisper); transition:all .2s; }
+    .nav-cta:hover { background:rgba(200,144,26,.12); border-color:var(--gold-warm); color:var(--parchment); }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:var(--parchment); border-radius:2px; }
+
+    /* ─── HERO — WARM WATERCOLOUR ─── */
+    .hero { position:relative; background:var(--parchment); padding:160px 40px 100px; overflow:hidden; }
+    .hero-wash-tr { position:absolute; top:-60px; right:-60px; width:420px; height:420px; background:radial-gradient(ellipse at 70% 30%,rgba(176,48,80,.13) 0%,transparent 68%); pointer-events:none; }
+    .hero-wash-bl { position:absolute; bottom:-60px; left:-60px; width:360px; height:360px; background:radial-gradient(ellipse at 30% 70%,rgba(104,72,160,.1) 0%,transparent 68%); pointer-events:none; }
+    .hero-ghost { position:absolute; top:20px; right:-14px; font-family:'Noto Serif TC',serif; font-size:280px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+
+    .hero-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:80px; align-items:center; }
+    .hero-left {}
+    .hero-eyebrow { display:block; margin-bottom:14px; animation:fadeUp .7s ease both; }
+
+    /* Open cohort badge */
+    .hero-live { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; background:rgba(176,48,80,.1); border:1px solid rgba(176,48,80,.3); border-radius:20px; margin-bottom:18px; animation:fadeUp .7s .05s ease both; }
+    .hero-live-dot { width:7px; height:7px; border-radius:50%; background:var(--strategy); animation:pulse 2s ease-in-out infinite; flex-shrink:0; }
+    .hero-live-text { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--strategy); }
+
+    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,58px); font-weight:700; font-style:italic; color:var(--ink); line-height:1.1; margin-bottom:8px; animation:fadeUp .8s .1s ease both; max-width:620px; }
+    .hero-title-tc { font-family:'Noto Serif TC',serif; font-size:clamp(14px,2vw,17px); color:var(--ink-muted); margin-bottom:22px; animation:fadeUp .8s .15s ease both; }
+    .hero-ribbon { width:180px; margin-bottom:24px; animation:fadeUp .8s .2s ease both; }
+    .hero-body { font-family:'Cormorant Garamond',serif; font-size:clamp(16px,1.8vw,18px); font-style:italic; color:var(--ink-muted); line-height:1.75; max-width:540px; margin-bottom:32px; animation:fadeUp .8s .25s ease both; }
+    .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; animation:fadeUp .8s .3s ease both; }
+
+    .btn-strategy { padding:14px 32px; background:var(--strategy); border:none; border-radius:30px; font-family:'Nunito Sans',sans-serif; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:white; cursor:pointer; transition:all .25s; box-shadow:0 4px 18px rgba(176,48,80,.3); display:inline-block; }
+    .btn-strategy:hover { background:#8A1828; transform:translateY(-2px); box-shadow:0 8px 26px rgba(176,48,80,.45); }
+    .btn-outline-ink { padding:14px 32px; background:transparent; border:1px solid rgba(26,20,16,.2); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-muted); transition:all .2s; display:inline-block; }
+    .btn-outline-ink:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+
+    /* Quick facts */
+    .hero-facts { display:flex; gap:28px; flex-wrap:wrap; padding-top:24px; border-top:1px solid rgba(26,20,16,.1); animation:fadeUp .8s .38s ease both; }
+    .hfact { display:flex; flex-direction:column; gap:3px; }
+    .hfact-val { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--strategy); }
+    .hfact-label { font-size:9px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-muted); }
+
+    /* Right — pain-point diagnostic visual */
+    .hero-right { animation:fadeUp 1s .35s ease both; }
+    .diag-card { background:white; border-radius:18px; padding:32px 28px; box-shadow:0 4px 28px rgba(26,20,16,.1); border:1px solid rgba(176,120,32,.1); width:300px; }
+    .diag-title { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:18px; }
+    .diag-items { display:flex; flex-direction:column; gap:12px; }
+    .diag-item { display:flex; align-items:flex-start; gap:10px; }
+    .diag-icon { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0; }
+    .diag-icon.s { background:rgba(176,48,80,.1); }
+    .diag-icon.t { background:rgba(200,112,26,.1); }
+    .diag-icon.e { background:rgba(34,136,128,.1); }
+    .diag-icon.p { background:rgba(104,72,160,.1); }
+    .diag-text { font-size:13px; color:var(--ink-muted); line-height:1.5; padding-top:5px; }
+    .diag-text strong { color:var(--ink); }
+    .diag-footer { margin-top:20px; padding-top:16px; border-top:1px solid rgba(26,20,16,.08); font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:var(--ink-muted); text-align:center; }
+
+    /* ─── PAIN POINTS — WARM ─── */
+    .section-pain { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-pain::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); pointer-events:none; }
+    .pain-wash-tr { position:absolute; top:-40px; right:-40px; width:340px; height:340px; background:radial-gradient(ellipse at 75% 25%,rgba(176,48,80,.1) 0%,transparent 65%); pointer-events:none; }
+    .pain-wash-bl { position:absolute; bottom:-40px; left:-40px; width:300px; height:300px; background:radial-gradient(ellipse at 25% 75%,rgba(104,72,160,.08) 0%,transparent 65%); pointer-events:none; }
+    .pain-ghost { position:absolute; bottom:-40px; left:-14px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+
+    .pain-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .pain-header { max-width:680px; margin-bottom:56px; }
+    .pain-header .eyebrow { display:block; margin-bottom:14px; }
+    .pain-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,42px); font-weight:700; color:var(--ink); line-height:1.15; margin-bottom:10px; }
+    .pain-title span { color:var(--strategy); }
+    .pain-ribbon { width:160px; margin-bottom:18px; }
+    .pain-body { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:var(--ink-muted); line-height:1.75; }
+
+    .pain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .pain-card { background:white; border-radius:14px; padding:28px 24px; border-left:4px solid transparent; box-shadow:0 2px 12px rgba(26,20,16,.07); transition:transform .2s, box-shadow .2s; }
+    .pain-card:hover { transform:translateY(-3px); box-shadow:0 8px 26px rgba(26,20,16,.12); }
+    .pain-card.s { border-left-color:var(--strategy); }
+    .pain-card.t { border-left-color:var(--technical); }
+    .pain-card.e { border-left-color:var(--empower); }
+    .pain-card.p { border-left-color:var(--people); }
+    .pain-card.g { border-left-color:var(--gold-warm); }
+    .pain-card.c { border-left-color:var(--empower); }
+    .pain-num { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; margin-bottom:8px; }
+    .pain-card.s .pain-num { color:var(--strategy); }
+    .pain-card.t .pain-num { color:var(--technical); }
+    .pain-card.e .pain-num { color:var(--empower); }
+    .pain-card.p .pain-num { color:var(--people); }
+    .pain-card.g .pain-num { color:var(--gold-warm); }
+    .pain-card.c .pain-num { color:var(--empower); }
+    .pain-card-title { font-size:13px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+    .pain-card-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.6; }
+
+    /* ─── 8-WEEK CURRICULUM — WARM ─── */
+    .section-curriculum { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-curriculum::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .curr-wash { position:absolute; top:-40px; right:-40px; width:320px; height:320px; background:radial-gradient(ellipse at 75% 25%,rgba(34,136,128,.09) 0%,transparent 65%); pointer-events:none; }
+    .curr-ghost { position:absolute; top:0; right:-10px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+
+    .curr-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .curr-header { margin-bottom:52px; }
+    .curr-header .eyebrow { display:block; margin-bottom:14px; }
+    .curr-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3.5vw,40px); font-weight:700; color:var(--ink); line-height:1.15; margin-bottom:10px; }
+    .curr-ribbon { width:160px; margin-bottom:18px; }
+    .curr-body { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:var(--ink-muted); line-height:1.75; max-width:580px; }
+
+    .weeks-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .week-card { background:white; border-radius:14px; padding:26px 24px; display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:start; box-shadow:0 2px 10px rgba(26,20,16,.07); border-top:3px solid transparent; transition:transform .2s, box-shadow .2s; }
+    .week-card:hover { transform:translateY(-2px); box-shadow:0 6px 22px rgba(26,20,16,.1); }
+    .week-card:nth-child(1) { border-top-color:var(--strategy); }
+    .week-card:nth-child(2) { border-top-color:var(--technical); }
+    .week-card:nth-child(3) { border-top-color:var(--empower); }
+    .week-card:nth-child(4) { border-top-color:var(--people); }
+    .week-card:nth-child(5) { border-top-color:var(--strategy); }
+    .week-card:nth-child(6) { border-top-color:var(--technical); }
+    .week-card:nth-child(7) { border-top-color:var(--empower); }
+    .week-card:nth-child(8) { border-top-color:var(--people); }
+
+    .week-num { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:rgba(26,20,16,.15); line-height:1; }
+    .week-content {}
+    .week-label { font-size:8px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-warm); margin-bottom:5px; }
+    .week-title { font-size:14px; font-weight:700; color:var(--ink); margin-bottom:8px; line-height:1.3; }
+    .week-desc { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--ink-muted); line-height:1.6; }
+
+    /* ─── WHAT YOU'LL GET ─── */
+    .section-get { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-get::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); pointer-events:none; }
+    .get-wash { position:absolute; top:-40px; right:-40px; width:340px; height:340px; background:radial-gradient(ellipse at 75% 25%,rgba(176,48,80,.09) 0%,transparent 65%); pointer-events:none; }
+    .get-ghost { position:absolute; bottom:-30px; left:-12px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+
+    .get-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .get-left {}
+    .get-eyebrow { display:block; margin-bottom:14px; }
+    .get-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3.2vw,38px); font-weight:700; color:var(--ink); line-height:1.15; margin-bottom:10px; }
+    .get-ribbon { width:160px; margin-bottom:22px; }
+    .get-body { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:var(--ink-muted); line-height:1.75; margin-bottom:28px; }
+
+    .get-items { display:flex; flex-direction:column; gap:14px; }
+    .get-item { display:flex; align-items:flex-start; gap:12px; padding:16px 18px; background:white; border-radius:10px; box-shadow:0 1px 8px rgba(26,20,16,.06); }
+    .get-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+    .get-dot.s { background:var(--strategy); }
+    .get-dot.t { background:var(--technical); }
+    .get-dot.e { background:var(--empower); }
+    .get-dot.p { background:var(--people); }
+    .get-dot.g { background:var(--gold-warm); }
+    .get-item-text { font-size:13px; color:var(--ink-muted); line-height:1.55; }
+    .get-item-text strong { color:var(--ink); font-weight:700; }
+
+    /* Testimonial */
+    .get-right {}
+    .testi-card { background:white; border-radius:16px; padding:36px 30px; box-shadow:0 3px 18px rgba(26,20,16,.09); border:1px solid rgba(176,120,32,.1); margin-bottom:16px; position:relative; overflow:hidden; }
+    .testi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); }
+    .testi-mark { font-family:'Playfair Display',serif; font-size:56px; font-weight:900; color:var(--strategy); opacity:.15; line-height:1; margin-bottom:-12px; }
+    .testi-text { font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--ink-muted); line-height:1.75; margin-bottom:20px; }
+    .testi-text strong { color:var(--ink); font-weight:600; font-style:normal; }
+    .testi-hr { height:1px; background:linear-gradient(to right,var(--gold-warm),transparent); opacity:.3; margin-bottom:14px; }
+    .testi-author { font-size:12px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+    .testi-role { font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:var(--ink-muted); }
+
+    .add-on-card { background:white; border-radius:14px; padding:26px 24px; box-shadow:0 2px 12px rgba(26,20,16,.07); border-top:3px solid var(--people); }
+    .add-on-tag { display:inline-block; padding:4px 12px; background:rgba(104,72,160,.1); border-radius:20px; font-size:8px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--people); margin-bottom:14px; }
+    .add-on-title { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+    .add-on-body { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); line-height:1.65; }
+
+    /* ─── REGISTER — COSMIC (urgency) ─── */
+    .section-register {
+      background:linear-gradient(155deg,var(--cosmic-void),var(--cosmic-nebula),#2A1860);
+      position:relative; overflow:hidden; padding:100px 40px;
+    }
+    .reg-stars::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(1.5px 1.5px at 10% 20%,rgba(255,255,255,.8) 0%,transparent 100%),
+        radial-gradient(1px 1px at 28% 65%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(2px 2px at 45% 12%,rgba(255,221,100,.6) 0%,transparent 100%),
+        radial-gradient(1px 1px at 62% 48%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1.5px 1.5px at 78% 72%,rgba(255,255,255,.7) 0%,transparent 100%),
+        radial-gradient(1px 1px at 90% 25%,rgba(255,221,100,.5) 0%,transparent 100%);
+      pointer-events:none;
+    }
+    .reg-glow { position:absolute; top:-60px; right:-60px; width:440px; height:440px; background:radial-gradient(circle,rgba(176,48,80,.4) 0%,transparent 68%); pointer-events:none; }
+    .reg-ghost { position:absolute; top:10px; left:-12px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(200,144,26,.04); line-height:1; pointer-events:none; user-select:none; }
+
+    .reg-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 380px; gap:80px; align-items:start; }
+
+    .reg-left {}
+    .reg-eyebrow { display:block; margin-bottom:18px; }
+    .reg-title { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,50px); font-weight:900; font-style:italic; color:var(--parchment); line-height:1.1; margin-bottom:18px; }
+    .reg-ribbon { width:180px; margin-bottom:24px; }
+    .reg-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(246,240,227,.8); line-height:1.7; margin-bottom:14px; }
+    .reg-note { font-size:11px; color:rgba(246,240,227,.55); margin-bottom:32px; }
+
+    /* What's included list */
+    .reg-includes { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+    .reg-include { display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(246,240,227,.82); }
+    .reg-check { width:18px; height:18px; border-radius:50%; background:rgba(34,136,128,.3); border:1px solid rgba(34,136,128,.6); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:9px; color:#6AD0C8; }
+    .reg-ctas { display:flex; gap:14px; flex-wrap:wrap; }
+    .btn-light { padding:14px 32px; background:var(--parchment); border:none; border-radius:30px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--strategy); transition:all .25s; box-shadow:0 4px 18px rgba(246,240,227,.2); display:inline-block; }
+    .btn-light:hover { background:white; transform:translateY(-2px); }
+    .btn-ghost-light { padding:14px 32px; background:transparent; border:1px solid rgba(246,240,227,.3); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(246,240,227,.82); transition:all .25s; display:inline-block; }
+    .btn-ghost-light:hover { border-color:rgba(246,240,227,.6); color:var(--parchment); }
+
+    /* Pricing card */
+    .pricing-card { background:rgba(246,240,227,.07); border:1px solid rgba(246,240,227,.15); border-radius:18px; padding:36px 30px; }
+    .pricing-card::before { content:''; display:block; height:3px; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); border-radius:2px; margin-bottom:28px; }
+    .pricing-open-badge { display:inline-flex; align-items:center; gap:7px; padding:5px 14px; background:rgba(176,48,80,.2); border:1px solid rgba(176,48,80,.4); border-radius:20px; font-size:8px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#E888A0; margin-bottom:20px; }
+    .pricing-open-dot { width:6px; height:6px; border-radius:50%; background:#E888A0; animation:pulse 2s ease-in-out infinite; }
+    .pricing-label { font-size:9px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:rgba(246,240,227,.5); margin-bottom:6px; }
+    .pricing-main { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; color:var(--parchment); margin-bottom:4px; line-height:1; }
+    .pricing-main span { font-size:16px; font-weight:400; color:rgba(246,240,227,.6); vertical-align:middle; }
+    .pricing-desc { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:rgba(246,240,227,.6); margin-bottom:22px; line-height:1.55; }
+    .pricing-divider { height:1px; background:rgba(246,240,227,.12); margin-bottom:20px; }
+    .pricing-addon-label { font-size:9px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:rgba(246,240,227,.45); margin-bottom:10px; }
+    .pricing-addon { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .pricing-addon-name { font-size:13px; color:rgba(246,240,227,.75); }
+    .pricing-addon-price { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--gold-whisper); }
+    .pricing-footer-note { font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:rgba(246,240,227,.45); margin-top:16px; line-height:1.55; }
+    .pricing-cta { margin-top:24px; width:100%; padding:15px; background:var(--strategy); border:none; border-radius:30px; font-family:'Nunito Sans',sans-serif; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:white; cursor:pointer; transition:all .25s; box-shadow:0 4px 18px rgba(176,48,80,.4); display:block; text-align:center; }
+    .pricing-cta:hover { background:#8A1828; transform:translateY(-2px); }
+
+    /* ─── FCM UPSELL — WARM ─── */
+    .section-upsell { background:var(--parchment-deep); position:relative; overflow:hidden; padding:90px 40px; }
+    .section-upsell::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); pointer-events:none; }
+    .upsell-wash { position:absolute; top:-40px; right:-40px; width:300px; height:300px; background:radial-gradient(ellipse at 75% 25%,rgba(104,72,160,.1) 0%,transparent 65%); pointer-events:none; }
+    .upsell-inner { position:relative; z-index:2; max-width:860px; margin:0 auto; text-align:center; }
+    .upsell-eyebrow { display:block; margin-bottom:14px; }
+    .upsell-title { font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,36px); font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .upsell-ribbon { width:160px; margin:14px auto 20px; }
+    .upsell-body { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:var(--ink-muted); line-height:1.75; max-width:600px; margin:0 auto 32px; }
+    .upsell-path { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:32px; }
+    .upsell-step { text-align:center; }
+    .upsell-step-badge { display:inline-block; padding:8px 18px; border-radius:20px; font-size:11px; font-weight:700; border:1px solid; margin-bottom:6px; }
+    .upsell-step-badge.current { background:rgba(176,48,80,.1); border-color:rgba(176,48,80,.3); color:var(--strategy); }
+    .upsell-step-badge.next { background:rgba(200,144,26,.1); border-color:rgba(200,144,26,.3); color:var(--gold-pure); }
+    .upsell-step-label { font-size:11px; color:var(--ink-muted); }
+    .upsell-arrow { font-size:20px; color:rgba(26,20,16,.25); }
+
+    /* ─── FOOTER ─── */
+    .footer { background:#060410; border-top:1px solid rgba(200,144,26,.1); padding:60px 40px 36px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px; padding-bottom:50px; border-bottom:1px solid rgba(246,240,227,.1); }
+    .footer-brand-name { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--parchment); margin-bottom:4px; }
+    .footer-brand-tc { font-family:'Noto Serif TC',serif; font-size:12px; color:rgba(246,240,227,.58); margin-bottom:16px; letter-spacing:.08em; }
+    .footer-brand-desc { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:rgba(246,240,227,.68); line-height:1.7; margin-bottom:20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .social-btn { width:32px; height:32px; border-radius:50%; border:1px solid rgba(246,240,227,.22); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:rgba(246,240,227,.65); transition:all .2s; }
+    .social-btn:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+    .footer-col-title { font-size:9px; font-weight:700; letter-spacing:.4em; text-transform:uppercase; color:var(--gold-whisper); opacity:.85; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { font-size:13px; color:rgba(246,240,227,.68); transition:color .2s; }
+    .footer-links a:hover { color:var(--parchment); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-legal { font-size:11px; color:rgba(246,240,227,.48); line-height:1.6; }
+    .footer-ribbon-sm { width:120px; opacity:.5; }
+    .footer-legal-links { display:flex; gap:20px; }
+    .footer-legal-links a { font-size:11px; color:rgba(246,240,227,.48); transition:color .2s; }
+    .footer-legal-links a:hover { color:rgba(246,240,227,.82); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:960px) {
+      .nav-links,.nav-cta { display:none; }
+      .nav-hamburger { display:flex; }
+      .hero-inner { grid-template-columns:1fr; gap:44px; }
+      .hero-right { display:none; }
+      .pain-grid { grid-template-columns:1fr 1fr; }
+      .weeks-grid { grid-template-columns:1fr; }
+      .get-inner { grid-template-columns:1fr; gap:48px; }
+      .reg-inner { grid-template-columns:1fr; gap:48px; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:600px) {
+      .nav { padding:0 20px; }
+      .hero { padding:130px 20px 70px; }
+      .section-pain,.section-curriculum,.section-get,.section-register,.section-upsell { padding:70px 20px; }
+      .footer { padding:50px 20px 28px; }
+      .footer-top { grid-template-columns:1fr; gap:32px; }
+      .pain-grid { grid-template-columns:1fr; }
+      .hero-facts { gap:18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy logo" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:12px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs" class="active">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="#register" class="nav-cta">Register Now</a>
+    <div class="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO — WARM WATERCOLOUR ─── -->
+  <header class="hero topo">
+    <div class="hero-wash-tr breathe"></div>
+    <div class="hero-wash-bl breathe" style="animation-delay:.9s"></div>
+    <div class="hero-ghost" aria-hidden="true">人</div>
+
+    <div class="hero-inner">
+      <div class="hero-left">
+        <span class="eyebrow hero-eyebrow">SME HR Programme · 中小企業人才管理</span>
+        <div class="hero-live">
+          <span class="hero-live-dot"></span>
+          <span class="hero-live-text">Cohort Now Open · Registration Live</span>
+        </div>
+        <h1 class="hero-title">Practical HR for SMEs who can't afford to get <span style="color:var(--strategy)">people wrong.</span></h1>
+        <p class="hero-title-tc">沒有人事部也能做好人才管理</p>
+        <div class="four-ribbon hero-ribbon"></div>
+        <p class="hero-body">
+          Most HR training assumes you have an HR department. This programme was built for SME owners and managers who do it themselves — and need it to work on Monday morning, not just look good in a training room.
+        </p>
+        <div class="hero-ctas">
+          <a href="#register" class="btn-strategy">Register for This Cohort</a>
+          <a href="#curriculum" class="btn-outline-ink">See What's Covered ↓</a>
+        </div>
+        <div class="hero-facts">
+          <div class="hfact">
+            <span class="hfact-val">8</span>
+            <span class="hfact-label">Weeks Online</span>
+          </div>
+          <div class="hfact">
+            <span class="hfact-val">Live</span>
+            <span class="hfact-label">Sessions + Recordings</span>
+          </div>
+          <div class="hfact">
+            <span class="hfact-val">AI</span>
+            <span class="hfact-label">Personal Course Tutor</span>
+          </div>
+          <div class="hfact">
+            <span class="hfact-val">SME</span>
+            <span class="hfact-label">Context Only</span>
+          </div>
+          <div class="hfact">
+            <span class="hfact-val">Tools</span>
+            <span class="hfact-label">You Use Day 1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pain diagnostic visual -->
+      <div class="hero-right">
+        <div class="diag-card">
+          <p class="diag-title">Sound familiar?</p>
+          <div class="diag-items">
+            <div class="diag-item">
+              <div class="diag-icon s">👤</div>
+              <p class="diag-text"><strong>Wrong hires</strong> who looked perfect in the interview but don't perform</p>
+            </div>
+            <div class="diag-item">
+              <div class="diag-icon t">📉</div>
+              <p class="diag-text"><strong>Performance gaps</strong> you can see but don't know how to close</p>
+            </div>
+            <div class="diag-item">
+              <div class="diag-icon e">🔄</div>
+              <p class="diag-text"><strong>High turnover</strong> from good people who leave environments, not salaries</p>
+            </div>
+            <div class="diag-item">
+              <div class="diag-icon p">🤷</div>
+              <p class="diag-text"><strong>No system</strong> — just firefighting and hoping things improve</p>
+            </div>
+          </div>
+          <p class="diag-footer">This programme solves all four.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── PAIN POINTS ─── -->
+  <section class="section-pain topo">
+    <div class="pain-wash-tr breathe"></div>
+    <div class="pain-wash-bl breathe" style="animation-delay:.8s"></div>
+    <div class="pain-ghost" aria-hidden="true">難</div>
+    <div class="pain-inner">
+      <div class="pain-header">
+        <span class="eyebrow">The Real Problem · 真正的問題</span>
+        <h2 class="pain-title">You're managing people without <span>a system.</span></h2>
+        <div class="four-ribbon pain-ribbon"></div>
+        <p class="pain-body">Most SME owners and managers weren't trained in HR. They were promoted, or they started the business. People management was learned on the job — through painful mistakes that could have been avoided with the right framework.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card s">
+          <p class="pain-card-title">Hiring by gut feel</p>
+          <p class="pain-card-body">Interviews that feel like conversations but reveal nothing. Candidates who perform brilliantly under scrutiny then disappear once they start.</p>
+        </div>
+        <div class="pain-card t">
+          <p class="pain-card-title">Job scopes nobody follows</p>
+          <p class="pain-card-body">Roles that exist on paper but don't match reality. KPIs that don't drive the right behaviours. Performance reviews that feel like box-ticking.</p>
+        </div>
+        <div class="pain-card e">
+          <p class="pain-card-title">Managers who manage tasks, not people</p>
+          <p class="pain-card-body">Team leaders who were technical experts — now responsible for developing others but never taught how. Results: frustrated managers, demotivated teams.</p>
+        </div>
+        <div class="pain-card p">
+          <p class="pain-card-title">Good people leaving for no reason</p>
+          <p class="pain-card-body">Staff who resigned and you still don't know why. Turnover that costs you 3–6 months of salary per person to replace, plus all the knowledge they took with them.</p>
+        </div>
+        <div class="pain-card g">
+          <p class="pain-card-title">No development system</p>
+          <p class="pain-card-body">Training that happens reactively — when there's a problem. No clear career path. No system to grow people from within before you desperately need them.</p>
+        </div>
+        <div class="pain-card c">
+          <p class="pain-card-title">Culture by accident</p>
+          <p class="pain-card-body">The team's culture is whatever it became — not what you intended. Values are on the wall but not in the daily decisions of your managers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 8-WEEK CURRICULUM ─── -->
+  <section class="section-curriculum topo" id="curriculum">
+    <div class="curr-wash breathe"></div>
+    <div class="curr-ghost" aria-hidden="true">學</div>
+    <div class="curr-inner">
+      <div class="curr-header">
+        <span class="eyebrow">8-Week Curriculum · 八週課程大綱</span>
+        <h2 class="curr-title">Eight weeks. Every critical HR challenge <span style="color:var(--strategy)">solved.</span></h2>
+        <div class="four-ribbon curr-ribbon"></div>
+        <p class="curr-body">One focused topic per week. Each session builds on the last — by Week 8 you have a complete, working people management system for your organisation.</p>
+      </div>
+      <div class="weeks-grid">
+        <div class="week-card">
+          <span class="week-num">01</span>
+          <div class="week-content">
+            <p class="week-label">Foundation</p>
+            <h3 class="week-title">HR Fundamentals for SME Leaders</h3>
+            <p class="week-desc">What HR actually means in an SME context. The people systems every growing business needs — and what happens when you build without them.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">02</span>
+          <div class="week-content">
+            <p class="week-label">Hiring</p>
+            <h3 class="week-title">Hiring Right the First Time</h3>
+            <p class="week-desc">Assess candidates through their stories, not their rehearsed answers. Interview frameworks that reveal what a CV never can. Build a hiring scorecard that predicts performance.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">03</span>
+          <div class="week-content">
+            <p class="week-label">Role Clarity</p>
+            <h3 class="week-title">Job Scopes & KPIs That Drive Results</h3>
+            <p class="week-desc">Write job descriptions your team can actually follow. Design KPIs that align individual work to business goals — not just metrics that look good on a report.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">04</span>
+          <div class="week-content">
+            <p class="week-label">Onboarding</p>
+            <h3 class="week-title">Making New Hires Succeed Faster</h3>
+            <p class="week-desc">A structured first 90 days that reduces ramp-up time and increases retention. Most SMEs lose new staff in the first three months — this week fixes that.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">05</span>
+          <div class="week-content">
+            <p class="week-label">Performance</p>
+            <h3 class="week-title">Managing & Closing Performance Gaps</h3>
+            <p class="week-desc">Diagnose whether a gap is a skill, will, or environment problem. Have performance conversations that lead to change — not defensiveness. Use the Performance Gap Analysis tool.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">06</span>
+          <div class="week-content">
+            <p class="week-label">Development</p>
+            <h3 class="week-title">Growing People from Within</h3>
+            <p class="week-desc">Build a simple career pathing system your team believes in. Identify internal talent before they start looking elsewhere. Develop people proactively, not reactively.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">07</span>
+          <div class="week-content">
+            <p class="week-label">Retention</p>
+            <h3 class="week-title">Why Good People Stay (and Leave)</h3>
+            <p class="week-desc">The real drivers of staff retention — and they're not salary. Build an environment where your best people choose to stay because they're growing, seen, and valued.</p>
+          </div>
+        </div>
+        <div class="week-card">
+          <span class="week-num">08</span>
+          <div class="week-content">
+            <p class="week-label">Systems</p>
+            <h3 class="week-title">Building Your HR System</h3>
+            <p class="week-desc">Pull everything together into a functioning HR system for your business. Leave with a complete playbook — not a folder of notes you'll never open again.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT YOU'LL GET + TESTIMONIAL ─── -->
+  <section class="section-get topo">
+    <div class="get-wash breathe"></div>
+    <div class="get-ghost" aria-hidden="true">得</div>
+    <div class="get-inner">
+      <div class="get-left">
+        <span class="eyebrow get-eyebrow">What You'll Walk Away With · 課程成果</span>
+        <h2 class="get-title">A working people system — not a <span style="color:var(--strategy)">notebook.</span></h2>
+        <div class="four-ribbon get-ribbon"></div>
+        <p class="get-body">Every week produces a deliverable you apply immediately. By Week 8 you have eight connected tools that form your complete SME HR system.</p>
+        <div class="get-items">
+          <div class="get-item"><span class="get-dot s"></span><p class="get-item-text"><strong>Hiring scorecard</strong> that predicts cultural and performance fit</p></div>
+          <div class="get-item"><span class="get-dot t"></span><p class="get-item-text"><strong>Job scope templates</strong> with real KPIs for every role in your business</p></div>
+          <div class="get-item"><span class="get-dot e"></span><p class="get-item-text"><strong>90-day onboarding plan</strong> that turns new hires into contributors faster</p></div>
+          <div class="get-item"><span class="get-dot p"></span><p class="get-item-text"><strong>Performance conversation framework</strong> that creates change, not conflict</p></div>
+          <div class="get-item"><span class="get-dot g"></span><p class="get-item-text"><strong>Career pathing system</strong> your team can see and believe in</p></div>
+          <div class="get-item"><span class="get-dot s"></span><p class="get-item-text"><strong>Retention strategy</strong> built on the real reasons good people stay</p></div>
+          <div class="get-item"><span class="get-dot e"></span><p class="get-item-text"><strong>Complete HR playbook</strong> — your organisation's people management system</p></div>
+        </div>
+
+        <!-- AI Tutor Feature Card -->
+        <div style="margin-top:24px;background:linear-gradient(135deg,rgba(104,72,160,.08),rgba(34,136,128,.06));border:1px solid rgba(104,72,160,.2);border-radius:14px;padding:24px 22px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-10px;right:-8px;font-family:'Noto Serif TC',serif;font-size:100px;font-weight:900;color:rgba(104,72,160,.05);line-height:1;pointer-events:none;user-select:none;">AI</div>
+          <div style="position:relative;z-index:1;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--people),var(--empower));display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🤖</div>
+              <div>
+                <p style="font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--people);margin-bottom:2px;">Included for Every Participant</p>
+                <p style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);">Your Personal AI Course Tutor</p>
+              </div>
+            </div>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--ink-muted);line-height:1.65;">Every participant receives a custom-built AI tutor trained on the programme curriculum. Ask questions between sessions, get guidance on your weekly assignments, and deepen your understanding — at 11pm when the idea strikes, not just during class.</p>
+          </div>
+        </div>
+      </div>
+      <div class="get-right">
+        <div class="testi-card">
+          <div class="testi-mark">"</div>
+          <p class="testi-text">
+            I joined the Strategic HR programme and was amazed by how practical and eye-opening it was. <strong>I learned to assess candidates through their stories</strong> — which led to better hiring decisions and stronger team performance. We later enrolled a solo-style manager into the STEP First Class Manager course. He became more open and collaborative, transforming our culture. <strong>When a manager grows, the whole team does too.</strong>
+          </p>
+          <div class="testi-hr"></div>
+          <p class="testi-author">Erin Sin</p>
+          <p class="testi-role">Co-Founder, ETIN Trading</p>
+        </div>
+        <div class="add-on-card">
+          <span class="add-on-tag">Add-On · RM 668</span>
+          <h3 class="add-on-title">Session Recordings Library</h3>
+          <p class="add-on-body">Can't make every live session? Add the Recordings Library for RM 668 and access all 8 sessions on-demand for 2 months — revisit any topic whenever you need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── REGISTER + PRICING ─── -->
+  <section class="section-register reg-stars" id="register">
+    <div class="reg-glow breathe"></div>
+    <div class="reg-ghost" aria-hidden="true">報</div>
+    <div class="reg-inner">
+      <div class="reg-left">
+        <span class="eyebrow reg-eyebrow">Register Now · 立即報名</span>
+        <h2 class="reg-title">This cohort is <span class="gold" style="background:linear-gradient(135deg,#E8C96A,#C8901A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">forming now.</span></h2>
+        <div class="four-ribbon reg-ribbon"></div>
+        <p class="reg-body">Seats are limited to keep the cohort intimate and interactive. Once the cohort is full, registration closes until the next intake.</p>
+        <p class="reg-note">8-week online programme · Live sessions + community · Practical tools every week</p>
+        <div class="reg-includes">
+          <div class="reg-include"><span class="reg-check">✓</span>8 live weekly sessions</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Personal AI course tutor — available 24/7 for your assignments</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Practical tools and templates for every week</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Cohort peer learning community</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Facilitator access during sessions</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Complete HR playbook by Week 8</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Certificate of completion</div>
+          <div class="reg-include"><span class="reg-check">✓</span>Optional: Session recordings (RM 668 · 2-month access)</div>
+        </div>
+        <div class="reg-ctas">
+          <a href="/stepdex-trinity" class="btn-light">Register My Spot →</a>
+          <a href="/stepdex-trinity" class="btn-ghost-light">Ask a Question</a>
+        </div>
+      </div>
+
+      <!-- Pricing card -->
+      <div>
+        <div class="pricing-card">
+          <div class="pricing-open-badge">
+            <span class="pricing-open-dot"></span>
+            Registration Open
+          </div>
+          <p class="pricing-label">Programme Fee</p>
+          <p class="pricing-main">Contact Us <span>for pricing</span></p>
+          <p class="pricing-desc">Low-barrier entry designed for SME owners. Reach out to confirm current cohort pricing and available dates.</p>
+          <div class="pricing-divider"></div>
+          <p class="pricing-addon-label">Optional Add-On</p>
+          <div class="pricing-addon">
+            <span class="pricing-addon-name">Session Recordings Library</span>
+            <span class="pricing-addon-price">RM 668</span>
+          </div>
+          <p class="pricing-footer-note">All 8 session recordings. 2-month access. Revisit any topic when you need it most.</p>
+          <a href="/stepdex-trinity" class="pricing-cta">Reserve My Place →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FCM UPSELL ─── -->
+  <section class="section-upsell topo">
+    <div class="upsell-wash breathe"></div>
+    <div class="upsell-inner">
+      <span class="eyebrow upsell-eyebrow">Your Development Path · 繼續成長</span>
+      <h2 class="upsell-title">The SME HR Programme is where great managers <span style="color:var(--strategy)">begin.</span></h2>
+      <div class="four-ribbon upsell-ribbon"></div>
+      <p class="upsell-body">Many graduates continue their development with the STEP First Class Manager programme — the full four-dimension leadership journey accredited by USM, Graduate School of Business. The HR programme gives you the people foundation. FCM builds the leader.</p>
+      <div class="upsell-path">
+        <div class="upsell-step">
+          <span class="upsell-step-badge current">SME HR Programme</span>
+          <p class="upsell-step-label">You are here</p>
+        </div>
+        <span class="upsell-arrow">→</span>
+        <div class="upsell-step">
+          <span class="upsell-step-badge next">STEP First Class Manager</span>
+          <p class="upsell-step-label">Natural next step</p>
+        </div>
+      </div>
+      <a href="/stepfcm-en" class="btn-outline-ink">Learn About FCM →</a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">STEPDEX<span class="reg">®</span> Academy</p>
+          <p class="footer-brand-tc">思德教育學院</p>
+          <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+          <p class="footer-brand-desc">Empowering SME leaders through the STEP framework — Strategy, Technical, Empower, People. Powered by HPI Synergy PLT.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/stepdex" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/stepdex" class="social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/stepdex.my" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Programmes</p>
+          <ul class="footer-links">
+            <li><a href="/stepfcm-en">STEP First Class Manager</a></li>
+            <li><a href="/sme-hr">SME HR Programme</a></li>
+            <li><a href="/programs">LEAP of Faith</a></li>
+            <li><a href="/programs">Leading with Empathy</a></li>
+            <li><a href="/gps">GPS Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Academy</p>
+          <ul class="footer-links">
+            <li><a href="/about">About STEPDEX<span class="reg">®</span></a></li>
+            <li><a href="/hpi">About HPI</a></li>
+            <li><a href="/experts">Our Experts</a></li>
+            <li><a href="/pathfinder">Pathfinder</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Free Tools</p>
+          <ul class="footer-links">
+            <li><a href="https://sme.stepdex.my">SME Diagnosis</a></li>
+            <li><a href="https://mgr.stepdex.my">Manager Assessment</a></li>
+            <li><a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD">WhatsApp Community</a></li>
+          </ul>
+          <p class="footer-col-title" style="margin-top:28px">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@stepdex.my">hello@stepdex.my</a></li>
+            <li><a href="https://maps.app.goo.gl/wfVDE5pEEfXniBjL7" target="_blank" rel="noopener">Menara Keck Seng, KL</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+        <div class="four-ribbon footer-ribbon-sm"></div>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+          <a href="/code">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

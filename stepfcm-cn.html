@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>STEP 全能一級經理課程 | STEPDEX® 思德教育學院</title>
+  <meta name="description" content="STEPDEX® 思德教育學院旗艦課程 — STEP 全能一級經理。五天密集培訓，涵蓋策略、專業、賦能、人際四大維度。獲 USM 理工大學管理學院認證，可申請 HRDCorp 資助。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stepdex.my/stepfcm-cn" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.stepdex.my/stepfcm-cn" />
+  <meta property="og:title"       content="STEP 全能一級經理課程 | STEPDEX® 思德教育學院" />
+  <meta property="og:description" content="馬來西亞中小企業管理人員的系統性領導發展路徑。USM 管理學院認證。可申請 HRDCorp 資助。第12屆正在進行中。" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --parchment:      #F6F0E3;
+      --parchment-deep: #EDE3CB;
+      --ink:            #1A1410;
+      --ink-muted:      #6A5A42;
+      --gold-warm:      #B07820;
+      --gold-pure:      #C8901A;
+      --gold-whisper:   #D4A84B;
+      --strategy:       #B03050;
+      --technical:      #C8701A;
+      --empower:        #228880;
+      --people:         #6848A0;
+      --cosmic-void:    #080612;
+      --cosmic-nebula:  #1C1248;
+      --page-bg:        #0C0906;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito Sans',sans-serif; background:var(--page-bg); color:var(--parchment); overflow-x:hidden; }
+    img { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+
+    .reg { font-size:.52em; vertical-align:super; line-height:0; font-weight:inherit; letter-spacing:0; }
+
+    @keyframes breathe  { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    @keyframes twinkle  { 0%,100%{opacity:.25} 50%{opacity:.9} }
+    @keyframes pathDraw { from{stroke-dashoffset:700;opacity:0} to{stroke-dashoffset:0;opacity:1} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    .breathe { animation:breathe 3.5s ease-in-out infinite; }
+    .twinkle { animation:twinkle 4s ease-in-out infinite; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; } }
+
+    .gold { background:linear-gradient(135deg,#E8C96A,#C8901A,#F0D878,#B07820); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .eyebrow { font-size:9px; font-weight:700; letter-spacing:.45em; text-transform:uppercase; color:var(--gold-warm); opacity:.9; }
+    .four-ribbon { height:2.5px; background:linear-gradient(to right,var(--strategy) 0% 25%,var(--technical) 25% 50%,var(--empower) 50% 75%,var(--people) 75% 100%); border-radius:2px; }
+
+    /* Star field */
+    .stars::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(1.5px 1.5px at 8%  18%,rgba(255,255,255,.85) 0%,transparent 100%),
+        radial-gradient(1px   1px   at 22%  55%,rgba(255,255,255,.55) 0%,transparent 100%),
+        radial-gradient(2px   2px   at 38%  8%, rgba(255,221,100,.65) 0%,transparent 100%),
+        radial-gradient(1px   1px   at 55%  72%,rgba(255,255,255,.5)  0%,transparent 100%),
+        radial-gradient(1.5px 1.5px at 70%  30%,rgba(255,255,255,.75) 0%,transparent 100%),
+        radial-gradient(1px   1px   at 84%  62%,rgba(255,255,255,.45) 0%,transparent 100%),
+        radial-gradient(2px   2px   at 93%  15%,rgba(255,221,100,.55) 0%,transparent 100%),
+        radial-gradient(1px   1px   at 16%  85%,rgba(255,255,255,.5)  0%,transparent 100%),
+        radial-gradient(1.5px 1.5px at 47%  44%,rgba(255,255,255,.6)  0%,transparent 100%),
+        radial-gradient(1px   1px   at 78%  88%,rgba(255,255,255,.4)  0%,transparent 100%);
+      pointer-events:none;
+    }
+
+    /* ─── NAV ─── */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; background:rgba(8,6,18,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(200,144,26,.1); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; }
+    .nav-wordmark { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--parchment); letter-spacing:.04em; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+    .nav-links a { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(246,240,227,.82); transition:color .2s; }
+    .nav-links a:hover { color:var(--parchment); }
+    .nav-links a.active { color:var(--gold-whisper); }
+    .nav-lang-divider { width:1px; height:16px; background:rgba(246,240,227,.15); }
+    .nav-lang { font-family:'Noto Serif TC',serif !important; font-size:13px !important; letter-spacing:.04em !important; text-transform:none !important; color:rgba(246,240,227,.62) !important; transition:color .2s; }
+    .nav-lang:hover { color:var(--gold-whisper) !important; }
+    .nav-en { font-size:11px !important; font-weight:700 !important; letter-spacing:.06em !important; text-transform:uppercase !important; color:rgba(246,240,227,.62) !important; transition:color .2s; }
+    .nav-en:hover { color:var(--gold-whisper) !important; }
+    .nav-cta { padding:9px 22px; border:1px solid rgba(200,144,26,.4); border-radius:30px; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-whisper); transition:all .2s; }
+    .nav-cta:hover { background:rgba(200,144,26,.12); border-color:var(--gold-warm); color:var(--parchment); }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:var(--parchment); border-radius:2px; }
+
+    /* ─── HERO — COSMIC TC-PRIMARY ─── */
+    .hero { position:relative; min-height:100vh; display:flex; align-items:center; background:linear-gradient(155deg,var(--cosmic-void) 0%,var(--cosmic-nebula) 60%,#2A1860 100%); overflow:hidden; padding-top:68px; }
+    .hero-glow { position:absolute; top:-80px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(176,48,80,.45) 0%,transparent 68%); pointer-events:none; }
+    /* TC ghost — strategy character 管 */
+    .hero-ghost { position:absolute; top:-10px; left:-14px; font-family:'Noto Serif TC',serif; font-size:280px; font-weight:900; color:rgba(200,144,26,.04); line-height:1; pointer-events:none; user-select:none; }
+    .hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:35%; background:linear-gradient(to top,rgba(246,240,227,.05) 0%,transparent 100%); pointer-events:none; }
+    .hero-path { position:absolute; top:0; right:0; width:50%; max-width:560px; pointer-events:none; opacity:.9; }
+
+    .hero-content { position:relative; z-index:2; max-width:1140px; margin:0 auto; padding:110px 40px 90px; width:100%; }
+
+    .hero-eyebrow { display:block; margin-bottom:16px; animation:fadeUp .7s ease both; }
+
+    /* TC-primary: TC hero at full scale */
+    .hero-tc-main {
+      font-family:'Noto Serif TC',serif;
+      font-size:clamp(38px,6vw,72px);
+      font-weight:900;
+      line-height:1.1;
+      margin-bottom:10px;
+      animation:fadeUp .8s .1s ease both;
+      max-width:680px;
+    }
+    .hero-tc-main .gold-tc { color:var(--gold-pure); }
+
+    /* EN drops to ~35% — supporting role */
+    .hero-en-sub {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(16px,2.2vw,24px);
+      font-weight:700;
+      font-style:italic;
+      color:rgba(246,240,227,.55);
+      margin-bottom:24px;
+      animation:fadeUp .8s .15s ease both;
+      max-width:580px;
+    }
+    .hero-ribbon { width:200px; margin-bottom:26px; animation:fadeUp .8s .2s ease both; }
+    .hero-body-tc {
+      font-family:'Noto Serif TC',serif;
+      font-size:clamp(14px,1.6vw,16px);
+      color:rgba(246,240,227,.82);
+      line-height:1.9;
+      max-width:560px;
+      margin-bottom:10px;
+      animation:fadeUp .8s .25s ease both;
+    }
+    .hero-body-en {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(13px,1.4vw,15px);
+      font-style:italic;
+      color:rgba(246,240,227,.45);
+      line-height:1.7;
+      max-width:560px;
+      margin-bottom:34px;
+      animation:fadeUp .8s .28s ease both;
+    }
+    .hero-ctas { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:50px; animation:fadeUp .8s .32s ease both; }
+
+    .btn-primary { padding:14px 32px; background:linear-gradient(135deg,var(--strategy),#8A1828); border:none; border-radius:30px; font-family:'Nunito Sans',sans-serif; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--parchment); cursor:pointer; transition:all .25s; box-shadow:0 4px 20px rgba(176,48,80,.35); display:inline-block; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(176,48,80,.5); }
+    .btn-ghost { padding:14px 32px; background:transparent; border:1px solid rgba(246,240,227,.3); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(246,240,227,.82); cursor:pointer; transition:all .25s; display:inline-block; }
+    .btn-ghost:hover { border-color:rgba(246,240,227,.6); color:var(--parchment); background:rgba(246,240,227,.06); }
+
+    /* Quick facts */
+    .hero-facts { display:flex; gap:0; flex-wrap:wrap; border:1px solid rgba(246,240,227,.1); border-radius:14px; overflow:hidden; animation:fadeUp .8s .42s ease both; max-width:680px; }
+    .fact { flex:1; min-width:110px; padding:16px 18px; border-right:1px solid rgba(246,240,227,.08); }
+    .fact:last-child { border-right:none; }
+    .fact-val { font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; margin-bottom:4px; }
+    .fact-label-tc { font-family:'Noto Serif TC',serif; font-size:10px; color:rgba(246,240,227,.55); letter-spacing:.04em; }
+
+    /* ─── FOR WHOM — WARM PARCHMENT ─── */
+    .section-warm { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-warm::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); pointer-events:none; }
+    .warm-wash-tr { position:absolute; top:-40px; right:-40px; width:360px; height:360px; background:radial-gradient(ellipse at 75% 25%,rgba(176,48,80,.1) 0%,transparent 65%); pointer-events:none; }
+    .warm-wash-bl { position:absolute; bottom:-40px; left:-40px; width:300px; height:300px; background:radial-gradient(ellipse at 25% 75%,rgba(104,72,160,.08) 0%,transparent 65%); pointer-events:none; }
+    .warm-ghost { position:absolute; bottom:-30px; left:-10px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+    .warm-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .warm-header { max-width:680px; margin-bottom:52px; }
+    .warm-header .eyebrow { color:var(--gold-warm); display:block; margin-bottom:14px; }
+    /* TC-primary section title */
+    .section-tc-title { font-family:'Noto Serif TC',serif; font-size:clamp(24px,3.5vw,40px); font-weight:900; color:var(--ink); line-height:1.25; margin-bottom:8px; }
+    .section-en-sub { font-family:'Playfair Display',serif; font-size:clamp(14px,2vw,18px); font-weight:700; font-style:italic; color:var(--ink-muted); margin-bottom:18px; }
+    .section-ribbon { width:160px; margin-bottom:18px; }
+    .section-body-tc { font-family:'Noto Serif TC',serif; font-size:15px; color:var(--ink-muted); line-height:1.9; margin-bottom:8px; }
+    .section-body-en { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:rgba(26,20,16,.4); line-height:1.65; }
+
+    .for-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .for-card { background:white; border-radius:14px; padding:26px 22px; border-top:3px solid transparent; box-shadow:0 2px 12px rgba(26,20,16,.07); transition:transform .2s,box-shadow .2s; }
+    .for-card:hover { transform:translateY(-3px); box-shadow:0 8px 26px rgba(26,20,16,.12); }
+    .for-card.s { border-top-color:var(--strategy); }
+    .for-card.t { border-top-color:var(--technical); }
+    .for-card.e { border-top-color:var(--empower); }
+    .for-card.p { border-top-color:var(--people); }
+    .for-card.g { border-top-color:var(--gold-warm); }
+    .for-card.c { border-top-color:var(--empower); }
+    .for-title-tc { font-family:'Noto Serif TC',serif; font-size:14px; font-weight:700; color:var(--ink); margin-bottom:6px; }
+    .for-desc-tc { font-family:'Noto Serif TC',serif; font-size:12px; color:var(--ink-muted); line-height:1.75; }
+
+    /* ─── ACT FRAMEWORK — COSMIC TC ─── */
+    .section-act { background:linear-gradient(160deg,var(--cosmic-void),var(--cosmic-nebula),#1A0E3A); position:relative; overflow:hidden; padding:100px 40px; }
+    .act-glow { position:absolute; top:-60px; right:-60px; width:400px; height:400px; background:radial-gradient(circle,rgba(200,144,26,.38) 0%,transparent 68%); pointer-events:none; }
+    .act-ghost { position:absolute; top:20px; left:-10px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(200,144,26,.04); line-height:1; pointer-events:none; user-select:none; }
+    .act-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .act-header { text-align:center; margin-bottom:60px; }
+    .act-header .eyebrow { display:block; margin-bottom:14px; }
+    .act-title-tc { font-family:'Noto Serif TC',serif; font-size:clamp(24px,3.5vw,42px); font-weight:900; margin-bottom:8px; }
+    .act-title-en { font-family:'Playfair Display',serif; font-size:clamp(14px,2vw,20px); font-style:italic; color:rgba(246,240,227,.45); margin-bottom:16px; }
+    .act-sub-tc { font-family:'Noto Serif TC',serif; font-size:14px; color:rgba(246,240,227,.72); line-height:1.85; max-width:560px; margin:0 auto; }
+
+    .act-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:60px; }
+    .act-card { background:rgba(246,240,227,.05); border:1px solid rgba(246,240,227,.1); border-radius:16px; padding:34px 28px; position:relative; overflow:hidden; transition:all .25s; }
+    .act-card:hover { background:rgba(246,240,227,.08); border-color:rgba(200,144,26,.25); transform:translateY(-3px); }
+    .act-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+    .act-card.a::before { background:var(--strategy); }
+    .act-card.c::before { background:var(--technical); }
+    .act-card.t::before { background:var(--empower); }
+    .act-letter { font-family:'Playfair Display',serif; font-size:60px; font-weight:900; font-style:italic; line-height:1; margin-bottom:10px; }
+    .act-card.a .act-letter { color:rgba(176,48,80,.6); }
+    .act-card.c .act-letter { color:rgba(200,112,26,.6); }
+    .act-card.t .act-letter { color:rgba(34,136,128,.6); }
+    .act-word-tc { font-family:'Noto Serif TC',serif; font-size:18px; font-weight:900; color:var(--parchment); margin-bottom:4px; }
+    .act-word-en { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(246,240,227,.38); margin-bottom:14px; }
+    .act-desc-tc { font-family:'Noto Serif TC',serif; font-size:13px; color:rgba(246,240,227,.78); line-height:1.85; }
+
+    /* 4-dimension panel */
+    .dim-panel { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .dim-panel-card { padding:22px 18px; border-radius:14px; border:1px solid rgba(246,240,227,.08); background:rgba(246,240,227,.04); text-align:center; transition:all .25s; }
+    .dim-panel-card:hover { background:rgba(246,240,227,.07); border-color:rgba(246,240,227,.15); transform:translateY(-2px); }
+    .dim-panel-card.s { border-top:3px solid var(--strategy); }
+    .dim-panel-card.t { border-top:3px solid var(--technical); }
+    .dim-panel-card.e { border-top:3px solid var(--empower); }
+    .dim-panel-card.p { border-top:3px solid var(--people); }
+    .dim-panel-tc { font-family:'Noto Serif TC',serif; font-size:20px; font-weight:900; margin-bottom:4px; }
+    .dim-panel-card.s .dim-panel-tc { color:#E888A0; }
+    .dim-panel-card.t .dim-panel-tc { color:#E0A060; }
+    .dim-panel-card.e .dim-panel-tc { color:#6AD0C8; }
+    .dim-panel-card.p .dim-panel-tc { color:#A88AD8; }
+    .dim-panel-en { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(246,240,227,.45); margin-bottom:10px; }
+    .dim-panel-desc-tc { font-family:'Noto Serif TC',serif; font-size:11px; color:rgba(246,240,227,.68); line-height:1.75; }
+
+    /* ─── OUTCOMES — WARM TC ─── */
+    .section-outcomes { background:var(--parchment-deep); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-outcomes::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); pointer-events:none; }
+    .outcomes-wash { position:absolute; top:-40px; right:-40px; width:340px; height:340px; background:radial-gradient(ellipse at 75% 25%,rgba(34,136,128,.1) 0%,transparent 65%); pointer-events:none; }
+    .outcomes-ghost { position:absolute; bottom:-40px; right:-10px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(26,20,16,.04); line-height:1; pointer-events:none; user-select:none; }
+    .outcomes-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .outcomes-header { margin-bottom:50px; }
+    .outcomes-header .eyebrow { color:var(--gold-warm); display:block; margin-bottom:14px; }
+
+    .outcomes-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .outcome-card { background:white; border-radius:14px; padding:28px 26px; border-left:4px solid transparent; box-shadow:0 2px 12px rgba(26,20,16,.07); transition:transform .2s,box-shadow .2s; }
+    .outcome-card:hover { transform:translateY(-3px); box-shadow:0 8px 26px rgba(26,20,16,.12); }
+    .outcome-card.s { border-left-color:var(--strategy); }
+    .outcome-card.t { border-left-color:var(--technical); }
+    .outcome-card.e { border-left-color:var(--empower); }
+    .outcome-card.p { border-left-color:var(--people); }
+    .outcome-dim-tc { font-family:'Noto Serif TC',serif; font-size:10px; font-weight:700; letter-spacing:.1em; margin-bottom:8px; }
+    .outcome-card.s .outcome-dim-tc { color:var(--strategy); }
+    .outcome-card.t .outcome-dim-tc { color:var(--technical); }
+    .outcome-card.e .outcome-dim-tc { color:var(--empower); }
+    .outcome-card.p .outcome-dim-tc { color:var(--people); }
+    .outcome-title-tc { font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .outcome-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+    .outcome-list li { display:flex; align-items:flex-start; gap:8px; font-family:'Noto Serif TC',serif; font-size:12px; color:var(--ink-muted); line-height:1.65; }
+    .outcome-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:6px; }
+    .outcome-card.s .outcome-dot { background:var(--strategy); }
+    .outcome-card.t .outcome-dot { background:var(--technical); }
+    .outcome-card.e .outcome-dot { background:var(--empower); }
+    .outcome-card.p .outcome-dot { background:var(--people); }
+
+    /* ─── TESTIMONIALS — WARM TC ─── */
+    .section-testi { background:var(--parchment); position:relative; overflow:hidden; padding:100px 40px; }
+    .section-testi::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(30deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px); pointer-events:none; }
+    .testi-wash { position:absolute; top:-40px; right:-40px; width:340px; height:340px; background:radial-gradient(ellipse at 75% 25%,rgba(176,48,80,.09) 0%,transparent 65%); pointer-events:none; }
+    .testi-ghost { position:absolute; bottom:-40px; left:-14px; font-family:'Noto Serif TC',serif; font-size:240px; font-weight:900; color:rgba(104,72,160,.04); line-height:1; pointer-events:none; user-select:none; }
+    .testi-inner { position:relative; z-index:2; max-width:1140px; margin:0 auto; }
+    .testi-header { margin-bottom:46px; }
+    .testi-header .eyebrow { color:var(--gold-warm); display:block; margin-bottom:14px; }
+    .testi-ribbon { width:140px; }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .testi-card { background:white; border-radius:14px; padding:28px 24px; box-shadow:0 2px 14px rgba(26,20,16,.07); transition:transform .2s,box-shadow .2s; }
+    .testi-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(26,20,16,.12); }
+    .testi-card.featured { grid-column:span 2; background:linear-gradient(135deg,rgba(176,48,80,.04),rgba(104,72,160,.04)); border:1px solid rgba(176,48,80,.1); }
+    .testi-mark { font-family:'Playfair Display',serif; font-size:56px; font-weight:900; color:var(--strategy); opacity:.15; line-height:1; margin-bottom:-12px; }
+    .testi-text { font-family:'Noto Serif TC',serif; font-size:13px; color:var(--ink-muted); line-height:1.85; margin-bottom:18px; }
+    .testi-text strong { font-weight:700; color:var(--ink); }
+    .testi-hr { height:1px; background:linear-gradient(to right,var(--gold-warm),transparent); opacity:.3; margin-bottom:14px; }
+    .testi-author { font-size:11px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+    .testi-role { font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:var(--ink-muted); }
+
+    /* ─── ENROL CTA — COSMIC TC ─── */
+    .section-enrol { background:linear-gradient(155deg,var(--cosmic-void),var(--cosmic-nebula),#2A1860); position:relative; overflow:hidden; padding:100px 40px; text-align:center; }
+    .enrol-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:300px; background:radial-gradient(ellipse,rgba(176,48,80,.18) 0%,transparent 70%); pointer-events:none; }
+    .enrol-ghost { position:absolute; top:-20px; left:50%; transform:translateX(-50%); font-family:'Noto Serif TC',serif; font-size:220px; font-weight:900; color:rgba(200,144,26,.04); line-height:1; pointer-events:none; user-select:none; }
+    .enrol-inner { position:relative; z-index:2; max-width:720px; margin:0 auto; }
+    .enrol-eyebrow { display:block; margin-bottom:20px; }
+    .enrol-title-tc { font-family:'Noto Serif TC',serif; font-size:clamp(28px,4.5vw,52px); font-weight:900; line-height:1.2; margin-bottom:10px; }
+    .enrol-title-tc .gold-tc { color:var(--gold-pure); }
+    .enrol-title-en { font-family:'Playfair Display',serif; font-size:clamp(14px,2vw,20px); font-style:italic; color:rgba(246,240,227,.38); margin-bottom:22px; }
+    .enrol-ribbon { width:200px; margin:0 auto 26px; }
+    .enrol-body-tc { font-family:'Noto Serif TC',serif; font-size:14px; color:rgba(246,240,227,.78); line-height:1.9; margin-bottom:10px; }
+    .enrol-note { font-size:10px; color:rgba(246,240,227,.45); margin-bottom:34px; letter-spacing:.04em; }
+    .enrol-ctas { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
+    .enrol-switch { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:rgba(246,240,227,.45); }
+    .enrol-switch a { color:var(--gold-whisper); text-decoration:underline; text-underline-offset:3px; }
+
+    /* ─── FOOTER ─── */
+    .footer { background:#060410; border-top:1px solid rgba(200,144,26,.1); padding:60px 40px 36px; }
+    .footer-inner { max-width:1140px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px; padding-bottom:50px; border-bottom:1px solid rgba(246,240,227,.1); }
+    .footer-brand-name { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--parchment); margin-bottom:4px; }
+    .footer-brand-tc { font-family:'Noto Serif TC',serif; font-size:12px; color:rgba(246,240,227,.58); margin-bottom:16px; letter-spacing:.08em; }
+    .footer-brand-desc { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:rgba(246,240,227,.68); line-height:1.7; margin-bottom:20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .social-btn { width:32px; height:32px; border-radius:50%; border:1px solid rgba(246,240,227,.22); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:rgba(246,240,227,.65); transition:all .2s; }
+    .social-btn:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+    .footer-col-title { font-size:9px; font-weight:700; letter-spacing:.4em; text-transform:uppercase; color:var(--gold-whisper); opacity:.85; margin-bottom:18px; }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { font-size:13px; color:rgba(246,240,227,.68); transition:color .2s; }
+    .footer-links a:hover { color:var(--parchment); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-legal { font-size:11px; color:rgba(246,240,227,.48); line-height:1.6; }
+    .footer-ribbon-sm { width:120px; opacity:.5; }
+    .footer-legal-links { display:flex; gap:20px; }
+    .footer-legal-links a { font-size:11px; color:rgba(246,240,227,.48); transition:color .2s; }
+    .footer-legal-links a:hover { color:rgba(246,240,227,.82); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:900px) {
+      .nav-links,.nav-cta { display:none; }
+      .nav-hamburger { display:flex; }
+      .for-grid { grid-template-columns:1fr 1fr; }
+      .act-steps { grid-template-columns:1fr; }
+      .dim-panel { grid-template-columns:1fr 1fr; }
+      .outcomes-grid { grid-template-columns:1fr; }
+      .testi-grid { grid-template-columns:1fr; }
+      .testi-card.featured { grid-column:span 1; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+      .hero-path { width:65%; opacity:.5; }
+    }
+    @media (max-width:600px) {
+      .nav { padding:0 20px; }
+      .hero-content { padding:100px 20px 70px; }
+      .section-warm,.section-act,.section-outcomes,.section-testi,.section-enrol { padding:70px 20px; }
+      .footer { padding:50px 20px 28px; }
+      .footer-top { grid-template-columns:1fr; gap:32px; }
+      .for-grid { grid-template-columns:1fr; }
+      .hero-facts { flex-direction:column; }
+      .fact { border-right:none; border-bottom:1px solid rgba(246,240,227,.08); }
+      .fact:last-child { border-bottom:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® 思德教育學院" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-family:'Noto Serif TC',serif;font-weight:400;opacity:.55;font-size:12px;letter-spacing:.06em;">思德教育學院</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs" class="active">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-en" class="nav-en">EN</a></li>
+    </ul>
+    <a href="/stepdex-trinity" class="nav-cta">立即報名</a>
+    <div class="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO — COSMIC TC-PRIMARY ─── -->
+  <header class="hero stars">
+    <div class="hero-glow breathe"></div>
+    <div class="hero-ghost" aria-hidden="true">管</div>
+
+    <!-- Ascending path SVG -->
+    <svg class="hero-path" viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="cnPath" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#6848A0" stop-opacity="0.7"/>
+          <stop offset="33%"  stop-color="#228880" stop-opacity="0.85"/>
+          <stop offset="66%"  stop-color="#C8701A" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#C8901A" stop-opacity="1"/>
+        </linearGradient>
+        <filter id="cnGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M 20 360 C 60 320, 100 300, 135 268 C 170 236, 160 210, 200 182 C 240 154, 280 170, 322 138 C 364 106, 385 66, 436 34 C 465 16, 505 6, 548 2"
+        stroke="url(#cnPath)" stroke-width="1.8" stroke-linecap="round"
+        stroke-dasharray="850" stroke-dashoffset="850" filter="url(#cnGlow)"
+        style="animation:pathDraw 2.5s ease .6s both;" />
+      <circle cx="135" cy="268" r="5" fill="#6848A0" opacity=".7"/>
+      <circle cx="200" cy="182" r="5" fill="#228880" opacity=".8"/>
+      <circle cx="322" cy="138" r="5" fill="#C8701A" opacity=".85"/>
+      <circle cx="548" cy="2"   r="5" fill="#C8901A" opacity=".9" class="twinkle"/>
+      <circle cx="548" cy="2"   r="10" fill="#C8901A" opacity=".2" class="breathe"/>
+    </svg>
+
+    <div class="hero-content">
+      <span class="eyebrow hero-eyebrow">旗艦課程 · STEP First Class Manager</span>
+
+      <!-- TC leads, EN supports -->
+      <h1 class="hero-tc-main">
+        企業越大，越<span class="gold-tc">考驗</span>管理。
+      </h1>
+      <p class="hero-en-sub">The bigger the company, the greater the test of leadership.</p>
+
+      <div class="four-ribbon hero-ribbon"></div>
+
+      <p class="hero-body-tc">
+        STEP 全能一級經理課程，專為中小企業管理人員而設計。五天密集培訓，全面涵蓋策略、專業、賦能、人際四大維度，運用 A.C.T. 框架（任務·教練·培訓）傳授超過 30 種實用管理工具。獲 USM 理工大學管理學院認證，可申請 HRDCorp 培訓資助。
+      </p>
+      <p class="hero-body-en">STEP First Class Manager · 5-day intensive · 30+ practical tools · Assignment, Coaching, Training methodology</p>
+
+      <div class="hero-ctas">
+        <a href="/stepdex-trinity" class="btn-primary">立即查詢第 13 屆</a>
+        <a href="/stepfcm-en" class="btn-ghost">Read in English →</a>
+      </div>
+
+      <!-- Quick facts TC -->
+      <div class="hero-facts">
+        <div class="fact">
+          <p class="fact-val"><span class="gold">5</span></p>
+          <p class="fact-label-tc">天密集培訓</p>
+        </div>
+        <div class="fact">
+          <p class="fact-val"><span class="gold">30+</span></p>
+          <p class="fact-label-tc">實用管理工具</p>
+        </div>
+        <div class="fact">
+          <p class="fact-val"><span class="gold">4</span></p>
+          <p class="fact-label-tc">核心維度</p>
+        </div>
+        <div class="fact">
+          <p class="fact-val"><span class="gold">12</span></p>
+          <p class="fact-label-tc">屆已完成</p>
+        </div>
+        <div class="fact">
+          <p class="fact-val"><span class="gold">USM</span></p>
+          <p class="fact-label-tc">管理學院認證</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── FOR WHOM — WARM TC ─── -->
+  <section class="section-warm">
+    <div class="warm-wash-tr breathe"></div>
+    <div class="warm-wash-bl breathe" style="animation-delay:.8s"></div>
+    <div class="warm-ghost" aria-hidden="true">理</div>
+    <div class="warm-inner">
+      <div class="warm-header">
+        <span class="eyebrow">這課程為誰而設 · Who Is This For</span>
+        <h2 class="section-tc-title">只要您在中小企業管理人員，<span style="color:var(--strategy)">這是為您而設的。</span></h2>
+        <p class="section-en-sub">Built from the ground up for the Malaysian SME context.</p>
+        <div class="four-ribbon section-ribbon"></div>
+        <p class="section-body-tc">大多數管理培訓是為跨國企業設計的。STEP 全能一級經理課程則是專為馬來西亞中小企業環境量身打造——在資源有限、管理人員身兼多職的環境中，一位優秀的經理足以改變一切。</p>
+      </div>
+      <div class="for-grid">
+        <div class="for-card s">
+          <p class="for-title-tc">初次晉升的管理人員</p>
+          <p class="for-desc-tc">因為業績優秀而晉升，但從未接受過系統性的管理培訓。這個課程給您的，正是那份晉升沒有附帶的框架與工具。</p>
+        </div>
+        <div class="for-card t">
+          <p class="for-title-tc">中層管理人員</p>
+          <p class="for-desc-tc">有經驗但感到瓶頸。您知道什麼是優秀，但無法縮短團隊表現與企業需求之間的差距。FCM 正是解方。</p>
+        </div>
+        <div class="for-card e">
+          <p class="for-title-tc">中小企業部門主管</p>
+          <p class="for-desc-tc">主導業務、運營、人事、財務等部門，卻缺乏跨部門的戰略視野。FCM 為您建立全局思維。</p>
+        </div>
+        <div class="for-card p">
+          <p class="for-title-tc">有意培育管理人才的企業主</p>
+          <p class="for-desc-tc">已確認接班人選，希望系統性地培育，而不是靠磨練和試錯讓團隊承擔代價。</p>
+        </div>
+        <div class="for-card g">
+          <p class="for-title-tc">高潛力人才</p>
+          <p class="for-desc-tc">尚未擔任管理職，卻清晰地走在管理的路上。在壓力到來之前，先掌握框架，讓您的領導力領先一步。</p>
+        </div>
+        <div class="for-card c">
+          <p class="for-title-tc" style="font-size:24px;font-weight:900;color:var(--empower);margin-bottom:6px;">30+</p>
+          <p class="for-title-tc">實用管理工具</p>
+          <p class="for-desc-tc">績效差距分析、授權矩陣、教練對話、戰略規劃藍圖——這些工具從第一天起就可以應用，而不只是課後便忘的理論。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── A.C.T. FRAMEWORK — COSMIC TC ─── -->
+  <section class="section-act stars">
+    <div class="act-glow breathe"></div>
+    <div class="act-ghost" aria-hidden="true">力</div>
+    <div class="act-inner">
+      <div class="act-header">
+        <span class="eyebrow">A.C.T. 教學框架 · Methodology</span>
+        <h2 class="act-title-tc">不只是<span class="gold">培訓</span>，而是轉化。</h2>
+        <p class="act-title-en">Not training. Transformation.</p>
+        <p class="act-sub-tc">STEP 全能一級經理課程的每一個模組，都透過 A.C.T. 框架傳遞——任務、教練、培訓三者協同，將概念轉化為持久的行為改變。</p>
+      </div>
+
+      <div class="act-steps">
+        <div class="act-card a">
+          <p class="act-letter">A</p>
+          <h3 class="act-word-tc">任務 Assignment</h3>
+          <p class="act-word-en">Task-Driven Learning</p>
+          <p class="act-desc-tc">學習從「做」開始。每個模組都以真實的職場任務為錨點，讓發展在最重要的情境中真正發生。</p>
+        </div>
+        <div class="act-card c">
+          <p class="act-letter">C</p>
+          <h3 class="act-word-tc">教練 Coaching</h3>
+          <p class="act-word-en">Personalised Guidance</p>
+          <p class="act-desc-tc">資深教練與您一起反思任務、挑戰思維、解鎖洞察。這是一般培訓無法提供的個人化深度引導。</p>
+        </div>
+        <div class="act-card t">
+          <p class="act-letter">T</p>
+          <h3 class="act-word-tc">培訓 Training</h3>
+          <p class="act-word-en">Framework & Tools</p>
+          <p class="act-desc-tc">系統性的框架、模型與工具輸入，讓您更有效地領導。學術根基紮實，完全針對馬來西亞中小企業實際情境。</p>
+        </div>
+      </div>
+
+      <!-- 4-dimension panel -->
+      <div class="dim-panel">
+        <div class="dim-panel-card s">
+          <p class="dim-panel-tc">策略</p>
+          <p class="dim-panel-en">Strategy</p>
+          <p class="dim-panel-desc-tc">看清大局，設定方向，以清晰和信念帶領團隊走向企業目標。</p>
+        </div>
+        <div class="dim-panel-card t">
+          <p class="dim-panel-tc">專業</p>
+          <p class="dim-panel-en">Technical</p>
+          <p class="dim-panel-desc-tc">掌握管理職能，推動卓越運營，精準診斷績效差距。</p>
+        </div>
+        <div class="dim-panel-card e">
+          <p class="dim-panel-tc">賦能</p>
+          <p class="dim-panel-en">Empower</p>
+          <p class="dim-panel-desc-tc">培養自我覺察，提升個人修為，由內而外真誠地領導。</p>
+        </div>
+        <div class="dim-panel-card p">
+          <p class="dim-panel-tc">人際</p>
+          <p class="dim-panel-en">People</p>
+          <p class="dim-panel-desc-tc">連結、溝通、在各個層面建立信任與協作。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── OUTCOMES — WARM TC ─── -->
+  <section class="section-outcomes">
+    <div class="outcomes-wash breathe"></div>
+    <div class="outcomes-ghost" aria-hidden="true">果</div>
+    <div class="outcomes-inner">
+      <div class="outcomes-header">
+        <span class="eyebrow">課程成果 · What You'll Walk Away With</span>
+        <h2 class="section-tc-title">四大維度的<span style="color:var(--strategy)">真實能力提升。</span></h2>
+        <p class="section-en-sub">Real capability across all four dimensions.</p>
+        <div class="four-ribbon section-ribbon"></div>
+        <p class="section-body-tc">完成五天課程及持續應用後，STEP 全能一級經理的畢業學員都能在自身及所帶領的團隊中見證顯著、可觀察到的改變。</p>
+      </div>
+      <div class="outcomes-grid">
+        <div class="outcome-card s">
+          <p class="outcome-dim-tc">策略維度 · Strategy</p>
+          <h3 class="outcome-title-tc">以戰略思維領導</h3>
+          <ul class="outcome-list">
+            <li><span class="outcome-dot"></span>設定清晰、可執行的層級目標</li>
+            <li><span class="outcome-dot"></span>從根本診斷業務問題，而非症狀</li>
+            <li><span class="outcome-dot"></span>將日常決策與長遠方向對齊</li>
+            <li><span class="outcome-dot"></span>自信主導規劃會議</li>
+          </ul>
+        </div>
+        <div class="outcome-card t">
+          <p class="outcome-dim-tc">專業維度 · Technical</p>
+          <h3 class="outcome-title-tc">掌握管理職能</h3>
+          <ul class="outcome-list">
+            <li><span class="outcome-dot"></span>運用績效差距分析精準找出績效落後的原因</li>
+            <li><span class="outcome-dot"></span>清晰授權——對的任務、對的人、對的支持</li>
+            <li><span class="outcome-dot"></span>主持結構性績效對話</li>
+            <li><span class="outcome-dot"></span>從第一天起應用 30+ 個管理工具</li>
+          </ul>
+        </div>
+        <div class="outcome-card e">
+          <p class="outcome-dim-tc">賦能維度 · Empower</p>
+          <h3 class="outcome-title-tc">由內而外領導</h3>
+          <ul class="outcome-list">
+            <li><span class="outcome-dot"></span>了解自己的領導風格及其對團隊的影響</li>
+            <li><span class="outcome-dot"></span>在壓力與不確定中保持穩定，不至耗竭</li>
+            <li><span class="outcome-dot"></span>建立區別優秀與卓越管理者的自我覺察</li>
+            <li><span class="outcome-dot"></span>做出與核心價值一致的決策</li>
+          </ul>
+        </div>
+        <div class="outcome-card p">
+          <p class="outcome-dim-tc">人際維度 · People</p>
+          <h3 class="outcome-title-tc">建立真正有效的團隊</h3>
+          <ul class="outcome-list">
+            <li><span class="outcome-dot"></span>進行帶來清晰而非衝突的對話</li>
+            <li><span class="outcome-dot"></span>建立心理安全感，讓團隊願意帶著真實問題來找您</li>
+            <li><span class="outcome-dot"></span>在同儕、上司和客戶之間以影響力代替權威</li>
+            <li><span class="outcome-dot"></span>培育企業下一代所需的領導人才</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS — WARM TC ─── -->
+  <section class="section-testi">
+    <div class="testi-wash breathe"></div>
+    <div class="testi-ghost" aria-hidden="true">聲</div>
+    <div class="testi-inner">
+      <div class="testi-header">
+        <span class="eyebrow">學員心聲 · Graduate Voices</span>
+        <h2 class="section-tc-title">踏出這一步的<span style="color:var(--strategy)">管理人員。</span></h2>
+        <div class="four-ribbon testi-ribbon"></div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card featured">
+          <div class="testi-mark">"</div>
+          <p class="testi-text">
+            我參加了思德的戰略人力資源課程，課程實用又令人大開眼界。<strong>我學會了如何透過求職者的故事來評估人才</strong>——這讓我的招聘決策更精準，團隊表現也更強。後來，我將團隊中一位習慣單打獨鬥的主管送去參加 STEP 全能一級經理課程。他變得更加開放、更願意協作，徹底改變了我們的團隊文化。<strong>當一位主管成長，整個團隊也隨之成長。</strong>
+          </p>
+          <div class="testi-hr"></div>
+          <p class="testi-author">Erin Sin</p>
+          <p class="testi-role">ETIN Trading 聯合創辦人</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-mark">"</div>
+          <p class="testi-text">Coach Sunny 的全能一級經理培訓給了我實用的工具和清晰的引導，讓我以心與策略並行的方式領導。他的教練方式讓我們機構有了真正的改變。</p>
+          <div class="testi-hr"></div>
+          <p class="testi-author">Kel Mynn</p>
+          <p class="testi-role">Verdant Solar 聯合創辦人</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-mark">"</div>
+          <p class="testi-text">當管理人員其實沒有那麼難——有了正確的引導之後。Teacher Sunny 讓我意識到，我只是需要一個人來告訴我方向。<strong>課堂上的實作練習讓每一個概念都深深刻入腦海。</strong></p>
+          <div class="testi-hr"></div>
+          <p class="testi-author">Jye Wei</p>
+          <p class="testi-role">Big Tooth School 總經理</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-mark">"</div>
+          <p class="testi-text">光是「績效差距分析」這一個工具，就改變了我看待團隊的方式。我從猜測，轉變為有意識地領導。一個工具就值回整個課程的價值。</p>
+          <div class="testi-hr"></div>
+          <p class="testi-author">FCM 第10屆學員</p>
+          <p class="testi-role">運營經理，吉隆坡</p>
+        </div>
+        <div class="testi-card">
+          <div class="testi-mark">"</div>
+          <p class="testi-text">我帶著不確定加入，卻發現這正是我需要的管理策略。Sunny 一步一步帶領我們——從基礎到深度理解。每位管理人員都值得擁有這段蛻變旅程。</p>
+          <div class="testi-hr"></div>
+          <p class="testi-author">Theresa</p>
+          <p class="testi-role">Entopest 銷售經理</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ENROL CTA — COSMIC TC ─── -->
+  <section class="section-enrol stars">
+    <div class="enrol-glow"></div>
+    <div class="enrol-ghost" aria-hidden="true">進</div>
+    <div class="enrol-inner">
+      <span class="eyebrow enrol-eyebrow">第 13 屆 · 正在招募中</span>
+      <h2 class="enrol-title-tc">您的團隊，值得一位踏出這一步的<span class="gold-tc">主管。</span></h2>
+      <p class="enrol-title-en">Your team deserves a manager who has made the STEP.</p>
+      <div class="four-ribbon enrol-ribbon"></div>
+      <p class="enrol-body-tc">每屆名額有限，確保同儕學習的質量。獲 USM 理工大學管理學院認證，可申請 HRDCorp 培訓資助——企業或可以零成本完成培訓。</p>
+      <p class="enrol-note">USM, Graduate School of Business 認證 &nbsp;·&nbsp; HRDCorp 可申請資助 &nbsp;·&nbsp; 於吉隆坡進行</p>
+      <div class="enrol-ctas">
+        <a href="/stepdex-trinity" class="btn-primary">查詢第 13 屆報名</a>
+        <a href="https://sme.stepdex.my" class="btn-ghost">先做免費評估</a>
+      </div>
+      <p class="enrol-switch">
+        Prefer to read in English? <a href="/stepfcm-en">View the English version →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">STEPDEX<span class="reg">®</span> Academy</p>
+          <p class="footer-brand-tc">思德教育學院</p>
+          <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+          <p class="footer-brand-desc">Empowering SME leaders through the STEP framework — Strategy, Technical, Empower, People. Powered by HPI Synergy PLT.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/stepdex" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/stepdex" class="social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/stepdex.my" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Programmes</p>
+          <ul class="footer-links">
+            <li><a href="/stepfcm-en">STEP First Class Manager</a></li>
+            <li><a href="/sme-hr">SME HR Programme</a></li>
+            <li><a href="/programs">LEAP of Faith</a></li>
+            <li><a href="/programs">Leading with Empathy</a></li>
+            <li><a href="/gps">GPS Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Academy</p>
+          <ul class="footer-links">
+            <li><a href="/about">About STEPDEX<span class="reg">®</span></a></li>
+            <li><a href="/hpi">About HPI</a></li>
+            <li><a href="/experts">Our Experts</a></li>
+            <li><a href="/pathfinder">Pathfinder</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">免費工具</p>
+          <ul class="footer-links">
+            <li><a href="https://sme.stepdex.my">中小企診斷工具</a></li>
+            <li><a href="https://mgr.stepdex.my">管理能力評估</a></li>
+            <li><a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD">WhatsApp 社群</a></li>
+          </ul>
+          <p class="footer-col-title" style="margin-top:28px">聯絡我們</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@stepdex.my">hello@stepdex.my</a></li>
+            <li><a href="https://maps.app.goo.gl/wfVDE5pEEfXniBjL7" target="_blank" rel="noopener">Menara Keck Seng, 吉隆坡</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+        <div class="four-ribbon footer-ribbon-sm"></div>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+          <a href="/code">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

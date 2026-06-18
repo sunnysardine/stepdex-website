@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Manager Capability Assessment | STEPDEX® Academy</title>
+  <meta name="description" content="Free 8-minute Manager Capability Assessment. Discover your STEPDEX Managerial Profile across Strategy, Technical, Empower, and People — and see where you sit in the Leadership Pipeline." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mgr.stepdex.my/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --parchment:      #F6F0E3;
+      --parchment-deep: #EDE3CB;
+      --ink:            #1A1410;
+      --ink-muted:      #6A5A42;
+      --gold-warm:      #B07820;
+      --gold-pure:      #C8901A;
+      --gold-whisper:   #D4A84B;
+      --strategy:       #B03050;
+      --technical:      #C8701A;
+      --empower:        #228880;
+      --people:         #6848A0;
+      --cosmic-void:    #080612;
+      --cosmic-nebula:  #1C1248;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--parchment); color: var(--ink); overflow-x: hidden; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    .reg { font-size: .52em; vertical-align: super; line-height: 0; }
+
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes spin    { to{transform:rotate(360deg)} }
+    .breathe { animation: breathe 3.5s ease-in-out infinite; }
+    .fade-up { animation: fadeUp .5s ease both; }
+
+    .topo { background-image: repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.045) 28px,rgba(176,120,32,.045) 29px); }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-warm); }
+    .four-ribbon { height:2.5px; background:linear-gradient(to right,var(--strategy) 0% 25%,var(--technical) 25% 50%,var(--empower) 50% 75%,var(--people) 75% 100%); border-radius:2px; }
+
+    /* App shell */
+    .app { min-height:100vh; display:flex; flex-direction:column; position:relative; }
+    .wash-tr { position:fixed; top:-60px; right:-60px; width:380px; height:380px; background:radial-gradient(ellipse at 70% 30%,rgba(176,48,80,.1) 0%,transparent 68%); pointer-events:none; z-index:0; }
+    .wash-bl { position:fixed; bottom:-60px; left:-60px; width:320px; height:320px; background:radial-gradient(ellipse at 30% 70%,rgba(104,72,160,.08) 0%,transparent 68%); pointer-events:none; z-index:0; }
+    .ghost { position:fixed; top:20%; right:-5%; font-family:'Noto Serif TC',serif; font-size:280px; font-weight:900; color:rgba(26,20,16,.035); line-height:1; pointer-events:none; z-index:0; user-select:none; }
+
+    .topbar {
+      position:relative; z-index:2;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 32px; border-bottom:1px solid rgba(176,120,32,.12);
+    }
+    .topbar-logo { display:flex; align-items:center; gap:10px; }
+    .topbar-logo img { width:30px; height:30px; border-radius:50%; }
+    .topbar-word { font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:var(--ink); }
+    .topbar-link { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); transition:color .2s; }
+    .topbar-link:hover { color:var(--strategy); }
+
+    .stage { flex:1; position:relative; z-index:1; display:flex; align-items:center; justify-content:center; padding:40px 24px; }
+    .card { width:100%; max-width:640px; }
+
+    /* ===== INTRO SCREEN ===== */
+    .intro { text-align:center; }
+    .intro-icon { width:64px; height:64px; border-radius:50%; background:rgba(34,136,128,.1); display:flex; align-items:center; justify-content:center; margin:0 auto 22px; font-size:26px; }
+    .intro-title { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); font-weight:700; font-style:italic; color:var(--ink); line-height:1.18; margin-bottom:10px; }
+    .intro-tc { font-family:'Noto Serif TC',serif; font-size:15px; color:var(--ink-muted); margin-bottom:20px; }
+    .intro-ribbon { width:160px; margin:0 auto 22px; }
+    .intro-body { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.7; max-width:480px; margin:0 auto 30px; }
+
+    .intro-facts { display:flex; justify-content:center; gap:0; border:1px solid rgba(176,120,32,.18); border-radius:14px; overflow:hidden; margin-bottom:34px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .ifact { flex:1; padding:16px 14px; border-right:1px solid rgba(176,120,32,.14); }
+    .ifact:last-child { border-right:none; }
+    .ifact-val { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--strategy); margin-bottom:3px; }
+    .ifact-label { font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-muted); line-height:1.3; }
+
+    .dim-preview { display:flex; justify-content:center; gap:10px; margin-bottom:34px; flex-wrap:wrap; }
+    .dim-chip { display:flex; align-items:center; gap:6px; padding:7px 14px; border-radius:20px; font-size:11px; font-weight:700; }
+    .dim-chip.s { background:rgba(176,48,80,.08); color:var(--strategy); }
+    .dim-chip.t { background:rgba(200,112,26,.08); color:var(--technical); }
+    .dim-chip.e { background:rgba(34,136,128,.08); color:var(--empower); }
+    .dim-chip.p { background:rgba(104,72,160,.08); color:var(--people); }
+    .dim-dot { width:7px; height:7px; border-radius:50%; }
+    .dim-chip.s .dim-dot { background:var(--strategy); }
+    .dim-chip.t .dim-dot { background:var(--technical); }
+    .dim-chip.e .dim-dot { background:var(--empower); }
+    .dim-chip.p .dim-dot { background:var(--people); }
+
+    .btn-start {
+      padding:16px 40px; background:var(--strategy); border:none; border-radius:30px;
+      font-family:'Nunito Sans',sans-serif; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+      color:white; cursor:pointer; transition:all .25s; box-shadow:0 4px 18px rgba(176,48,80,.3);
+    }
+    .btn-start:hover { background:#8A1828; transform:translateY(-2px); box-shadow:0 8px 26px rgba(176,48,80,.45); }
+    .intro-note { font-size:11px; color:var(--ink-muted); margin-top:16px; opacity:.7; }
+
+    /* ===== QUESTION SCREEN ===== */
+    .q-progress-wrap { margin-bottom:30px; }
+    .q-progress-bar { height:5px; background:rgba(176,120,32,.12); border-radius:10px; overflow:hidden; margin-bottom:10px; }
+    .q-progress-fill { height:100%; border-radius:10px; transition:width .35s ease; }
+    .q-progress-fill.s { background:var(--strategy); }
+    .q-progress-fill.t { background:var(--technical); }
+    .q-progress-fill.e { background:var(--empower); }
+    .q-progress-fill.p { background:var(--people); }
+    .q-progress-meta { display:flex; justify-content:space-between; align-items:center; }
+    .q-dim-tag { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; padding:4px 12px; border-radius:14px; }
+    .q-dim-tag.s { background:rgba(176,48,80,.1); color:var(--strategy); }
+    .q-dim-tag.t { background:rgba(200,112,26,.1); color:var(--technical); }
+    .q-dim-tag.e { background:rgba(34,136,128,.1); color:var(--empower); }
+    .q-dim-tag.p { background:rgba(104,72,160,.1); color:var(--people); }
+    .q-count { font-size:11px; color:var(--ink-muted); font-weight:700; }
+
+    .q-card { background:white; border-radius:20px; padding:40px 36px; box-shadow:0 4px 28px rgba(26,20,16,.08); border:1px solid rgba(176,120,32,.1); position:relative; overflow:hidden; }
+    .q-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+    .q-card.s::before { background:var(--strategy); }
+    .q-card.t::before { background:var(--technical); }
+    .q-card.e::before { background:var(--empower); }
+    .q-card.p::before { background:var(--people); }
+
+    .q-num { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:var(--gold-warm); margin-bottom:10px; letter-spacing:.04em; }
+    .q-text { font-family:'Playfair Display',serif; font-size:clamp(18px,2.6vw,23px); font-weight:700; color:var(--ink); line-height:1.4; margin-bottom:8px; }
+    .q-example { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); margin-bottom:30px; line-height:1.55; }
+
+    .scale-wrap { margin-bottom:8px; }
+    .scale-labels { display:flex; justify-content:space-between; margin-bottom:14px; }
+    .scale-label-text { font-size:12px; font-weight:700; color:var(--ink-muted); max-width:150px; line-height:1.45; }
+    .scale-label-text.right { text-align:right; }
+
+    .scale-buttons { display:grid; grid-template-columns:repeat(10,1fr); gap:6px; }
+    .scale-btn {
+      aspect-ratio:1; border-radius:10px; border:1.5px solid rgba(176,120,32,.18);
+      background:var(--parchment); font-family:'Playfair Display',serif; font-size:14px; font-weight:700;
+      color:var(--ink-muted); cursor:pointer; transition:all .15s; display:flex; align-items:center; justify-content:center;
+    }
+    .scale-btn:hover { border-color:var(--gold-warm); background:rgba(176,120,32,.06); }
+    .scale-btn.selected.s { background:var(--strategy); border-color:var(--strategy); color:white; }
+    .scale-btn.selected.t { background:var(--technical); border-color:var(--technical); color:white; }
+    .scale-btn.selected.e { background:var(--empower); border-color:var(--empower); color:white; }
+    .scale-btn.selected.p { background:var(--people); border-color:var(--people); color:white; }
+
+    .q-nav { display:flex; justify-content:space-between; align-items:center; margin-top:28px; }
+    .btn-back { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-muted); padding:10px 6px; cursor:pointer; transition:color .2s; background:none; border:none; }
+    .btn-back:hover { color:var(--ink); }
+    .btn-back:disabled { opacity:0; pointer-events:none; }
+    .btn-next {
+      padding:12px 30px; border-radius:30px; border:none; cursor:pointer;
+      font-family:'Nunito Sans',sans-serif; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+      color:white; transition:all .2s; opacity:.35; pointer-events:none;
+    }
+    .btn-next.active { opacity:1; pointer-events:auto; }
+    .btn-next.s { background:var(--strategy); } .btn-next.s:hover.active { background:#8A1828; }
+    .btn-next.t { background:var(--technical); } .btn-next.t:hover.active { background:#A05A14; }
+    .btn-next.e { background:var(--empower); } .btn-next.e:hover.active { background:#186860; }
+    .btn-next.p { background:var(--people); } .btn-next.p:hover.active { background:#4E3088; }
+
+    /* ===== LOADING SCREEN ===== */
+    .loading { text-align:center; }
+    .loading-spinner { width:52px; height:52px; border-radius:50%; border:3px solid rgba(176,120,32,.15); border-top-color:var(--strategy); margin:0 auto 26px; animation:spin 1s linear infinite; }
+    .loading-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; font-style:italic; color:var(--ink); margin-bottom:10px; }
+    .loading-sub { font-family:'Cormorant Garamond',serif; font-size:14px; font-style:italic; color:var(--ink-muted); }
+
+    /* ===== RESULTS SCREEN ===== */
+    .results { width:100%; max-width:760px; }
+    .res-header { text-align:center; margin-bottom:36px; }
+    .res-eyebrow { display:block; margin-bottom:12px; }
+    .res-title { font-family:'Playfair Display',serif; font-size:clamp(24px,3.6vw,38px); font-weight:700; font-style:italic; color:var(--ink); margin-bottom:6px; }
+    .res-ribbon { width:160px; margin:14px auto 0; }
+
+    /* Dominant level banner */
+    .res-banner { border-radius:18px; padding:32px 30px; margin-bottom:28px; text-align:center; position:relative; overflow:hidden; }
+    .res-banner.l1 { background:linear-gradient(135deg,rgba(34,136,128,.08),rgba(34,136,128,.04)); border:1px solid rgba(34,136,128,.2); }
+    .res-banner.l2 { background:linear-gradient(135deg,rgba(200,112,26,.08),rgba(200,112,26,.04)); border:1px solid rgba(200,112,26,.2); }
+    .res-banner.l3 { background:linear-gradient(135deg,rgba(104,72,160,.08),rgba(104,72,160,.04)); border:1px solid rgba(104,72,160,.2); }
+    .res-banner-tag { font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:10px; }
+    .res-banner.l1 .res-banner-tag { color:var(--empower); }
+    .res-banner.l2 .res-banner-tag { color:var(--technical); }
+    .res-banner.l3 .res-banner-tag { color:var(--people); }
+    .res-banner-title { font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--ink); margin-bottom:10px; }
+    .res-banner-body { font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--ink-muted); line-height:1.65; max-width:520px; margin:0 auto; }
+
+    /* Level bars */
+    .res-levels { display:flex; flex-direction:column; gap:14px; margin-bottom:32px; }
+    .level-row { background:white; border-radius:14px; padding:20px 22px; box-shadow:0 2px 12px rgba(26,20,16,.06); }
+    .level-row-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+    .level-name { font-size:13px; font-weight:800; color:var(--ink); }
+    .level-name-sub { font-family:'Cormorant Garamond',serif; font-size:12px; font-style:italic; color:var(--ink-muted); }
+    .level-score { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; }
+    .level-bar-track { height:10px; background:rgba(176,120,32,.1); border-radius:6px; overflow:hidden; }
+    .level-bar-fill { height:100%; border-radius:6px; transition:width 1s ease; }
+    .level-row.l1 .level-score { color:var(--empower); }
+    .level-row.l1 .level-bar-fill { background:var(--empower); }
+    .level-row.l2 .level-score { color:var(--technical); }
+    .level-row.l2 .level-bar-fill { background:var(--technical); }
+    .level-row.l3 .level-score { color:var(--people); }
+    .level-row.l3 .level-bar-fill { background:var(--people); }
+
+    /* Dimension breakdown */
+    .res-dims-title { font-size:11px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-warm); margin-bottom:16px; text-align:center; }
+    .res-dims { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:32px; }
+    .dim-result { background:white; border-radius:12px; padding:18px 12px; text-align:center; border-top:3px solid transparent; box-shadow:0 2px 10px rgba(26,20,16,.06); }
+    .dim-result.s { border-top-color:var(--strategy); }
+    .dim-result.t { border-top-color:var(--technical); }
+    .dim-result.e { border-top-color:var(--empower); }
+    .dim-result.p { border-top-color:var(--people); }
+    .dim-result-tc { font-family:'Noto Serif TC',serif; font-size:16px; font-weight:900; margin-bottom:2px; }
+    .dim-result.s .dim-result-tc { color:var(--strategy); }
+    .dim-result.t .dim-result-tc { color:var(--technical); }
+    .dim-result.e .dim-result-tc { color:var(--empower); }
+    .dim-result.p .dim-result-tc { color:var(--people); }
+    .dim-result-en { font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:8px; }
+    .dim-result-score { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--ink); }
+
+    /* AI narrative */
+    .res-ai-card { background:white; border-radius:16px; padding:30px 28px; box-shadow:0 2px 16px rgba(26,20,16,.08); border:1px solid rgba(176,120,32,.12); margin-bottom:28px; position:relative; overflow:hidden; }
+    .res-ai-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); }
+    .res-ai-tag { display:flex; align-items:center; gap:8px; margin-bottom:16px; }
+    .res-ai-icon { width:26px; height:26px; border-radius:50%; background:linear-gradient(135deg,var(--people),var(--empower)); display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0; }
+    .res-ai-label { font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--people); }
+    .res-ai-text { font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--ink); line-height:1.8; }
+    .res-ai-text p { margin-bottom:14px; }
+    .res-ai-text p:last-child { margin-bottom:0; }
+
+    /* Email gate */
+    .res-gate { background:var(--parchment-deep); border-radius:16px; padding:30px 28px; text-align:center; margin-bottom:28px; border:1px solid rgba(176,120,32,.15); }
+    .res-gate-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+    .res-gate-body { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--ink-muted); margin-bottom:20px; }
+    .res-gate-form { display:flex; gap:10px; max-width:420px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
+    .res-gate-input { flex:1; min-width:200px; padding:12px 16px; border:1px solid rgba(176,120,32,.2); border-radius:10px; font-family:'Nunito Sans',sans-serif; font-size:13px; outline:none; }
+    .res-gate-input:focus { border-color:var(--gold-warm); }
+    .res-gate-btn { padding:12px 24px; background:var(--strategy); border:none; border-radius:10px; color:white; font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:all .2s; }
+    .res-gate-btn:hover { background:#8A1828; }
+
+    /* CTA */
+    .res-cta { text-align:center; }
+    .res-cta-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:16px; }
+    .btn-cta-primary { padding:14px 30px; background:var(--strategy); border:none; border-radius:30px; font-family:'Nunito Sans',sans-serif; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:white; cursor:pointer; transition:all .25s; box-shadow:0 4px 16px rgba(176,48,80,.28); }
+    .btn-cta-primary:hover { background:#8A1828; transform:translateY(-2px); }
+    .btn-cta-outline { padding:14px 30px; border:1px solid rgba(26,20,16,.2); border-radius:30px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); transition:all .2s; }
+    .btn-cta-outline:hover { border-color:var(--gold-warm); color:var(--gold-warm); }
+    .res-restart { font-size:11px; color:var(--ink-muted); cursor:pointer; text-decoration:underline; text-underline-offset:3px; opacity:.6; transition:opacity .2s; background:none; border:none; }
+    .res-restart:hover { opacity:1; }
+
+    .hidden { display:none !important; }
+
+    @media (max-width:600px) {
+      .topbar { padding:14px 18px; }
+      .stage { padding:24px 16px; }
+      .q-card { padding:28px 22px; }
+      .scale-buttons { grid-template-columns:repeat(5,1fr); gap:8px; }
+      .res-dims { grid-template-columns:1fr 1fr; }
+      .res-gate-form { flex-direction:column; }
+      .res-gate-input { width:100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <div class="wash-tr breathe"></div>
+    <div class="wash-bl breathe" style="animation-delay:.8s"></div>
+    <div class="ghost" aria-hidden="true">理</div>
+
+    <div class="topbar">
+      <a href="https://www.stepdex.my" class="topbar-logo">
+        <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX" />
+        <span class="topbar-word">STEPDEX<span class="reg">®</span></span>
+      </a>
+      <a href="https://www.stepdex.my" class="topbar-link">← Back to Main Site</a>
+    </div>
+
+    <div class="stage">
+
+      <!-- ===== INTRO ===== -->
+      <div class="card intro fade-up" id="screen-intro">
+        <div class="intro-icon">🧭</div>
+
+        <!-- Language picker -->
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:24px;" id="langPicker">
+          <button onclick="setLang('en')" id="langBtnEn" style="padding:8px 20px;border-radius:20px;border:1.5px solid var(--strategy);background:var(--strategy);color:white;font-size:11px;font-weight:800;letter-spacing:.06em;cursor:pointer;transition:all .2s;">English</button>
+          <button onclick="setLang('zh')" id="langBtnZh" style="padding:8px 20px;border-radius:20px;border:1.5px solid rgba(176,48,80,.3);background:transparent;color:var(--ink-muted);font-family:'Noto Serif TC',serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;">中文</button>
+        </div>
+
+        <h1 class="intro-title" id="introTitle">Where do you stand as a manager?</h1>
+        <p class="intro-tc" id="introTc">您的管理能力，現在在哪個階段？</p>
+        <div class="four-ribbon intro-ribbon"></div>
+        <p class="intro-body" id="introBody">The STEPDEX Manager Impact assessment reveals your capability across four dimensions — and shows whether you're leading like an individual contributor, a manager, or a true systems leader.</p>
+
+        <div class="intro-facts">
+          <div class="ifact"><p class="ifact-val">12</p><p class="ifact-label" id="factLabel1">Questions</p></div>
+          <div class="ifact"><p class="ifact-val">~5</p><p class="ifact-label" id="factLabel2">Minutes</p></div>
+          <div class="ifact"><p class="ifact-val" id="factVal3">Free</p><p class="ifact-label" id="factLabel3">No Login</p></div>
+        </div>
+
+        <div class="dim-preview" id="dimPreview">
+          <span class="dim-chip s"><span class="dim-dot"></span>Strategy</span>
+          <span class="dim-chip t"><span class="dim-dot"></span>Technical</span>
+          <span class="dim-chip e"><span class="dim-dot"></span>Empower</span>
+          <span class="dim-chip p"><span class="dim-dot"></span>People</span>
+        </div>
+
+        <div id="counterBadge" style="display:none;align-items:center;justify-content:center;gap:8px;margin-bottom:24px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--empower);flex-shrink:0;"></span>
+          <span style="font-size:12px;color:var(--ink-muted);font-weight:600;"><span id="counterNum" style="font-weight:800;color:var(--ink);"></span><span id="counterText"> managers have discovered their profile so far</span></span>
+        </div>
+
+        <button class="btn-start" id="btnStart" onclick="startAssessment()">Begin Assessment →</button>
+        <p class="intro-note" id="introNote">Rate based on actual behaviour, not ideal expectations.</p>
+      </div>
+
+      <!-- ===== QUESTION ===== -->
+      <div class="card hidden" id="screen-question">
+        <div class="q-progress-wrap">
+          <div class="q-progress-bar"><div class="q-progress-fill" id="progressFill"></div></div>
+          <div class="q-progress-meta">
+            <span class="q-dim-tag" id="dimTag"></span>
+            <span class="q-count" id="qCount"></span>
+          </div>
+        </div>
+
+        <div class="q-card" id="qCard">
+          <p class="q-num" id="qNum"></p>
+          <h2 class="q-text" id="qText"></h2>
+          <p class="q-example" id="qExample"></p>
+
+          <div class="scale-wrap">
+            <div class="scale-labels">
+              <span class="scale-label-text">Does not reflect my current behaviour at all</span>
+              <span class="scale-label-text right">Consistently demonstrated in my daily practice</span>
+            </div>
+            <div class="scale-buttons" id="scaleButtons"></div>
+          </div>
+
+          <div class="q-nav">
+            <button class="btn-back" id="btnBack" onclick="goBack()">← Back</button>
+            <button class="btn-next" id="btnNext" onclick="goNext()">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LOADING ===== -->
+      <div class="card loading hidden" id="screen-loading">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title" id="loadingTitle">Analysing your profile...</h2>
+        <p class="loading-sub" id="loadingSub">Mapping your responses across the STEPDEX framework</p>
+      </div>
+
+      <!-- ===== RESULTS ===== -->
+      <div class="card results hidden" id="screen-results">
+        <div class="res-header">
+          <span class="eyebrow res-eyebrow" id="resEyebrow">Your STEPDEX Managerial Profile</span>
+          <h2 class="res-title" id="resTitle">Here's where you stand <span style="color:var(--strategy)">today.</span></h2>
+          <div class="four-ribbon res-ribbon"></div>
+        </div>
+
+        <div id="resBanner"></div>
+
+        <div class="res-levels" id="resLevels"></div>
+
+        <p class="res-dims-title" id="resDimsTitle">Dimension Breakdown</p>
+        <div class="res-dims" id="resDims"></div>
+
+        <div class="res-ai-card">
+          <div class="res-ai-tag">
+            <div class="res-ai-icon">🤖</div>
+            <span class="res-ai-label" id="resAiLabel">Your Personalised Insight</span>
+          </div>
+          <div class="res-ai-text" id="resAiText">Loading your personalised analysis...</div>
+        </div>
+
+        <div class="res-gate" id="resGate">
+          <p class="res-gate-title" id="resGateTitle">Want the full report emailed to you?</p>
+          <p class="res-gate-body" id="resGateBody">Get your complete profile, development priorities, and a copy to revisit anytime.</p>
+          <div class="res-gate-form">
+            <input type="email" class="res-gate-input" id="gateEmail" placeholder="your@email.com" />
+            <button class="res-gate-btn" id="resGateBtn" onclick="submitEmail()">Email My Report</button>
+          </div>
+        </div>
+
+        <div class="res-cta">
+          <div class="res-cta-buttons">
+            <a href="https://www.stepdex.my/stepdex-trinity" class="btn-cta-primary" id="resConsultBtn">Book a Free Consultation</a>
+            <a href="https://www.stepdex.my/stepfcm-en" class="btn-cta-outline" id="resFcmBtn">Explore STEP First Class Manager</a>
+          </div>
+          <button class="res-restart" id="resRestartBtn" onclick="restart()">Retake Assessment</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ===== SMI-12 DATA MODEL — BILINGUAL ===== 
+    const questions = [
+      { dim:'s', level:'l1',
+        en:{ text:"I am able to clearly articulate and explain the team's short-term goals and priorities.", example:"e.g. quarterly focus, key priorities" },
+        zh:{ text:"我能夠清楚地說明並解釋團隊的短期目標與優先事項。", example:"例如：本季度重點、關鍵優先事項" } },
+      { dim:'s', level:'l2',
+        en:{ text:"I am able to align team members toward shared goals and priorities.", example:"e.g. clarity on what matters most, reduced confusion" },
+        zh:{ text:"我能夠帶領團隊成員朝著共同的目標與優先事項對齊一致。", example:"例如：清楚什麼最重要、減少團隊內部的混亂" } },
+      { dim:'s', level:'l3',
+        en:{ text:"I am able to lead the team toward longer-term or higher-value directions.", example:"e.g. thinking beyond tasks, improving future outcomes" },
+        zh:{ text:"我能夠帶領團隊朝向更長遠或更具價值的方向發展。", example:"例如：不只看眼前任務、為未來成果布局" } },
+      { dim:'t', level:'l1',
+        en:{ text:"I am able to make accurate professional judgments to ensure quality of work.", example:"e.g. identifying issues, assessing work standards" },
+        zh:{ text:"我能夠做出準確的專業判斷，以確保工作品質。", example:"例如：及時發現問題、評估工作標準" } },
+      { dim:'t', level:'l2',
+        en:{ text:"I am able to effectively guide team members to improve their work quality and capability.", example:"e.g. providing clear advice, solving work challenges" },
+        zh:{ text:"我能夠有效地指導團隊成員，提升他們的工作品質與能力。", example:"例如：給予清楚的建議、協助解決工作上的難題" } },
+      { dim:'t', level:'l3',
+        en:{ text:"I am able to continuously improve team processes or methods to enhance outcomes.", example:"e.g. improving workflow, reducing repeated mistakes" },
+        zh:{ text:"我能夠持續優化團隊的流程或方法，以提升整體成果。", example:"例如：改善工作流程、減少重複發生的錯誤" } },
+      { dim:'e', level:'l1',
+        en:{ text:"I am able to take strong ownership of my responsibilities and outcomes.", example:"e.g. taking accountability, not shifting blame" },
+        zh:{ text:"我能夠對自己的職責與成果承擔起完全的責任。", example:"例如：主動承擔責任、不推卸過錯" } },
+      { dim:'e', level:'l2',
+        en:{ text:"I am able to intentionally develop team members' capabilities and growth.", example:"e.g. giving opportunities, guiding development" },
+        zh:{ text:"我能夠有意識地培養團隊成員的能力與成長。", example:"例如：給予發展機會、引導他們的成長方向" } },
+      { dim:'e', level:'l3',
+        en:{ text:"I am able to create an environment where team members are willing to grow and contribute.", example:"e.g. encouraging learning, allowing mistakes as part of growth" },
+        zh:{ text:"我能夠營造一個讓團隊成員願意成長與付出的環境。", example:"例如：鼓勵學習、視錯誤為成長的一部分" } },
+      { dim:'p', level:'l1',
+        en:{ text:"I am able to communicate clearly, timely, and effectively with the team.", example:"e.g. clarity in messaging, minimal misunderstanding" },
+        zh:{ text:"我能夠清楚、及時且有效地與團隊溝通。", example:"例如：訊息傳遞清晰、減少誤解" } },
+      { dim:'p', level:'l2',
+        en:{ text:"I am able to build trust and maintain positive relationships with team members.", example:"e.g. openness, psychological safety" },
+        zh:{ text:"我能夠與團隊成員建立信任，並維持良好的關係。", example:"例如：保持開放態度、營造心理安全感" } },
+      { dim:'p', level:'l3',
+        en:{ text:"I am able to build trust among team members and promote positive collaboration.", example:"e.g. mutual support, reduced internal friction" },
+        zh:{ text:"我能夠促進團隊成員之間的信任，並推動正向的協作。", example:"例如：彼此支持、減少內部摩擦" } },
+    ];
+
+    // ===== UI STRING DICTIONARY ===== 
+    const dimMeta = {
+      s: { tc:'策略', en:'Strategy' }, t: { tc:'專業', en:'Technical' },
+      e: { tc:'賦能', en:'Empower' }, p: { tc:'人際', en:'People' }
+    };
+
+    const ui = {
+      en: {
+        scaleLeft: "Does not reflect my current behaviour at all",
+        scaleRight: "Consistently demonstrated in my daily practice",
+        qCount: n => `Question ${n} of 12`,
+        back: "← Back",
+        next: "Next →",
+        seeResults: "See My Results →",
+        loadingTitle: "Analysing your profile...",
+        loadingSub: "Mapping your responses across the STEPDEX framework",
+        resTitlePre: "Here's where you stand ",
+        resTitleHi: "today.",
+        dimBreakdown: "Dimension Breakdown",
+        aiLabel: "Your Personalised Insight",
+        aiLoading: "Loading your personalised analysis...",
+        gateTitle: "Want the full report emailed to you?",
+        gateBody: "Get your complete profile, development priorities, and a copy to revisit anytime.",
+        gatePlaceholder: "your@email.com",
+        gateBtn: "Email My Report",
+        gateSuccessTitle: "✓ Report on its way!",
+        gateSuccessBody: email => `Check your inbox at ${email} in the next few minutes.`,
+        consultBtn: "Book a Free Consultation",
+        fcmBtn: "Explore STEP First Class Manager",
+        retake: "Retake Assessment",
+      },
+      zh: {
+        scaleLeft: "完全不符合我目前的行為表現",
+        scaleRight: "在日常工作中持續展現",
+        qCount: n => `第 ${n} 題，共 12 題`,
+        back: "← 上一題",
+        next: "下一題 →",
+        seeResults: "查看我的結果 →",
+        loadingTitle: "正在分析您的個人檔案...",
+        loadingSub: "將您的回答對應到 STEPDEX 框架中",
+        resTitlePre: "這是您",
+        resTitleHi: "目前的狀態。",
+        dimBreakdown: "四大維度分析",
+        aiLabel: "您的個人化洞察",
+        aiLoading: "正在生成您的個人化分析...",
+        gateTitle: "想將完整報告寄到您的電郵嗎？",
+        gateBody: "獲取您的完整檔案、發展重點，並隨時可以回顧。",
+        gatePlaceholder: "your@email.com",
+        gateBtn: "寄送我的報告",
+        gateSuccessTitle: "✓ 報告即將送達！",
+        gateSuccessBody: email => `請在幾分鐘內查看您的電郵信箱：${email}`,
+        consultBtn: "預約免費諮詢",
+        fcmBtn: "了解 STEP 全能一級經理課程",
+        retake: "重新測驗",
+      }
+    };
+
+    let lang = 'en'; // locked after intro screen selection
+
+    const introContent = {
+      en: {
+        title: "Where do you stand as a manager?",
+        tc: "您的管理能力，現在在哪個階段？",
+        body: "The STEPDEX Manager Impact assessment reveals your capability across four dimensions — and shows whether you're leading like an individual contributor, a manager, or a true systems leader.",
+        fact1: "Questions", fact2: "Minutes", fact3val: "Free", fact3: "No Login",
+        dims: ["Strategy","Technical","Empower","People"],
+        counterText: " managers have discovered their profile so far",
+        startBtn: "Begin Assessment →",
+        note: "Rate based on actual behaviour, not ideal expectations.",
+      },
+      zh: {
+        title: "您目前的管理能力，處於哪個階段？",
+        tc: "Where do you stand as a manager?",
+        body: "STEPDEX 管理影響力評估，從四大維度揭示您目前的管理能力——並讓您了解自己是偏向個人貢獻者、團隊管理者，還是真正的系統型領導者。",
+        fact1: "道題目", fact2: "分鐘", fact3val: "免費", fact3: "無需註冊",
+        dims: ["策略","專業","賦能","人際"],
+        counterText: " 位管理者已完成自我評估",
+        startBtn: "開始測驗 →",
+        note: "請根據您實際的行為表現作答，而非理想中的自己。",
+      }
+    };
+
+    function detectBrowserLang() {
+      const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      return browserLang.startsWith('zh') ? 'zh' : 'en';
+    }
+
+    function setLang(l) {
+      lang = l;
+      const c = introContent[l];
+
+      document.getElementById('langBtnEn').style.background = l === 'en' ? 'var(--strategy)' : 'transparent';
+      document.getElementById('langBtnEn').style.color = l === 'en' ? 'white' : 'var(--ink-muted)';
+      document.getElementById('langBtnZh').style.background = l === 'zh' ? 'var(--strategy)' : 'transparent';
+      document.getElementById('langBtnZh').style.color = l === 'zh' ? 'white' : 'var(--ink-muted)';
+
+      document.getElementById('introTitle').textContent = c.title;
+      document.getElementById('introTc').textContent = c.tc;
+      document.getElementById('introBody').textContent = c.body;
+      document.getElementById('factLabel1').textContent = c.fact1;
+      document.getElementById('factLabel2').textContent = c.fact2;
+      document.getElementById('factVal3').textContent = c.fact3val;
+      document.getElementById('factLabel3').textContent = c.fact3;
+      document.getElementById('counterText').textContent = c.counterText;
+      document.getElementById('btnStart').textContent = c.startBtn;
+      document.getElementById('introNote').textContent = c.note;
+
+      const dimChips = document.querySelectorAll('#dimPreview .dim-chip');
+      const dimLabels = ['Strategy','Technical','Empower','People'];
+      dimChips.forEach((chip, i) => {
+        chip.innerHTML = `<span class="dim-dot"></span>${c.dims[i]}`;
+      });
+
+      document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en';
+    }
+
+    // Auto-select based on browser language on page load
+    setLang(detectBrowserLang());
+
+    let currentQ = 0;
+    let answers = new Array(12).fill(null);
+
+    // ===== REPORT COUNTER =====
+    const COUNTER_KEY = 'mgr_assessment_reports_completed';
+    const COUNTER_BASELINE = 247;
+
+    async function loadCounter() {
+      try {
+        const res = await fetch(`/api/counter?key=${COUNTER_KEY}`);
+        const { count } = await res.json();
+        displayCounter(count + COUNTER_BASELINE);
+      } catch (err) {
+        displayCounter(COUNTER_BASELINE);
+      }
+    }
+
+    function displayCounter(total) {
+      const badge = document.getElementById('counterBadge');
+      const numEl = document.getElementById('counterNum');
+      if (total > 0) {
+        numEl.textContent = total.toLocaleString();
+        badge.style.display = 'flex';
+      }
+    }
+
+    async function incrementCounter() {
+      try {
+        await fetch(`/api/counter?key=${COUNTER_KEY}`, { method: 'POST' });
+      } catch (err) { /* non-critical */ }
+    }
+
+    // Load counter as soon as the page is ready
+    loadCounter();
+
+    function startAssessment() {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-question').classList.remove('hidden');
+      document.getElementById('screen-question').classList.add('fade-up');
+      document.getElementById('loadingTitle').textContent = ui[lang].loadingTitle;
+      document.getElementById('loadingSub').textContent = ui[lang].loadingSub;
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQ];
+      const t = ui[lang];
+      const qContent = q[lang];
+
+      const pct = ((currentQ) / 12) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressFill').className = 'q-progress-fill ' + q.dim;
+
+      document.getElementById('dimTag').textContent = dimMeta[q.dim].tc + ' · ' + dimMeta[q.dim].en;
+      document.getElementById('dimTag').className = 'q-dim-tag ' + q.dim;
+      document.getElementById('qCount').textContent = t.qCount(currentQ + 1);
+
+      document.getElementById('qCard').className = 'q-card ' + q.dim;
+      document.getElementById('qNum').textContent = 'Q' + (currentQ + 1);
+      document.getElementById('qText').textContent = qContent.text;
+      document.getElementById('qExample').textContent = qContent.example;
+
+      document.querySelectorAll('.scale-label-text')[0].textContent = t.scaleLeft;
+      document.querySelectorAll('.scale-label-text')[1].textContent = t.scaleRight;
+
+      const scaleWrap = document.getElementById('scaleButtons');
+      scaleWrap.innerHTML = '';
+      for (let i = 1; i <= 10; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'scale-btn' + (answers[currentQ] === i ? ' selected ' + q.dim : '');
+        btn.textContent = i;
+        btn.onclick = () => selectAnswer(i);
+        scaleWrap.appendChild(btn);
+      }
+
+      document.getElementById('btnBack').disabled = currentQ === 0;
+      document.getElementById('btnBack').textContent = t.back;
+      const nextBtn = document.getElementById('btnNext');
+      nextBtn.className = 'btn-next ' + q.dim + (answers[currentQ] !== null ? ' active' : '');
+      nextBtn.textContent = currentQ === 11 ? t.seeResults : t.next;
+    }
+
+    function selectAnswer(val) {
+      answers[currentQ] = val;
+      renderQuestion();
+    }
+
+    function goNext() {
+      if (answers[currentQ] === null) return;
+      if (currentQ < 11) {
+        currentQ++;
+        renderQuestion();
+      } else {
+        finishAssessment();
+      }
+    }
+
+    function goBack() {
+      if (currentQ > 0) {
+        currentQ--;
+        renderQuestion();
+      }
+    }
+
+    function finishAssessment() {
+      document.getElementById('screen-question').classList.add('hidden');
+      document.getElementById('screen-loading').classList.remove('hidden');
+      document.getElementById('screen-loading').classList.add('fade-up');
+      computeAndRenderResults();
+    }
+
+    // ===== SCORING LOGIC =====
+    function computeScores() {
+      const dims = { s:[], t:[], e:[], p:[] };
+      const levels = { l1:[], l2:[], l3:[] };
+      questions.forEach((q, i) => {
+        dims[q.dim].push(answers[i]);
+        levels[q.level].push(answers[i]);
+      });
+      const avg = arr => arr.reduce((a,b)=>a+b,0) / arr.length;
+      return {
+        dimScores: { s: avg(dims.s), t: avg(dims.t), e: avg(dims.e), p: avg(dims.p) },
+        levelScores: { l1: avg(levels.l1), l2: avg(levels.l2), l3: avg(levels.l3) },
+      };
+    }
+
+    const levelInfo = {
+      en: {
+        l1: { sub:'Self Mastery', tag:'🟢 L1 Highest', title:'Execution-Focused (IC)',
+              body:"You are strong in delivering results through your own capability. You perform tasks well and take responsibility for outcomes — but you may rely more on yourself than on the team. Opportunity: strengthen your ability to guide and develop others." },
+        l2: { sub:'Team Leadership', tag:'🔵 L2 Highest', title:'Team-Focused (Manager)',
+              body:"You are actively leading and supporting your team — guiding, coaching, and aligning team members. You may still be heavily involved in daily coordination. Opportunity: build systems and structures that reduce dependency on you." },
+        l3: { sub:'System Leadership', tag:'🟣 L3 Highest', title:'System-Focused (Management)',
+              body:"You are shaping the environment for team success — focusing on long-term direction, structure, and culture that enables sustainable performance beyond individual effort. Opportunity: continue strengthening strategic clarity and organisational impact." }
+      },
+      zh: {
+        l1: { sub:'自我掌握', tag:'🟢 L1 最高', title:'執行導向型（個人貢獻者）',
+              body:"您擅長透過自身能力交付成果，工作執行力強，也願意對結果負責——但可能較依賴自己，而非團隊整體的力量。發展機會：強化引導與培養他人的能力。" },
+        l2: { sub:'團隊領導', tag:'🔵 L2 最高', title:'團隊導向型（管理者）',
+              body:"您正積極帶領與支持團隊——進行指導、教練與目標對齊。您可能仍大量參與日常的協調工作。發展機會：建立能減少團隊對您依賴的系統與架構。" },
+        l3: { sub:'系統領導', tag:'🟣 L3 最高', title:'系統導向型（管理層）',
+              body:"您正在塑造有利於團隊成功的環境——專注於長遠方向、組織架構與文化，讓績效的提升不再僅依靠個人的努力。發展機會：持續強化戰略清晰度與組織層面的影響力。" }
+      }
+    };
+
+    function computeAndRenderResults() {
+      const t = ui[lang];
+      document.getElementById('resEyebrow').textContent = lang === 'zh' ? '您的 STEPDEX 管理者檔案' : 'Your STEPDEX Managerial Profile';
+      document.getElementById('resTitle').innerHTML = t.resTitlePre + `<span style="color:var(--strategy)">${t.resTitleHi}</span>`;
+      document.getElementById('resDimsTitle').textContent = t.dimBreakdown;
+      document.getElementById('resAiLabel').textContent = t.aiLabel;
+      document.getElementById('resAiText').textContent = t.aiLoading;
+      document.getElementById('resGateTitle').textContent = t.gateTitle;
+      document.getElementById('resGateBody').textContent = t.gateBody;
+      document.getElementById('gateEmail').placeholder = t.gatePlaceholder;
+      document.getElementById('resGateBtn').textContent = t.gateBtn;
+      document.getElementById('resConsultBtn').textContent = t.consultBtn;
+      document.getElementById('resFcmBtn').textContent = t.fcmBtn;
+      document.getElementById('resFcmBtn').href = lang === 'zh' ? 'https://www.stepdex.my/stepfcm-cn' : 'https://www.stepdex.my/stepfcm-en';
+      document.getElementById('resRestartBtn').textContent = t.retake;
+
+      const { dimScores, levelScores } = computeScores();
+      const dominant = Object.entries(levelScores).sort((a,b)=>b[1]-a[1])[0][0];
+      const info = levelInfo[lang][dominant];
+
+      document.getElementById('resBanner').innerHTML = `
+        <div class="res-banner ${dominant}">
+          <p class="res-banner-tag">${info.tag} · ${info.sub}</p>
+          <h3 class="res-banner-title">${info.title}</h3>
+          <p class="res-banner-body">${info.body}</p>
+        </div>`;
+
+      const levelNames = lang === 'zh'
+        ? { l1:'L1 — 個人貢獻者', l2:'L2 — 管理者', l3:'L3 — 管理層' }
+        : { l1:'L1 — Individual Contributor', l2:'L2 — Manager', l3:'L3 — Management' };
+      const levelSubs = lang === 'zh'
+        ? { l1:'自我掌握', l2:'團隊領導', l3:'系統領導' }
+        : { l1:'Self Mastery', l2:'Team Leadership', l3:'System Leadership' };
+
+      document.getElementById('resLevels').innerHTML = `
+        <div class="level-row l1">
+          <div class="level-row-top"><div><span class="level-name">${levelNames.l1}</span> <span class="level-name-sub">· ${levelSubs.l1}</span></div><span class="level-score">${levelScores.l1.toFixed(1)}</span></div>
+          <div class="level-bar-track"><div class="level-bar-fill" style="width:${(levelScores.l1/10)*100}%"></div></div>
+        </div>
+        <div class="level-row l2">
+          <div class="level-row-top"><div><span class="level-name">${levelNames.l2}</span> <span class="level-name-sub">· ${levelSubs.l2}</span></div><span class="level-score">${levelScores.l2.toFixed(1)}</span></div>
+          <div class="level-bar-track"><div class="level-bar-fill" style="width:${(levelScores.l2/10)*100}%"></div></div>
+        </div>
+        <div class="level-row l3">
+          <div class="level-row-top"><div><span class="level-name">${levelNames.l3}</span> <span class="level-name-sub">· ${levelSubs.l3}</span></div><span class="level-score">${levelScores.l3.toFixed(1)}</span></div>
+          <div class="level-bar-track"><div class="level-bar-fill" style="width:${(levelScores.l3/10)*100}%"></div></div>
+        </div>`;
+
+      document.getElementById('resDims').innerHTML = Object.entries(dimScores).map(([k,v]) => `
+        <div class="dim-result ${k}">
+          <p class="dim-result-tc">${dimMeta[k].tc}</p>
+          <p class="dim-result-en">${dimMeta[k].en}</p>
+          <p class="dim-result-score">${v.toFixed(1)}</p>
+        </div>`).join('');
+
+      document.getElementById('screen-loading').classList.add('hidden');
+      document.getElementById('screen-results').classList.remove('hidden');
+      document.getElementById('screen-results').classList.add('fade-up');
+
+      incrementCounter();
+      generateAINarrative(dimScores, levelScores, dominant);
+    }
+
+    // ===== AI-POWERED NARRATIVE (Claude API) =====
+    async function generateAINarrative(dimScores, levelScores, dominant) {
+      const dimText = Object.entries(dimScores).map(([k,v]) => {
+        const names = { s:'Strategy', t:'Technical', e:'Empower', p:'People' };
+        return `${names[k]}: ${v.toFixed(1)}/10`;
+      }).join(', ');
+      const levelText = `L1 (Individual Contributor): ${levelScores.l1.toFixed(1)}, L2 (Manager): ${levelScores.l2.toFixed(1)}, L3 (Management): ${levelScores.l3.toFixed(1)}`;
+
+      const prompt = `You are a leadership development advisor for STEPDEX Academy, a Malaysian SME-focused leadership training brand. A manager just completed the STEPDEX Manager Impact 12 (SMI-12) self-assessment.
+
+Their dimension scores (out of 10): ${dimText}
+Their level scores (out of 10): ${levelText}
+Their dominant level: ${dominant === 'l1' ? 'Individual Contributor (L1)' : dominant === 'l2' ? 'Manager (L2)' : 'Management (L3)'}
+
+Write a warm, specific, encouraging 3-paragraph personalised insight (under 180 words total):
+1. Acknowledge their dominant pattern and what it reveals about how they currently lead.
+2. Point out their single weakest dimension by name and explain the practical impact of that gap on their team.
+3. Give one concrete, actionable next step they can try this week — tied to their lowest dimension.
+
+Do not use bullet points. Write in flowing prose, second person ("you"), warm but direct tone. Do not mention STEP First Class Manager or any specific programme by name — that comes later in the page.
+
+${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (繁體中文), using natural, professional Chinese business writing style — not a literal translation from English phrasing.' : 'Write in English.'}`;
+
+      try {
+        const response = await fetch('/api/claude', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt, lang }),
+        });
+        const data = await response.json();
+        const paragraphs = data.text.split(/\n\n+/).filter(p => p.trim());
+        document.getElementById('resAiText').innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+      } catch (err) {
+        document.getElementById('resAiText').innerHTML = `<p>Your results show a clear pattern across the STEPDEX dimensions. Review your dimension breakdown above to see where your strengths lie and where focused development could have the greatest impact on your team.</p>`;
+      }
+    }
+
+    async function submitEmail() {
+      const email = document.getElementById('gateEmail').value;
+      const t = ui[lang];
+      if (!email || !email.includes('@')) {
+        document.getElementById('gateEmail').style.borderColor = '#B03050';
+        return;
+      }
+      const btn = document.getElementById('resGateBtn');
+      btn.disabled = true;
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, tag: 'mgr-assessment-completed' }),
+        });
+      } catch (err) { /* non-critical — show success regardless */ }
+      document.getElementById('resGate').innerHTML = `
+        <p class="res-gate-title">${t.gateSuccessTitle}</p>
+        <p class="res-gate-body">${t.gateSuccessBody(email)}</p>`;
+    }
+
+    function restart() {
+      currentQ = 0;
+      answers = new Array(12).fill(null);
+      document.getElementById('screen-results').classList.add('hidden');
+      document.getElementById('screen-intro').classList.remove('hidden');
+      document.getElementById('screen-intro').classList.add('fade-up');
+      window.scrollTo(0,0);
+    }
+  </script>
+
+</body>
+</html>

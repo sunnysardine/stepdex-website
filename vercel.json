@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/mgr", "destination": "/mgr-assessment.html" },
+    { "source": "/sme", "destination": "/sme-ogrowth.html" }
+  ]
+}

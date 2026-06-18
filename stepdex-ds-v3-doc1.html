@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEPDEX Design System v3.1</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #F6F0E3;
+  --parchment-deep: #EDE3CB;
+  --ink: #1A1410;
+  --ink-muted: #6A5A42;
+  --gold-warm: #B07820;
+  --gold-whisper: #D4A84B;
+  --strategy: #B03050;
+  --technical: #C8701A;
+  --empower: #228880;
+  --people: #6848A0;
+  --cosmic-void: #080612;
+  --cosmic-nebula: #1C1248;
+  --human-base: #F2EBE0;
+  --human-muted: #7A6452;
+  --page-bg: #0C0906;
+  --card-border: rgba(246,240,227,0.07);
+  --card-bg: rgba(246,240,227,0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--page-bg);
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--parchment);
+  min-height: 100vh;
+}
+
+@keyframes breathe { 0%,100%{opacity:.55;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+@keyframes beat    { 0%,100%{transform:scale(1)} 15%{transform:scale(1.1)} 30%{transform:scale(1)} }
+@keyframes twinkle { 0%,100%{opacity:.3} 50%{opacity:1} }
+@keyframes pathDraw{ from{stroke-dashoffset:900;opacity:0} to{stroke-dashoffset:0;opacity:1} }
+
+.breathe { animation: breathe 3.5s ease-in-out infinite; }
+.beat    { animation: beat 3s ease-in-out infinite; }
+.twinkle { animation: twinkle 4s ease-in-out infinite; }
+
+/* ── HEADER ── */
+.site-header {
+  text-align: center;
+  padding: 52px 32px 36px;
+  border-bottom: 1px solid rgba(200,144,26,.12);
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: 'STEPDEX';
+  position: absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Playfair Display',serif;
+  font-size: 160px; font-weight: 900;
+  color: rgba(200,144,26,.03);
+  letter-spacing: .12em; white-space: nowrap;
+  pointer-events: none;
+}
+.header-eyebrow {
+  font-size: 9px; letter-spacing: .5em;
+  text-transform: uppercase;
+  color: var(--gold-whisper); opacity: .7;
+  margin-bottom: 10px;
+}
+.header-title {
+  font-family: 'Playfair Display',serif;
+  font-size: 38px; font-weight: 700;
+  color: var(--parchment); margin-bottom: 6px;
+}
+.header-subtitle {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 14px; font-style: italic;
+  color: rgba(246,240,227,.4); margin-bottom: 20px;
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 18px;
+  border: 1px solid rgba(200,144,26,.2); border-radius: 30px;
+}
+.badge-dot { width:5px; height:5px; border-radius:50%; }
+.badge-text {
+  font-size: 9px; letter-spacing: .25em;
+  text-transform: uppercase; color: rgba(246,240,227,.28);
+  margin: 0 4px;
+}
+.gw {
+  background: linear-gradient(135deg,#E8C96A,#C8901A,#F0D878,#B07820);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── TABS ── */
+.tab-nav {
+  display: flex;
+  border-bottom: 1px solid rgba(246,240,227,.06);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  padding: 13px 20px;
+  background: transparent; border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(246,240,227,.3);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; white-space: nowrap;
+  cursor: pointer; transition: all .2s;
+  font-family: 'Nunito Sans',sans-serif;
+}
+.tab-btn.active {
+  color: var(--gold-warm);
+  border-bottom-color: var(--gold-warm);
+}
+.tab-btn:hover:not(.active) { color: rgba(246,240,227,.6); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── CONTENT WRAPPER ── */
+.content-wrap {
+  max-width: 960px; margin: 0 auto;
+  padding: 36px 28px 80px;
+}
+
+/* ── SECTION HEADER ── */
+.sec-head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+}
+.sec-num {
+  font-family: 'Playfair Display',serif;
+  font-size: 11px; color: var(--gold-warm);
+  opacity: .5; font-style: italic;
+}
+.sec-label {
+  font-size: 9px; letter-spacing: .4em;
+  text-transform: uppercase; color: var(--gold-warm);
+}
+.sec-rule {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, rgba(176,120,32,.4), transparent);
+}
+.sec-title {
+  font-family: 'Playfair Display',serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--parchment); margin-bottom: 4px;
+}
+.sec-desc {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 13px; font-style: italic;
+  color: rgba(246,240,227,.38); line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* ── NOTE BAR ── */
+.note {
+  margin-top: 14px; padding: 11px 16px;
+  background: rgba(246,240,227,.03);
+  border-left: 2px solid rgba(176,120,32,.4);
+  border-radius: 0 8px 8px 0;
+  font-family: 'Cormorant Garamond',serif;
+  font-style: italic; font-size: 12px;
+  color: rgba(246,240,227,.32); line-height: 1.6;
+}
+
+/* ── GRIDS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+
+/* ── PARCHMENT CARD ── */
+.p-card {
+  background: var(--parchment); border-radius: 18px; padding: 28px;
+  position: relative; overflow: hidden;
+  background-image: repeating-linear-gradient(-22deg,transparent,transparent 30px,rgba(176,120,32,.05) 30px,rgba(176,120,32,.05) 31px);
+}
+
+/* ── DARK CARD ── */
+.d-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px; padding: 20px;
+}
+
+/* ── SWATCH ── */
+.swatch {
+  height: 52px; border-radius: 12px;
+  display: flex; align-items: flex-end; padding: 8px 12px;
+  margin-bottom: 7px;
+}
+.swatch span {
+  font-size: 9px; letter-spacing: .08em;
+  font-weight: 600;
+}
+.swatch.light span { color: var(--ink-muted); }
+.swatch.dark  span { color: rgba(255,255,255,.9); }
+
+/* ── DIM ICON ── */
+.dim-icon {
+  width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+.dim-icon .dot {
+  width: 20px; height: 20px;
+  background: white; border-radius: 50%; opacity: .85;
+}
+
+/* ── FOUR COLOR RIBBON ── */
+.ribbon {
+  height: 2.5px; border-radius: 2px; margin-bottom: 18px;
+  background: linear-gradient(to right,
+    var(--strategy) 0%,var(--strategy) 25%,
+    var(--technical) 25%,var(--technical) 50%,
+    var(--empower) 50%,var(--empower) 75%,
+    var(--people) 75%,var(--people) 100%);
+}
+
+/* ── ELEV CARD ── */
+.elev-num {
+  font-family: 'Playfair Display',serif;
+  font-size: 32px; font-weight: 700; font-style: italic;
+  line-height: 1; margin-bottom: 10px;
+}
+.elev-title {
+  font-size: 12px; font-weight: 700;
+  color: var(--parchment); margin-bottom: 6px;
+}
+.elev-hr {
+  height: 1px; margin-bottom: 10px;
+  background: linear-gradient(to right,rgba(176,120,32,.55),transparent);
+}
+.elev-desc {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 12px; font-style: italic;
+  color: rgba(246,240,227,.35); line-height: 1.65; margin-bottom: 12px;
+}
+.elev-demo {
+  background: rgba(255,255,255,.04);
+  border-radius: 8px; padding: 10px 12px;
+}
+
+/* ── INDEX TABLE ── */
+.idx-table {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px; overflow: hidden;
+}
+.idx-head {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 2fr;
+  background: rgba(200,144,26,.08);
+  padding: 11px 18px;
+  border-bottom: 1px solid rgba(246,240,227,.06);
+}
+.idx-head span {
+  font-size: 9px; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--gold-warm); font-weight: 700;
+}
+.idx-row {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 2fr;
+  padding: 11px 18px;
+  border-bottom: 1px solid rgba(246,240,227,.04);
+  align-items: start;
+}
+.idx-row:last-child { border-bottom: none; }
+.idx-name { font-size: 12px; font-weight: 700; color: var(--parchment); }
+.idx-mode-pill {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 20px; font-size: 9px; font-weight: 600; margin-right: 3px;
+}
+.idx-bi, .idx-when {
+  font-size: 10px; font-family: 'Cormorant Garamond',serif;
+  font-style: italic; color: rgba(246,240,227,.32); line-height: 1.5;
+}
+
+/* ── MODE TABS (inside Modes tab) ── */
+.mode-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.mode-btn {
+  padding: 7px 16px; border-radius: 20px;
+  border: none; cursor: pointer;
+  background: rgba(246,240,227,.07);
+  color: rgba(246,240,227,.4);
+  font-size: 11px; font-weight: 700;
+  font-family: 'Nunito Sans',sans-serif;
+  transition: all .2s;
+}
+.mode-btn.active { background: var(--gold-warm); color: var(--ink); }
+.mode-panel { display: none; }
+.mode-panel.active { display: block; }
+
+/* ── BI RULES ── */
+.bi-rule {
+  padding: 18px; background: rgba(26,20,16,.04);
+  border-radius: 12px; border: 1px solid rgba(176,120,32,.1);
+}
+.bi-rule-num {
+  font-family: 'Playfair Display',serif;
+  font-size: 24px; font-weight: 700; font-style: italic;
+  color: var(--gold-warm); opacity: .5; line-height: 1; margin-bottom: 8px;
+}
+.bi-rule-title { font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.bi-rule-body {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 12px; font-style: italic;
+  color: var(--ink-muted); line-height: 1.6;
+}
+
+/* ── SITE FOOTER ── */
+.site-footer {
+  text-align: center; padding: 36px 32px;
+  border-top: 1px solid rgba(200,144,26,.12);
+}
+.footer-dots { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
+.footer-dot  { width: 7px; height: 7px; border-radius: 50%; }
+.footer-line { width: 24px; height: 1px; background: rgba(200,144,26,.2); }
+.footer-quote {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 15px; font-style: italic;
+  color: rgba(246,240,227,.35); margin-bottom: 8px;
+}
+.footer-meta {
+  font-size: 9px; letter-spacing: .35em;
+  text-transform: uppercase; color: rgba(200,144,26,.22);
+}
+
+/* ── WARM MODE SPECIFICS ── */
+.warm-wrap {
+  background: var(--parchment); border-radius: 20px; padding: 32px;
+  position: relative; overflow: hidden;
+  background-image: repeating-linear-gradient(-22deg,transparent,transparent 30px,rgba(176,120,32,.05) 30px,rgba(176,120,32,.05) 31px);
+}
+.warm-wash-1 {
+  position: absolute; top:0; right:0; width:65%; height:60%;
+  background: radial-gradient(ellipse 110% 100% at 100% 0%,rgba(176,48,80,.18) 0%,rgba(200,112,26,.07) 55%,transparent 80%);
+  pointer-events: none;
+}
+.warm-wash-2 {
+  position: absolute; bottom:0; left:0; width:50%; height:45%;
+  background: radial-gradient(ellipse 100% 100% at 0% 100%,rgba(104,72,160,.12) 0%,transparent 70%);
+  pointer-events: none;
+}
+.warm-ghost {
+  position: absolute; font-family: 'Noto Serif TC',serif;
+  font-size: 96px; font-weight: 900;
+  color: rgba(26,20,16,.042); top:0; right:8px;
+  pointer-events: none; line-height: 1;
+}
+.warm-inner { position: relative; z-index: 1; }
+.warm-eyebrow {
+  font-size: 9px; letter-spacing: .42em; text-transform: uppercase;
+  color: var(--gold-warm); margin-bottom: 14px;
+}
+.warm-tc {
+  font-family: 'Noto Serif TC',serif; font-size: 34px; font-weight: 900;
+  color: var(--ink); line-height: 1.1; margin-bottom: 6px;
+}
+.warm-en {
+  font-family: 'Cormorant Garamond',serif; font-size: 13px; font-style: italic;
+  color: var(--ink-muted); margin-bottom: 20px;
+}
+.warm-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px; border-radius: 8px; margin-bottom: 4px; }
+.warm-dot  { width:30px; height:30px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.warm-dot .w { width:10px; height:10px; background:white; border-radius:50%; opacity:.8; }
+.warm-item-tc { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+.warm-item-body { font-family: 'Noto Serif TC',serif; font-size: 11px; color: var(--ink-muted); line-height: 1.6; }
+
+/* ── COSMIC MODE SPECIFICS ── */
+.cosmic-wrap {
+  border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+  min-height: 340px; display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(155deg,var(--cosmic-void) 0%,var(--cosmic-nebula) 55%,#2A1860 100%);
+}
+.cosmic-stars {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 6%,rgba(255,220,100,.9) 0%,transparent 100%),
+    radial-gradient(1px 1px at 28% 14%,rgba(255,255,255,.7) 0%,transparent 100%),
+    radial-gradient(2px 2px at 62% 18%,rgba(255,255,255,.8) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 48% 28%,rgba(255,255,255,.6) 0%,transparent 100%),
+    radial-gradient(1px 1px at 85% 12%,rgba(255,220,100,.7) 0%,transparent 100%);
+}
+.cosmic-summit {
+  position: absolute; top:-20px; right:48px; width:160px; height:160px;
+  background: radial-gradient(circle,rgba(200,144,26,.55) 0%,rgba(200,144,26,.12) 50%,transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.cosmic-ghost {
+  position: absolute; font-family: 'Noto Serif TC',serif;
+  font-size: 110px; font-weight: 900;
+  color: rgba(200,144,26,.045); top:8px; left:-8px;
+  pointer-events: none; line-height: 1;
+}
+.cosmic-ground {
+  position: absolute; bottom:0; left:0; right:0; height:40%;
+  background: linear-gradient(to top,rgba(237,227,203,.07),transparent);
+  pointer-events: none;
+}
+.cosmic-content { position: relative; z-index: 2; }
+.cosmic-eyebrow {
+  font-size: 9px; letter-spacing: .45em; text-transform: uppercase;
+  color: var(--gold-whisper); margin-bottom: 12px; opacity: .72;
+}
+.cosmic-tc {
+  font-family: 'Noto Serif TC',serif; font-size: 32px; font-weight: 900;
+  color: var(--parchment); line-height: 1.1; margin-bottom: 6px;
+}
+.cosmic-en {
+  font-family: 'Playfair Display',serif; font-size: 13px; font-style: italic;
+  color: rgba(246,240,227,.42); margin-bottom: 20px; line-height: 1.5;
+}
+.cosmic-panel {
+  background: rgba(246,240,227,.055);
+  border: 1px solid rgba(246,240,227,.09);
+  border-radius: 12px; padding: 16px;
+}
+.cosmic-panel-label {
+  font-size: 8px; letter-spacing: .4em; text-transform: uppercase;
+  color: var(--gold-whisper); margin-bottom: 12px; opacity: .65;
+}
+.cosmic-dims { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 12px; }
+.cosmic-dim {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 10px; background: rgba(255,255,255,.04);
+  border-radius: 8px; border: 1px solid rgba(255,255,255,.05);
+}
+.cosmic-dim-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.cosmic-dim-tc { font-family: 'Noto Serif TC',serif; font-size: 11px; font-weight: 700; }
+.cosmic-dim-en { font-size: 8px; color: rgba(246,240,227,.35); }
+.cosmic-cta {
+  width: 100%; padding: 9px; border-radius: 8px; text-align: center;
+  background: linear-gradient(135deg,rgba(200,144,26,.22),rgba(176,48,80,.12));
+  border: 1px solid rgba(200,144,26,.28); color: var(--gold-whisper);
+  font-size: 9px; letter-spacing: .25em; text-transform: uppercase;
+  font-weight: 700; cursor: pointer;
+  font-family: 'Nunito Sans',sans-serif;
+}
+
+/* ── EDITORIAL MODE SPECIFICS ── */
+.ed-wrap {
+  background: var(--parchment-deep); border-radius: 20px;
+  border: 1px solid rgba(176,120,32,.18); display: flex; overflow: hidden;
+  background-image: repeating-linear-gradient(-22deg,transparent,transparent 30px,rgba(176,120,32,.045) 30px,rgba(176,120,32,.045) 31px);
+}
+.ed-ribbon {
+  width: 32px; flex-shrink: 0;
+  background: linear-gradient(to bottom,var(--strategy),#7A2030);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 24px 0 20px; gap: 6px;
+}
+.ed-ribbon-word {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-size: 7px; letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(255,255,255,.75); font-weight: 600;
+  font-family: 'Nunito Sans',sans-serif;
+}
+.ed-ribbon-dot { width:3px; height:3px; background:rgba(255,255,255,.4); border-radius:50%; }
+.ed-inner { padding: 30px 26px; position: relative; flex: 1; }
+.ed-ghost {
+  position: absolute; font-family: 'Playfair Display',serif;
+  font-size: 86px; font-weight: 900; font-style: italic;
+  color: rgba(26,20,16,.038); bottom: 4px; right: -4px;
+  pointer-events: none; line-height: 1;
+}
+.ed-content { position: relative; z-index: 1; }
+.ed-eyebrow {
+  font-size: 9px; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 12px;
+}
+.ed-title {
+  font-family: 'Playfair Display',serif; font-size: 30px; font-weight: 900;
+  color: var(--ink); line-height: 1.1; margin-bottom: 4px;
+}
+.ed-sub {
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--strategy); font-weight: 700; margin-bottom: 4px;
+}
+.ed-author {
+  font-family: 'Cormorant Garamond',serif; font-size: 12px; font-style: italic;
+  color: var(--ink-muted); margin-bottom: 16px;
+}
+.ed-divider {
+  height: 1px; opacity: .32; margin-bottom: 16px;
+  background: linear-gradient(to right,var(--gold-warm),transparent);
+}
+.ed-item { display: flex; gap: 9px; align-items: flex-start; margin-bottom: 9px; }
+.ed-badge {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--strategy);
+  color: white; font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+  font-family: 'Nunito Sans',sans-serif;
+}
+.ed-item-title { font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.ed-item-body  { font-size: 10px; color: var(--ink-muted); line-height: 1.55; }
+
+/* ── HUMANE MODE SPECIFICS ── */
+.hu-card {
+  background: var(--human-base); border-radius: 20px;
+  padding: 28px; position: relative; overflow: hidden;
+}
+.hu-wash-top {
+  position: absolute; top:-30px; right:-30px; width:200px; height:200px;
+  background: radial-gradient(circle,rgba(176,48,80,.1),transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.hu-wash-bot {
+  position: absolute; bottom:-30px; left:-20px; width:180px; height:180px;
+  background: radial-gradient(circle,rgba(34,136,128,.1),transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.hu-ghost {
+  position: absolute; font-family: 'Cormorant Garamond',serif;
+  font-size: 68px; font-weight: 300; font-style: italic;
+  color: rgba(42,30,20,.05); bottom:16px; right:8px;
+  pointer-events: none; line-height: 1;
+}
+.hu-inner { position: relative; z-index: 1; }
+.hu-eyebrow {
+  font-size: 9px; letter-spacing: .42em; text-transform: uppercase;
+  color: var(--human-muted); margin-bottom: 14px; opacity: .8;
+}
+.hu-heart {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(176,48,80,.1); border: 1px solid rgba(176,48,80,.15);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+}
+.hu-heart-shape {
+  width: 16px; height: 14px; background: var(--strategy); opacity: .8;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; transform: rotate(-15deg);
+}
+.hu-headline {
+  font-family: 'Playfair Display',serif; font-size: 24px; font-weight: 700;
+  font-style: italic; color: #2A1E14; line-height: 1.2; margin-bottom: 4px;
+}
+.hu-tc {
+  font-family: 'Noto Serif TC',serif; font-size: 13px;
+  color: var(--human-muted); margin-bottom: 18px; line-height: 1.5;
+}
+.hu-divider {
+  height: 1px; margin-bottom: 18px;
+  background: linear-gradient(to right,rgba(176,120,32,.25),transparent);
+}
+.hu-values { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.hu-val { padding: 12px; border-radius: 10px; background: rgba(255,255,255,.55); border: 1px solid rgba(176,120,32,.1); }
+.hu-val-letter { font-family: 'Playfair Display',serif; font-size: 22px; font-weight: 700; font-style: italic; line-height: 1; margin-bottom: 4px; }
+.hu-val-title  { font-size: 10px; font-weight: 700; color: #2A1E14; margin-bottom: 3px; }
+.hu-val-body   { font-family: 'Cormorant Garamond',serif; font-size: 11px; font-style: italic; color: var(--human-muted); line-height: 1.55; }
+.hu-phil { padding: 13px 16px; border-radius: 10px; background: rgba(255,255,255,.4); border-left: 3px solid rgba(176,48,80,.25); }
+.hu-phil-quote { font-family: 'Cormorant Garamond',serif; font-size: 13px; font-style: italic; color: #2A1E14; line-height: 1.7; margin-bottom: 6px; }
+.hu-phil-attr  { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--human-muted); opacity: .7; }
+.hu-testi { padding: 16px; border-radius: 10px; background: rgba(255,255,255,.5); border: 1px solid rgba(176,120,32,.12); }
+.hu-testi-mark { font-family: 'Playfair Display',serif; font-size: 52px; line-height: .5; color: rgba(176,48,80,.2); margin-bottom: 12px; }
+.hu-testi-text { font-family: 'Cormorant Garamond',serif; font-size: 14px; font-style: italic; color: #2A1E14; line-height: 1.75; margin-bottom: 10px; }
+.hu-testi-attr { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--human-muted); }
+
+/* ── TYPE TABLE ── */
+.type-row {
+  display: grid; grid-template-columns: 140px 1fr; gap: 20px;
+  align-items: baseline; padding: 13px 0;
+  border-bottom: 1px solid rgba(26,20,16,.07);
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="site-header">
+  <div class="header-eyebrow">STEPDEX Academy · HPI Group of Companies</div>
+  <div class="header-title">Design System <span class="gw">v3.1</span></div>
+  <div class="header-subtitle">The Complete Edition — Four Modes + Philosophical · Six Elevations + 思德 Mark · Bilingual Rules · Full Component Index</div>
+  <div class="header-badge">
+    <div class="badge-dot" style="background:#B03050"></div>
+    <div class="badge-dot" style="background:#C8701A"></div>
+    <div class="badge-dot" style="background:#228880"></div>
+    <div class="badge-dot" style="background:#6848A0"></div>
+    <span class="badge-text">Grounded in Katz · Built for Asian SMEs · 思德 · Published · Trademarked</span>
+    <div class="badge-dot" style="background:#6848A0"></div>
+    <div class="badge-dot" style="background:#228880"></div>
+    <div class="badge-dot" style="background:#C8701A"></div>
+    <div class="badge-dot" style="background:#B03050"></div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('tokens',this)">01 Tokens</button>
+  <button class="tab-btn" onclick="switchTab('typography',this)">02 Typography</button>
+  <button class="tab-btn" onclick="switchTab('icons',this)">03 Icons</button>
+  <button class="tab-btn" onclick="switchTab('modes',this)">04 Modes</button>
+  <button class="tab-btn" onclick="switchTab('elevations',this)">05 Elevations</button>
+  <button class="tab-btn" onclick="switchTab('siding',this)">06 思德 Mark</button>
+  <button class="tab-btn" onclick="switchTab('bilingual',this)">07 Bilingual</button>
+  <button class="tab-btn" onclick="switchTab('index',this)">08 Index</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 1 · TOKENS
+     ══════════════════════════════════════════ -->
+<div id="tab-tokens" class="tab-content active">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">01</span><span class="sec-label">Color System</span><div class="sec-rule"></div></div>
+  <div class="sec-title">Every color earns its place.</div>
+  <div class="sec-desc">Three token tiers — base neutrals, the sacred four dimensions, and tonal backgrounds. Color is meaning, not decoration.</div>
+
+  <div class="grid-3">
+    <div>
+      <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.3);margin-bottom:10px">Base &amp; Gold</div>
+      <div class="swatch light" style="background:#F6F0E3"><span>Warm Parchment · #F6F0E3</span></div>
+      <div class="swatch dark"  style="background:#1A1410"><span>Deep Ink · #1A1410</span></div>
+      <div class="swatch dark"  style="background:linear-gradient(135deg,#E8C96A,#C8901A,#B07820)"><span>Gold · #C8901A — one word only</span></div>
+    </div>
+    <div>
+      <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.3);margin-bottom:10px">Four Dimensions — Sacred</div>
+      <div class="swatch dark" style="background:#B03050"><span>Strategy · #B03050</span></div>
+      <div class="swatch dark" style="background:#C8701A"><span>Technical · #C8701A</span></div>
+      <div class="swatch dark" style="background:#228880"><span>Empower · #228880</span></div>
+      <div class="swatch dark" style="background:#6848A0"><span>People · #6848A0</span></div>
+    </div>
+    <div>
+      <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.3);margin-bottom:10px">Tonal Backgrounds</div>
+      <div class="swatch light" style="background:radial-gradient(ellipse at top right,rgba(176,48,80,.2),rgba(104,72,160,.1)),#F6F0E3"><span>Warm Watercolour</span></div>
+      <div class="swatch dark"  style="background:linear-gradient(135deg,#080612,#1C1248)"><span>Cosmic Epic</span></div>
+      <div class="swatch light" style="background:linear-gradient(135deg,#F2EBE0,#E8DDD0)"><span>Humane Mode · NEW</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:28px">
+    <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:12px">Gold — Three Tiers (Hierarchy is Sacred)</div>
+    <div class="grid-3">
+      <div class="d-card">
+        <div style="width:28px;height:28px;border-radius:50%;background:#C8901A;margin-bottom:10px"></div>
+        <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:4px">Gold Pure · #C8901A</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(246,240,227,.35);line-height:1.55">ONE word per layout only. Maximum signal. Never use on more than one word.</div>
+      </div>
+      <div class="d-card">
+        <div style="width:28px;height:28px;border-radius:50%;background:#B07820;margin-bottom:10px"></div>
+        <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:4px">Gold Warm · #B07820</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(246,240,227,.35);line-height:1.55">Structure — dividers, section labels, rule lines, eyebrows.</div>
+      </div>
+      <div class="d-card">
+        <div style="width:28px;height:28px;border-radius:50%;background:#D4A84B;margin-bottom:10px"></div>
+        <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:4px">Gold Whisper · #D4A84B</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(246,240,227,.35);line-height:1.55">Atmosphere — glows, background tints, cosmic panel accents.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 2 · TYPOGRAPHY
+     ══════════════════════════════════════════ -->
+<div id="tab-typography" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">02</span><span class="sec-label">Typography Scale</span><div class="sec-rule"></div></div>
+  <div class="sec-title">TC and EN in dialogue. Never in competition.</div>
+  <div class="sec-desc">The dominant language claims hero scale. The supporting language drops to ~35% visual weight — explaining, echoing, grounding.</div>
+
+  <div class="p-card">
+    <div class="type-row">
+      <div class="type-meta">TC Hero<br>Noto Serif TC 900</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:44px;font-weight:900;color:var(--ink);line-height:1">管理<span class="gw">升級</span></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">TC Display<br>Noto Serif TC 700</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;color:var(--ink)">企業的問題，不回避。</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">EN Hero<br>Playfair Display 700i</div>
+      <div style="font-family:'Playfair Display',serif;font-size:34px;font-weight:700;font-style:italic;color:var(--ink);letter-spacing:-.01em">Management <span class="gw">Elevated.</span></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">EN Serif<br>Cormorant Garamond 400i</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--ink-muted)">A manager's role is not to collect problems, but to grow people who can solve them.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Label<br>Nunito Sans 700</div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-warm)">Leadership Takeaway · 管理現場</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">TC Body<br>Noto Serif TC 400</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:13px;color:var(--ink-muted);line-height:1.85">真實的現場，才看得見真正的問題。我們用 STEPDEX® 管理框架，陪你看清問題，找到改善的方向。</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Gold Precision<br>One word. Always.</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;color:var(--ink)">企業的問題，<span class="gw">不回避</span>。</div>
+    </div>
+  </div>
+  <div class="note">Bilingual rule: TC-primary — TC hero at full scale, EN subtitle at ~35%. EN-primary — EN display hero, TC at ~35%. Gold precision word appears in the dominant language only — one word, maximum power.</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 3 · ICONS
+     ══════════════════════════════════════════ -->
+<div id="tab-icons" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">03</span><span class="sec-label">Dimension Icons</span><div class="sec-rule"></div></div>
+  <div class="sec-title">Four dimensions. Sacred colors. Never swap.</div>
+  <div class="sec-desc">These four icon identities travel consistently across every touchpoint, every mode, every language. Never recolored, reordered, or substituted.</div>
+
+  <div class="grid-4" style="margin-bottom:28px">
+    <div class="p-card" style="text-align:center;padding:24px">
+      <div class="dim-icon breathe" style="background:radial-gradient(circle at 35% 35%,#D06080,#B03050);box-shadow:0 4px 20px rgba(176,48,80,.4)"><div class="dot"></div></div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#B03050;margin-bottom:4px">Strategy</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px">策略</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--ink-muted);line-height:1.6">看清方向，制定策略<br>創造長期價值</div>
+    </div>
+    <div class="p-card" style="text-align:center;padding:24px">
+      <div class="dim-icon breathe" style="background:radial-gradient(circle at 35% 35%,#E89040,#C8701A);box-shadow:0 4px 20px rgba(200,112,26,.4);animation-delay:.75s"><div class="dot"></div></div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C8701A;margin-bottom:4px">Technical</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px">專業</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--ink-muted);line-height:1.6">解決問題，掌握專業<br>創造卓越成果</div>
+    </div>
+    <div class="p-card" style="text-align:center;padding:24px">
+      <div class="dim-icon breathe" style="background:radial-gradient(circle at 35% 35%,#40B0A8,#228880);box-shadow:0 4px 20px rgba(34,136,128,.4);animation-delay:1.5s"><div class="dot"></div></div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#228880;margin-bottom:4px">Empower</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px">賦能</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--ink-muted);line-height:1.6">激發潛能，培育人才<br>打造高績效團隊</div>
+    </div>
+    <div class="p-card" style="text-align:center;padding:24px">
+      <div class="dim-icon breathe" style="background:radial-gradient(circle at 35% 35%,#8870C0,#6848A0);box-shadow:0 4px 20px rgba(104,72,160,.4);animation-delay:2.25s"><div class="dot"></div></div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6848A0;margin-bottom:4px">People</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px">人際</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--ink-muted);line-height:1.6">建立信任，凝聚共識<br>創造團隊影響力</div>
+    </div>
+  </div>
+
+  <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:12px">Dimension Unity Gesture — The Framework as One Mark</div>
+  <div class="p-card" style="text-align:center;padding:32px">
+    <div style="display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+      <div style="width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#D06080,#B03050);box-shadow:0 4px 16px rgba(176,48,80,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+        <div style="font-size:8px;font-weight:700;color:white;opacity:.9">STRA</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:10px;font-weight:700;color:rgba(255,255,255,.85)">策略</div>
+      </div>
+      <div style="width:28px;height:2px;background:linear-gradient(to right,#B03050,#C8701A);opacity:.45"></div>
+      <div style="width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E89040,#C8701A);box-shadow:0 4px 16px rgba(200,112,26,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+        <div style="font-size:8px;font-weight:700;color:white;opacity:.9">TECH</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:10px;font-weight:700;color:rgba(255,255,255,.85)">專業</div>
+      </div>
+      <div style="width:28px;height:2px;background:linear-gradient(to right,#C8701A,#228880);opacity:.45"></div>
+      <div style="width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#40B0A8,#228880);box-shadow:0 4px 16px rgba(34,136,128,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+        <div style="font-size:8px;font-weight:700;color:white;opacity:.9">EMPO</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:10px;font-weight:700;color:rgba(255,255,255,.85)">賦能</div>
+      </div>
+      <div style="width:28px;height:2px;background:linear-gradient(to right,#228880,#6848A0);opacity:.45"></div>
+      <div style="width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#8870C0,#6848A0);box-shadow:0 4px 16px rgba(104,72,160,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+        <div style="font-size:8px;font-weight:700;color:white;opacity:.9">PEOP</div>
+        <div style="font-family:'Noto Serif TC',serif;font-size:10px;font-weight:700;color:rgba(255,255,255,.85)">人際</div>
+      </div>
+    </div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink-muted)">Four dimensions in dialogue — the STEPDEX framework as a single visual gesture. No competitor can copy this because it IS the methodology.</div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 4 · MODES
+     ══════════════════════════════════════════ -->
+<div id="tab-modes" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">04</span><span class="sec-label">Four Tonal Modes</span><div class="sec-rule"></div></div>
+  <div class="sec-title">Same soul. Four emotional registers.</div>
+  <div class="sec-desc">Match the visual temperature of the mode to the emotional temperature of the message. The mode choice communicates before a single word is read.</div>
+
+  <div class="mode-tabs">
+    <button class="mode-btn active" onclick="switchMode('warm',this)">Warm Watercolour</button>
+    <button class="mode-btn" onclick="switchMode('cosmic',this)">Cosmic Epic</button>
+    <button class="mode-btn" onclick="switchMode('editorial',this)">Clean Editorial</button>
+    <button class="mode-btn" onclick="switchMode('humane',this)">Humane</button>
+    <button class="mode-btn" onclick="switchMode('philosophical',this)">Philosophical 思德 ★</button>
+  </div>
+
+  <!-- WARM -->
+  <div id="mode-warm" class="mode-panel active">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.25);margin-bottom:10px">Warm Watercolour · Diagnostic · Trust-Building · First Contact · SME empathy</div>
+    <div class="warm-wrap">
+      <div class="warm-wash-1"></div>
+      <div class="warm-wash-2"></div>
+      <div class="warm-ghost">管理</div>
+      <div class="warm-inner">
+        <div class="warm-eyebrow">管理現場 · Management In Action</div>
+        <div class="warm-tc">企業的問題，<span class="gw">不回避</span>。</div>
+        <div class="warm-en">Real situations. Real problems. No avoidance.</div>
+        <div class="ribbon"></div>
+        <div class="warm-item">
+          <div class="warm-dot" style="background:var(--strategy)"><div class="w"></div></div>
+          <div><div class="warm-item-tc" style="color:var(--strategy)">釐清問題</div><div class="warm-item-body">深入對談，找出真正卡住的關鍵。</div></div>
+        </div>
+        <div class="warm-item">
+          <div class="warm-dot" style="background:var(--empower)"><div class="w"></div></div>
+          <div><div class="warm-item-tc" style="color:var(--empower)">對焦方向</div><div class="warm-item-body">找出最值得優先處理的改善重點。</div></div>
+        </div>
+        <div class="warm-item">
+          <div class="warm-dot" style="background:var(--people)"><div class="w"></div></div>
+          <div><div class="warm-item-tc" style="color:var(--people)">給你建議</div><div class="warm-item-body">提供具體可行的改善建議，陪你向前走一步。</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Watercolour washes zone content — Strategy red top-right, People purple bottom-left. Topology lines as background texture. TC ghost whisper at 4% opacity. Four-color ribbon as structural divider.</div>
+  </div>
+
+  <!-- COSMIC -->
+  <div id="mode-cosmic" class="mode-panel">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.25);margin-bottom:10px">Cosmic Epic · Programme · Transformation · Aspiration · Enrolment</div>
+    <div class="cosmic-wrap">
+      <div class="cosmic-stars"></div>
+      <div class="cosmic-summit breathe"></div>
+      <svg style="position:absolute;top:0;right:0;width:45%;height:100%;opacity:.65" viewBox="0 0 240 400" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="cpg" x1="30%" y1="100%" x2="70%" y2="0%">
+            <stop offset="0%" stop-color="rgba(104,72,160,.3)"/>
+            <stop offset="50%" stop-color="rgba(34,136,128,.6)"/>
+            <stop offset="85%" stop-color="rgba(200,112,26,.8)"/>
+            <stop offset="100%" stop-color="rgba(200,144,26,1)"/>
+          </linearGradient>
+        </defs>
+        <path d="M 20 400 C 35 340,75 300,80 240 C 88 180,60 155,90 118 C 118 82,158 92,175 58 C 190 28,210 12,240 0" fill="none" stroke="url(#cpg)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="0" style="animation:pathDraw 2.5s ease .5s both;filter:drop-shadow(0 0 5px rgba(200,144,26,.55))"/>
+        <circle cx="80" cy="240" r="3" fill="rgba(34,136,128,.85)" class="twinkle"/>
+        <circle cx="130" cy="108" r="3" fill="rgba(200,112,26,.85)" class="twinkle" style="animation-delay:1s"/>
+        <circle cx="190" cy="38" r="3" fill="rgba(200,144,26,.95)" class="twinkle" style="animation-delay:1.8s"/>
+      </svg>
+      <div class="cosmic-ghost">管理</div>
+      <div class="cosmic-ground"></div>
+      <div class="cosmic-content">
+        <div class="cosmic-eyebrow">Step First Class Manager · 全能一級經理課程</div>
+        <div class="cosmic-tc">企業越大，越<span class="gw">考驗</span>管理。</div>
+        <div class="cosmic-en">The bigger the company, the greater the test of leadership.</div>
+        <div class="cosmic-panel">
+          <div class="cosmic-panel-label">STEPDEX® 四大核心能力</div>
+          <div class="cosmic-dims">
+            <div class="cosmic-dim"><div class="cosmic-dim-dot" style="background:var(--strategy)"></div><div class="cosmic-dim-tc" style="color:rgba(240,180,190,.9)">策略</div><div class="cosmic-dim-en">Strategy</div></div>
+            <div class="cosmic-dim"><div class="cosmic-dim-dot" style="background:var(--technical)"></div><div class="cosmic-dim-tc" style="color:rgba(240,200,160,.9)">專業</div><div class="cosmic-dim-en">Technical</div></div>
+            <div class="cosmic-dim"><div class="cosmic-dim-dot" style="background:var(--empower)"></div><div class="cosmic-dim-tc" style="color:rgba(160,225,220,.9)">賦能</div><div class="cosmic-dim-en">Empower</div></div>
+            <div class="cosmic-dim"><div class="cosmic-dim-dot" style="background:var(--people)"></div><div class="cosmic-dim-tc" style="color:rgba(200,180,240,.9)">人際</div><div class="cosmic-dim-en">People</div></div>
+          </div>
+          <div class="cosmic-cta">掃描了解課程詳情 →</div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Ascending path mark always top-right — this is the STEPDEX brand signature. Summit glow breathes. Star field in multiple layers. TC ghost whisper. Ground fade creates parchment warmth at base.</div>
+  </div>
+
+  <!-- EDITORIAL -->
+  <div id="mode-editorial" class="mode-panel">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.25);margin-bottom:10px">Clean Editorial · Thought Leadership · Insight Cards · Bookmarks · Weekly Content</div>
+    <div class="ed-wrap">
+      <div class="ed-ribbon">
+        <div class="ed-ribbon-word">Keep</div>
+        <div class="ed-ribbon-dot"></div>
+        <div class="ed-ribbon-word">思考</div>
+        <div class="ed-ribbon-dot"></div>
+        <div class="ed-ribbon-word">Apply</div>
+      </div>
+      <div class="ed-inner">
+        <div class="ed-ghost">Monkey</div>
+        <div class="ed-content">
+          <div class="ed-eyebrow">Bookmark · A Leadership Takeaway</div>
+          <div class="ed-title">Whose Monkey Is It?</div>
+          <div class="ed-sub">The One Minute Manager Meets the Monkey</div>
+          <div class="ed-author">Ken Blanchard &amp; William Oncken, Jr.</div>
+          <div class="ed-divider"></div>
+          <div class="ed-item"><div class="ed-badge">1</div><div><div class="ed-item-title">Don't take over too quickly.</div><div class="ed-item-body">The fastest way to get a monkey off your back is to put it on someone else's.</div></div></div>
+          <div class="ed-item"><div class="ed-badge">2</div><div><div class="ed-item-title">Define the next move clearly.</div><div class="ed-item-body">A monkey is simply the next action that needs to happen.</div></div></div>
+          <div class="ed-item"><div class="ed-badge">3</div><div><div class="ed-item-title">Clarify ownership.</div><div class="ed-item-body">When ownership is unclear, monkeys get dropped in the wrong places.</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Ribbon on left for TC-primary (Strategy red), right for EN-primary (Empower teal). EN ghost whisper at 4% opacity. Numbered list with dimension-colored badges. Topology lines as parchment texture.</div>
+  </div>
+
+  <!-- HUMANE -->
+  <div id="mode-humane" class="mode-panel">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.25);margin-bottom:10px">Humane · Values · Compassion · H.E.L.P. · People Stories · CSR — v3.0</div>
+    <div class="grid-2">
+      <div class="hu-card">
+        <div class="hu-wash-top breathe"></div>
+        <div class="hu-wash-bot breathe" style="animation-delay:3s"></div>
+        <div class="hu-ghost">善</div>
+        <div class="hu-inner">
+          <div class="hu-eyebrow">HPI Core Values · H.E.L.P.</div>
+          <div class="hu-heart beat"><div class="hu-heart-shape"></div></div>
+          <div class="hu-headline">Helping People <span style="color:var(--strategy)">Improve.</span></div>
+          <div class="hu-tc">為更人性化的工作世界，培育慈悲的領袖。</div>
+          <div class="hu-divider"></div>
+          <div class="hu-values">
+            <div class="hu-val"><div class="hu-val-letter" style="color:var(--strategy)">H</div><div class="hu-val-title">Helping · 幫助</div><div class="hu-val-body">Helping others to unleash potential. Beauty in every person.</div></div>
+            <div class="hu-val"><div class="hu-val-letter" style="color:var(--technical)">E</div><div class="hu-val-title">Enacting · 行動</div><div class="hu-val-body">Enacting truth and acting on conscience. Always.</div></div>
+            <div class="hu-val"><div class="hu-val-letter" style="color:var(--empower)">L</div><div class="hu-val-title">Loving · 愛人</div><div class="hu-val-body">Loving people and respecting the divine within each individual.</div></div>
+            <div class="hu-val"><div class="hu-val-letter" style="color:var(--people)">P</div><div class="hu-val-title">Promoting · 推廣</div><div class="hu-val-body">Promoting goodness through compassionate actions.</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="hu-card" style="flex:1">
+          <div class="hu-inner">
+            <div class="hu-eyebrow">Inamori Philosophy · 稻盛哲學</div>
+            <div class="hu-phil">
+              <div class="hu-phil-quote">"Do unto others as you would have others do unto you — the Universal Golden Rule that defines our vision of leadership."</div>
+              <div class="hu-phil-attr">Kazuo Inamori · Seiwajyuku Malaysia</div>
+            </div>
+          </div>
+        </div>
+        <div class="hu-card" style="flex:1">
+          <div class="hu-inner">
+            <div class="hu-eyebrow">Client Voice · 學員分享</div>
+            <div class="hu-testi">
+              <div class="hu-testi-mark">"</div>
+              <div class="hu-testi-text">Sunny can lead you and your team to the peak of growth — step by step. No matter what level of manager you are, give yourself this opportunity.</div>
+              <div class="hu-testi-attr">STEP First Class Manager Graduate · KL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note">No topology lines — use organic radial glows. Heart mark replaces icon circles. Ghost type is light Noto Serif TC at 4% opacity — rotating through 真 (Truth) · 善 (Goodness) · 美 (Beauty) · 聖 (Holiness) — the four pillars from stepdex.my/about. Never use bold or English for the humane ghost.</div>
+  </div>
+
+  <!-- PHILOSOPHICAL -->
+  <div id="mode-philosophical" class="mode-panel">
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,240,227,.25);margin-bottom:10px">Philosophical · 思德 Identity · Character Etymology · Four Pillars · Deep Brand Story — NEW v3.1</div>
+    <div class="grid-2">
+
+      <!-- 思德 etymology card -->
+      <div style="background:var(--parchment-deep);border-radius:20px;padding:32px;position:relative;overflow:hidden;border:1px solid rgba(176,120,32,.15);background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px)">
+        <!-- Large 思 character as anchor -->
+        <div style="position:absolute;font-family:'Noto Serif TC',serif;font-size:180px;font-weight:900;color:rgba(26,20,16,.04);top:-20px;right:-20px;line-height:1;pointer-events:none">思</div>
+        <div style="position:relative;z-index:1">
+          <div style="font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:20px">思德 Academy · 思德教育學院</div>
+
+          <!-- 思 breakdown -->
+          <div style="margin-bottom:24px">
+            <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:8px">
+              <div style="font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:var(--ink);line-height:1">思</div>
+              <div>
+                <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Sī — Reflective Thinking with Heart</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--ink-muted);line-height:1.55">田 (field) + 心 (heart) — mindfully cultivating wisdom through experience</div>
+              </div>
+            </div>
+            <!-- 田 grid — the four quadrants made visible -->
+            <div style="margin-left:60px;margin-top:8px">
+              <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:8px">田 = The STEPDEX Four Quadrants</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;width:120px">
+                <div style="background:rgba(176,48,80,.15);border:1px solid rgba(176,48,80,.25);border-radius:4px;padding:6px;text-align:center">
+                  <div style="font-size:8px;font-weight:700;color:var(--strategy);letter-spacing:.1em">STRATEGY</div>
+                  <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--strategy)">策略</div>
+                </div>
+                <div style="background:rgba(200,112,26,.15);border:1px solid rgba(200,112,26,.25);border-radius:4px;padding:6px;text-align:center">
+                  <div style="font-size:8px;font-weight:700;color:var(--technical);letter-spacing:.1em">TECHNICAL</div>
+                  <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--technical)">專業</div>
+                </div>
+                <div style="background:rgba(34,136,128,.15);border:1px solid rgba(34,136,128,.25);border-radius:4px;padding:6px;text-align:center">
+                  <div style="font-size:8px;font-weight:700;color:var(--empower);letter-spacing:.1em">EMPOWER</div>
+                  <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--empower)">賦能</div>
+                </div>
+                <div style="background:rgba(104,72,160,.15);border:1px solid rgba(104,72,160,.25);border-radius:4px;padding:6px;text-align:center">
+                  <div style="font-size:8px;font-weight:700;color:var(--people);letter-spacing:.1em">PEOPLE</div>
+                  <div style="font-family:'Noto Serif TC',serif;font-size:10px;color:var(--people)">人際</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="height:1px;background:linear-gradient(to right,rgba(176,120,32,.3),transparent);margin-bottom:20px"></div>
+
+          <!-- 德 breakdown -->
+          <div>
+            <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:8px">
+              <div style="font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:var(--ink);line-height:1">德</div>
+              <div>
+                <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Dé — Virtue Embodied in Action</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--ink-muted);line-height:1.55">彳 (path) + 直 (uprightness) + 心 (heart) — action, integrity, and empathy as one</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;padding:14px 16px;background:rgba(200,144,26,.08);border-radius:10px;border-left:3px solid rgba(200,144,26,.3)">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink-soft,#2C2018);line-height:1.7">True leadership is not just about capability — but about character. We believe every leader should walk the path of righteousness, guided by empathy, courage, and humility.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Four Pillars card -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="background:var(--parchment-deep);border-radius:20px;padding:24px;border:1px solid rgba(176,120,32,.15);background-image:repeating-linear-gradient(-18deg,transparent,transparent 28px,rgba(176,120,32,.04) 28px,rgba(176,120,32,.04) 29px)">
+          <div style="font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:16px">Four Pillars · 四大價值觀</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:rgba(176,48,80,.07);border-radius:10px">
+              <div style="font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;color:var(--strategy);line-height:1;flex-shrink:0">真</div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Truth · 真</div><div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--ink-muted);line-height:1.55">We act with honesty and integrity, seeking truth in learning and leadership.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:rgba(200,112,26,.07);border-radius:10px">
+              <div style="font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;color:var(--technical);line-height:1;flex-shrink:0">善</div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Goodness · 善</div><div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--ink-muted);line-height:1.55">We lead with compassion and care, helping others grow and thrive.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:rgba(34,136,128,.07);border-radius:10px">
+              <div style="font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;color:var(--empower);line-height:1;flex-shrink:0">美</div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Beauty · 美</div><div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--ink-muted);line-height:1.55">We bring out the best in others, creating workplaces that nurture harmony.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:rgba(104,72,160,.07);border-radius:10px">
+              <div style="font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;color:var(--people);line-height:1;flex-shrink:0">聖</div>
+              <div><div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:2px">Holiness · 聖</div><div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--ink-muted);line-height:1.55">We strive for a higher calling — leading with humility and purpose beyond profit.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 思德 mark usage note -->
+        <div style="background:rgba(246,240,227,.04);border:1px solid rgba(246,240,227,.07);border-radius:14px;padding:18px">
+          <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:10px">思德 Mark — Usage Rules</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;width:52px;height:52px;padding:4px;background:rgba(246,240,227,.06);border-radius:8px;border:1px solid rgba(176,120,32,.2)">
+              <div style="background:rgba(176,48,80,.4);border-radius:2px"></div>
+              <div style="background:rgba(200,112,26,.4);border-radius:2px"></div>
+              <div style="background:rgba(34,136,128,.4);border-radius:2px"></div>
+              <div style="background:rgba(104,72,160,.4);border-radius:2px"></div>
+            </div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:32px;font-weight:900;color:rgba(246,240,227,.7);line-height:1">思德</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:rgba(246,240,227,.32);line-height:1.65">The 田 grid mark always appears in four-quadrant form using dimension colors. The 思德 logotype uses Noto Serif TC 900. Use for: Chinese market materials, About page, founder story, brand origin content.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="note">Philosophical mode uses parchment-deep background with gentle topology lines (unlike humane which uses glows). Large TC characters as structural anchors — 思 and 德 at 120–180px as ghost layer. The 田 grid is always rendered with the four dimension colors. Ghost words rotate: 真·善·美·聖. This mode bridges the intellectual framework with the cultural identity.</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 5 · ELEVATIONS
+     ══════════════════════════════════════════ -->
+<div id="tab-elevations" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">05</span><span class="sec-label">Six Elevation Principles</span><div class="sec-rule"></div></div>
+  <div class="sec-title">What separates STEPDEX from generic design.</div>
+  <div class="sec-desc">These six principles apply across all four modes. They are not optional polish — they are the system's character.</div>
+
+  <div class="grid-3">
+    <div class="d-card">
+      <div class="elev-num"><span class="gw">01</span></div>
+      <div class="elev-title">Gold as Precision Instrument</div>
+      <div class="elev-hr"></div>
+      <div class="elev-desc">One gold word per layout. Never decoration — always signal. When everything is gold, nothing is.</div>
+      <div class="elev-demo">
+        <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:900;color:var(--parchment)">企業的問題，<span class="gw">不回避</span>。</div>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="elev-num"><span class="gw">02</span></div>
+      <div class="elev-title">The Whisper Layer</div>
+      <div class="elev-hr"></div>
+      <div class="elev-desc">Oversized ghost type at 4–6% opacity floats behind content. Gives depth without noise. The background breathes.</div>
+      <div class="elev-demo">
+        <div style="position:relative;height:38px;overflow:hidden">
+          <div style="position:absolute;font-family:'Playfair Display',serif;font-size:50px;font-weight:900;color:rgba(200,144,26,.09);top:-10px;left:-4px;line-height:1;white-space:nowrap">管理</div>
+          <div style="position:relative;z-index:1;font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:var(--parchment);padding-top:8px">管理升級</div>
+        </div>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="elev-num"><span class="gw">03</span></div>
+      <div class="elev-title">The Ascending Path Mark</div>
+      <div class="elev-hr"></div>
+      <div class="elev-desc">The STEPDEX brand signature SVG. Luminous path, top-right position, four dimension colors in sequence. Unmistakably STEPDEX.</div>
+      <div class="elev-demo">
+        <svg width="100" height="55" viewBox="0 0 100 55">
+          <defs>
+            <linearGradient id="pg" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="rgba(104,72,160,.6)"/>
+              <stop offset="50%" stop-color="rgba(34,136,128,.8)"/>
+              <stop offset="100%" stop-color="rgba(200,144,26,1)"/>
+            </linearGradient>
+          </defs>
+          <path d="M 5 53 C 12 42,28 35,32 26 C 36 17,26 11,38 5 C 48 0,70 3,95 0" fill="none" stroke="url(#pg)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="0" style="animation:pathDraw 2s ease .5s both;filter:drop-shadow(0 0 3px rgba(200,144,26,.5))"/>
+          <circle cx="95" cy="1" r="2.5" fill="rgba(200,144,26,.9)" class="twinkle"/>
+        </svg>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="elev-num"><span class="gw">04</span></div>
+      <div class="elev-title">Watercolour as Architecture</div>
+      <div class="elev-hr"></div>
+      <div class="elev-desc">The wash marks content zones — Strategy red top-right, People purple bottom-left. Color IS the structure, not the garnish.</div>
+      <div class="elev-demo">
+        <div style="height:44px;border-radius:8px;position:relative;overflow:hidden;background:var(--parchment)">
+          <div style="position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse at top right,rgba(176,48,80,.3),transparent)"></div>
+          <div style="position:absolute;bottom:0;left:0;width:50%;height:80%;background:radial-gradient(ellipse at bottom left,rgba(104,72,160,.22),transparent)"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink-muted)">Color zones content</div>
+        </div>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="elev-num"><span class="gw">05</span></div>
+      <div class="elev-title">Dimension Unity Gesture</div>
+      <div class="elev-hr"></div>
+      <div class="elev-desc">Four colors as one mark. The STEPDEX framework visualised. No competitor can copy this — it IS the methodology.</div>
+      <div class="elev-demo">
+        <div style="display:flex;align-items:center;gap:4px">
+          <div style="width:20px;height:20px;border-radius:50%;background:var(--strategy)"></div>
+          <div style="width:16px;height:2px;background:linear-gradient(to right,var(--strategy),var(--technical));opacity:.5"></div>
+          <div style="width:20px;height:20px;border-radius:50%;background:var(--technical)"></div>
+          <div style="width:16px;height:2px;background:linear-gradient(to right,var(--technical),var(--empower));opacity:.5"></div>
+          <div style="width:20px;height:20px;border-radius:50%;background:var(--empower)"></div>
+          <div style="width:16px;height:2px;background:linear-gradient(to right,var(--empower),var(--people));opacity:.5"></div>
+          <div style="width:20px;height:20px;border-radius:50%;background:var(--people)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="d-card">
+      <div class="elev-num"><span class="gw">06</span></div>
+      <div class="elev-title">Motion Language</div>
+      <div class="elev-hr"></div>
+      <div class="elev-desc">FadeUp entries. Path draw animation. Breathing glows. Slow whisper float. Heartbeat on values content. The brand lives.</div>
+      <div class="elev-demo" style="display:flex;gap:10px;align-items:center">
+        <div class="breathe" style="width:10px;height:10px;border-radius:50%;background:var(--gold-warm)"></div>
+        <div style="font-size:11px;font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(246,240,227,.35)">Everything breathes.</div>
+        <div class="beat" style="width:10px;height:10px;border-radius:50%;background:var(--empower)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 6 · 思德 MARK
+     ══════════════════════════════════════════ -->
+<div id="tab-siding" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">06</span><span class="sec-label">思德 Mark · NEW v3.1</span><div class="sec-rule"></div></div>
+  <div class="sec-title">The brand's deepest identity.</div>
+  <div class="sec-desc">思德 (Sī Dé) is the Chinese name of STEPDEX Academy — 思德教育學院. Within 思 lies 田, a four-field character that is literally the STEPDEX matrix made visible in ancient script. This is not decoration — it is the framework's origin in meaning.</div>
+
+  <div class="grid-2" style="margin-bottom:28px">
+
+    <!-- 思 anatomy -->
+    <div class="p-card">
+      <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:16px">思 · Sī — Reflective Thinking with Heart</div>
+      <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:20px">
+        <div style="font-family:'Noto Serif TC',serif;font-size:80px;font-weight:900;color:var(--ink);line-height:1;flex-shrink:0">思</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink-muted);line-height:1.7;margin-bottom:10px">Combines 田 (field) and 心 (heart) — the act of mindfully cultivating wisdom through experience and reflection.</div>
+          <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:4px">The 田 field is the STEPDEX matrix:</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--ink-muted);line-height:1.6">Four quadrants — Strategy · Technical · Empower · People — forming the fertile ground where leadership potential grows.</div>
+        </div>
+      </div>
+      <!-- 田 grid rendered with dimension colors -->
+      <div style="margin-bottom:16px">
+        <div style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:10px">田 rendered as the STEPDEX matrix:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;max-width:200px">
+          <div style="background:rgba(176,48,80,.12);border:1px solid rgba(176,48,80,.3);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:8px;font-weight:700;color:var(--strategy);letter-spacing:.12em;margin-bottom:3px">STRATEGY</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:var(--strategy)">策略</div>
+          </div>
+          <div style="background:rgba(200,112,26,.12);border:1px solid rgba(200,112,26,.3);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:8px;font-weight:700;color:var(--technical);letter-spacing:.12em;margin-bottom:3px">TECHNICAL</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:var(--technical)">專業</div>
+          </div>
+          <div style="background:rgba(34,136,128,.12);border:1px solid rgba(34,136,128,.3);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:8px;font-weight:700;color:var(--empower);letter-spacing:.12em;margin-bottom:3px">EMPOWER</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:var(--empower)">賦能</div>
+          </div>
+          <div style="background:rgba(104,72,160,.12);border:1px solid rgba(104,72,160,.3);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:8px;font-weight:700;color:var(--people);letter-spacing:.12em;margin-bottom:3px">PEOPLE</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:var(--people)">人際</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 德 anatomy -->
+    <div class="p-card">
+      <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:16px">德 · Dé — Virtue Embodied in Action</div>
+      <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:20px">
+        <div style="font-family:'Noto Serif TC',serif;font-size:80px;font-weight:900;color:var(--ink);line-height:1;flex-shrink:0">德</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink-muted);line-height:1.7;margin-bottom:12px">Composed of 彳 (path step by step) + 直 (uprightness) + 心 (heart) — action, integrity, and empathy as one character.</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--strategy);flex-shrink:0">彳</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.5">Path — steady progress, disciplined action step by step</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--technical);flex-shrink:0">直</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.5">Uprightness — honesty, integrity, clear moral compass</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:700;color:var(--people);flex-shrink:0">心</div>
+              <div style="font-size:11px;color:var(--ink-muted);line-height:1.5">Heart — compassion, sincerity, emotional depth in leadership</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 16px;background:rgba(200,144,26,.08);border-radius:10px;border-left:3px solid rgba(200,144,26,.3)">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink-muted);line-height:1.7">True leadership is not just about capability — but about character. Walk the path with integrity. Lead with compassion.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Four Pillars -->
+  <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:14px">四大價值觀 · Four Pillars — Philosophical Whisper Words</div>
+  <div class="grid-4" style="margin-bottom:28px">
+    <div class="d-card" style="text-align:center">
+      <div style="font-family:'Noto Serif TC',serif;font-size:40px;font-weight:900;color:var(--strategy);margin-bottom:8px">真</div>
+      <div style="font-size:10px;font-weight:700;color:var(--parchment);margin-bottom:4px">Truth</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:rgba(246,240,227,.35);line-height:1.55">Honesty and integrity in learning and leadership</div>
+    </div>
+    <div class="d-card" style="text-align:center">
+      <div style="font-family:'Noto Serif TC',serif;font-size:40px;font-weight:900;color:var(--technical);margin-bottom:8px">善</div>
+      <div style="font-size:10px;font-weight:700;color:var(--parchment);margin-bottom:4px">Goodness</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:rgba(246,240,227,.35);line-height:1.55">Leading with compassion to help others grow</div>
+    </div>
+    <div class="d-card" style="text-align:center">
+      <div style="font-family:'Noto Serif TC',serif;font-size:40px;font-weight:900;color:var(--empower);margin-bottom:8px">美</div>
+      <div style="font-size:10px;font-weight:700;color:var(--parchment);margin-bottom:4px">Beauty</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:rgba(246,240,227,.35);line-height:1.55">Creating workplaces that nurture harmony and excellence</div>
+    </div>
+    <div class="d-card" style="text-align:center">
+      <div style="font-family:'Noto Serif TC',serif;font-size:40px;font-weight:900;color:var(--people);margin-bottom:8px">聖</div>
+      <div style="font-size:10px;font-weight:700;color:var(--parchment);margin-bottom:4px">Holiness</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:rgba(246,240,227,.35);line-height:1.55">A higher calling — humility and purpose beyond profit</div>
+    </div>
+  </div>
+
+  <!-- Usage rules -->
+  <div style="font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:14px">思德 Mark — Usage Rules</div>
+  <div class="grid-2">
+    <div class="d-card">
+      <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:10px">When to use 思德 visual elements</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(246,240,227,.38);line-height:1.7">Chinese market materials · About page · Founder story · Brand origin content · Cultural audience contexts · Academy introductions · Philosophy content · When the Chinese name 思德教育學院 is displayed</div>
+    </div>
+    <div class="d-card">
+      <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:10px">Whisper layer 真·善·美·聖</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(246,240,227,.38);line-height:1.7">In Humane and Philosophical modes, the ghost layer rotates through 真 · 善 · 美 · 聖 — one character per piece. Font: Noto Serif TC 900. Opacity: 4–5%. Never use the English translations as ghost words in these modes.</div>
+    </div>
+  </div>
+  <div class="note">The 田 grid mark is the STEPDEX design system's most culturally distinctive element. It visually encodes the four-dimension framework within the Chinese character for reflective thought. No translation needed — the meaning is built into the form.</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 7 · BILINGUAL
+     ══════════════════════════════════════════ -->
+<div id="tab-bilingual" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">07</span><span class="sec-label">Bilingual Rules</span><div class="sec-rule"></div></div>
+  <div class="sec-title">One system. Two dominant voices.</div>
+  <div class="sec-desc">TC-primary for SME owners, family business, local Chinese market. EN-primary for corporate, MNC, regional, advisory contexts. Same soul. Different emotional entry.</div>
+
+  <div class="p-card">
+    <div style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:16px">Three Governing Rules</div>
+    <div class="grid-3" style="margin-bottom:28px">
+      <div class="bi-rule"><div class="bi-rule-num">01</div><div class="bi-rule-title">Whoever leads, leads fully</div><div class="bi-rule-body">The dominant language gets hero scale, the gold word, and emotional weight. The secondary drops to ~35% — it explains, echoes, grounds. Never competes.</div></div>
+      <div class="bi-rule"><div class="bi-rule-num">02</div><div class="bi-rule-title">The layout breathes differently</div><div class="bi-rule-body">TC characters are square and dense — layouts can be tighter. EN letterforms are horizontal — EN-primary needs more tracking, more air. The grid flexes. The soul doesn't.</div></div>
+      <div class="bi-rule"><div class="bi-rule-num">03</div><div class="bi-rule-title">Gold word holds in both</div><div class="bi-rule-body">One gold word per layout regardless of language. TC: 不回避. EN: disappear. or test. The precision principle never changes. Only the language does.</div></div>
+    </div>
+    <div style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:14px">Live Comparison</div>
+    <div class="grid-2">
+      <div>
+        <div style="display:inline-block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(176,48,80,.1);color:#D06080;border:1px solid rgba(176,48,80,.18);margin-bottom:10px">TC Primary · SME · Local Chinese</div>
+        <div style="padding:18px;background:rgba(26,20,16,.04);border-radius:12px;border:1px solid rgba(176,120,32,.1)">
+          <div style="font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;color:var(--ink);line-height:1.1;margin-bottom:4px">企業的問題，<span class="gw">不回避</span>。</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--ink-muted)">Real problems. No avoidance.</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:inline-block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(34,136,128,.1);color:#40C0B8;border:1px solid rgba(34,136,128,.18);margin-bottom:10px">EN Primary · Corporate · Regional</div>
+        <div style="padding:18px;background:rgba(26,20,16,.04);border-radius:12px;border:1px solid rgba(176,120,32,.1)">
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;font-style:italic;color:var(--ink);line-height:1.15;margin-bottom:4px">Problems don't <span class="gw">disappear.</span></div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:12px;color:var(--ink-muted)">企業的問題，不回避。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px">
+    <div style="font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold-warm);margin-bottom:14px">Mode Behavior by Language</div>
+    <div class="grid-2">
+      <div class="d-card">
+        <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:12px">TC-Primary Signals</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(246,240,227,.38);line-height:1.7">Watercolour wash heavier top-right (Strategy zone). Ribbon present. TC ghost whisper behind content. Tighter spacing between elements. Pain language direct and immediate. Ribbon left in editorial mode.</div>
+      </div>
+      <div class="d-card">
+        <div style="font-size:11px;font-weight:700;color:var(--parchment);margin-bottom:12px">EN-Primary Signals</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(246,240,227,.38);line-height:1.7">More lateral breathing room between elements. EN serif ghost whisper. Wider letter-spacing on labels. Concept-led descriptions rather than pain-language. Cosmic summit glow shifts to top-left. Ribbon right in editorial mode.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 7 · INDEX
+     ══════════════════════════════════════════ -->
+<div id="tab-index" class="tab-content">
+<div class="content-wrap">
+  <div class="sec-head"><span class="sec-num">08</span><span class="sec-label">Component Index</span><div class="sec-rule"></div></div>
+  <div class="sec-title">Every component. Every mode. Every use case.</div>
+  <div class="sec-desc">The complete reference for what exists, where it belongs, and when to use it.</div>
+
+  <div class="idx-table">
+    <div class="idx-head"><span>Component</span><span>Mode</span><span>Bilingual</span><span>Use When</span></div>
+    <div class="idx-row"><div class="idx-name">Diagnostic Card</div><div><span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Warm</span></div><div class="idx-bi">TC-primary</div><div class="idx-when">Lead gen, free consultation, first contact with SME owners</div></div>
+    <div class="idx-row"><div class="idx-name">Programme Card</div><div><span class="idx-mode-pill" style="background:rgba(104,72,160,.15);color:#A890D0">Cosmic</span></div><div class="idx-bi">TC or EN</div><div class="idx-when">STEP First Class Manager enrolment, programme announcements</div></div>
+    <div class="idx-row"><div class="idx-name">Bookmark / Insight Card</div><div><span class="idx-mode-pill" style="background:rgba(176,120,32,.15);color:#B07820">Editorial</span></div><div class="idx-bi">TC or EN</div><div class="idx-when">Weekly content, book takeaways, leadership principles, social posts</div></div>
+    <div class="idx-row"><div class="idx-name">Values Card (H.E.L.P.)</div><div><span class="idx-mode-pill" style="background:rgba(34,136,128,.12);color:#60C0B8">Humane</span></div><div class="idx-bi">EN-primary</div><div class="idx-when">Brand story, company culture, philosophy content</div></div>
+    <div class="idx-row"><div class="idx-name">Testimonial Card</div><div><span class="idx-mode-pill" style="background:rgba(34,136,128,.12);color:#60C0B8">Humane</span></div><div class="idx-bi">TC or EN</div><div class="idx-when">Client stories, graduate voices, social proof content</div></div>
+    <div class="idx-row"><div class="idx-name">Philosophy / Quote Block</div><div><span class="idx-mode-pill" style="background:rgba(34,136,128,.12);color:#60C0B8">Humane</span></div><div class="idx-bi">EN-primary</div><div class="idx-when">Inamori philosophy, leadership wisdom, values-led content</div></div>
+    <div class="idx-row"><div class="idx-name">Dimension Icons (4)</div><div><span class="idx-mode-pill" style="background:rgba(200,144,26,.12);color:#D4A84B">All</span></div><div class="idx-bi">Both</div><div class="idx-when">Any content referencing STEPDEX framework dimensions</div></div>
+    <div class="idx-row"><div class="idx-name">Four-Color Ribbon</div><div><span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Warm</span> <span class="idx-mode-pill" style="background:rgba(176,120,32,.15);color:#B07820">Editorial</span></div><div class="idx-bi">Both</div><div class="idx-when">Section divider — not in cosmic or humane modes</div></div>
+    <div class="idx-row"><div class="idx-name">Ascending Path Mark</div><div><span class="idx-mode-pill" style="background:rgba(104,72,160,.15);color:#A890D0">Cosmic</span></div><div class="idx-bi">Both</div><div class="idx-when">All cosmic pieces — always present, always top-right position</div></div>
+    <div class="idx-row"><div class="idx-name">Pull Quote Block</div><div><span class="idx-mode-pill" style="background:rgba(176,120,32,.15);color:#B07820">Editorial</span></div><div class="idx-bi">Both</div><div class="idx-when">Thought leadership, book excerpts, keynote callouts</div></div>
+    <div class="idx-row"><div class="idx-name">CTA / QR Panel</div><div><span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Warm</span> <span class="idx-mode-pill" style="background:rgba(104,72,160,.15);color:#A890D0">Cosmic</span></div><div class="idx-bi">TC-primary</div><div class="idx-when">Any piece with a direct response ask — consultation, enrolment, scan</div></div>
+    <div class="idx-row"><div class="idx-name">Topology Texture</div><div><span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Warm</span> <span class="idx-mode-pill" style="background:rgba(176,120,32,.15);color:#B07820">Editorial</span></div><div class="idx-bi">Both</div><div class="idx-when">Background texture — diagonal lines at low opacity. Not in humane mode.</div></div>
+    <div class="idx-row"><div class="idx-name">Grain / Glow Texture</div><div><span class="idx-mode-pill" style="background:rgba(34,136,128,.12);color:#60C0B8">Humane</span></div><div class="idx-bi">Both</div><div class="idx-when">Humane mode only — organic radial glows, no hard lines</div></div>
+    <div class="idx-row"><div class="idx-name">Heart Mark</div><div><span class="idx-mode-pill" style="background:rgba(34,136,128,.12);color:#60C0B8">Humane</span></div><div class="idx-bi">Both</div><div class="idx-when">Values content, CSR messaging — replaces icon circles in humane mode</div></div>
+    <div class="idx-row"><div class="idx-name">Whisper Layer</div><div><span class="idx-mode-pill" style="background:rgba(200,144,26,.12);color:#D4A84B">All</span></div><div class="idx-bi">Both</div><div class="idx-when">Always present — TC bold ghost in warm/cosmic, EN serif ghost in humane</div></div>
+    <div class="idx-row"><div class="idx-name">思德 Mark (田 Grid)</div><div><span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Philosophical</span></div><div class="idx-bi">TC-primary</div><div class="idx-when">Chinese market, about page, brand origin, 思德教育學院 contexts</div></div>
+    <div class="idx-row"><div class="idx-name">真·善·美·聖 Ghost</div><div><span class="idx-mode-pill" style="background:rgba(34,136,128,.12);color:#60C0B8">Humane</span> <span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Philosophical</span></div><div class="idx-bi">TC</div><div class="idx-when">Replaces Compassion/Truth/Beauty/Goodness — one character per piece at 4% opacity</div></div>
+    <div class="idx-row"><div class="idx-name">Four Pillars Card</div><div><span class="idx-mode-pill" style="background:rgba(176,48,80,.12);color:#D06080">Philosophical</span></div><div class="idx-bi">Both</div><div class="idx-when">Brand story, academy philosophy, Chinese name etymology, Vision/Mission content</div></div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <div class="footer-dots">
+    <div class="footer-dot" style="background:#B03050"></div>
+    <div class="footer-line"></div>
+    <div class="footer-dot" style="background:#C8701A"></div>
+    <div class="footer-line"></div>
+    <div class="footer-dot" style="background:#228880"></div>
+    <div class="footer-line"></div>
+    <div class="footer-dot" style="background:#6848A0"></div>
+  </div>
+  <div class="footer-quote">Leaders don't carry all the monkeys. They build people who can.</div>
+  <div class="footer-meta">STEPDEX Academy · HPI Group of Companies · Design System v3.1 · May 2026</div>
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function switchMode(id, btn) {
+  document.querySelectorAll('.mode-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('mode-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO — replaces Gamma's noindex -->
+  <title>STEPDEX® Academy | Leadership Development for SME Leaders</title>
+  <meta name="description" content="STEPDEX® Academy empowers SME managers and leaders through the STEP framework — Strategy, Technical, Empower, People. Malaysia's structured path from associate to CEO." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stepdex.my/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.stepdex.my/" />
+  <meta property="og:title" content="STEPDEX® Academy | Leadership Development for SME Leaders" />
+  <meta property="og:description" content="Empowering SME managers to grow from associate to CEO through the structured STEP framework. Accredited by USM, Graduate School of Business." />
+  <meta property="og:image" content="https://www.stepdex.my/assets/og-home.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── REGISTERED TRADEMARK ─── */
+    :root {
+      --parchment:        #F6F0E3;
+      --parchment-deep:   #EDE3CB;
+      --ink:              #1A1410;
+      --ink-muted:        #6A5A42;
+      --gold-warm:        #B07820;
+      --gold-pure:        #C8901A;
+      --gold-whisper:     #D4A84B;
+      --strategy:         #B03050;
+      --technical:        #C8701A;
+      --empower:          #228880;
+      --people:           #6848A0;
+      --cosmic-void:      #080612;
+      --cosmic-nebula:    #1C1248;
+      --human-base:       #F2EBE0;
+      --page-bg:          #0C0906;
+      --ribbon-h:         2.5px;
+    }
+
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: var(--page-bg);
+      color: var(--parchment);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Registered trademark — always superscript, 55% of parent size */
+    .reg {
+      font-size: .52em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: inherit;
+      letter-spacing: 0;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes breathe   { 0%,100%{opacity:.55;transform:scale(1)}  50%{opacity:1;transform:scale(1.06)} }
+    @keyframes twinkle   { 0%,100%{opacity:.25} 50%{opacity:.9} }
+    @keyframes pathDraw  { from{stroke-dashoffset:600;opacity:0} to{stroke-dashoffset:0;opacity:1} }
+    @keyframes fadeUp    { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes shimmer   { 0%{background-position:200% center} 100%{background-position:-200% center} }
+    @keyframes ribbonIn  { from{scaleX:0} to{scaleX:1} }
+
+    .breathe  { animation: breathe 3.5s ease-in-out infinite; }
+    .twinkle  { animation: twinkle 4s ease-in-out infinite; }
+    .fade-up  { animation: fadeUp .8s ease both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; }
+    }
+
+    /* ─── UTILITY ─── */
+    .gold {
+      background: linear-gradient(135deg, #E8C96A, #C8901A, #F0D878, #B07820);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .eyebrow {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--gold-warm);
+      opacity: .75;
+    }
+    .four-ribbon {
+      width: 100%;
+      height: var(--ribbon-h);
+      background: linear-gradient(to right,
+        var(--strategy)  0%  25%,
+        var(--technical) 25% 50%,
+        var(--empower)   50% 75%,
+        var(--people)    75% 100%);
+      border-radius: 2px;
+    }
+
+    /* ─── NAVIGATION ─── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 68px;
+      background: rgba(8, 6, 18, .82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(200, 144, 26, .1);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+    }
+    .nav-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--parchment);
+      letter-spacing: .04em;
+    }
+    .nav-wordmark span { color: var(--parchment); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(246, 240, 227, .82);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--parchment); }
+    .nav-lang-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(246, 240, 227, .15);
+    }
+    .nav-lang {
+      font-family: 'Noto Serif TC', serif !important;
+      font-size: 13px !important;
+      letter-spacing: .04em !important;
+      text-transform: none !important;
+      color: rgba(246, 240, 227, .62) !important;
+      transition: color .2s;
+    }
+    .nav-lang:hover {
+      color: var(--gold-whisper) !important;
+    }
+    .nav-cta {
+      padding: 9px 22px;
+      background: transparent;
+      border: 1px solid rgba(200, 144, 26, .4);
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-whisper);
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: rgba(200, 144, 26, .12);
+      border-color: var(--gold-warm);
+      color: var(--parchment);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--parchment);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    /* ─── HERO — COSMIC EPIC ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(155deg, var(--cosmic-void) 0%, var(--cosmic-nebula) 60%, #2A1860 100%);
+      padding-top: 68px;
+    }
+
+    /* Star field */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,255,255,.85) 0%, transparent 100%),
+        radial-gradient(1px 1px   at 28% 42%, rgba(255,255,255,.6)  0%, transparent 100%),
+        radial-gradient(2px 2px   at 44% 8%,  rgba(255,221,100,.7)  0%, transparent 100%),
+        radial-gradient(1px 1px   at 60% 65%, rgba(255,255,255,.5)  0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 74% 28%,rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px   at 88% 50%, rgba(255,255,255,.4)  0%, transparent 100%),
+        radial-gradient(2px 2px   at 18% 72%, rgba(255,255,255,.6)  0%, transparent 100%),
+        radial-gradient(1px 1px   at 52% 85%, rgba(255,221,100,.5)  0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 55%,rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px   at 80% 80%, rgba(255,255,255,.5)  0%, transparent 100%),
+        radial-gradient(1px 1px   at 6%  90%, rgba(255,255,255,.4)  0%, transparent 100%),
+        radial-gradient(2px 2px   at 92% 12%, rgba(255,221,100,.6)  0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Summit glow */
+    .hero-glow {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(200,144,26,.45) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Ground warm fade */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(246,240,227,.055) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Ascending path SVG */
+    .hero-path {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 52%;
+      max-width: 560px;
+      pointer-events: none;
+      opacity: .9;
+    }
+
+    /* Ghost character */
+    .hero-ghost {
+      position: absolute;
+      top: -10px;
+      left: -8px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 240px;
+      font-weight: 900;
+      color: rgba(200, 144, 26, .04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 100px 40px 80px;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      animation: fadeUp .7s ease both;
+    }
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-warm);
+    }
+
+    .hero-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(13px, 2vw, 16px);
+      font-weight: 400;
+      color: rgba(246, 240, 227, .65);
+      margin-bottom: 14px;
+      animation: fadeUp .7s .1s ease both;
+      letter-spacing: .08em;
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.08;
+      color: var(--parchment);
+      margin-bottom: 10px;
+      animation: fadeUp .8s .15s ease both;
+      max-width: 680px;
+    }
+
+    .hero-subheadline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3.5vw, 40px);
+      font-weight: 700;
+      line-height: 1.18;
+      color: rgba(246, 240, 227, .88);
+      margin-bottom: 28px;
+      animation: fadeUp .8s .2s ease both;
+      max-width: 600px;
+    }
+
+    .hero-divider {
+      width: 200px;
+      margin-bottom: 28px;
+      animation: fadeUp .8s .25s ease both;
+    }
+
+    .hero-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 1.8vw, 19px);
+      font-style: italic;
+      color: rgba(246, 240, 227, .82);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 44px;
+      animation: fadeUp .8s .3s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp .8s .38s ease both;
+    }
+
+    .btn-primary {
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--strategy), #8A1828);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 4px 20px rgba(176, 48, 80, .35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(176, 48, 80, .5);
+    }
+
+    .btn-ghost {
+      padding: 14px 32px;
+      background: transparent;
+      border: 1px solid rgba(246, 240, 227, .25);
+      border-radius: 30px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(246, 240, 227, .65);
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(246, 240, 227, .5);
+      color: var(--parchment);
+      background: rgba(246, 240, 227, .06);
+    }
+
+    /* Credential strip */
+    .hero-credentials {
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(200, 144, 26, .12);
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      animation: fadeUp .8s .5s ease both;
+    }
+    .credential-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .credential-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .credential-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(246, 240, 227, .62);
+    }
+
+    /* ─── SECTION: WHAT IS STEPDEX ─── */
+    .section-what {
+      background: var(--parchment);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px;
+    }
+    .section-what-ghost {
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 280px;
+      font-weight: 900;
+      color: rgba(200, 144, 26, .05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    /* Topology lines */
+    .section-what::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        30deg,
+        transparent,
+        transparent 28px,
+        rgba(176, 120, 32, .045) 28px,
+        rgba(176, 120, 32, .045) 29px
+      );
+      pointer-events: none;
+    }
+    /* Watercolour wash */
+    .section-what::after {
+      content: '';
+      position: absolute;
+      top: -5%;
+      right: -5%;
+      width: 55%;
+      height: 65%;
+      background: radial-gradient(ellipse at 80% 20%, rgba(176, 48, 80, .11) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .what-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .what-left {}
+    .what-eyebrow { margin-bottom: 16px; color: var(--gold-warm); }
+    .what-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .what-title-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 400;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      letter-spacing: .06em;
+    }
+    .what-ribbon { margin-bottom: 24px; }
+    .what-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(15px, 1.6vw, 17px);
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .btn-ink {
+      padding: 13px 28px;
+      background: transparent;
+      border: 1px solid rgba(26, 20, 16, .25);
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all .2s;
+      display: inline-block;
+    }
+    .btn-ink:hover {
+      border-color: var(--gold-warm);
+      color: var(--gold-warm);
+    }
+
+    /* Dimension cards */
+    .what-right {}
+    .dim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .dim-card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px 20px;
+      border-top: 3px solid transparent;
+      box-shadow: 0 2px 12px rgba(26, 20, 16, .07);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .dim-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(26, 20, 16, .12);
+    }
+    .dim-card.strategy  { border-top-color: var(--strategy); }
+    .dim-card.technical { border-top-color: var(--technical); }
+    .dim-card.empower   { border-top-color: var(--empower); }
+    .dim-card.people    { border-top-color: var(--people); }
+
+    .dim-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dim-icon.strategy  { background: rgba(176, 48, 80, .12); }
+    .dim-icon.technical { background: rgba(200, 112, 26, .12); }
+    .dim-icon.empower   { background: rgba(34, 136, 128, .12); }
+    .dim-icon.people    { background: rgba(104, 72, 160, .12); }
+
+    .dim-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .strategy .dim-dot  { background: var(--strategy); }
+    .technical .dim-dot { background: var(--technical); }
+    .empower .dim-dot   { background: var(--empower); }
+    .people .dim-dot    { background: var(--people); }
+
+    .dim-label {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      margin-bottom: 3px;
+    }
+    .strategy .dim-label  { color: var(--strategy); }
+    .technical .dim-label { color: var(--technical); }
+    .empower .dim-label   { color: var(--empower); }
+    .people .dim-label    { color: var(--people); }
+
+    .dim-en {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+    }
+    .dim-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── SECTION: PROGRAMMES — COSMIC ─── */
+    .section-programs {
+      background: linear-gradient(155deg, var(--cosmic-void), var(--cosmic-nebula), #2A1860);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px;
+    }
+    .section-programs::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1.5px 1.5px at 8% 25%,  rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px   at 25% 60%, rgba(255,255,255,.4)  0%, transparent 100%),
+        radial-gradient(2px 2px   at 40% 15%, rgba(255,221,100,.5)  0%, transparent 100%),
+        radial-gradient(1px 1px   at 65% 40%, rgba(255,255,255,.5)  0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 80% 70%,rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px   at 92% 20%, rgba(255,221,100,.4)  0%, transparent 100%);
+      pointer-events: none;
+    }
+    .programs-glow {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(200,144,26,.35) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .programs-ghost {
+      position: absolute;
+      top: 10px;
+      left: -12px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 220px;
+      font-weight: 900;
+      color: rgba(200, 144, 26, .04);
+      pointer-events: none;
+      user-select: none;
+    }
+    .programs-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .programs-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .programs-header .eyebrow { margin-bottom: 14px; display: block; }
+    .programs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--parchment);
+      margin-bottom: 8px;
+    }
+    .programs-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(246, 240, 227, .72);
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .prog-card {
+      background: rgba(246, 240, 227, .04);
+      border: 1px solid rgba(246, 240, 227, .08);
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .prog-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--strategy), var(--technical), var(--empower), var(--people));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .prog-card:hover {
+      background: rgba(246, 240, 227, .07);
+      border-color: rgba(200, 144, 26, .2);
+      transform: translateY(-4px);
+    }
+    .prog-card:hover::before { opacity: 1; }
+    .prog-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: rgba(176, 48, 80, .08);
+      border-color: rgba(176, 48, 80, .2);
+    }
+    .prog-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .prog-badge.accredited {
+      background: rgba(176, 48, 80, .2);
+      border: 1px solid rgba(176, 48, 80, .4);
+      color: #E07090;
+    }
+    .prog-badge.new {
+      background: rgba(34, 136, 128, .2);
+      border: 1px solid rgba(34, 136, 128, .4);
+      color: #5EC8C0;
+    }
+    .prog-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--parchment);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .prog-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(246, 240, 227, .78);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .prog-link {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-whisper);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap .2s;
+    }
+    .prog-link:hover { gap: 10px; color: #F0D878; }
+    .prog-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    /* Featured programme visual */
+    .prog-featured-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .prog-dim-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(246, 240, 227, .04);
+      border-radius: 8px;
+      border-left: 3px solid transparent;
+    }
+    .prog-dim-row.s { border-left-color: var(--strategy); }
+    .prog-dim-row.t { border-left-color: var(--technical); }
+    .prog-dim-row.e { border-left-color: var(--empower); }
+    .prog-dim-row.p { border-left-color: var(--people); }
+    .prog-dim-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      flex: 1;
+    }
+    .prog-dim-row.s .prog-dim-label { color: #E07090; }
+    .prog-dim-row.t .prog-dim-label { color: #E09050; }
+    .prog-dim-row.e .prog-dim-label { color: #5EC8C0; }
+    .prog-dim-row.p .prog-dim-label { color: #9878C8; }
+    .prog-dim-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 10px;
+      color: rgba(246, 240, 227, .55);
+    }
+
+    /* ─── SECTION: TESTIMONIALS — WARM ─── */
+    .section-testimonials {
+      background: var(--parchment);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px;
+    }
+    .section-testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        30deg,
+        transparent,
+        transparent 28px,
+        rgba(176, 120, 32, .04) 28px,
+        rgba(176, 120, 32, .04) 29px
+      );
+      pointer-events: none;
+    }
+    .section-testimonials::after {
+      content: '';
+      position: absolute;
+      top: -5%;
+      right: -5%;
+      width: 50%;
+      height: 60%;
+      background: radial-gradient(ellipse at 80% 20%, rgba(176, 48, 80, .09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .test-ghost {
+      position: absolute;
+      bottom: -60px;
+      left: -20px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 260px;
+      font-weight: 900;
+      color: rgba(104, 72, 160, .04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .test-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .test-header {
+      margin-bottom: 50px;
+    }
+    .test-header .eyebrow { color: var(--gold-warm); margin-bottom: 14px; }
+    .test-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .test-ribbon { width: 160px; }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .test-card {
+      background: white;
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(26, 20, 16, .07);
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .test-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(26, 20, 16, .12);
+    }
+    .test-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(176, 48, 80, .04), rgba(104, 72, 160, .04));
+      border: 1px solid rgba(176, 48, 80, .1);
+    }
+    .test-quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--strategy);
+      opacity: .15;
+      line-height: 1;
+      margin-bottom: -16px;
+    }
+    .test-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .test-text strong {
+      font-weight: 600;
+      color: var(--ink);
+      font-style: normal;
+    }
+    .test-divider {
+      height: 1px;
+      background: linear-gradient(to right, var(--gold-warm), transparent);
+      margin-bottom: 16px;
+      opacity: .3;
+    }
+    .test-author {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .test-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--ink-muted);
+    }
+    .test-more {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ─── SECTION: AI TOOLS — WARM WATERCOLOUR ─── */
+    .section-ai {
+      background: var(--parchment-deep);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px;
+    }
+    .section-ai::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        30deg,
+        transparent,
+        transparent 28px,
+        rgba(176, 120, 32, .045) 28px,
+        rgba(176, 120, 32, .045) 29px
+      );
+      pointer-events: none;
+    }
+    .section-ai::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 45%;
+      height: 60%;
+      background: radial-gradient(ellipse at 20% 80%, rgba(104, 72, 160, .1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ai-ghost {
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 240px;
+      font-weight: 900;
+      color: rgba(176, 120, 32, .05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .ai-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .ai-header {
+      max-width: 600px;
+      margin-bottom: 50px;
+    }
+    .ai-header .eyebrow { color: var(--gold-warm); margin-bottom: 14px; }
+    .ai-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .ai-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .ai-tools {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .ai-tool {
+      background: white;
+      border-radius: 14px;
+      padding: 36px 30px;
+      box-shadow: 0 2px 14px rgba(26, 20, 16, .07);
+      border-top: 3px solid transparent;
+      transition: transform .2s, box-shadow .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-tool::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      opacity: .06;
+    }
+    .ai-tool.sme { border-top-color: var(--strategy); }
+    .ai-tool.sme::after { background: var(--strategy); }
+    .ai-tool.mgr { border-top-color: var(--empower); }
+    .ai-tool.mgr::after { background: var(--empower); }
+    .ai-tool:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(26, 20, 16, .12);
+    }
+    .ai-tool-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .ai-tool.sme .ai-tool-tag {
+      background: rgba(176, 48, 80, .1);
+      color: var(--strategy);
+    }
+    .ai-tool.mgr .ai-tool-tag {
+      background: rgba(34, 136, 128, .1);
+      color: var(--empower);
+    }
+    .ai-tool-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .ai-tool-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .ai-tool-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .ai-tool-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .ai-step-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 800;
+      flex-shrink: 0;
+      color: white;
+    }
+    .ai-tool.sme .ai-step-num { background: var(--strategy); }
+    .ai-tool.mgr .ai-step-num { background: var(--empower); }
+    .btn-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: all .25s;
+    }
+    .ai-tool.sme .btn-tool {
+      background: var(--strategy);
+      color: white;
+      box-shadow: 0 4px 14px rgba(176, 48, 80, .3);
+    }
+    .ai-tool.sme .btn-tool:hover {
+      background: #8A1828;
+      transform: translateY(-2px);
+    }
+    .ai-tool.mgr .btn-tool {
+      background: var(--empower);
+      color: white;
+      box-shadow: 0 4px 14px rgba(34, 136, 128, .3);
+    }
+    .ai-tool.mgr .btn-tool:hover {
+      background: #186860;
+      transform: translateY(-2px);
+    }
+    .ai-free-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 4px 10px;
+      background: rgba(34, 136, 128, .1);
+      border: 1px solid rgba(34, 136, 128, .3);
+      border-radius: 20px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--empower);
+    }
+
+    /* ─── SECTION: CTA — COSMIC ─── */
+    .section-cta {
+      background: linear-gradient(155deg, var(--cosmic-void), var(--cosmic-nebula));
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    .section-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1.5px 1.5px at 15% 30%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 70%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(2px 2px at 75% 20%, rgba(255,221,100,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 80%, rgba(255,255,255,.5) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(176, 48, 80, .15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .cta-eyebrow { margin-bottom: 20px; display: block; }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .cta-ribbon { width: 200px; margin: 0 auto 28px; }
+    .cta-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: rgba(246, 240, 227, .80);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      color: rgba(246, 240, 227, .48);
+      margin-top: 32px;
+      letter-spacing: .1em;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #060410;
+      border-top: 1px solid rgba(200, 144, 26, .1);
+      padding: 60px 40px 36px;
+    }
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(246, 240, 227, .1);
+    }
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--parchment);
+      margin-bottom: 4px;
+    }
+    .footer-brand-name span { color: var(--parchment); }
+    .footer-brand-tc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 12px;
+      color: rgba(246, 240, 227, .58);
+      margin-bottom: 16px;
+      letter-spacing: .08em;
+    }
+    .footer-brand-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(246, 240, 227, .68);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+    .social-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(246, 240, 227, .22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: rgba(246, 240, 227, .65);
+      transition: all .2s;
+    }
+    .social-btn:hover {
+      border-color: var(--gold-warm);
+      color: var(--gold-warm);
+    }
+    .footer-col-title {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--gold-whisper);
+      opacity: .85;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(246, 240, 227, .68);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--parchment); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-legal {
+      font-size: 11px;
+      color: rgba(246, 240, 227, .48);
+      line-height: 1.6;
+    }
+    .footer-ribbon { width: 120px; opacity: .5; }
+    .footer-legal-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal-links a {
+      font-size: 11px;
+      color: rgba(246, 240, 227, .48);
+      transition: color .2s;
+    }
+    .footer-legal-links a:hover { color: rgba(246, 240, 227, .82); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .what-inner { grid-template-columns: 1fr; gap: 50px; }
+      .prog-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .test-card.featured { grid-column: span 1; }
+      .ai-tools { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .hero-path { width: 70%; opacity: .5; }
+    }
+
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .hero-content { padding: 80px 20px 60px; }
+      .section-what,
+      .section-programs,
+      .section-testimonials,
+      .section-ai,
+      .section-cta { padding: 70px 20px; }
+      .footer { padding: 50px 20px 28px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .hero-credentials { gap: 24px; }
+      .dim-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy logo" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:12px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="/stepdex-trinity" class="nav-cta">Contact Us</a>
+    <div class="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO — COSMIC EPIC ─── -->
+  <section class="hero">
+    <div class="hero-glow breathe"></div>
+    <div class="hero-ghost" aria-hidden="true">思</div>
+
+    <!-- Ascending path SVG -->
+    <svg class="hero-path" viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="pathGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#6848A0" stop-opacity="0.7"/>
+          <stop offset="33%"  stop-color="#228880" stop-opacity="0.85"/>
+          <stop offset="66%"  stop-color="#C8701A" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#C8901A" stop-opacity="1"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path
+        d="M 20 340 C 60 300, 100 280, 130 250 C 160 220, 150 195, 190 170 C 230 145, 270 160, 310 130 C 350 100, 370 60, 420 30 C 450 12, 490 6, 540 2"
+        stroke="url(#pathGrad)"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-dasharray="800"
+        stroke-dashoffset="800"
+        filter="url(#glow)"
+        style="animation: pathDraw 2.5s ease .6s both;"
+      />
+      <circle cx="540" cy="2" r="4" fill="#C8901A" opacity=".9" class="twinkle"/>
+      <circle cx="540" cy="2" r="8" fill="#C8901A" opacity=".2" class="breathe"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span class="eyebrow">STEPDEX<span class="reg">®</span> Academy · 思德教育學院</span>
+      </div>
+
+      <p class="hero-tc">賦能中小企業領導者 · 由初級到CEO</p>
+
+      <h1 class="hero-headline">
+        Empowering Your<br/>
+        <span class="gold">Transformation</span><br/>
+        Journey
+      </h1>
+      <p class="hero-subheadline">From Associates to CEO in SMEs.</p>
+
+      <div class="hero-divider">
+        <div class="four-ribbon"></div>
+      </div>
+
+      <p class="hero-body">
+        Unlock your potential with holistic leadership development across Strategy, Technical, Empower, and People competencies. Accredited by USM, Graduate School of Business.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="/programs" class="btn-primary">Explore Our Programs</a>
+        <a href="/about" class="btn-ghost">Learn More</a>
+      </div>
+
+      <div class="hero-credentials">
+        <div class="credential-item">
+          <span class="credential-num"><span class="gold">12th</span></span>
+          <span class="credential-label">FCM Batch Running</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-num"><span class="gold">20+</span></span>
+          <span class="credential-label">Competencies Mapped</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-num"><span class="gold">USM</span></span>
+          <span class="credential-label">Graduate School of Business</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-num"><span class="gold">HRD</span></span>
+          <span class="credential-label">Corp Claimable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHAT IS STEPDEX — WARM WATERCOLOUR ─── -->
+  <section class="section-what">
+    <div class="section-what-ghost" aria-hidden="true">德</div>
+    <div class="what-inner">
+      <div class="what-left">
+        <p class="eyebrow what-eyebrow">What is STEPDEX<span class="reg">®</span></p>
+        <h2 class="what-title">A structured path to <span class="gold" style="-webkit-text-fill-color:var(--strategy)">leadership</span> excellence</h2>
+        <p class="what-title-tc">思德教育學院 — 中小企領導發展路徑</p>
+        <div class="four-ribbon what-ribbon"></div>
+        <p class="what-body">
+          STEPDEX<span class="reg">®</span> Academy is your trusted guide on the path to leadership excellence. Built on the conviction that SME managers deserve structured, evidence-based development — not generic training. Our STEP framework maps the competencies your people need at every career stage, from first-time manager to C-suite.
+        </p>
+        <a href="/about" class="btn-ink">About STEPDEX<span class="reg">®</span></a>
+      </div>
+      <div class="what-right">
+        <div class="dim-grid">
+          <div class="dim-card strategy">
+            <div class="dim-icon strategy"><div class="dim-dot"></div></div>
+            <p class="dim-label">策略</p>
+            <p class="dim-en">Strategy</p>
+            <p class="dim-desc">See the big picture, craft vision, and chart clear paths forward for your organisation.</p>
+          </div>
+          <div class="dim-card technical">
+            <div class="dim-icon technical"><div class="dim-dot"></div></div>
+            <p class="dim-label">專業</p>
+            <p class="dim-en">Technical</p>
+            <p class="dim-desc">Master business functions and drive operational excellence through precision.</p>
+          </div>
+          <div class="dim-card empower">
+            <div class="dim-icon empower"><div class="dim-dot"></div></div>
+            <p class="dim-label">賦能</p>
+            <p class="dim-en">Empower</p>
+            <p class="dim-desc">Cultivate self-awareness and personal mastery to lead authentically.</p>
+          </div>
+          <div class="dim-card people">
+            <div class="dim-icon people"><div class="dim-dot"></div></div>
+            <p class="dim-label">人際</p>
+            <p class="dim-en">People</p>
+            <p class="dim-desc">Build skills to connect, communicate, and collaborate with diverse stakeholders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROGRAMMES — COSMIC EPIC ─── -->
+  <section class="section-programs">
+    <div class="programs-glow breathe"></div>
+    <div class="programs-ghost" aria-hidden="true">成</div>
+    <div class="programs-inner">
+      <div class="programs-header">
+        <span class="eyebrow">Our Programmes & Workshops</span>
+        <h2 class="programs-title">Practical. Transformational. <span class="gold">Human-Centered.</span></h2>
+        <p class="programs-sub">Whether you're a first-time manager or a future CXO, we meet you where you are.</p>
+      </div>
+
+      <div class="programs-grid">
+        <!-- STEP FCM — Featured -->
+        <div class="prog-card featured">
+          <div>
+            <span class="prog-badge accredited">★ Accredited · USM, Graduate School of Business</span>
+            <h3 class="prog-title">STEP First Class Manager</h3>
+            <p class="prog-body">
+              Our flagship programme empowers managers to master all four STEPDEX<span class="reg">®</span> dimensions. Equipping you with tools, mindset, and confidence to lead effectively, ethically, and sustainably. Now in its 12th batch.
+            </p>
+            <div class="prog-links">
+              <a href="/stepfcm-en" class="prog-link">Learn More (EN) →</a>
+              <a href="/stepfcm-cn" class="prog-link" style="color:rgba(246,240,227,.72);">了解更多 (中文) →</a>
+            </div>
+          </div>
+          <div class="prog-featured-visual">
+            <div class="prog-dim-row s">
+              <span class="prog-dim-label">Strategy</span>
+              <span class="prog-dim-tc">策略</span>
+            </div>
+            <div class="prog-dim-row t">
+              <span class="prog-dim-label">Technical</span>
+              <span class="prog-dim-tc">專業</span>
+            </div>
+            <div class="prog-dim-row e">
+              <span class="prog-dim-label">Empower</span>
+              <span class="prog-dim-tc">賦能</span>
+            </div>
+            <div class="prog-dim-row p">
+              <span class="prog-dim-label">People</span>
+              <span class="prog-dim-tc">人際</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SME HR -->
+        <div class="prog-card">
+          <span class="prog-badge new">New · Now Open</span>
+          <h3 class="prog-title">SME HR Programme</h3>
+          <p class="prog-body">Practical HR strategies for SME owners and managers. 8-week cohort covering hiring, performance, and people systems — built for real business challenges.</p>
+          <a href="/programs" class="prog-link">Learn More →</a>
+        </div>
+
+        <!-- LEAP -->
+        <div class="prog-card">
+          <h3 class="prog-title">LEAP of Faith</h3>
+          <p class="prog-body">Lead with Empathy, Accountability & Potential. For high-potential talents who need to lead before the title arrives.</p>
+          <a href="/programs" class="prog-link">Learn More →</a>
+        </div>
+
+        <!-- Leading with Empathy -->
+        <div class="prog-card">
+          <h3 class="prog-title">Leading with Empathy</h3>
+          <p class="prog-body">An immersive leadership experience in the dark — guided by visually impaired facilitators from DIA Academy. Revolutionary empathy development.</p>
+          <a href="/programs" class="prog-link">Learn More →</a>
+        </div>
+
+        <!-- GPS -->
+        <div class="prog-card">
+          <h3 class="prog-title">GPS Series</h3>
+          <p class="prog-body">Goal & Performance Strategy. HRDCorp-claimable. Bridges the gap between setting goals and consistently achieving them across teams.</p>
+          <a href="/gps" class="prog-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS — WARM WATERCOLOUR ─── -->
+  <section class="section-testimonials">
+    <div class="test-ghost" aria-hidden="true">信</div>
+    <div class="test-inner">
+      <div class="test-header">
+        <p class="eyebrow">What Our Learners Say</p>
+        <h2 class="test-title">Real leaders. <span style="color:var(--strategy)">Real transformation.</span></h2>
+        <div class="four-ribbon test-ribbon"></div>
+      </div>
+      <div class="test-grid">
+        <div class="test-card featured">
+          <div class="test-quote-mark">"</div>
+          <p class="test-text">
+            <strong>Helping People Improve</strong> — Teacher Sunny truly embodies this mission. I joined his Strategic HR program and was amazed by how practical and eye-opening it was. I learned to assess candidates through their stories, resulting in better hiring decisions and stronger team performance. We later enrolled a solo-style manager into the STEP First Class Manager course. He became more open and collaborative — transforming our culture. <strong>When a manager grows, the whole team does too.</strong>
+          </p>
+          <div class="test-divider"></div>
+          <p class="test-author">Erin Sin</p>
+          <p class="test-role">Co-Founder, ETIN Trading</p>
+        </div>
+        <div class="test-card">
+          <div class="test-quote-mark">"</div>
+          <p class="test-text">Coach Sunny's First Class Manager training gave me practical tools and clear guidance to lead with both heart and strategy. His coaching made a real difference in our organisation.</p>
+          <div class="test-divider"></div>
+          <p class="test-author">Kel Mynn</p>
+          <p class="test-role">Co-Founder, Verdant Solar</p>
+        </div>
+        <div class="test-card">
+          <div class="test-quote-mark">"</div>
+          <p class="test-text">I joined the STEP First Class Manager course with uncertainty, but it turned out to be the exact management strategy I needed. Every manager deserves this transformative experience.</p>
+          <div class="test-divider"></div>
+          <p class="test-author">Theresa</p>
+          <p class="test-role">Sales Manager, Entopest</p>
+        </div>
+        <div class="test-card">
+          <div class="test-quote-mark">"</div>
+          <p class="test-text">Teacher Sunny's course helped me realise I just needed someone to guide me. The hands-on exercises made every lesson stick. I'm truly grateful for this eye-opening experience.</p>
+          <div class="test-divider"></div>
+          <p class="test-author">Jye Wei</p>
+          <p class="test-role">General Manager, Big Tooth School</p>
+        </div>
+        <div class="test-card">
+          <div class="test-quote-mark">"</div>
+          <p class="test-text">Professional advice with a heart. Their heartfelt guidance, deep expertise, and genuine concern for my business left a lasting impact. They truly go above and beyond.</p>
+          <div class="test-divider"></div>
+          <p class="test-author">Nicole Yap</p>
+          <p class="test-role">Co-Founder, Ideal Music</p>
+        </div>
+      </div>
+      <div class="test-more">
+        <a href="https://maps.app.goo.gl/FPVFjVWJMpg7tKYc8" target="_blank" rel="noopener" class="btn-ink">Read More on Google ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AI TOOLS — WARM WATERCOLOUR ─── -->
+  <section class="section-ai">
+    <div class="ai-ghost" aria-hidden="true">診</div>
+    <div class="ai-inner">
+      <div class="ai-header">
+        <p class="eyebrow">Free AI-Powered Tools</p>
+        <h2 class="ai-title">Diagnose before you <span style="color:var(--strategy)">decide.</span></h2>
+        <p class="ai-body">Two free diagnostic tools to help SME owners and managers understand exactly where the gaps are — before committing to any programme.</p>
+      </div>
+      <div class="ai-tools">
+        <!-- SME Tool -->
+        <div class="ai-tool sme">
+          <span class="ai-free-badge">Free · 5 min</span>
+          <span class="ai-tool-tag">For SME Owners</span>
+          <h3 class="ai-tool-title">SME Performance Diagnosis</h3>
+          <p class="ai-tool-body">Answer 12 questions about your business. Get a personalised report showing which of the four dimensions are holding your organisation back.</p>
+          <ul class="ai-tool-steps">
+            <li><span class="ai-step-num">1</span>Answer 12 diagnostic questions</li>
+            <li><span class="ai-step-num">2</span>AI analyses your four-dimension gaps</li>
+            <li><span class="ai-step-num">3</span>Receive your personalised report</li>
+            <li><span class="ai-step-num">4</span>Book a free consultation (optional)</li>
+          </ul>
+          <a href="https://sme.stepdex.my" class="btn-tool">Start Free Diagnosis →</a>
+        </div>
+        <!-- Manager Tool -->
+        <div class="ai-tool mgr">
+          <span class="ai-free-badge">Free · 8 min</span>
+          <span class="ai-tool-tag">For Managers</span>
+          <h3 class="ai-tool-title">Manager Capability Assessment</h3>
+          <p class="ai-tool-body">Self-assess your leadership capabilities against the STEPDEX<span class="reg">®</span> competency framework. See where you are in the Leadership Pipeline — and what's next.</p>
+          <ul class="ai-tool-steps">
+            <li><span class="ai-step-num">1</span>Self-assess across 20 competencies</li>
+            <li><span class="ai-step-num">2</span>See your Leadership Pipeline position</li>
+            <li><span class="ai-step-num">3</span>Get your development priorities</li>
+            <li><span class="ai-step-num">4</span>Explore FCM enrolment (optional)</li>
+          </ul>
+          <a href="https://mgr.stepdex.my" class="btn-tool">Start Assessment →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA — COSMIC ─── -->
+  <section class="section-cta">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+      <span class="eyebrow cta-eyebrow">Begin Your Journey</span>
+      <h2 class="cta-title">Every leadership journey begins with a single <span class="gold">step.</span></h2>
+      <div class="four-ribbon cta-ribbon"></div>
+      <p class="cta-body">STEPDEX<span class="reg">®</span> Academy provides the map, tools, and guides to help you reach the summit of your potential. Join our community of forward-thinking SME leaders.</p>
+      <div class="cta-buttons">
+        <a href="/programs" class="btn-primary">Explore Our Courses</a>
+        <a href="/stepdex-trinity" class="btn-ghost">Contact Us</a>
+      </div>
+      <p class="cta-tc">思德教育學院 · 與你同行</p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">STEPDEX<span class="reg">®</span> Academy</p>
+          <p class="footer-brand-tc">思德教育學院</p>
+          <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+          <p class="footer-brand-desc">Empowering SME leaders through the STEP framework — Strategy, Technical, Empower, People. Powered by HPI Synergy PLT.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/stepdex" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://www.linkedin.com/company/stepdex" class="social-btn" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="https://www.instagram.com/stepdex.my" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+            <a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Programmes</p>
+          <ul class="footer-links">
+            <li><a href="/stepfcm-en">STEP First Class Manager</a></li>
+            <li><a href="/programs">SME HR Programme</a></li>
+            <li><a href="/programs">LEAP of Faith</a></li>
+            <li><a href="/programs">Leading with Empathy</a></li>
+            <li><a href="/gps">GPS Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Academy</p>
+          <ul class="footer-links">
+            <li><a href="/about">About STEPDEX<span class="reg">®</span></a></li>
+            <li><a href="/hpi">About HPI</a></li>
+            <li><a href="/experts">Our Experts</a></li>
+            <li><a href="/pathfinder">Pathfinder</a></li>
+            <li><a href="/stepdex-trinity">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Free Tools</p>
+          <ul class="footer-links">
+            <li><a href="https://sme.stepdex.my">SME Diagnosis</a></li>
+            <li><a href="https://mgr.stepdex.my">Manager Assessment</a></li>
+            <li><a href="https://chat.whatsapp.com/FNJklkeyWbkEwtvHhB0uXD">WhatsApp Community</a></li>
+          </ul>
+          <p class="footer-col-title" style="margin-top:28px">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@stepdex.my">hello@stepdex.my</a></li>
+            <li><a href="https://maps.app.goo.gl/wfVDE5pEEfXniBjL7" target="_blank" rel="noopener">Menara Keck Seng, KL</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+        </div>
+        <div class="four-ribbon footer-ribbon"></div>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+          <a href="/code">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
