@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code of Conduct | STEPDEX® Academy</title>
+  <meta name="description" content="STEPDEX® Academy Code of Conduct. Guided by Truth, Goodness, Beauty, and Holiness — the principles that shape every interaction and learning experience." />
+  <link rel="canonical" href="https://www.stepdex.my/code" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;700;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --parchment: #F6F0E3; --parchment-deep: #EDE3CB;
+      --ink: #1A1410; --ink-muted: #6A5A42;
+      --gold-warm: #B07820; --gold-whisper: #D4A84B;
+      --strategy: #B03050; --technical: #C8701A; --empower: #228880; --people: #6848A0;
+      --cosmic-void: #080612; --cosmic-nebula: #1C1248;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--parchment-deep); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+    .reg { font-size: .52em; vertical-align: super; line-height: 0; }
+    .four-ribbon { height: 2.5px; background: linear-gradient(to right, var(--strategy) 0% 25%, var(--technical) 25% 50%, var(--empower) 50% 75%, var(--people) 75% 100%); border-radius: 2px; }
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99999; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 68px; background: rgba(8,6,18,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(200,144,26,.1); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { width: 38px; height: 38px; border-radius: 50%; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--parchment); letter-spacing: .04em; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(246,240,227,.82); transition: color .2s; }
+    .nav-links a:hover { color: var(--parchment); }
+    .nav-lang-divider { width: 1px; height: 16px; background: rgba(246,240,227,.15); }
+    .nav-lang { font-family: 'Noto Serif TC', serif !important; font-size: 15px !important; letter-spacing: .04em !important; text-transform: none !important; color: rgba(246,240,227,.62) !important; }
+    .nav-cta { padding: 9px 22px; border: 1px solid rgba(200,144,26,.4); border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-whisper); transition: all .2s; }
+    .nav-cta:hover { background: rgba(200,144,26,.12); color: var(--parchment); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--parchment); border-radius: 2px; }
+
+    /* HERO */
+    .hero { background: var(--cosmic-void); padding: 140px 40px 80px; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(176,120,32,.18) 0%, transparent 65%); pointer-events: none; animation: breathe 3.5s ease-in-out infinite; }
+    .hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; text-align: center; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .45em; text-transform: uppercase; color: var(--gold-whisper); display: block; margin-bottom: 16px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 56px); font-weight: 700; font-style: italic; color: var(--parchment); line-height: 1.1; margin-bottom: 14px; }
+    .hero-ribbon { width: 160px; margin: 0 auto 22px; }
+    .hero-intro { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: rgba(246,240,227,.72); line-height: 1.75; max-width: 600px; margin: 0 auto; }
+
+    /* VALUES PILLARS */
+    .section-pillars { background: var(--parchment); padding: 80px 40px; position: relative; overflow: hidden; }
+    .section-pillars::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-18deg, transparent, transparent 28px, rgba(176,120,32,.04) 28px, rgba(176,120,32,.04) 29px); pointer-events: none; }
+    .pillars-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+    .pillars-header { text-align: center; margin-bottom: 48px; }
+    .pillars-header .eyebrow { color: var(--gold-warm); margin-bottom: 14px; }
+    .pillars-title { font-family: 'Playfair Display', serif; font-size: clamp(24px,3vw,38px); font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .pillars-sub { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--ink-muted); line-height: 1.7; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .pillar-card { background: white; border-radius: 16px; padding: 32px 24px; box-shadow: 0 2px 14px rgba(26,20,16,.07); text-align: center; border-top: 3px solid; }
+    .pillar-card.p1 { border-top-color: var(--strategy); }
+    .pillar-card.p2 { border-top-color: var(--empower); }
+    .pillar-card.p3 { border-top-color: var(--technical); }
+    .pillar-card.p4 { border-top-color: var(--people); }
+    .pillar-char { font-family: 'Noto Serif TC', serif; font-size: 44px; font-weight: 900; line-height: 1; margin-bottom: 10px; }
+    .pillar-card.p1 .pillar-char { color: var(--strategy); }
+    .pillar-card.p2 .pillar-char { color: var(--empower); }
+    .pillar-card.p3 .pillar-char { color: var(--technical); }
+    .pillar-card.p4 .pillar-char { color: var(--people); }
+    .pillar-label { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .pillar-en { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+    .pillar-body { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: var(--ink-muted); line-height: 1.65; }
+
+    /* PRINCIPLES */
+    .section-principles { background: var(--parchment-deep); padding: 80px 40px; position: relative; overflow: hidden; }
+    .section-principles::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(30deg, transparent, transparent 28px, rgba(176,120,32,.04) 28px, rgba(176,120,32,.04) 29px); pointer-events: none; }
+    .principles-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+    .principle { margin-bottom: 56px; }
+    .principle:last-child { margin-bottom: 0; }
+    .principle-header { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 18px; }
+    .principle-num { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: white; flex-shrink: 0; margin-top: 4px; }
+    .principle:nth-child(1) .principle-num { background: var(--strategy); }
+    .principle:nth-child(2) .principle-num { background: var(--technical); }
+    .principle:nth-child(3) .principle-num { background: var(--empower); }
+    .principle:nth-child(4) .principle-num { background: var(--people); }
+    .principle:nth-child(5) .principle-num { background: var(--gold-warm); }
+    .principle:nth-child(6) .principle-num { background: var(--ink-muted); }
+    .principle-title-wrap .eyebrow { color: var(--gold-warm); margin-bottom: 6px; }
+    .principle-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .principle-body { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink-muted); line-height: 1.8; margin-bottom: 12px; }
+    .principle-quote { background: white; border-left: 4px solid; border-radius: 0 12px 12px 0; padding: 18px 22px; margin-top: 16px; }
+    .principle:nth-child(1) .principle-quote { border-left-color: var(--strategy); }
+    .principle:nth-child(2) .principle-quote { border-left-color: var(--technical); }
+    .principle:nth-child(3) .principle-quote { border-left-color: var(--empower); }
+    .principle:nth-child(4) .principle-quote { border-left-color: var(--people); }
+    .principle-quote p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--ink-muted); line-height: 1.65; }
+    .principle-divider { height: 1px; background: rgba(26,20,16,.08); margin: 52px 0; }
+
+    /* CLOSING CTA */
+    .section-cta { background: var(--cosmic-void); padding: 80px 40px; position: relative; overflow: hidden; text-align: center; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(176,120,32,.15) 0%, transparent 65%); pointer-events: none; animation: breathe 3.5s ease-in-out infinite; }
+    .cta-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+    .cta-inner .eyebrow { margin-bottom: 18px; }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(26px,3.5vw,42px); font-weight: 700; font-style: italic; color: var(--parchment); margin-bottom: 14px; line-height: 1.15; }
+    .cta-body { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: rgba(246,240,227,.68); line-height: 1.7; margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { padding: 14px 30px; background: var(--people); color: white; border-radius: 30px; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transition: all .25s; }
+    .btn-primary:hover { background: #4E2888; transform: translateY(-2px); }
+    .btn-ghost { padding: 14px 30px; border: 1.5px solid rgba(246,240,227,.3); color: rgba(246,240,227,.82); border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: all .25s; }
+    .btn-ghost:hover { border-color: var(--parchment); color: var(--parchment); }
+
+    /* FOOTER */
+    .footer { background: #060410; border-top: 1px solid rgba(200,144,26,.1); padding: 50px 40px 32px; }
+    .footer-inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-legal { font-size: 13px; color: rgba(246,240,227,.48); }
+    .footer-links-row { display: flex; gap: 20px; }
+    .footer-links-row a { font-size: 13px; color: rgba(246,240,227,.55); transition: color .2s; }
+    .footer-links-row a:hover { color: var(--parchment); }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .hero, .section-pillars, .section-principles, .section-cta { padding-left: 20px; padding-right: 20px; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .footer { padding: 40px 20px 28px; }
+    }
+  </style>
+  <style>/* Chatbase widget isolation */#chatbase-bubble-button{z-index:99998!important;pointer-events:auto!important}#chatbase-bubble-window{z-index:99998!important}</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:13px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Contact Us</a>
+    <div class="nav-hamburger" role="button" tabindex="0"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <span class="eyebrow">STEPDEX® Academy · Code of Conduct</span>
+      <h1 class="hero-title">Guiding principles that shape<br>our commitment to excellence.</h1>
+      <div class="four-ribbon hero-ribbon"></div>
+      <p class="hero-intro">Integrity, transformational learning, and human dignity are not aspirations — they are the daily standard by which every STEPDEX® interaction is held.</p>
+    </div>
+  </header>
+
+  <!-- FOUR PILLARS -->
+  <section class="section-pillars">
+    <div class="pillars-inner">
+      <div class="pillars-header">
+        <span class="eyebrow">The Four Pillars of STEPDEX® Values</span>
+        <h2 class="pillars-title">Truth. Goodness. Beauty. Holiness.</h2>
+        <p class="pillars-sub">These are not displayed on walls — they are lived in our daily work.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card p1">
+          <div class="pillar-char">真</div>
+          <p class="pillar-label">Truth</p>
+          <p class="pillar-en">Integrity</p>
+          <p class="pillar-body">Speaking honestly in every interaction, maintaining transparency in all communications and decisions.</p>
+        </div>
+        <div class="pillar-card p2">
+          <div class="pillar-char">善</div>
+          <p class="pillar-label">Goodness</p>
+          <p class="pillar-en">Compassion</p>
+          <p class="pillar-body">Practicing kindness and treating every person — learner, partner, or stakeholder — with dignity and respect.</p>
+        </div>
+        <div class="pillar-card p3">
+          <div class="pillar-char">美</div>
+          <p class="pillar-label">Beauty</p>
+          <p class="pillar-en">Excellence</p>
+          <p class="pillar-body">Creating excellence in everything we do, from programme design to service delivery and facilitator craft.</p>
+        </div>
+        <div class="pillar-card p4">
+          <div class="pillar-char">聖</div>
+          <p class="pillar-label">Holiness</p>
+          <p class="pillar-en">Purpose</p>
+          <p class="pillar-body">Pursuing purpose beyond profit, serving something greater than ourselves and our communities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="section-principles">
+    <div class="principles-inner">
+
+      <div class="principle">
+        <div class="principle-header">
+          <div class="principle-num">1</div>
+          <div class="principle-title-wrap">
+            <span class="eyebrow">Our Foundation</span>
+            <h2 class="principle-title">Integrity in Truth</h2>
+          </div>
+        </div>
+        <p class="principle-body">At STEPDEX® Academy, we believe honesty is the foundation of trust. In all our programme design, communication, and service, we commit to full transparency. We never embellish outcomes or misrepresent our capabilities.</p>
+        <p class="principle-body">Where conflicts of interest arise, we disclose them openly so that relationships remain honest and decisions are grounded in truth. This commitment to transparency ensures that every interaction builds lasting trust with our community.</p>
+        <div class="principle-quote">
+          <p>"Transparency isn't just a policy — it's our promise to you."</p>
+        </div>
+      </div>
+
+      <div class="principle-divider"></div>
+
+      <div class="principle">
+        <div class="principle-header">
+          <div class="principle-num">2</div>
+          <div class="principle-title-wrap">
+            <span class="eyebrow">Crafting Excellence</span>
+            <h2 class="principle-title">Excellence in Professional Quality</h2>
+          </div>
+        </div>
+        <p class="principle-body">Every STEPDEX® experience — from workshops to coaching to training — is crafted with care, relevance, and intentional impact. Our trainers and partners prepare thoroughly, deliver responsively, and hold themselves to continuous improvement.</p>
+        <p class="principle-body">Feedback is valued; evolving methods and measurable outcomes are our standard rather than an exception.</p>
+      </div>
+
+      <div class="principle-divider"></div>
+
+      <div class="principle">
+        <div class="principle-header">
+          <div class="principle-num">3</div>
+          <div class="principle-title-wrap">
+            <span class="eyebrow">Creating Safe Spaces</span>
+            <h2 class="principle-title">Respect & Compassion for All</h2>
+          </div>
+        </div>
+        <p class="principle-body">We treat every person we encounter — learner, teammate, partner, or stakeholder — with dignity, care, and empathy. Diversity of background, belief, and experience enriches our community.</p>
+        <p class="principle-body">We strive constantly to build learning environments where all feel safe, supported, and free to contribute and grow.</p>
+        <div class="principle-quote">
+          <p>"Diversity of background, belief, and experience enriches our community."</p>
+        </div>
+      </div>
+
+      <div class="principle-divider"></div>
+
+      <div class="principle">
+        <div class="principle-header">
+          <div class="principle-num">4</div>
+          <div class="principle-title-wrap">
+            <span class="eyebrow">Reputation & Resources</span>
+            <h2 class="principle-title">Responsible Stewardship & Intellectual Honesty</h2>
+          </div>
+        </div>
+        <p class="principle-body">We safeguard STEPDEX®'s reputation, its resources, and its intellectual assets with the utmost care. Confidential information is protected; we adhere strictly to copyright and intellectual property norms, respecting the work of others.</p>
+        <p class="principle-body">Financial, procurement, and contractual decisions are made fairly, with transparency and accountability, and we avoid unfair inducements or corruption in any form.</p>
+      </div>
+
+      <div class="principle-divider"></div>
+
+      <div class="principle">
+        <div class="principle-header">
+          <div class="principle-num">5</div>
+          <div class="principle-title-wrap">
+            <span class="eyebrow">Leading with Humility</span>
+            <h2 class="principle-title">Purpose-Driven Humility & Service</h2>
+          </div>
+        </div>
+        <p class="principle-body">Our work is not only a profession — it is a mission. We lead with humility, seeking to serve rather than be served. This approach transforms how we engage with every individual and community we touch.</p>
+        <p class="principle-body">We measure success not just by profit or recognition, but by the lasting positive transformation we help produce in individuals, teams, and communities. Every step we take is rooted in a purpose greater than ourselves.</p>
+      </div>
+
+      <div class="principle-divider"></div>
+
+      <div class="principle">
+        <div class="principle-header">
+          <div class="principle-num">6</div>
+          <div class="principle-title-wrap">
+            <span class="eyebrow">Character & Growth</span>
+            <h2 class="principle-title">Ownership of Mistakes & Growth</h2>
+          </div>
+        </div>
+        <p class="principle-body">We recognise that mistakes will sometimes happen. When they do, we do not hide or shift blame. We acknowledge them, seek to understand what went wrong, make amends, and learn from them.</p>
+        <p class="principle-body">Our commitment to character includes being courageous in admitting imperfect moments — and bettering ourselves because of them.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="section-cta">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+      <span class="eyebrow">Your Journey with STEPDEX® Academy</span>
+      <h2 class="cta-title">When you choose STEPDEX®,<br>you choose a partner in integrity.</h2>
+      <p class="cta-body">You're not just selecting a training provider — you're partnering with an organisation committed to the highest standards of integrity, excellence, and transformational impact. Guided by principles. Focused on growth.</p>
+      <div class="cta-btns">
+        <a href="/programs" class="btn-primary">Explore Our Programmes →</a>
+        <a href="/contact" class="btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+      <div class="footer-links-row">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/code">Code of Conduct</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.querySelector('.nav-hamburger').addEventListener('click', function() {
+    var links = document.querySelector('.nav-links');
+    var isOpen = links.style.display === 'flex';
+    links.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);z-index:9998;';
+  });
+  </script>
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0wH63CLUcd-PiC8n7iOLT";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

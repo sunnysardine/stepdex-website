@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use | STEPDEX® Academy</title>
+  <meta name="description" content="STEPDEX® Academy Terms of Use. Please read these terms carefully before using our website or enrolling in our programmes." />
+  <link rel="canonical" href="https://www.stepdex.my/terms" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --parchment: #F6F0E3; --parchment-deep: #EDE3CB;
+      --ink: #1A1410; --ink-muted: #6A5A42;
+      --gold-warm: #B07820; --gold-whisper: #D4A84B;
+      --strategy: #B03050; --technical: #C8701A; --empower: #228880; --people: #6848A0;
+      --cosmic-void: #080612;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; background: var(--parchment-deep); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+    .reg { font-size: .52em; vertical-align: super; line-height: 0; }
+    .four-ribbon { height: 2.5px; background: linear-gradient(to right, var(--strategy) 0% 25%, var(--technical) 25% 50%, var(--empower) 50% 75%, var(--people) 75% 100%); border-radius: 2px; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99999; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 68px; background: rgba(8,6,18,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(200,144,26,.1); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { width: 38px; height: 38px; border-radius: 50%; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--parchment); letter-spacing: .04em; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(246,240,227,.82); transition: color .2s; }
+    .nav-links a:hover { color: var(--parchment); }
+    .nav-lang-divider { width: 1px; height: 16px; background: rgba(246,240,227,.15); }
+    .nav-lang { font-family: 'Noto Serif TC', serif !important; font-size: 15px !important; letter-spacing: .04em !important; text-transform: none !important; color: rgba(246,240,227,.62) !important; }
+    .nav-cta { padding: 9px 22px; border: 1px solid rgba(200,144,26,.4); border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-whisper); transition: all .2s; }
+    .nav-cta:hover { background: rgba(200,144,12,.12); color: var(--parchment); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--parchment); border-radius: 2px; }
+
+    /* HERO */
+    .hero { background: var(--parchment); padding: 130px 40px 70px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-18deg, transparent, transparent 28px, rgba(176,120,32,.04) 28px, rgba(176,120,32,.04) 29px); pointer-events: none; }
+    .hero-wash { position: absolute; top: -60px; right: -60px; width: 360px; height: 360px; background: radial-gradient(ellipse, rgba(176,48,80,.1) 0%, transparent 68%); pointer-events: none; animation: breathe 3.5s ease-in-out infinite; }
+    @keyframes breathe { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+    .hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .45em; text-transform: uppercase; color: var(--gold-warm); display: block; margin-bottom: 16px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 52px); font-weight: 700; font-style: italic; color: var(--ink); line-height: 1.12; margin-bottom: 14px; }
+    .hero-ribbon { width: 160px; margin-bottom: 20px; }
+    .hero-intro { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink-muted); line-height: 1.75; max-width: 620px; margin-bottom: 20px; }
+    .meta { font-size: 13px; color: var(--ink-muted); }
+
+    /* CONTENT */
+    .content { max-width: 860px; margin: 0 auto; padding: 60px 40px 100px; }
+    .section { margin-bottom: 52px; }
+    .section-num { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--strategy); margin-bottom: 8px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 16px; line-height: 1.2; }
+    .section-body { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink-muted); line-height: 1.8; margin-bottom: 14px; }
+    .section-body strong { font-style: normal; color: var(--ink); }
+    ul.policy-list { margin-left: 20px; }
+    ul.policy-list li { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--ink-muted); line-height: 1.7; margin-bottom: 6px; }
+    .divider { height: 1px; background: rgba(26,20,16,.08); margin: 52px 0; }
+    .highlight-box { background: white; border-left: 4px solid var(--strategy); border-radius: 0 12px 12px 0; padding: 20px 22px; margin: 20px 0; }
+    .highlight-box p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--ink-muted); line-height: 1.7; }
+    .contact-box { background: var(--parchment); border: 1px solid rgba(176,120,32,.2); border-radius: 16px; padding: 32px 28px; margin-top: 52px; }
+    .contact-box-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+    .contact-box-body { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--ink-muted); line-height: 1.75; }
+    .contact-box-body a { color: var(--strategy); }
+
+    /* FOOTER */
+    .footer { background: #060410; border-top: 1px solid rgba(200,144,26,.1); padding: 50px 40px 32px; }
+    .footer-inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-legal { font-size: 13px; color: rgba(246,240,227,.48); }
+    .footer-links-row { display: flex; gap: 20px; }
+    .footer-links-row a { font-size: 13px; color: rgba(246,240,227,.55); transition: color .2s; }
+    .footer-links-row a:hover { color: var(--parchment); }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .hero { padding: 120px 20px 50px; }
+      .content { padding: 40px 20px 80px; }
+      .footer { padding: 40px 20px 28px; }
+    }
+  </style>
+  <style>/* Chatbase widget isolation */#chatbase-bubble-button{z-index:99998!important;pointer-events:auto!important}#chatbase-bubble-window{z-index:99998!important}</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX® Academy" />
+      <span class="nav-wordmark">STEPDEX<span class="reg">®</span> <span style="font-weight:400;opacity:.5;font-size:13px;letter-spacing:.08em;">Academy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/programs">Programs</a></li>
+      <li><a href="/experts">Experts</a></li>
+      <li><a href="/pathfinder">Pathfinder</a></li>
+      <li><div class="nav-lang-divider"></div></li>
+      <li><a href="/stepfcm-cn" class="nav-lang">中文</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Contact Us</a>
+    <div class="nav-hamburger" role="button" tabindex="0"><span></span><span></span><span></span></div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-wash"></div>
+    <div class="hero-inner">
+      <span class="eyebrow">Legal · Terms of Use</span>
+      <h1 class="hero-title">Terms of Use</h1>
+      <div class="four-ribbon hero-ribbon"></div>
+      <p class="hero-intro">By accessing or using STEPDEX® Academy's website or enrolling in any of our programmes, you agree to be bound by these Terms of Use. Please read them carefully.</p>
+      <p class="meta"><strong>Effective Date:</strong> 1 July 2025 &nbsp;·&nbsp; <strong>Organisation:</strong> HPI Synergy PLT</p>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <div class="section">
+      <p class="section-num">Section 1</p>
+      <h2 class="section-title">Content Usage</h2>
+      <p class="section-body">All materials on this website — including but not limited to the STEPDEX® framework, programme content, graphics, logos, and text — are the intellectual property of HPI Synergy PLT and are protected by applicable copyright and trademark laws.</p>
+      <p class="section-body">Copying, reproducing, distributing, or creating derivative works from any content on this site without express written permission from STEPDEX® Academy is strictly prohibited.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 2</p>
+      <h2 class="section-title">Programme Participation</h2>
+      <p class="section-body">By registering for any STEPDEX® Academy programme, you agree to:</p>
+      <ul class="policy-list">
+        <li>Adhere to programme rules, schedules, and facilitator instructions</li>
+        <li>Treat fellow participants, trainers, and staff with respect and professionalism</li>
+        <li>Comply with our refund and cancellation policies as communicated at time of registration</li>
+        <li>Not record, reproduce, or distribute programme content without written authorisation</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 3</p>
+      <h2 class="section-title">User Conduct</h2>
+      <p class="section-body">When using this website or participating in our online platforms, you agree not to:</p>
+      <ul class="policy-list">
+        <li>Post, upload, or transmit harmful, offensive, or unlawful content</li>
+        <li>Attempt to gain unauthorised access to any part of our systems or data</li>
+        <li>Impersonate any person or organisation</li>
+        <li>Use the site for any commercial purpose without our written consent</li>
+        <li>Engage in any activity that disrupts or interferes with our services</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 4</p>
+      <h2 class="section-title">Accuracy and Availability</h2>
+      <p class="section-body">STEPDEX® Academy strives to ensure all content on this website is accurate and up to date. However, we do not warrant that the content is error-free, complete, or suitable for any particular purpose. We reserve the right to update or remove content at any time without notice.</p>
+      <p class="section-body">We do not guarantee uninterrupted or error-free access to our website. Scheduled or unscheduled maintenance, technical issues, or circumstances beyond our control may affect availability.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 5</p>
+      <h2 class="section-title">Third-Party Links</h2>
+      <p class="section-body">This website may contain links to third-party websites for your convenience. STEPDEX® Academy does not control, endorse, or take responsibility for the content, privacy practices, or availability of those external sites. Accessing them is at your own risk.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 6</p>
+      <h2 class="section-title">Warranty Disclaimer</h2>
+      <div class="highlight-box">
+        <p>Our website and services are provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 7</p>
+      <h2 class="section-title">Limitation of Liability</h2>
+      <p class="section-body">To the fullest extent permitted by applicable law, STEPDEX® Academy and HPI Synergy PLT shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, our website or services — including but not limited to loss of data, loss of profits, or business interruption.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 8</p>
+      <h2 class="section-title">Modifications to These Terms</h2>
+      <p class="section-body">We reserve the right to update these Terms of Use at any time. Revised terms will be posted on this page with a new effective date. Your continued use of our website or services after any changes constitutes your acceptance of the revised terms.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 9</p>
+      <h2 class="section-title">Governing Law</h2>
+      <p class="section-body">These Terms of Use are governed by and construed in accordance with the laws of Malaysia. Any disputes arising from these terms or your use of our website shall be subject to the exclusive jurisdiction of the courts of Malaysia.</p>
+    </div>
+
+    <div class="contact-box">
+      <p class="contact-box-title">Questions about these terms?</p>
+      <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
+      <p class="contact-box-body">
+        Contact us at <a href="mailto:info@stepdex.my">info@stepdex.my</a><br>
+        <strong>HPI Synergy PLT</strong> · Suite 33-01, Menara Keck Seng, 203 Jalan Bukit Bintang, 55100 Kuala Lumpur, Malaysia
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
+      <div class="footer-links-row">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/code">Code of Conduct</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.querySelector('.nav-hamburger').addEventListener('click', function() {
+    var links = document.querySelector('.nav-links');
+    var isOpen = links.style.display === 'flex';
+    links.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);z-index:9998;';
+  });
+  </script>
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0wH63CLUcd-PiC8n7iOLT";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

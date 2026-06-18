@@ -13,6 +13,9 @@
     { "source": "/sme", "destination": "/sme-ogrowth.html" },
     { "source": "/pathfinder", "destination": "/pathfinder.html" },
     { "source": "/gps", "destination": "/gps.html" },
-    { "source": "/hpi", "destination": "/hpi.html" }
+    { "source": "/hpi", "destination": "/hpi.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/code", "destination": "/code.html" }
   ]
 }
