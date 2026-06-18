@@ -112,7 +112,7 @@
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1738,6 +1738,13 @@
       </div>
     </div>
   </footer>
+  <script>
+  document.querySelector('.nav-hamburger').addEventListener('click', function() {
+    var links = document.querySelector('.nav-links');
+    var isOpen = links.style.display === 'flex';
+    links.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);z-index:9998;';
+  });
+  </script>
 
   <script>
   (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0wH63CLUcd-PiC8n7iOLT";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
