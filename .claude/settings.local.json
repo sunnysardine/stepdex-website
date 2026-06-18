@@ -9,7 +9,11 @@
       "WebFetch(domain:www.stepdex.my)",
       "Bash(git push *)",
       "Bash(python3 -)",
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(xargs grep -l \"\\\\.nav {\")",
+      "Bash(grep -v \"pointer-events: none\\\\|\\\\/\\\\*\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)"
     ]
   }
 }

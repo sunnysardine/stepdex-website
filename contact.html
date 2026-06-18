@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>/* Chatbase widget isolation */#chatbase-bubble-button{z-index:99998!important;pointer-events:auto!important}#chatbase-bubble-window{z-index:99998!important}</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -57,7 +58,7 @@
 
     /* ─── NAV ─── */
     .nav {
-      position:fixed; top:0; left:0; right:0; z-index: 9999;
+      position:fixed; top:0; left:0; right:0; z-index: 99999;
       display:flex; align-items:center; justify-content:space-between;
       padding:0 40px; height:68px;
       background:rgba(8,6,18,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
@@ -356,6 +357,7 @@
 
   <!-- ─── HERO ─── -->
   <header class="hero topo">
+  <style>/* Chatbase widget isolation */#chatbase-bubble-button{z-index:99998!important;pointer-events:auto!important}#chatbase-bubble-window{z-index:99998!important}</style>
     <div class="hero-wash-tr breathe"></div>
     <div class="hero-wash-bl breathe" style="animation-delay:.9s"></div>
     <div class="hero-ghost" aria-hidden="true">聯</div>
@@ -477,7 +479,7 @@
           </div>
           <div class="form-checkbox">
             <input type="checkbox" id="consent" name="consent" required />
-            <label for="consent">I agree to STEPDEX<span class="reg">®</span> Academy contacting me about programmes and updates. I have read the <a href="/privacy">Privacy Policy</a>.</label>
+            <label for="consent">I agree to STEPDEX<span class="reg">®</span> Academy contacting me about programmes and updates. I have read the <a href="/contact">Privacy Policy</a>.</label>
           </div>
           <div>
             <button type="submit" class="btn-submit">
@@ -651,9 +653,9 @@
         <p class="footer-legal">© 2025–2026 STEPDEX<span class="reg">®</span> Academy · Powered by HPI Synergy PLT (LLP0035973-LGN). All rights reserved.</p>
         <div class="four-ribbon footer-ribbon-sm"></div>
         <div class="footer-legal-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Use</a>
-          <a href="/code">Code of Conduct</a>
+          <a href="/contact">Privacy Policy</a>
+          <a href="/contact">Terms of Use</a>
+          <a href="/contact">Code of Conduct</a>
         </div>
       </div>
     </div>
