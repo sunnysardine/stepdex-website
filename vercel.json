@@ -1,5 +1,14 @@
 {
   "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/programs", "destination": "/programs.html" },
+    { "source": "/experts", "destination": "/experts.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/sme-hr", "destination": "/sme-hr.html" },
+    { "source": "/stepfcm-en", "destination": "/stepfcm-en.html" },
+    { "source": "/stepfcm-cn", "destination": "/stepfcm-cn.html" },
+    { "source": "/mgr-assessment", "destination": "/mgr-assessment.html" },
+    { "source": "/sme-ogrowth", "destination": "/sme-ogrowth.html" },
     { "source": "/mgr", "destination": "/mgr-assessment.html" },
     { "source": "/sme", "destination": "/sme-ogrowth.html" }
   ]
