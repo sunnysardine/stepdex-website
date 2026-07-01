@@ -227,14 +227,21 @@
     .res-ai-text p:last-child { margin-bottom:0; }
 
     /* Email gate */
-    .res-gate { background:var(--parchment-deep); border-radius:16px; padding:30px 28px; text-align:center; margin-bottom:28px; border:1px solid rgba(176,120,32,.15); }
-    .res-gate-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--ink); margin-bottom:8px; }
-    .res-gate-body { font-family:'Cormorant Garamond',serif; font-size: 15px; font-style:italic; color:var(--ink-muted); margin-bottom:20px; }
-    .res-gate-form { display:flex; gap:10px; max-width:420px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
-    .res-gate-input { flex:1; min-width:200px; padding:12px 16px; border:1px solid rgba(176,120,32,.2); border-radius:10px; font-family:'Nunito Sans',sans-serif; font-size: 15px; outline:none; }
-    .res-gate-input:focus { border-color:var(--gold-warm); }
-    .res-gate-btn { padding:12px 24px; background:var(--strategy); border:none; border-radius:10px; color:white; font-size: 13px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:all .2s; }
-    .res-gate-btn:hover { background:#8A1828; }
+    /* Lead-gen gate form */
+    .leadgen-header { text-align:center; margin-bottom:28px; }
+    .leadgen-header .eyebrow { margin-bottom:10px; }
+    .leadgen-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:8px; line-height:1.2; }
+    .leadgen-sub { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--ink-muted); line-height:1.65; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+    .form-field { display:flex; flex-direction:column; gap:5px; }
+    .form-field.full { grid-column:span 2; }
+    .form-field label { font-size:13px; font-weight:700; color:var(--ink-muted); }
+    .form-field input { padding:11px 14px; border:1.5px solid rgba(176,120,32,.2); border-radius:10px; font-family:'Nunito Sans',sans-serif; font-size:15px; outline:none; transition:border-color .2s; }
+    .form-field input:focus { border-color:var(--gold-warm); }
+    .form-nav { display:flex; justify-content:center; margin-top:20px; }
+    .btn-leadgen { padding:13px 34px; background:var(--strategy); border:none; border-radius:30px; color:white; font-family:'Nunito Sans',sans-serif; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:all .2s; opacity:.4; pointer-events:none; }
+    .btn-leadgen.active { opacity:1; pointer-events:auto; }
+    .btn-leadgen.active:hover { background:#8A1828; transform:translateY(-2px); }
 
     /* CTA */
     .res-cta { text-align:center; }
@@ -350,6 +357,25 @@
         <p class="loading-sub" id="loadingSub">Mapping your responses across the STEPDEX framework</p>
       </div>
 
+      <!-- ===== LEAD GEN GATE ===== -->
+      <div class="card hidden" id="screen-leadgen">
+        <div class="leadgen-header">
+          <span class="eyebrow" id="lgEyebrow">Your Report Is Ready</span>
+          <h2 class="leadgen-title" id="lgTitle">Enter your details to unlock your results</h2>
+          <p class="leadgen-sub" id="lgSub">Your personalised STEPDEX Manager Impact profile has been generated. Complete the form to view it.</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-field"><label id="lgLblName">Full Name *</label><input type="text" id="lgName" placeholder="John Tan" oninput="checkLeadForm()" /></div>
+          <div class="form-field"><label id="lgLblRole">Job Title *</label><input type="text" id="lgRole" placeholder="Operations Manager" oninput="checkLeadForm()" /></div>
+          <div class="form-field full"><label id="lgLblCompany">Company Name *</label><input type="text" id="lgCompany" placeholder="ABC Sdn Bhd" oninput="checkLeadForm()" /></div>
+          <div class="form-field full"><label id="lgLblEmail">Email *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
+          <div class="form-field full"><label id="lgLblPhone">Phone (optional)</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" /></div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-leadgen" id="lgSubmitBtn" onclick="submitLeadGen()">View My Report →</button>
+        </div>
+      </div>
+
       <!-- ===== RESULTS ===== -->
       <div class="card results hidden" id="screen-results">
         <div class="res-header">
@@ -373,19 +399,10 @@
           <div class="res-ai-text" id="resAiText">Loading your personalised analysis...</div>
         </div>
 
-        <div class="res-gate" id="resGate">
-          <p class="res-gate-title" id="resGateTitle">Want the full report emailed to you?</p>
-          <p class="res-gate-body" id="resGateBody">Get your complete profile, development priorities, and a copy to revisit anytime.</p>
-          <div class="res-gate-form">
-            <input type="email" class="res-gate-input" id="gateEmail" placeholder="your@email.com" />
-            <button class="res-gate-btn" id="resGateBtn" onclick="submitEmail()">Email My Report</button>
-          </div>
-        </div>
-
         <div class="res-cta">
           <div class="res-cta-buttons">
-            <a href="https://www.stepdex.my/stepdex-trinity" class="btn-cta-primary" id="resConsultBtn">Book a Free Consultation</a>
-            <a href="https://www.stepdex.my/stepfcm-en" class="btn-cta-outline" id="resFcmBtn">Explore STEP First Class Manager</a>
+            <a href="/contact" class="btn-cta-primary" id="resConsultBtn">Book a Free Consultation</a>
+            <a href="/stepfcm-en" class="btn-cta-outline" id="resFcmBtn">Explore STEP First Class Manager</a>
           </div>
           <button class="res-restart" id="resRestartBtn" onclick="restart()">Retake Assessment</button>
         </div>
@@ -456,12 +473,13 @@
         dimBreakdown: "Dimension Breakdown",
         aiLabel: "Your Personalised Insight",
         aiLoading: "Loading your personalised analysis...",
-        gateTitle: "Want the full report emailed to you?",
-        gateBody: "Get your complete profile, development priorities, and a copy to revisit anytime.",
-        gatePlaceholder: "your@email.com",
-        gateBtn: "Email My Report",
-        gateSuccessTitle: "✓ Report on its way!",
-        gateSuccessBody: email => `Check your inbox at ${email} in the next few minutes.`,
+        lgEyebrow: "Your Report Is Ready",
+        lgTitle: "Enter your details to unlock your results",
+        lgSub: "Your personalised STEPDEX Manager Impact profile has been generated. Complete the form to view it.",
+        lgLblName: "Full Name *", lgLblRole: "Job Title *", lgLblCompany: "Company Name *",
+        lgLblEmail: "Email *", lgLblPhone: "Phone (optional)",
+        lgPhName: "John Tan", lgPhRole: "Operations Manager", lgPhCompany: "ABC Sdn Bhd",
+        lgBtn: "View My Report →",
         consultBtn: "Book a Free Consultation",
         fcmBtn: "Explore STEP First Class Manager",
         retake: "Retake Assessment",
@@ -480,12 +498,13 @@
         dimBreakdown: "四大維度分析",
         aiLabel: "您的個人化洞察",
         aiLoading: "正在生成您的個人化分析...",
-        gateTitle: "想將完整報告寄到您的電郵嗎？",
-        gateBody: "獲取您的完整檔案、發展重點，並隨時可以回顧。",
-        gatePlaceholder: "your@email.com",
-        gateBtn: "寄送我的報告",
-        gateSuccessTitle: "✓ 報告即將送達！",
-        gateSuccessBody: email => `請在幾分鐘內查看您的電郵信箱：${email}`,
+        lgEyebrow: "您的報告已生成",
+        lgTitle: "填寫您的資料以查看結果",
+        lgSub: "您的 STEPDEX 經理影響力個人檔案已完成分析。填寫以下表格即可查看。",
+        lgLblName: "姓名 *", lgLblRole: "職位 *", lgLblCompany: "公司名稱 *",
+        lgLblEmail: "電郵 *", lgLblPhone: "聯絡電話（選填）",
+        lgPhName: "陳大文", lgPhRole: "營運經理", lgPhCompany: "ABC Sdn Bhd",
+        lgBtn: "查看我的報告 →",
         consultBtn: "預約免費諮詢",
         fcmBtn: "了解 STEP 全能一級經理課程",
         retake: "重新測驗",
@@ -549,6 +568,21 @@
       });
 
       document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en';
+
+      // Update lead gen form labels
+      const t = ui[l];
+      document.getElementById('lgEyebrow').textContent  = t.lgEyebrow;
+      document.getElementById('lgTitle').textContent    = t.lgTitle;
+      document.getElementById('lgSub').textContent      = t.lgSub;
+      document.getElementById('lgLblName').textContent  = t.lgLblName;
+      document.getElementById('lgLblRole').textContent  = t.lgLblRole;
+      document.getElementById('lgLblCompany').textContent = t.lgLblCompany;
+      document.getElementById('lgLblEmail').textContent = t.lgLblEmail;
+      document.getElementById('lgLblPhone').textContent = t.lgLblPhone;
+      document.getElementById('lgName').placeholder    = t.lgPhName;
+      document.getElementById('lgRole').placeholder    = t.lgPhRole;
+      document.getElementById('lgCompany').placeholder = t.lgPhCompany;
+      document.getElementById('lgSubmitBtn').textContent = t.lgBtn;
     }
 
     // Auto-select based on browser language on page load
@@ -754,12 +788,12 @@
           <p class="dim-result-score">${v.toFixed(1)}</p>
         </div>`).join('');
 
-      document.getElementById('screen-loading').classList.add('hidden');
-      document.getElementById('screen-results').classList.remove('hidden');
-      document.getElementById('screen-results').classList.add('fade-up');
-
-      incrementCounter();
+      // Start AI narrative in background while user fills lead gen form
       generateAINarrative(dimScores, levelScores, dominant);
+
+      document.getElementById('screen-loading').classList.add('hidden');
+      document.getElementById('screen-leadgen').classList.remove('hidden');
+      document.getElementById('screen-leadgen').classList.add('fade-up');
     }
 
     // ===== AI-POWERED NARRATIVE (Claude API) =====
@@ -799,33 +833,54 @@ ${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (
       }
     }
 
-    async function submitEmail() {
-      const email = document.getElementById('gateEmail').value;
-      const t = ui[lang];
-      if (!email || !email.includes('@')) {
-        document.getElementById('gateEmail').style.borderColor = '#B03050';
-        return;
-      }
-      const btn = document.getElementById('resGateBtn');
+    function checkLeadForm() {
+      const filled = ['lgName','lgRole','lgCompany','lgEmail'].every(id => document.getElementById(id).value.trim() !== '');
+      const btn = document.getElementById('lgSubmitBtn');
+      if (filled) btn.classList.add('active'); else btn.classList.remove('active');
+    }
+
+    async function submitLeadGen() {
+      const name    = document.getElementById('lgName').value.trim();
+      const role    = document.getElementById('lgRole').value.trim();
+      const company = document.getElementById('lgCompany').value.trim();
+      const email   = document.getElementById('lgEmail').value.trim();
+      const phone   = document.getElementById('lgPhone').value.trim();
+      if (!name || !role || !company || !email) return;
+
+      const btn = document.getElementById('lgSubmitBtn');
       btn.disabled = true;
+      btn.textContent = lang === 'zh' ? '處理中...' : 'Loading...';
+
       try {
         await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, tag: 'mgr-assessment-completed' }),
+          body: JSON.stringify({
+            email, firstName: name.split(' ')[0], phone,
+            fields: [
+              { slug: 'role', value: role },
+              { slug: 'company', value: company },
+            ],
+            tag: 'mgr-assessment-completed',
+          }),
         });
-      } catch (err) { /* non-critical — show success regardless */ }
-      document.getElementById('resGate').innerHTML = `
-        <p class="res-gate-title">${t.gateSuccessTitle}</p>
-        <p class="res-gate-body">${t.gateSuccessBody(email)}</p>`;
+      } catch (err) { /* non-critical */ }
+
+      incrementCounter();
+      document.getElementById('screen-leadgen').classList.add('hidden');
+      document.getElementById('screen-results').classList.remove('hidden');
+      document.getElementById('screen-results').classList.add('fade-up');
+      window.scrollTo(0,0);
     }
 
     function restart() {
       currentQ = 0;
       answers = new Array(12).fill(null);
-      document.getElementById('screen-results').classList.add('hidden');
+      ['screen-results','screen-leadgen'].forEach(id => document.getElementById(id).classList.add('hidden'));
       document.getElementById('screen-intro').classList.remove('hidden');
       document.getElementById('screen-intro').classList.add('fade-up');
+      ['lgName','lgRole','lgCompany','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('lgSubmitBtn').classList.remove('active');
       window.scrollTo(0,0);
     }
   </script>

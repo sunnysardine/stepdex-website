@@ -239,32 +239,11 @@
 
         <div class="dim-preview" id="dimPreview"></div>
 
-        <button class="btn-start" id="btnStart" onclick="goToUserForm()">開始檢測 →</button>
+        <button class="btn-start" id="btnStart" onclick="startAssessment()">開始檢測 →</button>
         <p class="intro-note" id="introNote">Helping SMEs Build Sustainable Organizations.</p>
         <div id="counterBadge" style="display:none;align-items:center;justify-content:center;gap:8px;margin-top:12px;">
           <span style="width:7px;height:7px;border-radius:50%;background:var(--empower);flex-shrink:0;"></span>
           <span style="font-size: 14px;color:var(--ink-muted);font-weight:600;"><span id="counterNum" style="font-weight:800;color:var(--ink);"></span><span id="counterText"> organisations have completed this assessment</span></span>
-        </div>
-      </div>
-
-      <div class="card form-card hidden" id="screen-userform">
-        <h2 class="form-title" id="formTitle">開始前，請留下您的資料</h2>
-        <p class="form-sub" id="formSub">完成後將為您生成專屬的組織成長診斷報告</p>
-        <div class="form-grid">
-          <div class="form-field"><label id="lblName">姓名 *</label><input type="text" id="ufName" placeholder="陳大文" oninput="checkUserForm()" /></div>
-          <div class="form-field"><label id="lblRole">職位 *</label><input type="text" id="ufRole" placeholder="總經理" oninput="checkUserForm()" /></div>
-          <div class="form-field full"><label id="lblCompany">公司名稱 *</label><input type="text" id="ufCompany" placeholder="ABC Sdn Bhd" oninput="checkUserForm()" /></div>
-          <div class="form-field"><label id="lblPhone">聯絡電話 *</label><input type="tel" id="ufPhone" placeholder="+60 12-345 6789" oninput="checkUserForm()" /></div>
-          <div class="form-field"><label id="lblEmail">Email *</label><input type="email" id="ufEmail" placeholder="name@company.com" oninput="checkUserForm()" /></div>
-          <div class="form-field full">
-            <label id="lblSize">公司人數 *</label>
-            <select id="ufSize" onchange="checkUserForm()">
-              <option value="" disabled selected>請選擇</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-nav">
-          <button class="btn-form-next" id="ufNextBtn" onclick="startAssessment()">開始檢測 →</button>
         </div>
       </div>
 
@@ -291,6 +270,25 @@
         <div class="loading-spinner"></div>
         <h2 class="loading-title" id="loadingTitle">正在分析您的組織檔案...</h2>
         <p class="loading-sub" id="loadingSub">將您的回答對應至 STEPDEX O-Growth 五大構面</p>
+      </div>
+
+      <!-- ===== LEAD GEN GATE ===== -->
+      <div class="card form-card hidden" id="screen-leadgen">
+        <div class="leadgen-header" style="text-align:center;margin-bottom:28px;">
+          <span class="eyebrow" id="lgEyebrow" style="display:block;margin-bottom:10px;">您的報告已生成</span>
+          <h2 class="form-title" id="lgTitle">填寫您的資料以查看結果</h2>
+          <p class="form-sub" id="lgSub">您的專屬組織成長診斷報告已完成。填寫以下資料即可查看。</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-field"><label id="lgLblName">姓名 *</label><input type="text" id="lgName" placeholder="陳大文" oninput="checkLeadForm()" /></div>
+          <div class="form-field"><label id="lgLblRole">職位 *</label><input type="text" id="lgRole" placeholder="總經理" oninput="checkLeadForm()" /></div>
+          <div class="form-field full"><label id="lgLblCompany">公司名稱 *</label><input type="text" id="lgCompany" placeholder="ABC Sdn Bhd" oninput="checkLeadForm()" /></div>
+          <div class="form-field full"><label id="lgLblEmail">電郵 *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
+          <div class="form-field full"><label id="lgLblPhone">聯絡電話（選填）</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" /></div>
+        </div>
+        <div class="form-nav">
+          <button class="btn-form-next" id="lgSubmitBtn" onclick="submitLeadGen()">查看我的報告 →</button>
+        </div>
       </div>
 
       <div class="card results hidden" id="screen-results">
@@ -346,17 +344,10 @@
           <p class="res-rec-body" id="resRecBody"></p>
         </div>
 
-        <div class="res-downloads">
-          <button class="dl-btn" id="dlPngBtn" onclick="downloadPNG()">📥 下載 PNG</button>
-          <button class="dl-btn" id="dlPdfBtn" onclick="window.print()">📄 下載 PDF</button>
-          <button class="dl-btn" id="dlCopyBtn" onclick="copyResults()">📋 複製結果</button>
-          <button class="dl-btn" id="dlShareBtn" onclick="shareLink()">🔗 分享連結</button>
-        </div>
-
         <div class="res-cta">
           <div class="res-cta-buttons">
-            <a href="https://www.stepdex.my/stepdex-trinity" class="btn-cta-primary" id="resConsultBtn">預約免費諮詢</a>
-            <a href="https://www.stepdex.my/stepfcm-cn" class="btn-cta-outline" id="resFcmBtn">了解 STEP 全能一級經理課程</a>
+            <a href="/contact" class="btn-cta-primary" id="resConsultBtn">預約免費諮詢</a>
+            <a href="/stepfcm-cn" class="btn-cta-outline" id="resFcmBtn">了解 STEP 全能一級經理課程</a>
           </div>
           <button class="res-restart" id="resRestartBtn" onclick="restart()">重新測驗</button>
         </div>
@@ -521,26 +512,19 @@
         `<span class="dim-chip" style="background:${d.color}1A;color:${d.color}"><span class="dim-dot" style="background:${d.color}"></span>${l === 'zh' ? d.tc : d.en}</span>`
       ).join('');
 
-      // User info form
-      document.getElementById('formTitle').textContent = c.formTitle;
-      document.getElementById('formSub').textContent = c.formSub;
-      document.getElementById('lblName').textContent = c.lblName;
-      document.getElementById('lblRole').textContent = c.lblRole;
-      document.getElementById('lblCompany').textContent = c.lblCompany;
-      document.getElementById('lblPhone').textContent = c.lblPhone;
-      document.getElementById('lblEmail').textContent = c.lblEmail;
-      document.getElementById('lblSize').textContent = c.lblSize;
-      document.getElementById('ufName').placeholder = c.phName;
-      document.getElementById('ufRole').placeholder = c.phRole;
-      document.getElementById('ufCompany').placeholder = c.phCompany;
-      document.getElementById('ufPhone').placeholder = c.phPhone;
-      document.getElementById('ufEmail').placeholder = c.phEmail;
-      document.getElementById('ufNextBtn').textContent = c.startBtn;
-
-      const sizeSelect = document.getElementById('ufSize');
-      const sizeValues = ['<10','10-30','31-50','51-75','76-200','>200'];
-      sizeSelect.innerHTML = `<option value="" disabled selected>${c.sizeSelect}</option>` +
-        sizeValues.map((v,i) => `<option value="${v}">${c.sizes[i]}</option>`).join('');
+      // Lead gen form
+      document.getElementById('lgEyebrow').textContent = l === 'zh' ? '您的報告已生成' : 'Your Report Is Ready';
+      document.getElementById('lgTitle').textContent = l === 'zh' ? '填寫您的資料以查看結果' : 'Enter your details to unlock your results';
+      document.getElementById('lgSub').textContent = l === 'zh' ? '您的專屬組織成長診斷報告已完成。填寫以下資料即可查看。' : 'Your personalised STEPDEX O-Growth™ profile has been generated. Complete the form to view it.';
+      document.getElementById('lgLblName').textContent = l === 'zh' ? '姓名 *' : 'Full Name *';
+      document.getElementById('lgLblRole').textContent = l === 'zh' ? '職位 *' : 'Job Title *';
+      document.getElementById('lgLblCompany').textContent = l === 'zh' ? '公司名稱 *' : 'Company Name *';
+      document.getElementById('lgLblEmail').textContent = l === 'zh' ? '電郵 *' : 'Email *';
+      document.getElementById('lgLblPhone').textContent = l === 'zh' ? '聯絡電話（選填）' : 'Phone (optional)';
+      document.getElementById('lgName').placeholder = l === 'zh' ? '陳大文' : 'John Tan';
+      document.getElementById('lgRole').placeholder = l === 'zh' ? '總經理' : 'General Manager';
+      document.getElementById('lgCompany').placeholder = 'ABC Sdn Bhd';
+      document.getElementById('lgSubmitBtn').textContent = l === 'zh' ? '查看我的報告 →' : 'View My Report →';
 
       document.getElementById('counterText').textContent = l === 'zh'
         ? ' 家企業已完成此檢測'
@@ -586,50 +570,57 @@
 
     loadCounter();
 
-    function goToUserForm() {
+    function startAssessment() {
       document.getElementById('screen-intro').classList.add('hidden');
-      document.getElementById('screen-userform').classList.remove('hidden');
-      document.getElementById('screen-userform').classList.add('fade-up');
-    }
-
-    function checkUserForm() {
-      const fields = ['ufName','ufRole','ufCompany','ufPhone','ufEmail','ufSize'];
-      const allFilled = fields.every(id => document.getElementById(id).value.trim() !== '');
-      const btn = document.getElementById('ufNextBtn');
-      if (allFilled) btn.classList.add('active'); else btn.classList.remove('active');
-    }
-
-    async function startAssessment() {
-      userInfo = {
-        name: document.getElementById('ufName').value,
-        role: document.getElementById('ufRole').value,
-        company: document.getElementById('ufCompany').value,
-        phone: document.getElementById('ufPhone').value,
-        email: document.getElementById('ufEmail').value,
-        size: document.getElementById('ufSize').value,
-      };
-      // Fire-and-forget — don't block the assessment on this
-      fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: userInfo.email,
-          firstName: userInfo.name.split(' ')[0],
-          phone: userInfo.phone,
-          fields: [
-            { slug: 'role', value: userInfo.role },
-            { slug: 'company', value: userInfo.company },
-            { slug: 'company_size', value: userInfo.size },
-          ],
-          tag: 'sme-ogrowth-started',
-        }),
-      }).catch(() => {});
-      document.getElementById('screen-userform').classList.add('hidden');
       document.getElementById('screen-question').classList.remove('hidden');
       document.getElementById('screen-question').classList.add('fade-up');
       document.getElementById('loadingTitle').textContent = ui[lang].loadingTitle;
       document.getElementById('loadingSub').textContent = ui[lang].loadingSub;
       renderQuestion();
+    }
+
+    function checkLeadForm() {
+      const filled = ['lgName','lgRole','lgCompany','lgEmail'].every(id => document.getElementById(id).value.trim() !== '');
+      const btn = document.getElementById('lgSubmitBtn');
+      if (filled) btn.classList.add('active'); else btn.classList.remove('active');
+    }
+
+    async function submitLeadGen() {
+      const name    = document.getElementById('lgName').value.trim();
+      const role    = document.getElementById('lgRole').value.trim();
+      const company = document.getElementById('lgCompany').value.trim();
+      const email   = document.getElementById('lgEmail').value.trim();
+      const phone   = document.getElementById('lgPhone').value.trim();
+      if (!name || !role || !company || !email) return;
+
+      const btn = document.getElementById('lgSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = lang === 'zh' ? '處理中...' : 'Loading...';
+
+      // Populate result header with user details
+      userInfo = { name, role, company, email, phone };
+      document.getElementById('resCompany').textContent = company;
+
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email, firstName: name.split(' ')[0], phone,
+            fields: [
+              { slug: 'role', value: role },
+              { slug: 'company', value: company },
+            ],
+            tag: 'sme-ogrowth-completed',
+          }),
+        });
+      } catch (err) { /* non-critical */ }
+
+      incrementCounter();
+      document.getElementById('screen-leadgen').classList.add('hidden');
+      document.getElementById('screen-results').classList.remove('hidden');
+      document.getElementById('screen-results').classList.add('fade-up');
+      window.scrollTo(0,0);
     }
 
     function renderQuestion() {
@@ -721,17 +712,10 @@
       document.getElementById('resAiLabel').textContent = t.aiLabel;
       document.getElementById('resAiText').textContent = t.aiLoading;
       document.getElementById('resRecLabel').textContent = t.recLabel;
-      document.getElementById('dlPngBtn').textContent = t.dlPng;
-      document.getElementById('dlPdfBtn').textContent = t.dlPdf;
-      document.getElementById('dlCopyBtn').textContent = t.dlCopy;
-      document.getElementById('dlShareBtn').textContent = t.dlShare;
       document.getElementById('resConsultBtn').textContent = t.consultBtn;
       document.getElementById('resFcmBtn').textContent = t.fcmBtn;
-      document.getElementById('resFcmBtn').href = lang === 'zh' ? 'https://www.stepdex.my/stepfcm-cn' : 'https://www.stepdex.my/stepfcm-en';
+      document.getElementById('resFcmBtn').href = lang === 'zh' ? '/stepfcm-cn' : '/stepfcm-en';
       document.getElementById('resRestartBtn').textContent = t.retake;
-
-      const roleLabel = lang === 'zh' ? `（${userInfo.role}）` : ` (${userInfo.role})`;
-      document.getElementById('resCompany').textContent = `${userInfo.company} · ${userInfo.name}${roleLabel}`;
       document.getElementById('resOverallNum').innerHTML = `${overallAvg.toFixed(1)}<span>/5.0</span>`;
       document.getElementById('resStageTag').textContent = stage[lang].tag;
       document.getElementById('resStageTag').style.background = 'var(--strategy)';
@@ -773,12 +757,13 @@
 
       renderRadarChart(dimScores);
 
-      document.getElementById('screen-loading').classList.add('hidden');
-      document.getElementById('screen-results').classList.remove('hidden');
-      document.getElementById('screen-results').classList.add('fade-up');
-
-      incrementCounter();
+      // Start AI in background while user fills lead gen form
       generateAIDiagnosis(dimScores, weakest, overallAvg);
+
+      document.getElementById('screen-loading').classList.add('hidden');
+      document.getElementById('screen-leadgen').classList.remove('hidden');
+      document.getElementById('screen-leadgen').classList.add('fade-up');
+      window.scrollTo(0,0);
     }
 
     function renderRadarChart(dimScores) {
@@ -877,33 +862,12 @@ Write in flowing prose, no bullet points, in natural professional English busine
       }
     }
 
-    function downloadPNG() {
-      const canvas = document.getElementById('radarChart');
-      const link = document.createElement('a');
-      link.download = `STEPDEX-OGrowth-${userInfo.company || 'Report'}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    }
-
-    function copyResults() {
-      const { dimScores, overallAvg } = computeScores();
-      const t = ui[lang];
-      const header = lang === 'zh'
-        ? `STEPDEX O-Growth™ 組織成長檢視報告\n公司：${userInfo.company}\n整體平均分數：${overallAvg.toFixed(1)}/5.0\n\n`
-        : `STEPDEX O-Growth™ Organisational Growth Report\nCompany: ${userInfo.company}\nOverall Average Score: ${overallAvg.toFixed(1)}/5.0\n\n`;
-      const text = header +
-        Object.entries(dimScores).map(([k,v]) => `${lang === 'zh' ? dimensions[k].tc : dimensions[k].en}: ${v.total}${t.dimMax}`).join('\n');
-      navigator.clipboard.writeText(text).then(() => alert(t.copiedResults));
-    }
-
-    function shareLink() {
-      navigator.clipboard.writeText(window.location.href).then(() => alert(ui[lang].copiedLink));
-    }
-
     function restart() {
       currentQ = 0;
       answers = new Array(15).fill(null);
-      document.getElementById('screen-results').classList.add('hidden');
+      ['screen-results','screen-leadgen'].forEach(id => document.getElementById(id).classList.add('hidden'));
+      ['lgName','lgRole','lgCompany','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('lgSubmitBtn').classList.remove('active');
       document.getElementById('screen-intro').classList.remove('hidden');
       document.getElementById('screen-intro').classList.add('fade-up');
       window.scrollTo(0,0);
