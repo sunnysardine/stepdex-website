@@ -13,7 +13,11 @@
       "Bash(xargs grep -l \"\\\\.nav {\")",
       "Bash(grep -v \"pointer-events: none\\\\|\\\\/\\\\*\")",
       "Bash(python3 -c ' *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where node *)",
+      "Bash(where npx *)",
+      "Bash(where npm *)"
     ]
   }
 }

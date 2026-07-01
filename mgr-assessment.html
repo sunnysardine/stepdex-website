@@ -60,8 +60,8 @@
     .topbar-logo { display:flex; align-items:center; gap:10px; }
     .topbar-logo img { width:30px; height:30px; border-radius:50%; }
     .topbar-word { font-family:'Playfair Display',serif; font-size: 16px; font-weight:700; color:var(--ink); }
-    .topbar-link { font-size: 12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); transition:color .2s; }
-    .topbar-link:hover { color:var(--strategy); }
+    .topbar-link { font-size: 12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); padding:8px 18px; border-radius:20px; border:1.5px solid rgba(176,120,32,.28); transition:all .2s; }
+    .topbar-link:hover { color:var(--strategy); border-color:var(--strategy); background:rgba(176,48,80,.06); }
 
     .stage { flex:1; position:relative; z-index:1; display:flex; align-items:center; justify-content:center; padding:40px 24px; }
     .card { width:100%; max-width:640px; }
@@ -275,10 +275,10 @@
 
     <div class="topbar">
       <a href="https://www.stepdex.my" class="topbar-logo">
-        <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX®-Logo-Round.png" alt="STEPDEX®" />
+        <img src="https://cdn.gamma.app/raree1o8bp39xpj/6f800b76bc5d4d51b4336f946de440ae/original/STEPDEX-Logo-Round.png" alt="STEPDEX®" />
         <span class="topbar-word">STEPDEX<span class="reg">®</span></span>
       </a>
-      <a href="https://www.stepdex.my" class="topbar-link">← Back to Main Site</a>
+      <a href="https://www.stepdex.my" class="topbar-link" id="topbarBack">← Back to Main Site</a>
     </div>
 
     <div class="stage">
@@ -549,6 +549,7 @@
       document.getElementById('langBtnEn').style.color = l === 'en' ? 'white' : 'var(--ink-muted)';
       document.getElementById('langBtnZh').style.background = l === 'zh' ? 'var(--strategy)' : 'transparent';
       document.getElementById('langBtnZh').style.color = l === 'zh' ? 'white' : 'var(--ink-muted)';
+      document.getElementById('topbarBack').textContent = l === 'zh' ? '← 返回主網站' : '← Back to Main Site';
 
       document.getElementById('introTitle').textContent = c.title;
       document.getElementById('introTc').textContent = c.tc;
