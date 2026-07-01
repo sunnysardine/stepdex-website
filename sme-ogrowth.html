@@ -4,7 +4,7 @@
   <style>/* Chatbase widget isolation */#chatbase-bubble-button{z-index:99998!important;pointer-events:auto!important}#chatbase-bubble-window{z-index:99998!important}</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STEPDEX® O-Growth™ 組織成長階段檢視表</title>
+  <title>STEPDEX® O-Growth 組織成長階段檢視表</title>
   <meta name="description" content="透過15道問題，快速了解您的組織目前的成長階段，找出最需要優先改善的領域。Helping SMEs Build Sustainable Organizations." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://sme.stepdex.my/" />
@@ -229,7 +229,7 @@
           <button onclick="setLang('zh')" id="langBtnZh" style="padding:8px 20px;border-radius:20px;border:1.5px solid rgba(176,48,80,.3);background:transparent;color:var(--ink-muted);font-family:'Noto Serif TC',serif;font-size: 14px;font-weight:700;cursor:pointer;transition:all .2s;">中文</button>
         </div>
 
-        <p class="intro-name" id="introNameTag">STEPDEX® O-Growth<span class="reg">™</span></p>
+        <p class="intro-name" id="introNameTag">STEPDEX® O-Growth</p>
         <h1 class="intro-title" id="introTitle">組織成長階段檢視表</h1>
         <p class="intro-en" id="introSub">Organizational Growth Readiness Assessment</p>
         <div class="four-ribbon intro-ribbon"></div>
@@ -464,7 +464,7 @@
 
     const introContent = {
       en: {
-        name: 'STEPDEX® O-Growth™', title: 'Organizational Growth Readiness Assessment', sub: '組織成長階段檢視表',
+        name: 'STEPDEX® O-Growth', title: 'Organizational Growth Readiness Assessment', sub: '組織成長階段檢視表',
         body: 'Answer 15 questions to quickly understand your organisation\'s current growth stage and identify the areas that most need attention.<br/>This is an "organisational health check" — not a psychological test. It helps you see where your company most needs to improve.',
         fact1: 'Questions', fact2: 'Minutes', fact3val: 'Free', fact3: 'No Credit Card',
         startBtn: 'Begin Assessment →', note: 'Helping SMEs Build Sustainable Organizations.',
@@ -475,7 +475,7 @@
         sizes: ['Fewer than 10','10–30','31–50','51–75','76–200','More than 200'],
       },
       zh: {
-        name: 'STEPDEX® O-Growth™', title: '組織成長階段檢視表', sub: 'Organizational Growth Readiness Assessment',
+        name: 'STEPDEX® O-Growth', title: '組織成長階段檢視表', sub: 'Organizational Growth Readiness Assessment',
         body: '透過15道問題，快速了解您的組織目前的成長階段，找出最需要優先改善的領域。<br/>本工具是「組織健康檢查」，協助您看見企業最需要優先改善的發展面向。',
         fact1: '道題目', fact2: '分鐘', fact3val: '免費', fact3: '無需信用卡',
         startBtn: '開始檢測 →', note: 'Helping SMEs Build Sustainable Organizations.',
@@ -519,7 +519,7 @@
       // Lead gen form
       document.getElementById('lgEyebrow').textContent = l === 'zh' ? '您的報告已生成' : 'Your Report Is Ready';
       document.getElementById('lgTitle').textContent = l === 'zh' ? '填寫您的資料以查看結果' : 'Enter your details to unlock your results';
-      document.getElementById('lgSub').textContent = l === 'zh' ? '您的專屬組織成長診斷報告已完成。填寫以下資料即可查看。' : 'Your personalised STEPDEX® O-Growth™ profile has been generated. Complete the form to view it.';
+      document.getElementById('lgSub').textContent = l === 'zh' ? '您的專屬組織成長診斷報告已完成。填寫以下資料即可查看。' : 'Your personalised STEPDEX® O-Growth profile has been generated. Complete the form to view it.';
       document.getElementById('lgLblName').textContent = l === 'zh' ? '姓名 *' : 'Full Name *';
       document.getElementById('lgLblRole').textContent = l === 'zh' ? '職位 *' : 'Job Title *';
       document.getElementById('lgLblCompany').textContent = l === 'zh' ? '公司名稱 *' : 'Company Name *';
