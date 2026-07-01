@@ -112,12 +112,12 @@
     .q-num { font-family:'Playfair Display',serif; font-size: 15px; font-weight:700; color:var(--gold-warm); margin-bottom:12px; }
     .q-text { font-family:'Noto Serif TC',serif; font-size:clamp(19px,2.8vw,23px); font-weight:700; color:var(--ink); line-height:1.55; margin-bottom:30px; }
 
-    .likert-wrap { display:flex; flex-direction:column; gap:10px; }
-    .likert-row { display:grid; grid-template-columns:44px 1fr; gap:14px; align-items:center; padding:13px 16px; border-radius:12px; border:1.5px solid rgba(176,120,32,.16); background:var(--parchment); cursor:pointer; transition:all .15s; }
-    .likert-row:hover { border-color:var(--gold-warm); }
+    .likert-wrap { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+    .likert-row { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:16px 8px; border-radius:12px; border:1.5px solid rgba(176,120,32,.16); background:var(--parchment); cursor:pointer; transition:all .15s; text-align:center; }
+    .likert-row:hover { border-color:var(--gold-warm); background:rgba(176,120,32,.06); }
     .likert-row.selected { color:white; }
-    .likert-num { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; text-align:center; }
-    .likert-label { font-family:'Noto Serif TC',serif; font-size: 16px; font-weight:600; }
+    .likert-num { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; }
+    .likert-label { font-family:'Noto Serif TC',serif; font-size: 13px; font-weight:600; line-height:1.3; }
 
     .q-nav { display:flex; justify-content:space-between; align-items:center; margin-top:28px; }
     .btn-back { font-size: 15px; font-weight:700; color:var(--ink-muted); padding:10px 6px; cursor:pointer; transition:color .2s; background:none; border:none; }
@@ -197,6 +197,10 @@
       .res-dims { grid-template-columns:1fr 1fr; }
       .res-sw { grid-template-columns:1fr; }
       .res-overall { grid-template-columns:1fr; text-align:center; }
+      .likert-wrap { grid-template-columns:repeat(5,1fr); gap:5px; }
+      .likert-row { padding:10px 3px; gap:5px; }
+      .likert-num { font-size:16px; }
+      .likert-label { font-size:10px; }
     }
   </style>
 </head>
