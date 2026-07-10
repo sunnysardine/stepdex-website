@@ -91,22 +91,25 @@
     .form-field.full { grid-column:span 2; }
     .form-field label { font-size: 14px; font-weight:700; color:var(--ink-muted); }
     .form-field input, .form-field select {
-      font-family:'Nunito Sans',sans-serif; font-size: 16px; color:var(--ink);
+      font-family:'Nunito Sans',sans-serif; font-size: 14px; color:var(--ink);
       background:var(--parchment); border:1px solid rgba(176,120,32,.18); border-radius:10px;
-      padding:12px 14px; outline:none; transition:border-color .2s;
+      padding:9px 12px; outline:none; transition:border-color .2s, box-shadow .2s;
     }
     .form-field select {
       appearance:none; -webkit-appearance:none; -moz-appearance:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23B07820' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat:no-repeat; background-position:right 14px center; padding-right:34px; cursor:pointer;
+      background-repeat:no-repeat; background-position:right 12px center; padding-right:30px; cursor:pointer;
     }
     .form-field input:focus, .form-field select:focus { border-color:var(--gold-warm); box-shadow:0 0 0 3px rgba(176,120,32,.1); }
-    .form-trust-note { font-size:12px; color:var(--ink-muted); opacity:.7; text-align:center; margin:-4px 0 14px; grid-column:span 2; }
+    .form-field input.invalid { border-color:var(--strategy); background:rgba(176,48,80,.04); }
+    .field-error { font-size:11px; color:var(--strategy); display:none; }
+    .field-error.show { display:block; }
     .form-nav { display:flex; flex-direction:column; align-items:flex-end; gap:8px; margin-top:24px; }
     .btn-form-next { padding:13px 30px; background:var(--strategy); border:none; border-radius:30px; color:white; font-size: 15px; font-weight:800; cursor:pointer; transition:all .2s; opacity:.4; pointer-events:none; }
     .btn-form-next.active { opacity:1; pointer-events:auto; }
     .btn-form-next.active:hover { background:#8A1828; }
     .form-hint { font-size:12px; color:var(--ink-muted); opacity:.65; }
+    .form-trust-statement { display:flex; align-items:center; justify-content:center; gap:6px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px; color:var(--ink-muted); opacity:.75; text-align:center; margin-top:18px; padding-top:14px; border-top:1px solid rgba(176,120,32,.14); }
 
     .q-progress-wrap { margin-bottom:28px; }
     .q-progress-bar { height:5px; background:rgba(176,120,32,.12); border-radius:10px; overflow:hidden; margin-bottom:10px; }
@@ -300,14 +303,22 @@
           <div class="form-field"><label id="lgLblIndustry">產業別 *</label><select id="lgIndustry" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblRevenue">年營收規模 *</label><select id="lgRevenue" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblEmployees">員工人數 *</label><select id="lgEmployees" onchange="checkLeadForm()"></select></div>
-          <p class="form-trust-note" id="lgTrustNote">🔒 僅用於為您量身打造建議 - 絕不外洩或轉售。</p>
-          <div class="form-field"><label id="lgLblEmail">電郵 *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
-          <div class="form-field"><label id="lgLblPhone">聯絡電話 *</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="checkLeadForm()" /></div>
+          <div class="form-field">
+            <label id="lgLblEmail">電郵 *</label>
+            <input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" onblur="validateEmailField()" />
+            <span class="field-error" id="lgEmailError">請輸入有效的電郵地址</span>
+          </div>
+          <div class="form-field">
+            <label id="lgLblPhone">聯絡電話 *</label>
+            <input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="sanitizePhoneInput(); checkLeadForm()" onblur="validatePhoneField()" />
+            <span class="field-error" id="lgPhoneError">請輸入有效的電話號碼</span>
+          </div>
         </div>
         <div class="form-nav">
           <button class="btn-form-next" id="lgSubmitBtn" onclick="submitLeadGen()">查看我的報告 →</button>
           <p class="form-hint" id="lgHint">請完整填寫以上資料以查看您的結果</p>
         </div>
+        <p class="form-trust-statement" id="lgTrustNote">🔒 僅用於為您量身打造建議 - 絕不外洩或轉售。</p>
       </div>
 
       <div class="card results hidden" id="screen-results">
@@ -564,6 +575,8 @@
       document.getElementById('lgHint').textContent = l === 'zh'
         ? '請完整填寫以上資料以查看您的結果'
         : 'Complete all fields above to unlock your results';
+      document.getElementById('lgEmailError').textContent = l === 'zh' ? '請輸入有效的電郵地址' : 'Please enter a valid email address';
+      document.getElementById('lgPhoneError').textContent = l === 'zh' ? '請輸入有效的電話號碼' : 'Please enter a valid phone number';
 
       const industryValues = ['manufacturing','trading-retail','services','construction','technology','fnb','education','healthcare','finance','other'];
       const industryLabels = {
@@ -651,10 +664,39 @@
       renderQuestion();
     }
 
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function isValidEmail(v) { return EMAIL_RE.test(v.trim()); }
+    function isValidPhone(v) { return v.replace(/\D/g,'').length >= 7; }
+
+    function sanitizePhoneInput() {
+      const el = document.getElementById('lgPhone');
+      const cleaned = el.value.replace(/[^0-9+\-\s()]/g, '');
+      if (cleaned !== el.value) el.value = cleaned;
+    }
+
+    function validateEmailField() {
+      const el = document.getElementById('lgEmail');
+      const err = document.getElementById('lgEmailError');
+      const invalid = el.value.trim() !== '' && !isValidEmail(el.value);
+      el.classList.toggle('invalid', invalid);
+      err.classList.toggle('show', invalid);
+    }
+
+    function validatePhoneField() {
+      const el = document.getElementById('lgPhone');
+      const err = document.getElementById('lgPhoneError');
+      const invalid = el.value.trim() !== '' && !isValidPhone(el.value);
+      el.classList.toggle('invalid', invalid);
+      err.classList.toggle('show', invalid);
+    }
+
     function checkLeadForm() {
       const filled = ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].every(id => document.getElementById(id).value.trim() !== '');
+      const emailOk = isValidEmail(document.getElementById('lgEmail').value);
+      const phoneOk = isValidPhone(document.getElementById('lgPhone').value);
       const btn = document.getElementById('lgSubmitBtn');
-      if (filled) btn.classList.add('active'); else btn.classList.remove('active');
+      if (filled && emailOk && phoneOk) btn.classList.add('active'); else btn.classList.remove('active');
     }
 
     async function submitLeadGen() {
@@ -667,6 +709,8 @@
       const email     = document.getElementById('lgEmail').value.trim();
       const phone     = document.getElementById('lgPhone').value.trim();
       if (!name || !role || !company || !industry || !employees || !revenue || !email || !phone) return;
+      if (!isValidEmail(email)) { validateEmailField(); document.getElementById('lgEmail').focus(); return; }
+      if (!isValidPhone(phone)) { validatePhoneField(); document.getElementById('lgPhone').focus(); return; }
 
       const btn = document.getElementById('lgSubmitBtn');
       btn.disabled = true;
@@ -982,6 +1026,8 @@ Write in flowing prose, no bullet points, in natural professional English busine
       answers = new Array(15).fill(null);
       ['screen-results','screen-leadgen'].forEach(id => document.getElementById(id).classList.add('hidden'));
       ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
+      ['lgEmail','lgPhone'].forEach(id => document.getElementById(id).classList.remove('invalid'));
+      ['lgEmailError','lgPhoneError'].forEach(id => document.getElementById(id).classList.remove('show'));
       document.getElementById('lgSubmitBtn').classList.remove('active');
       document.getElementById('loadingProgressFill').style.width = '0%';
       document.getElementById('screen-intro').classList.remove('hidden');

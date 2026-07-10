@@ -238,20 +238,23 @@
     .form-field { display:flex; flex-direction:column; gap:5px; }
     .form-field.full { grid-column:span 2; }
     .form-field label { font-size:13px; font-weight:700; color:var(--ink-muted); }
-    .form-field input, .form-field select { padding:11px 14px; border:1.5px solid rgba(176,120,32,.2); border-radius:10px; font-family:'Nunito Sans',sans-serif; font-size:15px; color:var(--ink); background:white; outline:none; transition:border-color .2s; }
+    .form-field input, .form-field select { padding:9px 12px; border:1.5px solid rgba(176,120,32,.2); border-radius:10px; font-family:'Nunito Sans',sans-serif; font-size:14px; color:var(--ink); background:white; outline:none; transition:border-color .2s, box-shadow .2s; }
     .form-field select {
       appearance:none; -webkit-appearance:none; -moz-appearance:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23B07820' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat:no-repeat; background-position:right 14px center; padding-right:34px; cursor:pointer;
+      background-repeat:no-repeat; background-position:right 12px center; padding-right:30px; cursor:pointer;
     }
     .form-field select:invalid { color:var(--ink-muted); }
     .form-field input:focus, .form-field select:focus { border-color:var(--gold-warm); box-shadow:0 0 0 3px rgba(176,120,32,.1); }
-    .form-trust-note { font-size:12px; color:var(--ink-muted); opacity:.7; text-align:center; margin:-4px 0 14px; grid-column:span 2; }
+    .form-field input.invalid { border-color:var(--strategy); background:rgba(176,48,80,.04); }
+    .field-error { font-size:11px; color:var(--strategy); min-height:0; display:none; }
+    .field-error.show { display:block; }
     .form-nav { display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:20px; }
     .btn-leadgen { padding:13px 34px; background:var(--strategy); border:none; border-radius:30px; color:white; font-family:'Nunito Sans',sans-serif; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:all .2s; opacity:.4; pointer-events:none; }
     .btn-leadgen.active { opacity:1; pointer-events:auto; }
     .btn-leadgen.active:hover { background:#8A1828; transform:translateY(-2px); }
     .form-hint { font-size:12px; color:var(--ink-muted); opacity:.65; }
+    .form-trust-statement { display:flex; align-items:center; justify-content:center; gap:6px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px; color:var(--ink-muted); opacity:.75; text-align:center; margin-top:18px; padding-top:14px; border-top:1px solid rgba(176,120,32,.14); }
 
     /* CTA */
     .res-cta { text-align:center; }
@@ -382,14 +385,22 @@
           <div class="form-field"><label id="lgLblIndustry">Industry *</label><select id="lgIndustry" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblRevenue">Annual Revenue Size *</label><select id="lgRevenue" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblEmployees">Number of Employees *</label><select id="lgEmployees" onchange="checkLeadForm()"></select></div>
-          <p class="form-trust-note" id="lgTrustNote">🔒 Used only to tailor your recommendations - never shared or sold.</p>
-          <div class="form-field"><label id="lgLblEmail">Email *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
-          <div class="form-field"><label id="lgLblPhone">Phone *</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="checkLeadForm()" /></div>
+          <div class="form-field">
+            <label id="lgLblEmail">Email *</label>
+            <input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" onblur="validateEmailField()" />
+            <span class="field-error" id="lgEmailError">Please enter a valid email address</span>
+          </div>
+          <div class="form-field">
+            <label id="lgLblPhone">Phone *</label>
+            <input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="sanitizePhoneInput(); checkLeadForm()" onblur="validatePhoneField()" />
+            <span class="field-error" id="lgPhoneError">Please enter a valid phone number</span>
+          </div>
         </div>
         <div class="form-nav">
           <button class="btn-leadgen" id="lgSubmitBtn" onclick="submitLeadGen()">View My Report →</button>
           <p class="form-hint" id="lgHint">Complete all fields above to unlock your results</p>
         </div>
+        <p class="form-trust-statement" id="lgTrustNote">🔒 Used only to tailor your recommendations - never shared or sold.</p>
       </div>
 
       <!-- ===== RESULTS ===== -->
@@ -619,6 +630,8 @@
       document.getElementById('lgHint').textContent = l === 'zh'
         ? '請完整填寫以上資料以查看您的結果'
         : 'Complete all fields above to unlock your results';
+      document.getElementById('lgEmailError').textContent = l === 'zh' ? '請輸入有效的電郵地址' : 'Please enter a valid email address';
+      document.getElementById('lgPhoneError').textContent = l === 'zh' ? '請輸入有效的電話號碼' : 'Please enter a valid phone number';
 
       const industryValues = ['manufacturing','trading-retail','services','construction','technology','fnb','education','healthcare','finance','other'];
       const industryLabels = {
@@ -936,10 +949,39 @@ ${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (
       }
     }
 
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function isValidEmail(v) { return EMAIL_RE.test(v.trim()); }
+    function isValidPhone(v) { return v.replace(/\D/g,'').length >= 7; }
+
+    function sanitizePhoneInput() {
+      const el = document.getElementById('lgPhone');
+      const cleaned = el.value.replace(/[^0-9+\-\s()]/g, '');
+      if (cleaned !== el.value) el.value = cleaned;
+    }
+
+    function validateEmailField() {
+      const el = document.getElementById('lgEmail');
+      const err = document.getElementById('lgEmailError');
+      const invalid = el.value.trim() !== '' && !isValidEmail(el.value);
+      el.classList.toggle('invalid', invalid);
+      err.classList.toggle('show', invalid);
+    }
+
+    function validatePhoneField() {
+      const el = document.getElementById('lgPhone');
+      const err = document.getElementById('lgPhoneError');
+      const invalid = el.value.trim() !== '' && !isValidPhone(el.value);
+      el.classList.toggle('invalid', invalid);
+      err.classList.toggle('show', invalid);
+    }
+
     function checkLeadForm() {
       const filled = ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].every(id => document.getElementById(id).value.trim() !== '');
+      const emailOk = isValidEmail(document.getElementById('lgEmail').value);
+      const phoneOk = isValidPhone(document.getElementById('lgPhone').value);
       const btn = document.getElementById('lgSubmitBtn');
-      if (filled) btn.classList.add('active'); else btn.classList.remove('active');
+      if (filled && emailOk && phoneOk) btn.classList.add('active'); else btn.classList.remove('active');
     }
 
     async function submitLeadGen() {
@@ -952,6 +994,8 @@ ${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (
       const email     = document.getElementById('lgEmail').value.trim();
       const phone     = document.getElementById('lgPhone').value.trim();
       if (!name || !role || !company || !industry || !employees || !revenue || !email || !phone) return;
+      if (!isValidEmail(email)) { validateEmailField(); document.getElementById('lgEmail').focus(); return; }
+      if (!isValidPhone(phone)) { validatePhoneField(); document.getElementById('lgPhone').focus(); return; }
 
       const btn = document.getElementById('lgSubmitBtn');
       btn.disabled = true;
@@ -989,6 +1033,8 @@ ${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (
       document.getElementById('screen-intro').classList.remove('hidden');
       document.getElementById('screen-intro').classList.add('fade-up');
       ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
+      ['lgEmail','lgPhone'].forEach(id => document.getElementById(id).classList.remove('invalid'));
+      ['lgEmailError','lgPhoneError'].forEach(id => document.getElementById(id).classList.remove('show'));
       document.getElementById('lgSubmitBtn').classList.remove('active');
       document.getElementById('loadingProgressFill').style.width = '0%';
       window.scrollTo(0,0);
