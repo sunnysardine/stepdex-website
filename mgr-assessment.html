@@ -613,10 +613,10 @@
         employeeValues.map((v,i) => `<option value="${v}">${employeeLabels[l][i]}</option>`).join('');
       if (employeePrev) employeeSelect.value = employeePrev;
 
-      const revenueValues = ['small','medium','large'];
+      const revenueValues = ['micro','small','medium','large'];
       const revenueLabels = {
-        en: ['Small (under RM 3 million)','Medium (RM 3-20 million)','Large (over RM 20 million)'],
-        zh: ['小型企業（少於 300 萬）','中型企業（300 萬至 2000 萬）','大型企業（超過 2000 萬）'],
+        en: ['Micro (under RM 300K)','Small (RM 300K - 3 million)','Medium (RM 3-20 million)','Large (over RM 20 million)'],
+        zh: ['微型企業（少於 30 萬）','小型企業（30 萬至 300 萬）','中型企業（300 萬至 2000 萬）','大型企業（超過 2000 萬）'],
       };
       const revenueSelect = document.getElementById('lgRevenue');
       const revenuePrev = revenueSelect.value;
