@@ -936,7 +936,7 @@ Do not use bullet points. Write in flowing prose, second person ("you"), warm bu
 ${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (繁體中文), using natural, professional Chinese business writing style - not a literal translation from English phrasing.' : 'Write in English.'}`;
 
       try {
-        const response = await fetch('/api/claude', {
+        const response = await fetch('/api/gemini', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt, lang }),
