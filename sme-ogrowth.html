@@ -95,11 +95,18 @@
       background:var(--parchment); border:1px solid rgba(176,120,32,.18); border-radius:10px;
       padding:12px 14px; outline:none; transition:border-color .2s;
     }
-    .form-field input:focus, .form-field select:focus { border-color:var(--gold-warm); }
-    .form-nav { display:flex; justify-content:flex-end; margin-top:24px; }
+    .form-field select {
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23B07820' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 14px center; padding-right:34px; cursor:pointer;
+    }
+    .form-field input:focus, .form-field select:focus { border-color:var(--gold-warm); box-shadow:0 0 0 3px rgba(176,120,32,.1); }
+    .form-trust-note { font-size:12px; color:var(--ink-muted); opacity:.7; text-align:center; margin:-4px 0 14px; grid-column:span 2; }
+    .form-nav { display:flex; flex-direction:column; align-items:flex-end; gap:8px; margin-top:24px; }
     .btn-form-next { padding:13px 30px; background:var(--strategy); border:none; border-radius:30px; color:white; font-size: 15px; font-weight:800; cursor:pointer; transition:all .2s; opacity:.4; pointer-events:none; }
     .btn-form-next.active { opacity:1; pointer-events:auto; }
     .btn-form-next.active:hover { background:#8A1828; }
+    .form-hint { font-size:12px; color:var(--ink-muted); opacity:.65; }
 
     .q-progress-wrap { margin-bottom:28px; }
     .q-progress-bar { height:5px; background:rgba(176,120,32,.12); border-radius:10px; overflow:hidden; margin-bottom:10px; }
@@ -129,7 +136,9 @@
     .loading { text-align:center; }
     .loading-spinner { width:52px; height:52px; border-radius:50%; border:3px solid rgba(176,120,32,.15); border-top-color:var(--strategy); margin:0 auto 26px; animation:spin 1s linear infinite; }
     .loading-title { font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; color:var(--ink); margin-bottom:10px; }
-    .loading-sub { font-size: 15px; color:var(--ink-muted); }
+    .loading-sub { font-size: 15px; color:var(--ink-muted); min-height:1.6em; transition:opacity .25s; }
+    .loading-progress-track { width:220px; height:4px; background:rgba(176,120,32,.14); border-radius:4px; overflow:hidden; margin:22px auto 0; }
+    .loading-progress-fill { height:100%; width:0%; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); border-radius:4px; transition:width 1s ease; }
 
     .results { width:100%; max-width:820px; }
     .res-header { text-align:center; margin-bottom:32px; }
@@ -274,6 +283,7 @@
         <div class="loading-spinner"></div>
         <h2 class="loading-title" id="loadingTitle">正在分析您的組織檔案...</h2>
         <p class="loading-sub" id="loadingSub">將您的回答對應至 STEPDEX® O-Growth 五大構面</p>
+        <div class="loading-progress-track"><div class="loading-progress-fill" id="loadingProgressFill"></div></div>
       </div>
 
       <!-- ===== LEAD GEN GATE ===== -->
@@ -290,11 +300,13 @@
           <div class="form-field"><label id="lgLblIndustry">產業別 *</label><select id="lgIndustry" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblRevenue">年營收規模 *</label><select id="lgRevenue" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblEmployees">員工人數 *</label><select id="lgEmployees" onchange="checkLeadForm()"></select></div>
+          <p class="form-trust-note" id="lgTrustNote">🔒 僅用於為您量身打造建議 - 絕不外洩或轉售。</p>
           <div class="form-field"><label id="lgLblEmail">電郵 *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
           <div class="form-field"><label id="lgLblPhone">聯絡電話 *</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="checkLeadForm()" /></div>
         </div>
         <div class="form-nav">
           <button class="btn-form-next" id="lgSubmitBtn" onclick="submitLeadGen()">查看我的報告 →</button>
+          <p class="form-hint" id="lgHint">請完整填寫以上資料以查看您的結果</p>
         </div>
       </div>
 
@@ -305,7 +317,7 @@
           <div class="four-ribbon res-ribbon"></div>
         </div>
 
-        <div class="res-overall">
+        <div class="res-overall fade-up" style="animation-delay:.05s">
           <div>
             <p class="res-overall-num" id="resOverallNum">0.0<span>/5.0</span></p>
             <p class="res-overall-label" id="resOverallLabel">整體成熟度 Overall Average Score</p>
@@ -317,14 +329,14 @@
           </div>
         </div>
 
-        <div class="res-radar-card">
+        <div class="res-radar-card fade-up" style="animation-delay:.15s">
           <p class="res-radar-title" id="resRadarTitle">組織成長雷達圖 · Organizational Growth Radar</p>
           <div class="radar-canvas-wrap"><canvas id="radarChart" width="440" height="440"></canvas></div>
         </div>
 
-        <div class="res-dims" id="resDims"></div>
+        <div class="res-dims fade-up" id="resDims" style="animation-delay:.25s"></div>
 
-        <div class="res-sw">
+        <div class="res-sw fade-up" style="animation-delay:.3s">
           <div class="sw-card strong">
             <p class="sw-label" id="swStrongLabel">✓ 您的組織最強項</p>
             <p class="sw-dim" id="swStrongDim"></p>
@@ -337,7 +349,7 @@
           </div>
         </div>
 
-        <div class="res-ai-card">
+        <div class="res-ai-card fade-up" style="animation-delay:.4s">
           <div class="res-ai-tag">
             <div class="res-ai-icon">🤖</div>
             <span class="res-ai-label" id="resAiLabel">AI 顧問診斷</span>
@@ -345,13 +357,13 @@
           <div class="res-ai-text" id="resAiText">正在生成您的專屬診斷報告...</div>
         </div>
 
-        <div class="res-rec-card">
+        <div class="res-rec-card fade-up" style="animation-delay:.5s">
           <p class="res-rec-label" id="resRecLabel">STEPDEX® 建議發展方向</p>
           <p class="res-rec-title" id="resRecTitle"></p>
           <p class="res-rec-body" id="resRecBody"></p>
         </div>
 
-        <div class="res-cta">
+        <div class="res-cta fade-up" style="animation-delay:.6s">
           <div class="res-cta-buttons">
             <a href="/contact" class="btn-cta-primary" id="resConsultBtn">預約免費諮詢</a>
             <a href="/stepfcm-cn" class="btn-cta-outline" id="resFcmBtn">了解 STEP 全能一級經理課程</a>
@@ -433,6 +445,11 @@
         qCount: n => `Question ${n} of 15`,
         back: '← Back', next: 'Next →', seeResults: 'See My Results →',
         loadingTitle: 'Analysing your organisation...', loadingSub: "Mapping your responses across STEPDEX® O-Growth's five dimensions",
+        loadingMessages: [
+          "Mapping your responses across STEPDEX® O-Growth's five dimensions",
+          "Identifying your organisation's growth stage",
+          "Preparing your personalised diagnosis",
+        ],
         reportTitle: 'Your Organisational Growth Report',
         overallLabel: 'Overall Average Score',
         radarTitle: 'Organisational Growth Radar',
@@ -450,6 +467,11 @@
         qCount: n => `第 ${n} 題，共 15 題`,
         back: '← 上一題', next: '下一題 →', seeResults: '查看我的結果 →',
         loadingTitle: '正在分析您的組織檔案...', loadingSub: '將您的回答對應至 STEPDEX® O-Growth 五大構面',
+        loadingMessages: [
+          '將您的回答對應至 STEPDEX® O-Growth 五大構面',
+          '正在判斷您組織目前的成長階段',
+          '正在準備您的專屬診斷報告',
+        ],
         reportTitle: '您的組織成長檢視報告',
         overallLabel: '整體成熟度 Overall Average Score',
         radarTitle: '組織成長雷達圖',
@@ -536,6 +558,12 @@
       document.getElementById('lgRole').placeholder = l === 'zh' ? '總經理' : 'General Manager';
       document.getElementById('lgCompany').placeholder = 'ABC Sdn Bhd';
       document.getElementById('lgSubmitBtn').textContent = l === 'zh' ? '查看我的報告 →' : 'View My Report →';
+      document.getElementById('lgTrustNote').textContent = l === 'zh'
+        ? '🔒 僅用於為您量身打造建議 - 絕不外洩或轉售。'
+        : '🔒 Used only to tailor your recommendations - never shared or sold.';
+      document.getElementById('lgHint').textContent = l === 'zh'
+        ? '請完整填寫以上資料以查看您的結果'
+        : 'Complete all fields above to unlock your results';
 
       const industryValues = ['manufacturing','trading-retail','services','construction','technology','fnb','education','healthcare','finance','other'];
       const industryLabels = {
@@ -715,6 +743,19 @@
       renderQuestion();
     }
 
+    // Keyboard support: 1-5 selects a score, Enter advances, Left arrow goes back
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('screen-question').classList.contains('hidden')) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+      if (/^[1-5]$/.test(e.key)) {
+        selectAnswer(parseInt(e.key, 10));
+      } else if (e.key === 'Enter') {
+        goNext();
+      } else if (e.key === 'ArrowLeft') {
+        goBack();
+      }
+    });
+
     function goNext() {
       if (answers[currentQ] === null) return;
       if (currentQ < 14) { currentQ++; renderQuestion(); }
@@ -725,10 +766,30 @@
       if (currentQ > 0) { currentQ--; renderQuestion(); }
     }
 
+    let loadingMsgTimer = null;
+    function startLoadingAnimation() {
+      const messages = ui[lang].loadingMessages;
+      let i = 0;
+      const sub = document.getElementById('loadingSub');
+      const fill = document.getElementById('loadingProgressFill');
+      sub.textContent = messages[0];
+      requestAnimationFrame(() => { fill.style.width = '85%'; });
+      loadingMsgTimer = setInterval(() => {
+        i = (i + 1) % messages.length;
+        sub.style.opacity = 0;
+        setTimeout(() => { sub.textContent = messages[i]; sub.style.opacity = 1; }, 220);
+      }, 900);
+    }
+    function stopLoadingAnimation() {
+      clearInterval(loadingMsgTimer);
+      document.getElementById('loadingProgressFill').style.width = '100%';
+    }
+
     function finishAssessment() {
       document.getElementById('screen-question').classList.add('hidden');
       document.getElementById('screen-loading').classList.remove('hidden');
       document.getElementById('screen-loading').classList.add('fade-up');
+      startLoadingAnimation();
       setTimeout(computeAndRenderResults, 600);
     }
 
@@ -810,10 +871,14 @@
       // Start AI in background while user fills lead gen form
       generateAIDiagnosis(dimScores, weakest, overallAvg);
 
-      document.getElementById('screen-loading').classList.add('hidden');
-      document.getElementById('screen-leadgen').classList.remove('hidden');
-      document.getElementById('screen-leadgen').classList.add('fade-up');
-      window.scrollTo(0,0);
+      // Let the loading animation play for a moment so it feels intentional, not a flash
+      setTimeout(() => {
+        stopLoadingAnimation();
+        document.getElementById('screen-loading').classList.add('hidden');
+        document.getElementById('screen-leadgen').classList.remove('hidden');
+        document.getElementById('screen-leadgen').classList.add('fade-up');
+        window.scrollTo(0,0);
+      }, 900);
     }
 
     function renderRadarChart(dimScores) {
@@ -918,6 +983,7 @@ Write in flowing prose, no bullet points, in natural professional English busine
       ['screen-results','screen-leadgen'].forEach(id => document.getElementById(id).classList.add('hidden'));
       ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('lgSubmitBtn').classList.remove('active');
+      document.getElementById('loadingProgressFill').style.width = '0%';
       document.getElementById('screen-intro').classList.remove('hidden');
       document.getElementById('screen-intro').classList.add('fade-up');
       window.scrollTo(0,0);

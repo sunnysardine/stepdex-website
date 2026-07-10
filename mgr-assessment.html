@@ -163,7 +163,9 @@
     .loading { text-align:center; }
     .loading-spinner { width:52px; height:52px; border-radius:50%; border:3px solid rgba(176,120,32,.15); border-top-color:var(--strategy); margin:0 auto 26px; animation:spin 1s linear infinite; }
     .loading-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; font-style:italic; color:var(--ink); margin-bottom:10px; }
-    .loading-sub { font-family:'Cormorant Garamond',serif; font-size: 18px; font-style:italic; color:var(--ink-muted); }
+    .loading-sub { font-family:'Cormorant Garamond',serif; font-size: 18px; font-style:italic; color:var(--ink-muted); min-height:1.7em; transition:opacity .25s; }
+    .loading-progress-track { width:220px; height:4px; background:rgba(176,120,32,.14); border-radius:4px; overflow:hidden; margin:22px auto 0; }
+    .loading-progress-fill { height:100%; width:0%; background:linear-gradient(to right,var(--strategy),var(--technical),var(--empower),var(--people)); border-radius:4px; transition:width 1s ease; }
 
     /* ===== RESULTS SCREEN ===== */
     .results { width:100%; max-width:760px; }
@@ -237,11 +239,19 @@
     .form-field.full { grid-column:span 2; }
     .form-field label { font-size:13px; font-weight:700; color:var(--ink-muted); }
     .form-field input, .form-field select { padding:11px 14px; border:1.5px solid rgba(176,120,32,.2); border-radius:10px; font-family:'Nunito Sans',sans-serif; font-size:15px; color:var(--ink); background:white; outline:none; transition:border-color .2s; }
-    .form-field input:focus, .form-field select:focus { border-color:var(--gold-warm); }
-    .form-nav { display:flex; justify-content:center; margin-top:20px; }
+    .form-field select {
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23B07820' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 14px center; padding-right:34px; cursor:pointer;
+    }
+    .form-field select:invalid { color:var(--ink-muted); }
+    .form-field input:focus, .form-field select:focus { border-color:var(--gold-warm); box-shadow:0 0 0 3px rgba(176,120,32,.1); }
+    .form-trust-note { font-size:12px; color:var(--ink-muted); opacity:.7; text-align:center; margin:-4px 0 14px; grid-column:span 2; }
+    .form-nav { display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:20px; }
     .btn-leadgen { padding:13px 34px; background:var(--strategy); border:none; border-radius:30px; color:white; font-family:'Nunito Sans',sans-serif; font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:all .2s; opacity:.4; pointer-events:none; }
     .btn-leadgen.active { opacity:1; pointer-events:auto; }
     .btn-leadgen.active:hover { background:#8A1828; transform:translateY(-2px); }
+    .form-hint { font-size:12px; color:var(--ink-muted); opacity:.65; }
 
     /* CTA */
     .res-cta { text-align:center; }
@@ -355,6 +365,7 @@
         <div class="loading-spinner"></div>
         <h2 class="loading-title" id="loadingTitle">Analysing your profile...</h2>
         <p class="loading-sub" id="loadingSub">Mapping your responses across the STEPDEX® framework</p>
+        <div class="loading-progress-track"><div class="loading-progress-fill" id="loadingProgressFill"></div></div>
       </div>
 
       <!-- ===== LEAD GEN GATE ===== -->
@@ -371,11 +382,13 @@
           <div class="form-field"><label id="lgLblIndustry">Industry *</label><select id="lgIndustry" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblRevenue">Annual Revenue Size *</label><select id="lgRevenue" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblEmployees">Number of Employees *</label><select id="lgEmployees" onchange="checkLeadForm()"></select></div>
+          <p class="form-trust-note" id="lgTrustNote">🔒 Used only to tailor your recommendations - never shared or sold.</p>
           <div class="form-field"><label id="lgLblEmail">Email *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
           <div class="form-field"><label id="lgLblPhone">Phone *</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="checkLeadForm()" /></div>
         </div>
         <div class="form-nav">
           <button class="btn-leadgen" id="lgSubmitBtn" onclick="submitLeadGen()">View My Report →</button>
+          <p class="form-hint" id="lgHint">Complete all fields above to unlock your results</p>
         </div>
       </div>
 
@@ -387,14 +400,14 @@
           <div class="four-ribbon res-ribbon"></div>
         </div>
 
-        <div id="resBanner"></div>
+        <div id="resBanner" class="fade-up" style="animation-delay:.05s"></div>
 
-        <div class="res-levels" id="resLevels"></div>
+        <div class="res-levels fade-up" id="resLevels" style="animation-delay:.15s"></div>
 
-        <p class="res-dims-title" id="resDimsTitle">Dimension Breakdown</p>
-        <div class="res-dims" id="resDims"></div>
+        <p class="res-dims-title fade-up" id="resDimsTitle" style="animation-delay:.25s">Dimension Breakdown</p>
+        <div class="res-dims fade-up" id="resDims" style="animation-delay:.25s"></div>
 
-        <div class="res-ai-card">
+        <div class="res-ai-card fade-up" style="animation-delay:.35s">
           <div class="res-ai-tag">
             <div class="res-ai-icon">🤖</div>
             <span class="res-ai-label" id="resAiLabel">Your Personalised Insight</span>
@@ -402,7 +415,7 @@
           <div class="res-ai-text" id="resAiText">Loading your personalised analysis...</div>
         </div>
 
-        <div class="res-cta">
+        <div class="res-cta fade-up" style="animation-delay:.45s">
           <div class="res-cta-buttons">
             <a href="/contact" class="btn-cta-primary" id="resConsultBtn">Book a Free Consultation</a>
             <a href="/stepfcm-en" class="btn-cta-outline" id="resFcmBtn">Explore STEP First Class Manager</a>
@@ -471,6 +484,11 @@
         seeResults: "See My Results →",
         loadingTitle: "Analysing your profile...",
         loadingSub: "Mapping your responses across the STEPDEX® framework",
+        loadingMessages: [
+          "Mapping your responses across the STEPDEX® framework",
+          "Calculating your Leadership Pipeline position",
+          "Preparing your personalised insight",
+        ],
         resTitlePre: "Here's where you stand ",
         resTitleHi: "today.",
         dimBreakdown: "Dimension Breakdown",
@@ -496,6 +514,11 @@
         seeResults: "查看我的結果 →",
         loadingTitle: "正在分析您的個人檔案...",
         loadingSub: "將您的回答對應到 STEPDEX® 框架中",
+        loadingMessages: [
+          "將您的回答對應到 STEPDEX® 框架中",
+          "正在計算您的領導力階段位置",
+          "正在準備您的個人化洞察",
+        ],
         resTitlePre: "這是您",
         resTitleHi: "目前的狀態。",
         dimBreakdown: "四大維度分析",
@@ -590,6 +613,12 @@
       document.getElementById('lgRole').placeholder    = t.lgPhRole;
       document.getElementById('lgCompany').placeholder = t.lgPhCompany;
       document.getElementById('lgSubmitBtn').textContent = t.lgBtn;
+      document.getElementById('lgTrustNote').textContent = l === 'zh'
+        ? '🔒 僅用於為您量身打造建議 - 絕不外洩或轉售。'
+        : '🔒 Used only to tailor your recommendations - never shared or sold.';
+      document.getElementById('lgHint').textContent = l === 'zh'
+        ? '請完整填寫以上資料以查看您的結果'
+        : 'Complete all fields above to unlock your results';
 
       const industryValues = ['manufacturing','trading-retail','services','construction','technology','fnb','education','healthcare','finance','other'];
       const industryLabels = {
@@ -715,6 +744,20 @@
       renderQuestion();
     }
 
+    // Keyboard support: digits 1-9 and 0 (=10) select a score, Enter advances, Left arrow goes back
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('screen-question').classList.contains('hidden')) return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+      if (/^[0-9]$/.test(e.key)) {
+        const val = e.key === '0' ? 10 : parseInt(e.key, 10);
+        selectAnswer(val);
+      } else if (e.key === 'Enter') {
+        goNext();
+      } else if (e.key === 'ArrowLeft') {
+        goBack();
+      }
+    });
+
     function goNext() {
       if (answers[currentQ] === null) return;
       if (currentQ < 11) {
@@ -732,10 +775,30 @@
       }
     }
 
+    let loadingMsgTimer = null;
+    function startLoadingAnimation() {
+      const messages = ui[lang].loadingMessages;
+      let i = 0;
+      const sub = document.getElementById('loadingSub');
+      const fill = document.getElementById('loadingProgressFill');
+      sub.textContent = messages[0];
+      requestAnimationFrame(() => { fill.style.width = '85%'; });
+      loadingMsgTimer = setInterval(() => {
+        i = (i + 1) % messages.length;
+        sub.style.opacity = 0;
+        setTimeout(() => { sub.textContent = messages[i]; sub.style.opacity = 1; }, 220);
+      }, 900);
+    }
+    function stopLoadingAnimation() {
+      clearInterval(loadingMsgTimer);
+      document.getElementById('loadingProgressFill').style.width = '100%';
+    }
+
     function finishAssessment() {
       document.getElementById('screen-question').classList.add('hidden');
       document.getElementById('screen-loading').classList.remove('hidden');
       document.getElementById('screen-loading').classList.add('fade-up');
+      startLoadingAnimation();
       computeAndRenderResults();
     }
 
@@ -827,9 +890,13 @@
       // Start AI narrative in background while user fills lead gen form
       generateAINarrative(dimScores, levelScores, dominant);
 
-      document.getElementById('screen-loading').classList.add('hidden');
-      document.getElementById('screen-leadgen').classList.remove('hidden');
-      document.getElementById('screen-leadgen').classList.add('fade-up');
+      // Let the loading animation play for a moment so it feels intentional, not a flash
+      setTimeout(() => {
+        stopLoadingAnimation();
+        document.getElementById('screen-loading').classList.add('hidden');
+        document.getElementById('screen-leadgen').classList.remove('hidden');
+        document.getElementById('screen-leadgen').classList.add('fade-up');
+      }, 1300);
     }
 
     // ===== AI-POWERED NARRATIVE (Claude API) =====
@@ -923,6 +990,7 @@ ${lang === 'zh' ? 'IMPORTANT: Write the entire response in Traditional Chinese (
       document.getElementById('screen-intro').classList.add('fade-up');
       ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('lgSubmitBtn').classList.remove('active');
+      document.getElementById('loadingProgressFill').style.width = '0%';
       window.scrollTo(0,0);
     }
   </script>
