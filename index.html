@@ -285,6 +285,29 @@
       user-select: none;
     }
 
+    /* v4.0 Fortune Teller mark - opens clockwise S -> T -> E -> P on load, echoing 田 within 思 */
+    .ft-mark {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 22px;
+    }
+    .ft-flap {
+      position: absolute;
+      width: calc(50% - 1px);
+      height: calc(50% - 1px);
+      border-radius: 4px;
+      opacity: 0;
+    }
+    .ft-flap.s { top: 0; left: 0;  background: var(--strategy);  transform-origin: bottom right; animation: ftOpenS .5s cubic-bezier(.34,1.56,.64,1) .3s forwards; }
+    .ft-flap.t { top: 0; right: 0; background: var(--technical); transform-origin: bottom left;  animation: ftOpenT .5s cubic-bezier(.34,1.56,.64,1) .48s forwards; }
+    .ft-flap.e { bottom: 0; right: 0; background: var(--empower); transform-origin: top left;    animation: ftOpenE .5s cubic-bezier(.34,1.56,.64,1) .66s forwards; }
+    .ft-flap.p { bottom: 0; left: 0;  background: var(--people);   transform-origin: top right;   animation: ftOpenP .5s cubic-bezier(.34,1.56,.64,1) .84s forwards; }
+    @keyframes ftOpenS { from { opacity:0; transform:scale(.2) rotate(-30deg); } to { opacity:1; transform:scale(1) rotate(0deg); } }
+    @keyframes ftOpenT { from { opacity:0; transform:scale(.2) rotate(30deg); }  to { opacity:1; transform:scale(1) rotate(0deg); } }
+    @keyframes ftOpenE { from { opacity:0; transform:scale(.2) rotate(-30deg); } to { opacity:1; transform:scale(1) rotate(0deg); } }
+    @keyframes ftOpenP { from { opacity:0; transform:scale(.2) rotate(30deg); }  to { opacity:1; transform:scale(1) rotate(0deg); } }
+
     .hero-content {
       position: relative;
       z-index: 2;
@@ -881,6 +904,11 @@
       background: linear-gradient(135deg, rgba(176, 48, 80, .04), rgba(104, 72, 160, .04));
       border: 1px solid rgba(176, 48, 80, .1);
     }
+    /* v4.0 dimension indicator - signals which STEPDEX dimension the testimonial reflects */
+    .test-card.dim-s { border-left: 3px solid var(--strategy); }
+    .test-card.dim-t { border-left: 3px solid var(--technical); }
+    .test-card.dim-e { border-left: 3px solid var(--empower); }
+    .test-card.dim-p { border-left: 3px solid var(--people); }
     .test-quote-mark {
       font-family: 'Playfair Display', serif;
       font-size: 64px;
@@ -1394,6 +1422,13 @@
     </svg>
 
     <div class="hero-content">
+      <div class="ft-mark" aria-hidden="true">
+        <span class="ft-flap s"></span>
+        <span class="ft-flap t"></span>
+        <span class="ft-flap e"></span>
+        <span class="ft-flap p"></span>
+      </div>
+
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-dot"></div>
         <span class="eyebrow">STEPDEX<span class="reg">®</span> Academy · 思德教育學院</span>
@@ -1574,7 +1609,7 @@
         <div class="four-ribbon test-ribbon"></div>
       </div>
       <div class="test-grid">
-        <div class="test-card featured">
+        <div class="test-card featured dim-p">
           <div class="test-quote-mark">"</div>
           <p class="test-text">
             <strong>Helping People Improve</strong> - Teacher Sunny truly embodies this mission. I joined his Strategic HR program and was amazed by how practical and eye-opening it was. I learned to assess candidates through their stories, resulting in better hiring decisions and stronger team performance. We later enrolled a solo-style manager into the STEP First Class Manager course. He became more open and collaborative - transforming our culture. <strong>When a manager grows, the whole team does too.</strong>
@@ -1583,28 +1618,28 @@
           <p class="test-author">Erin Sin</p>
           <p class="test-role">Co-Founder, ETIN Trading</p>
         </div>
-        <div class="test-card">
+        <div class="test-card dim-s">
           <div class="test-quote-mark">"</div>
           <p class="test-text">Coach Sunny's First Class Manager training gave me practical tools and clear guidance to lead with both heart and strategy. His coaching made a real difference in our organisation.</p>
           <div class="test-divider"></div>
           <p class="test-author">Kel Mynn</p>
           <p class="test-role">Co-Founder, Verdant Solar</p>
         </div>
-        <div class="test-card">
+        <div class="test-card dim-t">
           <div class="test-quote-mark">"</div>
           <p class="test-text">I joined the STEP First Class Manager course with uncertainty, but it turned out to be the exact management strategy I needed. Every manager deserves this transformative experience.</p>
           <div class="test-divider"></div>
           <p class="test-author">Theresa</p>
           <p class="test-role">Sales Manager, Entopest</p>
         </div>
-        <div class="test-card">
+        <div class="test-card dim-e">
           <div class="test-quote-mark">"</div>
           <p class="test-text">Teacher Sunny's course helped me realise I just needed someone to guide me. The hands-on exercises made every lesson stick. I'm truly grateful for this eye-opening experience.</p>
           <div class="test-divider"></div>
           <p class="test-author">Jye Wei</p>
           <p class="test-role">General Manager, Big Tooth School</p>
         </div>
-        <div class="test-card">
+        <div class="test-card dim-p">
           <div class="test-quote-mark">"</div>
           <p class="test-text">Professional advice with a heart. Their heartfelt guidance, deep expertise, and genuine concern for my business left a lasting impact. They truly go above and beyond.</p>
           <div class="test-divider"></div>
