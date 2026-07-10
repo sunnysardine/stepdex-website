@@ -17,7 +17,9 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(where node *)",
       "Bash(where npx *)",
-      "Bash(where npm *)"
+      "Bash(where npm *)",
+      "Bash(py --version)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
