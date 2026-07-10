@@ -287,6 +287,9 @@
           <div class="form-field"><label id="lgLblName">姓名 *</label><input type="text" id="lgName" placeholder="陳大文" oninput="checkLeadForm()" /></div>
           <div class="form-field"><label id="lgLblRole">職位 *</label><input type="text" id="lgRole" placeholder="總經理" oninput="checkLeadForm()" /></div>
           <div class="form-field full"><label id="lgLblCompany">公司名稱 *</label><input type="text" id="lgCompany" placeholder="ABC Sdn Bhd" oninput="checkLeadForm()" /></div>
+          <div class="form-field"><label id="lgLblIndustry">產業別 *</label><select id="lgIndustry" onchange="checkLeadForm()"></select></div>
+          <div class="form-field"><label id="lgLblEmployees">員工人數 *</label><select id="lgEmployees" onchange="checkLeadForm()"></select></div>
+          <div class="form-field full"><label id="lgLblRevenue">年營收規模 *</label><select id="lgRevenue" onchange="checkLeadForm()"></select></div>
           <div class="form-field full"><label id="lgLblEmail">電郵 *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
           <div class="form-field full"><label id="lgLblPhone">聯絡電話（選填）</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" /></div>
         </div>
@@ -524,12 +527,48 @@
       document.getElementById('lgLblName').textContent = l === 'zh' ? '姓名 *' : 'Full Name *';
       document.getElementById('lgLblRole').textContent = l === 'zh' ? '職位 *' : 'Job Title *';
       document.getElementById('lgLblCompany').textContent = l === 'zh' ? '公司名稱 *' : 'Company Name *';
+      document.getElementById('lgLblIndustry').textContent = l === 'zh' ? '產業別 *' : 'Industry *';
+      document.getElementById('lgLblEmployees').textContent = l === 'zh' ? '員工人數 *' : 'Number of Employees *';
+      document.getElementById('lgLblRevenue').textContent = l === 'zh' ? '年營收規模 *' : 'Annual Revenue Size *';
       document.getElementById('lgLblEmail').textContent = l === 'zh' ? '電郵 *' : 'Email *';
       document.getElementById('lgLblPhone').textContent = l === 'zh' ? '聯絡電話（選填）' : 'Phone (optional)';
       document.getElementById('lgName').placeholder = l === 'zh' ? '陳大文' : 'John Tan';
       document.getElementById('lgRole').placeholder = l === 'zh' ? '總經理' : 'General Manager';
       document.getElementById('lgCompany').placeholder = 'ABC Sdn Bhd';
       document.getElementById('lgSubmitBtn').textContent = l === 'zh' ? '查看我的報告 →' : 'View My Report →';
+
+      const industryValues = ['manufacturing','trading-retail','services','construction','technology','fnb','education','healthcare','finance','other'];
+      const industryLabels = {
+        en: ['Manufacturing','Trading / Retail','Services','Construction','Technology / IT','F&B','Education / Training','Healthcare','Finance / Insurance','Other'],
+        zh: ['製造業','貿易 / 零售','服務業','建築業','科技 / 資訊','餐飲 / 食品','教育 / 培訓','醫療保健','金融 / 保險','其他'],
+      };
+      const industrySelect = document.getElementById('lgIndustry');
+      const industryPrev = industrySelect.value;
+      industrySelect.innerHTML = `<option value="" disabled selected>${l === 'zh' ? '請選擇' : 'Select'}</option>` +
+        industryValues.map((v,i) => `<option value="${v}">${industryLabels[l][i]}</option>`).join('');
+      if (industryPrev) industrySelect.value = industryPrev;
+
+      const employeeValues = ['<10','10-30','31-50','51-75','76-200','>200'];
+      const employeeLabels = {
+        en: ['Fewer than 10','10-30','31-50','51-75','76-200','More than 200'],
+        zh: ['少於 10 人','10-30 人','31-50 人','51-75 人','76-200 人','超過 200 人'],
+      };
+      const employeeSelect = document.getElementById('lgEmployees');
+      const employeePrev = employeeSelect.value;
+      employeeSelect.innerHTML = `<option value="" disabled selected>${l === 'zh' ? '請選擇' : 'Select'}</option>` +
+        employeeValues.map((v,i) => `<option value="${v}">${employeeLabels[l][i]}</option>`).join('');
+      if (employeePrev) employeeSelect.value = employeePrev;
+
+      const revenueValues = ['small','medium','large'];
+      const revenueLabels = {
+        en: ['Small (under RM 3 million)','Medium (RM 3-20 million)','Large (over RM 20 million)'],
+        zh: ['小型企業（少於 300 萬）','中型企業（300 萬至 2000 萬）','大型企業（超過 2000 萬）'],
+      };
+      const revenueSelect = document.getElementById('lgRevenue');
+      const revenuePrev = revenueSelect.value;
+      revenueSelect.innerHTML = `<option value="" disabled selected>${l === 'zh' ? '請選擇' : 'Select'}</option>` +
+        revenueValues.map((v,i) => `<option value="${v}">${revenueLabels[l][i]}</option>`).join('');
+      if (revenuePrev) revenueSelect.value = revenuePrev;
 
       document.getElementById('counterText').textContent = l === 'zh'
         ? ' 家企業已完成此檢測'
@@ -585,25 +624,28 @@
     }
 
     function checkLeadForm() {
-      const filled = ['lgName','lgRole','lgCompany','lgEmail'].every(id => document.getElementById(id).value.trim() !== '');
+      const filled = ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail'].every(id => document.getElementById(id).value.trim() !== '');
       const btn = document.getElementById('lgSubmitBtn');
       if (filled) btn.classList.add('active'); else btn.classList.remove('active');
     }
 
     async function submitLeadGen() {
-      const name    = document.getElementById('lgName').value.trim();
-      const role    = document.getElementById('lgRole').value.trim();
-      const company = document.getElementById('lgCompany').value.trim();
-      const email   = document.getElementById('lgEmail').value.trim();
-      const phone   = document.getElementById('lgPhone').value.trim();
-      if (!name || !role || !company || !email) return;
+      const name      = document.getElementById('lgName').value.trim();
+      const role      = document.getElementById('lgRole').value.trim();
+      const company   = document.getElementById('lgCompany').value.trim();
+      const industry  = document.getElementById('lgIndustry').value;
+      const employees = document.getElementById('lgEmployees').value;
+      const revenue   = document.getElementById('lgRevenue').value;
+      const email     = document.getElementById('lgEmail').value.trim();
+      const phone     = document.getElementById('lgPhone').value.trim();
+      if (!name || !role || !company || !industry || !employees || !revenue || !email) return;
 
       const btn = document.getElementById('lgSubmitBtn');
       btn.disabled = true;
       btn.textContent = lang === 'zh' ? '處理中...' : 'Loading...';
 
       // Populate result header with user details
-      userInfo = { name, role, company, email, phone };
+      userInfo = { name, role, company, industry, employees, revenue, email, phone };
       document.getElementById('resCompany').textContent = company;
 
       try {
@@ -615,6 +657,9 @@
             fields: [
               { slug: 'role', value: role },
               { slug: 'company', value: company },
+              { slug: 'industry', value: industry },
+              { slug: 'employees', value: employees },
+              { slug: 'revenue_size', value: revenue },
             ],
             tag: 'sme-ogrowth-completed',
           }),
@@ -871,7 +916,7 @@ Write in flowing prose, no bullet points, in natural professional English busine
       currentQ = 0;
       answers = new Array(15).fill(null);
       ['screen-results','screen-leadgen'].forEach(id => document.getElementById(id).classList.add('hidden'));
-      ['lgName','lgRole','lgCompany','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
+      ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('lgSubmitBtn').classList.remove('active');
       document.getElementById('screen-intro').classList.remove('hidden');
       document.getElementById('screen-intro').classList.add('fade-up');
