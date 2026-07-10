@@ -290,8 +290,8 @@
           <div class="form-field"><label id="lgLblIndustry">產業別 *</label><select id="lgIndustry" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblRevenue">年營收規模 *</label><select id="lgRevenue" onchange="checkLeadForm()"></select></div>
           <div class="form-field"><label id="lgLblEmployees">員工人數 *</label><select id="lgEmployees" onchange="checkLeadForm()"></select></div>
-          <div class="form-field full"><label id="lgLblEmail">電郵 *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
-          <div class="form-field full"><label id="lgLblPhone">聯絡電話（選填）</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" /></div>
+          <div class="form-field"><label id="lgLblEmail">電郵 *</label><input type="email" id="lgEmail" placeholder="name@company.com" oninput="checkLeadForm()" /></div>
+          <div class="form-field"><label id="lgLblPhone">聯絡電話 *</label><input type="tel" id="lgPhone" placeholder="+60 12-345 6789" oninput="checkLeadForm()" /></div>
         </div>
         <div class="form-nav">
           <button class="btn-form-next" id="lgSubmitBtn" onclick="submitLeadGen()">查看我的報告 →</button>
@@ -531,7 +531,7 @@
       document.getElementById('lgLblEmployees').textContent = l === 'zh' ? '員工人數 *' : 'Number of Employees *';
       document.getElementById('lgLblRevenue').textContent = l === 'zh' ? '年營收規模 *' : 'Annual Revenue Size *';
       document.getElementById('lgLblEmail').textContent = l === 'zh' ? '電郵 *' : 'Email *';
-      document.getElementById('lgLblPhone').textContent = l === 'zh' ? '聯絡電話（選填）' : 'Phone (optional)';
+      document.getElementById('lgLblPhone').textContent = l === 'zh' ? '聯絡電話 *' : 'Phone *';
       document.getElementById('lgName').placeholder = l === 'zh' ? '陳大文' : 'John Tan';
       document.getElementById('lgRole').placeholder = l === 'zh' ? '總經理' : 'General Manager';
       document.getElementById('lgCompany').placeholder = 'ABC Sdn Bhd';
@@ -624,7 +624,7 @@
     }
 
     function checkLeadForm() {
-      const filled = ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail'].every(id => document.getElementById(id).value.trim() !== '');
+      const filled = ['lgName','lgRole','lgCompany','lgIndustry','lgEmployees','lgRevenue','lgEmail','lgPhone'].every(id => document.getElementById(id).value.trim() !== '');
       const btn = document.getElementById('lgSubmitBtn');
       if (filled) btn.classList.add('active'); else btn.classList.remove('active');
     }
@@ -638,7 +638,7 @@
       const revenue   = document.getElementById('lgRevenue').value;
       const email     = document.getElementById('lgEmail').value.trim();
       const phone     = document.getElementById('lgPhone').value.trim();
-      if (!name || !role || !company || !industry || !employees || !revenue || !email) return;
+      if (!name || !role || !company || !industry || !employees || !revenue || !email || !phone) return;
 
       const btn = document.getElementById('lgSubmitBtn');
       btn.disabled = true;
