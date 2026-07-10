@@ -19,7 +19,10 @@
       "Bash(where npx *)",
       "Bash(where npm *)",
       "Bash(py --version)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(curl -s -X POST https://stepdex-website.vercel.app/api/gemini -H 'Content-Type: application/json' -d '{\"prompt\":\"Reply with exactly one sentence confirming you received this test message.\"}' -w '\\\\n\\\\nHTTP_STATUS:%{http_code}\\\\n')",
+      "Bash(curl -s https://stepdex-website.vercel.app/api/list-models -w \"\\\\n\\\\nHTTP_STATUS:%{http_code}\\\\n\")",
+      "Bash(rm api/list-models.js)"
     ]
   }
 }
