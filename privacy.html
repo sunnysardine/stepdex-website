@@ -74,6 +74,17 @@
     .contact-box-body { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink-muted); line-height: 1.75; }
     .contact-box-body a { color: var(--empower); }
 
+    /* LANGUAGE TOGGLE */
+    .lang-toggle { display: inline-flex; gap: 8px; margin-bottom: 20px; }
+    .lang-btn { padding: 7px 20px; border-radius: 20px; border: 1.5px solid rgba(176,120,32,.3); background: transparent; color: var(--ink-muted); font-family: 'Nunito Sans', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .08em; cursor: pointer; transition: all .2s; }
+    .lang-btn.active { background: var(--strategy); border-color: var(--strategy); color: white; }
+    .lang-btn:hover:not(.active) { border-color: var(--gold-warm); color: var(--ink); }
+    .hidden { display: none !important; }
+    .placeholder-flag { background: rgba(176,48,80,.06); border-left: 3px solid var(--strategy); padding: 16px 20px; border-radius: 0 10px 10px 0; }
+    .placeholder-flag strong { color: var(--strategy); }
+    .bm-pending-list { margin: 16px 0 0 20px; }
+    .bm-pending-list li { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--ink-muted); line-height: 1.7; margin-bottom: 4px; }
+
     /* FOOTER */
     .footer { background: #060410; border-top: 1px solid rgba(200,144,26,.1); padding: 50px 40px 32px; }
     .footer-inner { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
@@ -122,6 +133,12 @@
       <span class="eyebrow">Legal · Privacy Policy</span>
       <h1 class="hero-title">Your privacy is important to us.</h1>
       <div class="four-ribbon hero-ribbon"></div>
+
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="langBtnEn" onclick="setPrivacyLang('en')">EN</button>
+        <button class="lang-btn" id="langBtnBm" onclick="setPrivacyLang('bm')">BM</button>
+      </div>
+
       <div class="hero-banner">
         <div class="banner-card">
           <p class="banner-card-title">What we collect</p>
@@ -145,6 +162,12 @@
   </header>
 
   <main class="content">
+
+    <div id="privacy-en">
+
+    <div class="section" style="margin-bottom:36px;">
+      <p class="section-body" style="margin-bottom:0;">This Privacy Policy is issued by <strong>HPI Synergy PLT (LLP0035973-LGN)</strong>, the data user responsible for the personal data described in this notice, operating under the brand STEPDEX<span class="reg">®</span> Academy.</p>
+    </div>
 
     <div class="section">
       <p class="section-num">Section 1</p>
@@ -192,7 +215,7 @@
       <h2 class="section-title">Sharing and Disclosure</h2>
       <p class="section-body">We do not sell, rent, or trade your personal data to third parties. We may share your information only in the following circumstances:</p>
       <ul class="policy-list">
-        <li>With trusted service providers who assist in operating our programmes (e.g. payment processors, email platforms) under strict confidentiality agreements</li>
+        <li>With trusted service providers who assist in operating our programmes under strict confidentiality agreements, including <strong>Systeme.io</strong> (our email marketing and CRM platform, used to manage programme communications and follow-ups) and <strong>Chatbase</strong> (our website chat support widget, used to respond to visitor enquiries)</li>
         <li>When required by law, regulation, or court order</li>
         <li>To protect the rights, safety, or property of STEPDEX® Academy, our staff, or our participants</li>
       </ul>
@@ -267,6 +290,14 @@
       <p class="section-body">We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date. Continued use of our website or services after any update constitutes acceptance of the revised policy.</p>
     </div>
 
+    <div class="divider"></div>
+
+    <div class="section">
+      <p class="section-num">Section 11</p>
+      <h2 class="section-title">Data Breach Notification</h2>
+      <p class="section-body placeholder-flag"><strong>[PLACEHOLDER — pending legal counsel review]</strong><br>This section will describe our data breach notification procedures in accordance with the 2025 amendments to Malaysia's Personal Data Protection Act 2010, including notification timelines to the Personal Data Protection Commissioner and to affected data subjects. Final copy to be supplied.</p>
+    </div>
+
     <div class="contact-box">
       <p class="contact-box-title">Questions about your privacy?</p>
       <div class="four-ribbon" style="width:80px;margin-bottom:16px;"></div>
@@ -274,6 +305,27 @@
         Contact our Data Protection Officer at <a href="mailto:info@stepdex.my">info@stepdex.my</a><br>
         <strong>HPI Synergy PLT</strong> · Suite 33-01, Menara Keck Seng, 203 Jalan Bukit Bintang, 55100 Kuala Lumpur, Malaysia
       </p>
+    </div>
+
+    </div>
+
+    <div id="privacy-bm" class="hidden">
+      <div class="section">
+        <p class="section-body placeholder-flag">
+          <strong>[PLACEHOLDER — Bahasa Malaysia translation pending]</strong><br>
+          This notice will be available in Bahasa Malaysia in accordance with PDPA requirements. The official translation must be supplied by qualified legal counsel, not machine-translated, before this tab goes live. Please refer to the English version above in the meantime.
+        </p>
+        <p class="sub-heading" style="margin-top:24px;">Topics this translation will cover:</p>
+        <ul class="bm-pending-list">
+          <li>Identity of data user (HPI Synergy PLT, LLP0035973-LGN)</li>
+          <li>Purpose of collection and processing</li>
+          <li>Categories of data collected</li>
+          <li>Third parties data may be disclosed to</li>
+          <li>Data subject rights: access, correction, withdrawal of consent</li>
+          <li>Contact for data enquiries</li>
+          <li>Data breach notification statement</li>
+        </ul>
+      </div>
     </div>
 
   </main>
@@ -296,6 +348,14 @@
     var isOpen = links.style.display === 'flex';
     links.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(8,6,18,.97);padding:24px 40px 32px;gap:20px;border-bottom:1px solid rgba(200,144,26,.15);z-index:9998;';
   });
+
+  function setPrivacyLang(lang) {
+    document.getElementById('privacy-en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('privacy-bm').classList.toggle('hidden', lang !== 'bm');
+    document.getElementById('langBtnEn').classList.toggle('active', lang === 'en');
+    document.getElementById('langBtnBm').classList.toggle('active', lang === 'bm');
+    document.documentElement.lang = lang === 'bm' ? 'ms' : 'en';
+  }
   </script>
   <script>
   (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0wH63CLUcd-PiC8n7iOLT";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
