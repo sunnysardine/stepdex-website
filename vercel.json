@@ -16,6 +16,7 @@
     { "source": "/hpi", "destination": "/hpi.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/code", "destination": "/code.html" }
+    { "source": "/code", "destination": "/code.html" },
+    { "source": "/step-up-your-performance", "destination": "/step-up-your-performance.html" }
   ]
 }
