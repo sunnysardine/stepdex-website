@@ -1,0 +1,16 @@
+# Legacy public URL aliases for Site3 static website
+/programs /programmes/ 301
+/programs/ /programmes/ 301
+/programs.html /programmes/ 301
+/about.html /about/ 301
+/experts.html /experts/ 301
+/contact.html /contact/ 301
+/privacy.html /privacy/ 301
+/terms.html /terms/ 301
+/step-up-your-performance.html /step-up-your-performance/ 301
+/stepfcm-en.html /stepfcm-en/ 301
+/stepfcm-cn.html /stepfcm-cn/ 301
+/gps.html /gps/ 301
+/hpi.html /hpi/ 301
+/pathfinder.html /pathfinder/ 301
+/code.html /code/ 301
