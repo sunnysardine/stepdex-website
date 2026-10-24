@@ -1,0 +1,3 @@
+# STEPDEX Website 3.0 preview only; replace before approved production launch.
+User-agent: *
+Disallow: /
